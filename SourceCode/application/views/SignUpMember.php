@@ -12,7 +12,7 @@
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets\css\style.css'); ?>" media="all" />
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets\css\style1.css'); ?>" media="all" />
     <title>Registrasi IDNFT</title>
 </head>
 
