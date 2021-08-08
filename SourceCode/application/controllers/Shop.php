@@ -8,7 +8,8 @@ class Shop extends CI_Controller
     }
     function index()
     {
-       $this->load->view("shop");
+        $data['barang'] =  $this->db->get("test_product");
+        $this->load->view("shop", $data);
     }
     function getToko()
     {

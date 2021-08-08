@@ -19,7 +19,7 @@ class Login extends CI_Controller
 		if($this->Auth->login_user($username,$password))
 		{
             $this->session->set_flashdata('message','Anda Berhasil Login ');
-			redirect(site_url('CekPage/sukses'));
+			redirect(site_url('home'));
 		}
 		else
 		{

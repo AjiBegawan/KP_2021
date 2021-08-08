@@ -30,7 +30,7 @@
                     ?>
                         <div class="col-lg-4 col-md-6 mb-4">
                             <div class="card">
-                                <form method="post" action="<?php echo base_url(); ?>shopping/tambah" method="post" accept-charset="utf-8">
+                                <form method="post" action="<?php echo base_url(); ?>/shopping/tambah" method="post" accept-charset="utf-8">
                                 <a href="#"><img class="img-thumbnail" src="<?php echo base_url("assets\image\Dftr_nft.jpg") ; ?>"/></a>
                                     <div class="card-body">
                                         <h4 class="card-title">

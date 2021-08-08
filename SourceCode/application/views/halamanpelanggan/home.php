@@ -44,6 +44,7 @@
                 <li><a href="<?php echo site_url('Home/ShopView1')?>"><span>Shop & Merch</span></a></li>
                 <li><a href="<?php echo site_url('Home/BlogView')?>"><span>Blog</span></a></li>
                 <li><a href="<?php echo site_url('Home/BlogView')?>"><span>Contact</span></a></li>
+				<li><a href="<?php echo site_url('Profile')?>"><span>Profile</span></a></li>
               </ul>
             </div>
           </div>
@@ -84,7 +85,7 @@
 					<div class="row">
 						<div class="col-md-6 col-lg-3">
 							<div class="model-entry">
-								<div class="model-img" style="background-image: url(<?= base_url()?>assets/images/BgShopHOME.jpg);">
+								<div class="model-img" style="background-image: url(<?= base_url('assets\image\Dftr_nft.jpg')?>);">
 			    				<div class="name text-center">
 			    					<h3><a href="<?php echo site_url('Home/ShopView1')?>">Shop</a></h3>
 			    				</div>
