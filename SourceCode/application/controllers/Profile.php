@@ -18,11 +18,17 @@ class Profile extends CI_Controller
         } else {
             $this->load->view("Login");
         }
-        // $this->load->view("profile");
+    
     }
     public function profile_edit()
     {
-        $this->load->view("profile_edit");
+        if ($this->session->userdata('is_login')) {
+            $data['user'] = $this->getUsernameData();
+            $this->load->view("profile_edit", $data);
+        } else {
+            $this->load->view("Login");
+        }
+
     }
     function getUsernameData()
     {
