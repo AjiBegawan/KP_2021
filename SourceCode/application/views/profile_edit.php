@@ -72,7 +72,7 @@
 				</div>
 				<div class="col-lg-8">
 					<div class="card">
-						<form action="POST" >
+						<form method="POST" action="<?php echo site_url('Profile/editUserData'); ?>">
 							<div class="card-body">
 								<div class="row mb-3">
 									<div class="col-sm-3">
@@ -117,7 +117,7 @@
 								<div class="row">
 									<div class="col-sm-3"></div>
 									<div class="col-sm-9 text-light">
-										<input type="button" class="btn btn-primary px-4 btn-center" value="Save Changes">
+										<input type="submit" class="btn btn-primary px-4 btn-center" value="Save Changes">
 									</div>
 								</div>
 							</div>

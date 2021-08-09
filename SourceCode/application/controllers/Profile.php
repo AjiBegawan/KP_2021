@@ -18,7 +18,6 @@ class Profile extends CI_Controller
         } else {
             $this->load->view("Login");
         }
-    
     }
     public function profile_edit()
     {
@@ -28,17 +27,28 @@ class Profile extends CI_Controller
         } else {
             $this->load->view("Login");
         }
-
     }
     function getUsernameData()
     {
         $this->db->where('username', $this->session->userdata('username'));
         $query = $this->db->get('user')->row();
         return $query;
-
     }
 
-    function editUserData(){
-        
+    function editUserData()
+    {
+        $data = array(
+            'nama' => $this->input->post("nama"),
+            'email' => $this->input->post("email"),
+            'phone' => $this->input->post("phone"),
+            'alamat' => $this->input->post("alamat")
+        );
+        $this->db->where('username', $this->session->userdata('username'));
+        $query = $this->db->update('user', $data);
+        if ($query) {
+            $this->index();
+        }else{
+            redirect(site_url('CekPage/gagal'));
+        }
     }
 }
