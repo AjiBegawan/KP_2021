@@ -37,4 +37,8 @@ class Profile extends CI_Controller
         return $query;
 
     }
+
+    function editUserData(){
+        
+    }
 }

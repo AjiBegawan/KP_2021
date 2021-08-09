@@ -72,14 +72,14 @@
 				</div>
 				<div class="col-lg-8">
 					<div class="card">
-						<form action="POST">
+						<form action="POST" >
 							<div class="card-body">
 								<div class="row mb-3">
 									<div class="col-sm-3">
 										<h6 class="mb-0">Full Name</h6>
 									</div>
 									<div class="col-sm-9 text-light">
-										<input type="text" class="form-control" value="<?= $user->nama; ?>">
+										<input type="text" class="form-control" value="<?= $user->nama; ?>" name="nama">
 									</div>
 								</div>
 								<div class="row mb-3">
@@ -87,7 +87,7 @@
 										<h6 class="mb-0">Email</h6>
 									</div>
 									<div class="col-sm-9 text-light">
-										<input type="text" class="form-control" value="<?= $user->email; ?>">
+										<input type="text" class="form-control" value="<?= $user->email; ?>" name="email">
 									</div>
 								</div>
 								<div class="row mb-3">
@@ -95,7 +95,7 @@
 										<h6 class="mb-0">Phone</h6>
 									</div>
 									<div class="col-sm-9 text-light">
-										<input type="text" class="form-control" value="<?= $user->phone; ?>">
+										<input type="text" class="form-control" value="<?= $user->phone; ?>" name="phone">
 									</div>
 								</div>
 								<!-- <div class="row mb-3">
@@ -111,7 +111,7 @@
 										<h6 class="mb-0">Address</h6>
 									</div>
 									<div class="col-sm-9 text-light">
-										<input type="text" class="form-control" value="Bay Area, San Francisco, CA">
+										<input type="text" class="form-control" value="<?= $user->alamat; ?>" name="alamat">
 									</div>
 								</div>
 								<div class="row">
