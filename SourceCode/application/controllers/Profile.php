@@ -45,6 +45,7 @@ class Profile extends CI_Controller
         );
         $this->db->where('username', $this->session->userdata('username'));
         $query = $this->db->update('user', $data);
+        
         if ($query) {
             $this->index();
         }else{

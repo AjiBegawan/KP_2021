@@ -24,7 +24,7 @@
   <link href="<?= base_url()?>assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="<?= base_url()?>assets/css/style.css" rel="stylesheet">
+  <link href="<?= base_url()?>assets\css\style.css" rel="stylesheet">
 
   <!-- =======================================================
   * Template Name: eNno - v2.2.1
