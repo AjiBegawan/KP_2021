@@ -16,6 +16,10 @@
                   <li><a href="<?php echo site_url('Home/ShopView1') ?>">Shop & Merch</a></li>
                   <li><a href="https://discord.gg/aDtCQEE7">Join Our Discord</a></li>
                   <li><a href="<?php echo site_url('Home') ?>#contact">Contact</a></li>
+                  <?php if ($this->session->userdata('is_login')) { ?>
+                    <li><a href="<?php echo site_url('Login/logout') ?>">Logout</a></li>
+
+                <?php } ?>
               </ul>
           </nav><!-- .nav-menu -->
 
