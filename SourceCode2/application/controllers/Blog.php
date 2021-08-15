@@ -10,5 +10,8 @@
         public function Artikel1(){
             $this->load->view("halamanpelanggan/Artikel1");
         }
+        public function Artikel2(){
+            $this->load->view("halamanpelanggan/Artikel2");
+        }
 
     }

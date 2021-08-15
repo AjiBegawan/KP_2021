@@ -55,42 +55,17 @@
 
 <body>
 
- <!-- ======= Header ======= -->
- <header id="header" class="fixed-top">
-    <div class="container d-flex align-items-center">
-
-      <h1 class="logo mr-auto"><a href="<?php echo site_url('Home')?>">IDNFT</a></h1>
-      <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
-
-      <nav class="nav-menu d-none d-lg-block">
-        <ul>
-          <li class="active"><a href="<?php echo site_url('Home')?>">Home</a></li>
-          <li><a href="<?php echo site_url('Home/BlogView')?>">Blog</a></li>
-          <li><a href="<?php echo site_url('Home/ShopView1')?>">Shop & Merch</a></li>
-		  <li><a href="https://discord.gg/aDtCQEE7">Join Our Discord</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav><!-- .nav-menu -->
-
-      <a href="<?=site_url()?>/Login" class="get-started-btn scrollto">Login</a>
-
-    </div>
-  </header> 
+  <!-- ======= Header ======= -->
+    <?php require_once('application\views\template\_header.php'); ?>
   <!-- End Header -->
 
   <main id="main">
-
     <!-- ======= Breadcrumbs ======= -->
     <section class="breadcrumbs">
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
           <h2>Blog Page</h2>
-          <ol>
-            <li><a href="<?php echo site_url('Home')?>">Home</a></li>
-            <li>Blog Page</li>
-          </ol>
         </div>
 
       </div>
@@ -101,40 +76,72 @@
       <div class="container">
 		  <!-- Menampilkan card masing masing blog yang ada pada halaman -->
 		  <!-- CARD 1  -->
-		  <div class="row1 d-flex2">
+      <div class="row1 d-flex2">
 	          <div class="col-md-4 d-flex2 ftco-animate">
 	          	<div class="blog-entry align-self-stretch">
-	              <a href="<?php echo site_url('Blog/ArtikelView')?>" class="block1">
+	              <a href="<?php echo site_url('Blog/ArtikelView')?>" class="block1" style="background-image: url(<?= base_url() ?>assets/img/NFT.png);">
 	              </a>
 	              <div class="text p-4 d-block">
 	              	<div class="meta mb-3">
 	                  <div><a1 href="<?php echo site_url('Blog/Artikel1')?>">2 Agustus 2021</a1></div>
 	                </div>
 	                <h3 class="heading mt-3"><a1 href="<?php echo site_url('Blog/Artikel1')?>">Cara Masuk ke NFT Art</a1></h3>
-	                <p>Hal pertama yang diperlukan yaitu membayar platform untuk ‘mint’ NFT. Sebagian besar platform menggunakan... </p>
+	                <p>Karya yang dijual pada NFT Art dapat dipertukarkan dengan asset karya lain dari jenis yang sama, dengan kata lain hanya pada nilai yang sama antara... </p>
 	                <p><a href="<?php echo site_url('Blog/Artikel1')?>" class="btn btn-primary">Baca Lengkap</a></p>
 	              </div>
 	            </div>
-	          </div>
+			</div>
+		  
 			  <!-- CARD 2  -->
-			  <div class="row1 d-flex2">
 	          <div class="col-md-4 d-flex2 ftco-animate">
 	          	<div class="blog-entry align-self-stretch">
-	              <a href="<?php echo site_url('Blog/ArtikelView')?>" class="block1">
+	              <a href="<?php echo site_url('Blog/ArtikelView2')?>" class="block1" style="background-image: url(<?= base_url() ?>assets/img/ApaItuNFT.png);">
+	              </a>
+	              <div class="text p-4 d-block">
+	              	<div class="meta mb-3">
+	                  <div><a1 href="<?php echo site_url('Blog/Artikel2')?>">2 Agustus 2021</a1></div>
+	                </div>
+	                <h3 class="heading mt-3"><a1 href="<?php echo site_url('Blog/Artikel2')?>">Apa Itu NFT Art atau Crypto Art ?</a1></h3>
+	                <p>NFT Art/ Crypto Art  adalah sebuah aset digital yang tersedia mulai dari seni grafik digital sampai musik dengan menggunakan ekosistem blockchain, dapat... </p>
+	                <p><a href="<?php echo site_url('Blog/Artikel2')?>" class="btn btn-primary">Baca Lengkap</a></p>
+	              </div>
+	            </div>
+			</div>
+        <!-- CARD 3  -->
+        <div class="col-md-4 d-flex2 ftco-animate">
+	          	<div class="blog-entry align-self-stretch">
+	              <a href="<?php echo site_url('Blog/ArtikelView')?>" class="block1" style="background-image: url(<?= base_url() ?>assets/img/Dftr_nft.jpg);">
 	              </a>
 	              <div class="text p-4 d-block">
 	              	<div class="meta mb-3">
 	                  <div><a1 href="<?php echo site_url('Blog/Artikel1')?>">2 Agustus 2021</a1></div>
 	                </div>
-	                <h3 class="heading mt-3"><a1 href="<?php echo site_url('Blog/Artikel1')?>">Karya yang Dijual di NFT Art</a1></h3>
+	                <h3 class="heading mt-3"><a1 href="<?php echo site_url('Blog/Artikel1')?>">TEXT TEXT TEXT</a1></h3>
+	                <p>TEXT TEXT TEXT </p>
+	                <p><a href="<?php echo site_url('Blog/Artikel1')?>" class="btn btn-primary">Baca Lengkap</a></p>
+	              </div>
+	            </div>
+			</div>
+
+      <!-- CARD 1  -->
+      <div class="row1 d-flex2">
+	          <div class="col-md-4 d-flex2 ftco-animate">
+	          	<div class="blog-entry align-self-stretch">
+	              <a href="<?php echo site_url('Blog/ArtikelView')?>" class="block1" style="background-image: url(<?= base_url() ?>assets/image/Dftr_nft.jpg);">
+	              </a>
+	              <div class="text p-4 d-block">
+	              	<div class="meta mb-3">
+	                  <div><a1 href="<?php echo site_url('Blog/Artikel1')?>">2 Agustus 2021</a1></div>
+	                </div>
+	                <h3 class="heading mt-3"><a1 href="<?php echo site_url('Blog/Artikel1')?>">Cara Masuk ke NFT Art</a1></h3>
 	                <p>Karya yang dijual pada NFT Art dapat dipertukarkan dengan asset karya lain dari jenis yang sama, dengan kata lain hanya pada nilai yang sama antara... </p>
 	                <p><a href="<?php echo site_url('Blog/Artikel1')?>" class="btn btn-primary">Baca Lengkap</a></p>
 	              </div>
 	            </div>
 			</div>
       </div>
-	</section>
 
+	</section>
   </main><!-- End #main -->
 
    <!-- ======= Footer ======= -->
@@ -164,9 +171,7 @@
           <a href="https://twitter.com/idnft_" class="twitter"><i class="bx bxl-twitter"></i></a>
           <a href="https://www.instagram.com/id.nft/" class="instagram"><i class="bx bxl-instagram"></i></a>
           <a href="https://discord.gg/aDtCQEE7" class="google-plus"><i class="bx bxl-discord"></i></a>
-        
         </div>
-
       </div>
     </div>
 

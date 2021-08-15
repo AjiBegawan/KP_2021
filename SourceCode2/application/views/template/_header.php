@@ -10,7 +10,8 @@
           </a>
           <nav class="nav-menu d-none d-lg-block mx-auto">
               <ul>
-                  <li class="active"><a href="index.html">Home</a></li>
+                  <li class="active"><a href="<?php echo site_url('Home')?>">Home</a></li>
+                  <li><a href="<?php echo site_url('Home/DeeraView') ?>">DEERA PROJECT</a></li>
                   <li><a href="<?php echo site_url('Home/BlogView') ?>">Blog</a></li>
                   <li><a href="<?php echo site_url('Home/ShopView1') ?>">Shop & Merch</a></li>
                   <li><a href="https://discord.gg/aDtCQEE7">Join Our Discord</a></li>
@@ -21,4 +22,5 @@
           <a href="<?= site_url() ?>/Login" class="get-started-btn scrollto ml-auto">Login</a>
 
       </div>
-  </header><!-- End Header -->
+  </header>
+  <!-- End Header -->

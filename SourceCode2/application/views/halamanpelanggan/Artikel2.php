@@ -42,7 +42,7 @@
     <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-        <h2>Blog Page - Cara Masuk ke NFT Art</h2>
+        <h2>Blog Page - Apa Itu NFT Art atau Crypto Art</h2>
         </div>
 
     </div>
@@ -54,26 +54,17 @@
 			<div>
                 <div class="wsite-image wsite-image-border-medium " style="padding-top:5px;padding-bottom:10px;margin-left:0px;margin-right:10px;text-align:center">
                     <a>
-                        <img src="<?= base_url() ?>assets\img\NFT.png" alt="NFT ART" style="width:auto;max-width:100%;">
+                        <img src="<?= base_url() ?>assets\img\ApaItuNFT.png" alt="Apa itu NFT" style="width:auto;max-width:100%;">
                     </a>
            				 <div style="display:block;font-size:90%"></div>
                 </div>
             </div>
 
-            <div class="paragraph" style="text-align:justify"><font size="4">Semua orang bisa mengakses NFT Art marketplace, namun untuk bisa melakukan transaksi penjualan atau pembelian ada beberapa tahapan yang harus dilalui :&nbsp;<br>&nbsp;
-                    <ol>
-                        <li><strong>Membuat Crypto Digital Wallet</strong></li>
-							<p> Hampir semua transaksi dalam NFT marketplace memerlukan pembayaran yang disebut “gas fee”, jadi wajib untuk kita memiliki saldo didalam wallet kita. Untuk marketplace berbasis Ethereum bisa menggunakan Metamask atau Wallet Connect yang bisa dipasang di “adds-on” browser kita (Google Chrome atau Firefox). Untuk marketplace berbasis Tezos bisa menggunakan Temple Wallet, dll. Untuk mengisi saldonya bisa melakukan pembelian secara langsung menggunakan Credit Card, atau bisa beli di Crypto Market dan melakukan transfer ke wallet kita secara manual.</p>
-                        <li><strong>Menentukan Crypto Marketplace (Jenis Blockchain)</strong></li>
-							<p> Setiap blockchain memiliki standar token NFTnya tersendiri maka bijaklah dalam memilih blockchain yang akan digunakan. Karya hanya dapat dijual di platform yang mendukung blockchain yang sama.Salah Satu ekosistem NFT terbesar saat ini adalah Ethereum blockchain. Ada beberapa marketplace populer yang bisa kita coba untuk dapat memasuki NFT Art seperti: Open Sea, Rarible, Foundation, Nifty Gateway, Super Rare, Makers Place, dll. Setiap marketplace memiliki ketentuan tersendiri, termasuk ketentuan besaran biaya pembayaran gas fee. Selain Ethereum ada juga blockchain lain yang biaya gas fee-nya jauh lebih murah seperti Tezos dan juga Binance. Platform di blockchain ini bisa menjadi pilihan yang lebih baik jika ingin mencoba masuk dalam NFT Art dengan biaya yang relatif lebih murah. Beberapa Nft marketplace berbasis Tezoz antara lain; Hic Et Nunc (HEN), Async Art, Kalamint, dll. </p>
-                        <li><strong>Mendaftar di NFT Marketplace</strong></li>
-							<p>Setelah menentukan platform blockchain mana yang sesuai, selanjutnya bisa mendaftarkan diri di NFT marketplace yang ada didalamnya. Caranya relatif mudah selama kita sudah memiliki Wallet yang sudah berisi saldo.  Masuk ke marketplace dan hubungkan (connect) wallet kita dengan marketplace tersebut lalu ikuti pengisian data sesuai dengan yang dibutuhkan.Untuk menjadi kreator atau seniman di marketplace premium diperlukan kuratorial, jika lolos kita bisa masuk ke dalamnya seperti Nifty Gateway, Super Rare, Makers Place. Bagi pemula bisa masuk ke marketplace populer yang tidak memerlukan kuratorial seperti Open sea, Rarible, atau Hic Et Nunc.</p>
-                        <li><strong>Melakukan proses Minting dan Listing</strong></li>
-							<p>Setelah berhasil masuk kedalam marketplace kita bisa menyiapkan karya yang akan diupload ke dalam blockchain (minting), setelah berhasil kita bisa melakukan proses listing (penjualan) dan menentukan harga dan juga edisi/copy dari karya kita. Setelah itu bisa menentukan sistem penjualan seperti jual dengan fix price, auction (lelang) dan lainnya sesuai dengan fasilitas yang tersedia dari masing-masing platform. </p>
-						<li><strong>Menerima pembayaran</strong></li>
-							<p>Setelah produk kita terjual, secara otomatis pembayaran akan masuk ke wallet kita, dan status kepemilikan dari karya akan berpindah ke pembeli. Semua transaksi akan secara terbuka tercatat dalam blockchain dan siapa saja bisa melihatnya. Dalam proses ini ada beberapa marketplace yang mengharuskan seniman melakukan pembayaran gas fee untuk bisa menerima pembayaran (auction settle).</p>
-					</ol>
-                </font>
+            <div class="paragraph" style="text-align:justify"><font size="4">
+                <strong>NFT Art/ Crypto Art</strong>  adalah sebuah aset digital yang tersedia mulai dari seni grafik digital sampai musik dengan menggunakan ekosistem blockchain, dapat terdistribusi selamanya, dan dapat dibeli secara bebas dengan menggunakan token unik yang disebut Non-fungible Token (NFT). Setiap pemilik terverifikasi dengan selembaran “smart contract” yang ada didalamnya. Mata uang yang dipakai umumnya menggunakan uang crypto, tapi ada juga beberapa platform yang menyediakan pembayaran menggunakan uang biasa (fiat).&nbsp;<br>&nbsp;
+                </br><strong>Crypto Art</strong> ini diverifikasi menggunakan smart contract yang ada pada NFT yang mewakili suatu identitas dan tidak dapat direplikasi. Semua item yang dipublikasi dan diperjualbelikan sudah terenkripsi dengan kode unik yang bisa di transfer, atau diperjualbelikan ke sesama pengguna. Crypto Art hadir sebagai solusi untuk para kolektor yang senang mengoleksi digital art. Asset ini dapat bernilai bagi kolektor dan dapat mewakili item tertentu, bisa berupa gambar, fotografi, GIF, video, 3D, AR, musik dan aset - aset digital lainnya. &nbsp;<br>&nbsp; 
+                </br><strong>Crypto Art</strong> merupakan salah satu era baru dalam dunia seni, karena seniman bisa melakukan jual-beli secara langsung ke kolektor tanpa memerlukan pihak tengah (middle man) seperti gallery, agency dan sejenisnya. Hal baik lainnya dari NFT Art, seniman tetap memiliki hak cipta dari karyanya; juga bisa mendapatkan royalti selamanya dari setiap transaksi yang terjadi dari karya digitalnya.  &nbsp;<br>&nbsp; 
+                </br>Seniman atau kreator NFT biasanya melakukan promosi karyanya secara internasional melalui forum-forum yang ada di twitter, clubhouse, discord, galeri-galeri digital, dll. Dalam hal ini seniman perlu keterampilan khusus untuk bisa memasarkan karyanya dengan baik, seperti keterampilan berkomunikasi, pemahaman bahasa asing (Bahasa Inggris), dan mengerti tentang mata uang crypto. &nbsp;<br>&nbsp; 
             </div>
 	</div>
 </section>

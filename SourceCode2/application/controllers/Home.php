@@ -33,4 +33,8 @@ class Home extends CI_Controller
     {
         $this->load->view("halamanpelanggan/Contact");
     }
+    public function DeeraView()
+    {
+        $this->load->view("halamanpelanggan/Deera");
+    }
 }
