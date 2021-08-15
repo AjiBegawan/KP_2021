@@ -68,7 +68,7 @@ class Home extends CI_Controller
         // $this->db->insert('contact', $data_contact);
 
         if($this->db->insert('contact', $data_contact)){
-            redirect(site_url("home"));
+            redirect(site_url('home'));
         }else{
             $this->load->view("gagal");
         }
