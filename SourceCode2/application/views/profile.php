@@ -8,6 +8,7 @@
   <title>profile with data and skills - Bootdey.com</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+  <link href='<?php echo base_url("assets\image\LogoIDNFT.png"); ?>' rel='shortcut icon' type='image/x-icon' />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.bundle.min.js"></script>
   <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets\css\styleProfile.css'); ?>" media="all" />
@@ -42,8 +43,8 @@
                 <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
                 <div class="mt-3">
                   <h4><?= $user->nama; ?></h4>
-                  <p class="text-dark mb-1">Full Stack Developer</p>
-                  <p class="text-dark font-size-sm">Bay Area, San Francisco, CA</p>
+                  <p class="text-dark mb-1"><?= $user->aliran_seni; ?></p>
+                  <p class="text-dark font-size-sm"><?= $user->alamat; ?></p>
                   <button class="btn btn-primary">Follow</button>
                   <button class="btn btn-outline-primary">Message</button>
                 </div>

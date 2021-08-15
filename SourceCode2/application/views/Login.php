@@ -27,7 +27,7 @@
             <img src="<?= base_url('assets\image\LogoIDNFT.png') ?>" alt="rocket_contact" />
         </div>
         <form method="POST" action="<?php echo site_url('Login/prosesLogin'); ?>">
-            <h3>Login IDNFT</h3>
+            <h3>Login</h3>
             <div class="row">
                 <div class="form-group">
                     <label for="nama">Username</label>

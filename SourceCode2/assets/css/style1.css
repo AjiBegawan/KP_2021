@@ -9,7 +9,7 @@ body {
     background: rgba(255, 255, 255, 0.8);
     margin-top: 5%;
     margin-bottom: 5%;
-    width: 75%;
+    width: 50%;
     min-width: 300px;
     border-radius: 13px;
     backdrop-filter: blur(3px);
@@ -24,7 +24,7 @@ body {
 }
 
 .contact-image img {
-    border-radius: 6rem;
+    /* border-radius: 6rem; */
     width: 11%;
     margin-top: 3%;
     /* transform: rotate(29deg); */
