@@ -17,8 +17,6 @@ class Home extends CI_Controller
         } else {
             $this->load->view("halamanpelanggan/home");
         }
-
-        $this->load->view("halamanpelanggan/home");
     }
     public function BlogView()
     {

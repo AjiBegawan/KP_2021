@@ -38,6 +38,9 @@ class Profile extends CI_Controller
     function editUserData()
     {
         $data = array(
+            'twitter' => $this->input->post("twitter"),
+            'instagram' => $this->input->post("instagram"),
+            'facebook' => $this->input->post("facebook"),
             'nama' => $this->input->post("nama"),
             'email' => $this->input->post("email"),
             'phone' => $this->input->post("phone"),
@@ -46,7 +49,7 @@ class Profile extends CI_Controller
         $this->db->where('username', $this->session->userdata('username'));
         $query = $this->db->update('user', $data);
         if ($query) {
-            $this->index();
+            redirect(site_url('profile'));
         }else{
             redirect(site_url('CekPage/gagal'));
         }
