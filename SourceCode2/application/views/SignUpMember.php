@@ -46,45 +46,15 @@
                     <input type="email" name="email" class="form-control" required />
                 </div>
                 <div class="form-group">
-                    <label for="nama">Phone Number</label>
-                    <input type="phone" name="phone" class="form-control" required />
-                </div>
-                <div class="form-group">
                     <label for="nama">Jenis Aliran Seni</label>
                     <select class="form-select" aria-label="Default select example" name="aliran_seni">
-                        <option selected>Open this select menu</option>
+                        <option selected>--- Pilih Jenis Aliran Seni Anda ---</option>
                         <option value="1">One</option>
                         <option value="2">Two</option>
                         <option value="3">Three</option>
                     </select>
                 </div>
-                <div class="col-md-12">
-                    <h5>Social Media</h5>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="nama">Instagram</label>
-                        <input type="text" name="instagram" class="form-control" />
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="nama">Twitter</label>
-                        <input type="text" name="twitter" class="form-control" />
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="nama">Facebook</label>
-                        <input type="text" name="facebook" class="form-control" />
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="nama">Lorem</label>
-                        <input type="text" name="lorem" class="form-control" v>
-                    </div>
-                </div>
+                
                 <div class="form-group">
                     <button type="submit" name="register" class="btn btn-primary btn-center">Register</button>
                 </div>
