@@ -45,4 +45,32 @@ class Home extends CI_Controller
         return $query;
     }
 
+    function contact()
+    {
+        $this->load->model("Auth", "", TRUE);
+
+        $nama = $this->input->post("nama");
+        $email = $this->input->post("email");
+        $subject = $this->input->post("subject");
+        $message = $this->input->post("message");
+
+        $data_contact = array(
+            'nama'    => $nama,
+            'email'   => $email,
+            'subject' => $subject,
+            'message' => $message
+        );
+
+        // $this->db->insert('contact', $data_contact);
+
+        if($this->db->insert('contact', $data_contact)){
+            redirect(site_url("home"));
+        }else{
+            $this->load->view("gagal");
+        }
+
+    }
+
+
+
 }

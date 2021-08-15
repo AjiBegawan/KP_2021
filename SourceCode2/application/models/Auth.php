@@ -8,18 +8,14 @@ class Auth extends CI_Model
         $this->load->library('session');
     }
 
-    function register($nama, $username, $password, $email, $phone, $aliran_seni, $instagram, $twitter, $facebook, $hak_akses)
+    function register($nama, $username, $password, $email, $aliran_seni, $hak_akses)
     {
         $data_user = array(
             'nama'          => $nama,
             'username'      => $username,
             'password'      => password_hash($password, PASSWORD_DEFAULT),
             'email'         => $email,
-            'phone'         => $phone,
             'aliran_seni'   => $aliran_seni,
-            'instagram'     => $instagram,
-            'twitter'       => $twitter,
-            'facebook'      => $facebook,
             'role'          => $hak_akses
         );
 

@@ -24,7 +24,7 @@ class Login extends CI_Controller
 		else
 		{
 			$this->session->set_flashdata('error','Username & Password salah');
-			redirect(site_url('CekPage/gagal'));
+			redirect(site_url('Login'));
 		}
 	}
 

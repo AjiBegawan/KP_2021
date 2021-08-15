@@ -6,6 +6,7 @@
 	<!--  This file has been downloaded from bootdey.com @bootdey on twitter -->
 	<!--  All snippets are MIT license http://bootdey.com/license -->
 	<title>profile edit data and skills - Bootdey.com</title>
+	<link href='<?php echo base_url("assets\image\LogoIDNFT.png"); ?>' rel='shortcut icon' type='image/x-icon' />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" rel="stylesheet">

@@ -257,13 +257,15 @@
               <div class="address">
                 <i class="icofont-twitter"></i>
                 <h4>Twitter:</h4>
-                <p>@idnft_</p>
+                <a href="https://twitter.com/idnft_" style="text-decoration: none;"><p>@idnft_</p></a>
+                
               </div>
 
               <div class="email">
                 <i class="icofont-instagram"></i>
                 <h4>Instagram :</h4>
-                <p>id.nft</p>
+                <a href="https://www.instagram.com/id.nft/" style="text-decoration: none;"><p>id.nft</p></a>
+                
               </div>
 
               <div class="phone">
@@ -276,18 +278,19 @@
                     </g>
                   </svg></i>
                 <h4>Discord : </h4>
-                <p>Lorem Ipsum</p>
+                <a href="" style="text-decoration: none;"><p>Lorem Ipsum</p></a>
+                
               </div>
             </div>
 
           </div>
 
           <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+            <form action="<?php echo site_url('Home/contact'); ?>" method="post" role="form" class="php-email-form">
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="name">Your Name</label>
-                  <input type="text" name="name" class="form-control" id="name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                  <input type="text" name="nama" class="form-control" id="name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                   <div class="validate"></div>
                 </div>
                 <div class="form-group col-md-6">
