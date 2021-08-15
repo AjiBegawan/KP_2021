@@ -19,8 +19,17 @@
               </ul>
           </nav><!-- .nav-menu -->
 
-          <a href="<?= site_url() ?>/Login" class="get-started-btn scrollto ml-auto">Login</a>
-
+          <!-- Profile -->
+        <?php if ($this->session->userdata('is_login')) { ?>
+            <a class="navbar-brand ml-auto" href="<?php echo site_url('/profile') ?>" style="text-decoration: none; color : black;">
+                <img src="https://img.icons8.com/ios/50/000000/user-male-circle.png" width="30" height="30" style="margin: -5px 5px 0 0 ;" class="d-inline-block align-top" alt="Logo IDNFT">
+                <label for="nama" style="font-size: small;"><?= $user->nama; ?></label>
+            </a>
+        <?php } else { ?>
+            <a href="<?= site_url() ?>/Login" class="get-started-btn scrollto ml-auto">Login</a>
+            <a href="<?= site_url() ?>/SignUp" class="get-started-btn scrollto ml-auto">Registrasi</a>
+        <?php } ?>
+        <!-- End Profile -->
       </div>
   </header>
   <!-- End Header -->
