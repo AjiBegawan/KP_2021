@@ -27,4 +27,25 @@ class Login extends CI_Controller
 			redirect(site_url('CekPage/gagal'));
 		}
 	}
+
+	public function logout()
+    {
+        $id = $this->session->userdata('id');
+		$user_data = $this->session->userdata();
+		foreach ($user_data as $key => $value) {
+			if ($key!='__ci_last_regenerate' && $key != '__ci_vars')
+			$this->session->unset_userdata($key);
+		}
+        $this->session->set_flashdata('alert', '<p class="box-msg">
+              <div class="info-box alert-success">
+              <div class="info-box-icon">
+              <i class="fa fa-check-circle"></i>
+              </div>
+              <div class="info-box-content" style="font-size:14">
+              <b style="font-size: 20px">SUKSES</b><br>Log Out Berhasil</div>
+              </div>
+              </p>
+			');
+			redirect(site_url('home'));
+    }
 }

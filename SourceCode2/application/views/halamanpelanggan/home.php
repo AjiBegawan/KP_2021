@@ -34,8 +34,10 @@
 </head>
 
 <body>
+
   <!-- Header -->
   <?php require_once('application\views\template\_header.php'); ?>
+
 
   <!-- Carousel Section -->
 

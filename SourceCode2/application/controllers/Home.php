@@ -11,6 +11,13 @@ class Home extends CI_Controller
     }
     public function index()
     {
+        if ($this->session->userdata('is_login')) {
+            $data['user'] = $this->getUsernameData();
+            $this->load->view("halamanpelanggan/home", $data);
+        } else {
+            $this->load->view("halamanpelanggan/home");
+        }
+
         $this->load->view("halamanpelanggan/home");
     }
     public function BlogView()
@@ -33,4 +40,11 @@ class Home extends CI_Controller
     {
         $this->load->view("halamanpelanggan/Contact");
     }
+    function getUsernameData()
+    {
+        $this->db->where('username', $this->session->userdata('username'));
+        $query = $this->db->get('user')->row();
+        return $query;
+    }
+
 }

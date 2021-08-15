@@ -82,15 +82,15 @@ class SignUp extends CI_Controller
             if (!mysqli_fetch_assoc($result)) {
                 $this->Auth->registerAdmin($nama, $username, $password, $email, $phone, $hak_akses);
                 $this->session->set_flashdata('message', 'Proses Pendaftaran User Berhasil');
-                redirect(site_url('CekPage/sukses'));
+                redirect(site_url('Home'));
             } else {
                 $this->session->set_flashdata('error', 'Username telah terdaftar 1');
-                redirect(site_url('CekPage/gagal'));
+                redirect(site_url('SignUp'));
             }
         } else {
             //  $this->session->set_flashdata('error', validation_errors());
             $this->session->set_flashdata('error', 'Username telah terdaftar 2');
-            redirect(site_url('CekPage/gagal'));
+            redirect(site_url('SignUp'));
         }
     }
 }
