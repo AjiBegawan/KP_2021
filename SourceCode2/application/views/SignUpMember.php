@@ -49,9 +49,11 @@
                     <label for="nama">Jenis Aliran Seni</label>
                     <select class="form-select" aria-label="Default select example" name="aliran_seni">
                         <option selected>--- Pilih Jenis Aliran Seni Anda ---</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                        <option value="2D">2D</option>
+                        <option value="3D">3D</option>
+                        <option value="Motion">Motion</option>
+                        <option value="Fotografi">Fotografi</option>
+                        <option value="Lain - Lain">Lain-lain</option>
                     </select>
                 </div>
                 

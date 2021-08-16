@@ -18,7 +18,6 @@
                    <li><a href="<?php echo site_url('Home') ?>#contact">Contact</a></li>
                    <?php if ($this->session->userdata('is_login')) { ?>
                        <li><a href="<?php echo site_url('Login/logout') ?>">Logout</a></li>
-
                    <?php } ?>
                </ul>
            </nav>
@@ -34,7 +33,10 @@
                    <a href="<?= site_url() ?>/Login" class="get-started-btn scrollto ml-auto">Login</a>
                    <a href="<?= site_url() ?>/SignUp" class="get-started-btn scrollto ml-auto">Registrasi</a>
                <?php } ?>
+<<<<<<< Updated upstream
            
+=======
+>>>>>>> Stashed changes
            <!-- End Profile -->
        </div>
    </header>
