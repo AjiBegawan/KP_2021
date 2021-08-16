@@ -33,10 +33,7 @@
                    <a href="<?= site_url() ?>/Login" class="get-started-btn scrollto ml-auto">Login</a>
                    <a href="<?= site_url() ?>/SignUp" class="get-started-btn scrollto ml-auto">Registrasi</a>
                <?php } ?>
-<<<<<<< Updated upstream
            
-=======
->>>>>>> Stashed changes
            <!-- End Profile -->
        </div>
    </header>
