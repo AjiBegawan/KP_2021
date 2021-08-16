@@ -14,7 +14,7 @@
   <link href="<?= base_url() ?>assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="<?= base_url() ?>assets\css\style.css" rel="stylesheet">
+  <link href="<?= base_url() ?>assets\css\styleHeader.css" rel="stylesheet">
 
   <!-- Bootsrap -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">

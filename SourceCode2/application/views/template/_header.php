@@ -13,7 +13,7 @@
                    <li class="active"><a href="<?php echo site_url('Home') ?>">Home</a></li>
                    <li><a href="<?php echo site_url('Home/DeeraView') ?>">DEERA PROJECT</a></li>
                    <li><a href="<?php echo site_url('Home/BlogView') ?>">Blog</a></li>
-                   <li><a href="<?php echo site_url('Home/ShopView1') ?>">Shop & Merch</a></li>
+                   <!-- <li><a href="<?php echo site_url('Home/ShopView1') ?>">Shop & Merch</a></li> -->
                    <li><a href="https://discord.gg/aDtCQEE7">Join Our Discord</a></li>
                    <li><a href="<?php echo site_url('Home') ?>#contact">Contact</a></li>
                    <?php if ($this->session->userdata('is_login')) { ?>
@@ -35,7 +35,6 @@
                    <a href="<?= site_url() ?>/SignUp" class="get-started-btn scrollto ml-auto">Registrasi</a>
                <?php } ?>
            
-
            <!-- End Profile -->
        </div>
    </header>
