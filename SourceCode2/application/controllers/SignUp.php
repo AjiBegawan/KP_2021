@@ -1,7 +1,6 @@
 <?php
 class SignUp extends CI_Controller
 {
-
     public function __construct()
     {
         parent::__construct();
@@ -13,13 +12,11 @@ class SignUp extends CI_Controller
         $this->load->helper("url");
         $this->load->view("SignUpMember");
     }
-
     function SignUpAdmin()
     {
         $this->load->helper("url");
         $this->load->view("SignUpAdmin");
     }
-
     function prosesSignUp()
     {
         $this->load->model("Auth", "", TRUE);
@@ -29,7 +26,6 @@ class SignUp extends CI_Controller
         $this->form_validation->set_rules('password', 'password', 'trim|required|min_length[1]|max_length[255]');
         $this->form_validation->set_rules('email', 'email', 'trim|required|min_length[1]|max_length[255]');
         
-
         if ($this->form_validation->run() == true) {
             $nama = $this->input->post("nama");
             $username = $this->input->post("username");
