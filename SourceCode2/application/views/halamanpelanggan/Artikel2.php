@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Deera  |  IDNFT</title>
+    <title>Blog |  IDNFT</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -71,59 +71,9 @@
 
 </main><!-- End #main -->
 
-<!-- ======= Footer ======= -->
-<footer id="footer">
+ <!-- ======= Footer ======= -->
+ <?php require_once('application\views\template\_footer.php'); ?>
 
-<div class="footer-top">
-
-  <div class="container">
-
-	<div class="row  justify-content-center">
-	<div class="col-lg-6">
-		<h3>IDNFT</h3>
-		<p>Let’s Make Art Alive !
-			Have questions?</p>
-	  </div>
-	</div>
-
-	<div class="row footer-newsletter justify-content-center">
-	  <div class="col-lg-6">
-		<form action="" method="post"> 
-		  <input type="email" name="email" placeholder="Enter your Email"><input type="submit" value="Subscribe">
-		</form>
-	  </div>
-	</div>
-
-	<div class="social-links">
-	  <a href="https://twitter.com/idnft_" class="twitter"><i class="bx bxl-twitter"></i></a>
-	  <a href="https://www.instagram.com/id.nft/" class="instagram"><i class="bx bxl-instagram"></i></a>
-	  <a href="https://discord.gg/aDtCQEE7" class="google-plus"><i class="bx bxl-discord"></i></a>
-	</div>
-  </div>
-</div>
-
-<div class="container footer-bottom clearfix">
-<div class="copyright">
-	&copy;<script>document.write(new Date().getFullYear());</script> Copyright <strong><span>IDNFT</span></strong>. All Rights Reserved
-  </div>
-</div>
-</footer><!-- End Footer -->
-
-<a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
-
-  <!-- Vendor JS Files -->
-  <script src="<?= base_url()?>assets/vendor/jquery/jquery.min.js"></script>
-  <script src="<?= base_url()?>assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="<?= base_url()?>assets/vendor/jquery.easing/jquery.easing.min.js"></script>
-  <script src="<?= base_url()?>assets/vendor/php-email-form/validate.js"></script>
-  <script src="<?= base_url()?>assets/vendor/waypoints/jquery.waypoints.min.js"></script>
-  <script src="<?= base_url()?>assets/vendor/counterup/counterup.min.js"></script>
-  <script src="<?= base_url()?>assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="<?= base_url()?>assets/vendor/venobox/venobox.min.js"></script>
-  <script src="<?= base_url()?>assets/vendor/owl.carousel/owl.carousel.min.js"></script>
-
-  <!-- Template Main JS File -->
-  <script src="<?= base_url()?>assets/js/main.js"></script>
 
 </body>
 

@@ -24,7 +24,7 @@
   <link href="<?= base_url() ?>assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="<?= base_url() ?>assets\css\style.css" rel="stylesheet">
+  <link href="<?= base_url() ?>assets\css\styleHome.css" rel="stylesheet">
 
   <!-- Bootsrap -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -107,8 +107,8 @@
       <div class="container">
 
         <div class="section-title">
-          <span>Artist of The Week</span>
-          <h2>Artist of The Week</h2>
+          <span>Artist of The Month</span>
+          <h2>Artist of The Month</h2>
           <p>Text Text Text Text Text Text Text Text Text Text Text</p>
         </div>
 
@@ -178,7 +178,7 @@
 
         <div class="row">
           <div class="col-lg-6">
-            <img src="<?= base_url() ?>assets/img/about.png" class="img-fluid" alt="">
+            <img src="<?= base_url() ?>assets/img/Benefit.png" class="img-fluid" alt="">
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0 content">
             <h3>Benefits Join with Our Community</h3>
@@ -199,71 +199,12 @@
         </div>
       </div>
     </section><!-- Benefit Section -->
-
-
-
-    <!-- ======= Services Section ======= -->
-    <section id="services" class="services section-bg">
-      <div class="container">
-
-        <div class="section-title">
-          <span>Services</span>
-          <h2>Services</h2>
-          <p>Sit sint consectetur velit quisquam cupiditate impedit suscipit alias</p>
-        </div>
-
-        <div class="row">
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-            <div class="icon-box">
-              <div class="icon"><i class="bx bxl-dribbble"></i></div>
-              <h4><a href="">Lorem Ipsum</a></h4>
-              <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
-            <div class="icon-box">
-              <div class="icon"><i class="bx bx-file"></i></div>
-              <h4><a href="">Sed ut perspiciatis</a></h4>
-              <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
-            <div class="icon-box">
-              <div class="icon"><i class="bx bx-tachometer"></i></div>
-              <h4><a href="">Magni Dolores</a></h4>
-              <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section><!-- End Services Section -->
-
-
-
   </main><!-- End #main -->
+
 
   <!-- ======= Footer ======= -->
   <?php require_once('application\views\template\_footer.php'); ?>
 
-
-
-  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
-
-  <!-- Vendor JS Files -->
-  <script src="<?= base_url() ?>assets/vendor/jquery/jquery.min.js"></script>
-  <script src="<?= base_url() ?>assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="<?= base_url() ?>assets/vendor/jquery.easing/jquery.easing.min.js"></script>
-  <script src="<?= base_url() ?>assets/vendor/php-email-form/validate.js"></script>
-  <script src="<?= base_url() ?>assets/vendor/waypoints/jquery.waypoints.min.js"></script>
-  <script src="<?= base_url() ?>assets/vendor/counterup/counterup.min.js"></script>
-  <script src="<?= base_url() ?>assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="<?= base_url() ?>assets/vendor/venobox/venobox.min.js"></script>
-  <script src="<?= base_url() ?>assets/vendor/owl.carousel/owl.carousel.min.js"></script>
-
-  <!-- Template Main JS File -->
-  <script src="<?= base_url() ?>assets/js/main.js"></script>
 
 </body>
 

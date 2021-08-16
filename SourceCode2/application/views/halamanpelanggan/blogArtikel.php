@@ -86,7 +86,7 @@
 	                  <div><a1 href="<?php echo site_url('Blog/Artikel1')?>">2 Agustus 2021</a1></div>
 	                </div>
 	                <h3 class="heading mt-3"><a1 href="<?php echo site_url('Blog/Artikel1')?>">Cara Masuk ke NFT Art</a1></h3>
-	                <p>Karya yang dijual pada NFT Art dapat dipertukarkan dengan asset karya lain dari jenis yang sama, dengan kata lain hanya pada nilai yang sama antara... </p>
+	                <p>Hampir semua transaksi dalam NFT marketplace memerlukan pembayaran yang disebut “gas fee”, jadi wajib untuk kita memiliki saldo didalam wallet kita. Untuk marketplace berbasis Ethereum bisa menggunakan Metamask atau Wallet Connect... </p>
 	                <p><a href="<?php echo site_url('Blog/Artikel1')?>" class="btn btn-primary">Baca Lengkap</a></p>
 	              </div>
 	            </div>
@@ -110,112 +110,25 @@
         <!-- CARD 3  -->
         <div class="col-md-4 d-flex2 ftco-animate">
 	          	<div class="blog-entry align-self-stretch">
-	              <a href="<?php echo site_url('Blog/ArtikelView')?>" class="block1" style="background-image: url(<?= base_url() ?>assets/img/Dftr_nft.jpg);">
+	              <a href="<?php echo site_url('Blog/ArtikelView3')?>" class="block1" style="background-image: url(<?= base_url() ?>assets/img/artikel3.jpg);">
 	              </a>
 	              <div class="text p-4 d-block">
 	              	<div class="meta mb-3">
-	                  <div><a1 href="<?php echo site_url('Blog/Artikel1')?>">2 Agustus 2021</a1></div>
+	                  <div><a1 href="<?php echo site_url('Blog/Artikel3')?>">2 Agustus 2021</a1></div>
 	                </div>
-	                <h3 class="heading mt-3"><a1 href="<?php echo site_url('Blog/Artikel1')?>">TEXT TEXT TEXT</a1></h3>
-	                <p>TEXT TEXT TEXT </p>
-	                <p><a href="<?php echo site_url('Blog/Artikel1')?>" class="btn btn-primary">Baca Lengkap</a></p>
+	                <h3 class="heading mt-3"><a1 href="<?php echo site_url('Blog/Artikel1')?>">Tips Untuk Memulai Berkarir di NFT Art Bagi Pemula</a1></h3>
+	                <p>Menjadi kreator atau seniman NFT berarti kita memasuki dunia baru yang berbeda dengan dunia seni tradisional pada umumnya. Disini seniman harus bisa memasarkan karyanya kedalam pasar... </p>
+	                <p><a href="<?php echo site_url('Blog/Artikel3')?>" class="btn btn-primary">Baca Lengkap</a></p>
 	              </div>
 	            </div>
 			</div>
-
-      <!-- CARD 1  -->
-      <div class="row1 d-flex2">
-	          <div class="col-md-4 d-flex2 ftco-animate">
-	          	<div class="blog-entry align-self-stretch">
-	              <a href="<?php echo site_url('Blog/ArtikelView')?>" class="block1" style="background-image: url(<?= base_url() ?>assets/image/Dftr_nft.jpg);">
-	              </a>
-	              <div class="text p-4 d-block">
-	              	<div class="meta mb-3">
-	                  <div><a1 href="<?php echo site_url('Blog/Artikel1')?>">2 Agustus 2021</a1></div>
-	                </div>
-	                <h3 class="heading mt-3"><a1 href="<?php echo site_url('Blog/Artikel1')?>">Cara Masuk ke NFT Art</a1></h3>
-	                <p>Karya yang dijual pada NFT Art dapat dipertukarkan dengan asset karya lain dari jenis yang sama, dengan kata lain hanya pada nilai yang sama antara... </p>
-	                <p><a href="<?php echo site_url('Blog/Artikel1')?>" class="btn btn-primary">Baca Lengkap</a></p>
-	              </div>
-	            </div>
-			</div>
-      </div>
-
 	</section>
   </main><!-- End #main -->
 
-   <!-- ======= Footer ======= -->
-  <footer id="footer">
-
-    <div class="footer-top">
-
-      <div class="container">
-
-        <div class="row  justify-content-center">
-          <div class="col-lg-6">
-            <h3>IDNFT</h3>
-            <p>Let’s Make Art Alive !
-				Have questions?</p>
-          </div>
-        </div>
-
-        <div class="row footer-newsletter justify-content-center">
-          <div class="col-lg-6">
-            <form action="" method="post">
-              <input type="email" name="email" placeholder="Enter your Email"><input type="submit" value="Subscribe">
-            </form>
-          </div>
-        </div>
-
-        <div class="social-links">
-          <a href="https://twitter.com/idnft_" class="twitter"><i class="bx bxl-twitter"></i></a>
-          <a href="https://www.instagram.com/id.nft/" class="instagram"><i class="bx bxl-instagram"></i></a>
-          <a href="https://discord.gg/aDtCQEE7" class="google-plus"><i class="bx bxl-discord"></i></a>
-        </div>
-      </div>
-    </div>
-
-    <div class="container footer-bottom clearfix">
-      <div class="copyright">
-        &copy;<script>document.write(new Date().getFullYear());</script> Copyright <strong><span>IDNFT</span></strong>. All Rights Reserved
-      </div>
-    </div>
-  </footer><!-- End Footer -->
+  <!-- ======= Footer ======= -->
+  <?php require_once('application\views\template\_footer.php'); ?>
 
 
-  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
-
-  <!-- Vendor JS Files -->
-  <script src="<?= base_url()?>assets/vendor/jquery/jquery.min.js"></script>
-  <script src="<?= base_url()?>assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="<?= base_url()?>assets/vendor/jquery.easing/jquery.easing.min.js"></script>
-  <script src="<?= base_url()?>assets/vendor/php-email-form/validate.js"></script>
-  <script src="<?= base_url()?>assets/vendor/waypoints/jquery.waypoints.min.js"></script>
-  <script src="<?= base_url()?>assets/vendor/counterup/counterup.min.js"></script>
-  <script src="<?= base_url()?>assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="<?= base_url()?>assets/vendor/venobox/venobox.min.js"></script>
-  <script src="<?= base_url()?>assets/vendor/owl.carousel/owl.carousel.min.js"></script>
-
-  <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
-  <!-- 
-  TAMBAHAN -->
-  <script src="<?= base_url()?>assets/js/jquery.min.js"></script>
-    <script src="<?= base_url()?>assets/js/jquery-migrate-3.0.1.min.js"></script>
-    <script src="<?= base_url()?>assets/js/popper.min.js"></script>
-    <script src="<?= base_url()?>assets/js/bootstrap.min.js"></script>
-    <script src="<?= base_url()?>assets/js/jquery.easing.1.3.js"></script>
-    <script src="<?= base_url()?>assets/js/jquery.waypoints.min.js"></script>
-    <script src="<?= base_url()?>assets/js/jquery.stellar.min.js"></script>
-    <script src="<?= base_url()?>assets/js/owl.carousel.min.js"></script>
-    <script src="<?= base_url()?>assets/js/jquery.magnific-popup.min.js"></script>
-    <script src="<?= base_url()?>assets/js/aos.js"></script>
-    <script src="<?= base_url()?>assets/js/jquery.animateNumber.min.js"></script>
-    <script src="<?= base_url()?>assets/js/scrollax.min.js"></script>
-    <script src="<?= base_url()?>assets/js/jquery.mb.YTPlayer.min.js"></script>
-    <script src="<?= base_url()?>assets/js/bootstrap-datepicker.js"></script>
-    <script src="<?= base_url()?>assets/js/jquery.timepicker.min.js"></script>
-    <script src="<?= base_url()?>assets/js/main.js"></script>
 
 </body>
 
