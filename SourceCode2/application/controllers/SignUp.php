@@ -47,7 +47,7 @@ class SignUp extends CI_Controller
         } else {
             //  $this->session->set_flashdata('error', validation_errors());
             $this->session->set_flashdata('error', 'Username telah terdaftar');
-            redirect(site_url('login'));
+            redirect(site_url('SignUp'));
         }
     }
 
