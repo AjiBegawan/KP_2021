@@ -2,6 +2,7 @@
 # CSS UNTUK HALAMAN HOME
 --------------------------------------------------------------*/
 
+
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
@@ -35,11 +36,10 @@ h6 {
 }
 
 
-
-
 /*--------------------------------------------------------------
 # Navigation Menu
 --------------------------------------------------------------*/
+
 
 /* Desktop Navigation */
 
@@ -153,6 +153,7 @@ h6 {
     }
 }
 
+
 /* Mobile Navigation */
 
 .mobile-nav-toggle {
@@ -263,6 +264,7 @@ h6 {
     color: #fff;
 }
 
+
 /*--------------------------------------------------------------
 # Sections General
 --------------------------------------------------------------*/
@@ -322,6 +324,7 @@ section {
     }
 }
 
+
 /*--------------------------------------------------------------
 # Team [ARTIST OF THE WEEK SECTION]
 --------------------------------------------------------------*/
@@ -375,6 +378,7 @@ section {
     margin: 0 2px;
 }
 
+
 /*--------------------------------------------------------------
 # About [BENEFITS JOIN OUR COMMUNITY]
 --------------------------------------------------------------*/
@@ -402,4 +406,97 @@ section {
 
 .about .content p:last-child {
     margin-bottom: 0;
+}
+
+
+/* Dua Button  */
+
+.ftco-section-2 {
+    position: relative;
+    height: 800px;
+}
+
+.ftco-section-2 .section-2-blocks-wrapper .button {
+    display: block;
+    position: absolute;
+    z-index: 1;
+    -webkit-animation: pulse 2s infinite;
+    animation: pulse 2s infinite;
+}
+
+.ftco-section-2 .section-2-blocks-wrapper .button span {
+    position: absolute;
+    font-size: 30px;
+    color: #f34573;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-30%, -48%);
+    -ms-transform: translate(-30%, -48%);
+    transform: translate(-30%, -48%);
+}
+
+.ftco-section-2 .section-2-blocks-wrapper .text {
+    position: relative;
+    padding: 15px;
+}
+
+@media (min-width: 768px) {
+    .ftco-section-2 .section-2-blocks-wrapper .text {
+        padding: 7%;
+        background: rgba(0, 0, 0, 0.02);
+    }
+}
+
+.ftco-section-2 .section-2-blocks-wrapper .text h3.heading {
+    font-size: 40px;
+    margin-bottom: 20px;
+    font-family: "Vidaloka", Arial, serif;
+    color: #fff;
+}
+
+.ftco-section-2 .section-2-blocks-wrapper .text ul {
+    margin: 0;
+    padding: 0;
+}
+
+.ftco-section-2 .section-2-blocks-wrapper .text ul li {
+    list-style: none;
+}
+
+.ftco-section-2 .section-2-blocks-wrapper .text ul li span {
+    color: #f34573;
+}
+
+.ftco-section-2 .section-2-blocks-wrapper .text .watchvideo-heading {
+    margin-bottom: 0;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.ftco-section-2 .section-2-blocks-wrapper .text .watchvideo-heading a {
+    color: #000;
+}
+
+.ftco-section-2 .section-2-blocks-wrapper .img {
+    background-position: center center;
+    background-size: cover;
+}
+
+@media (max-width: 767.98px) {
+    .ftco-section-2 .section-2-blocks-wrapper .img {
+        height: 400px;
+        margin-bottom: 70px;
+    }
+}
+
+.ftco-section-2 .section-2-blocks-wrapper .img-2 {
+    background-position: center center;
+    background-size: cover;
+    height: 180px;
+}
+
+@media (max-width: 767.98px) {
+    .ftco-section-2 .section-2-blocks-wrapper .img-2 {
+        margin-bottom: 10px;
+    }
 }

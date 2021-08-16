@@ -53,7 +53,7 @@
     <div class="carousel-inner">
       <div class="item active">
         <img src="<?= base_url() ?>assets\img\Header04.jpg" alt="carousel1" style="width: 100%;min-width: 100%;">
-      
+
       </div>
 
       <div class="item">
@@ -77,28 +77,6 @@
   </div>
 
   <!-- End Carousel -->
-
-  <!-- ======= Hero Section ======= -->
-  <!-- <section id="hero" class="d-flex align-items-center">
-
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
-          <h1>Indonesian NFT Community</h1>
-          <h5>Help Indonesian artists start their journey on NFT by Embrace, Educate and, Empower.</h5>
-          <div class="d-flex">
-            <a href="<?= site_url() ?>/SignUp" class="btn-get-started scrollto">Join Our Member</a>
-            <a href="https://www.youtube.com/watch?v=v_DKf-J8qrc&t=4s" class="venobox btn-watch-video" data-vbtype="video" data-autoplay="true"> Watch Video <i class="icofont-play-alt-2"></i></a>
-          </div>
-        </div>
-        <div class="col-lg-6 order-1 order-lg-2 hero-img">
-          <img src="<?= base_url() ?>assets/img/LogoIDNFT.png" class="img-fluid animated" alt="">
-        </div>
-      </div>
-    </div>
-
-  </section> -->
-  <!-- End Hero -->
 
   <main id="main">
 
@@ -200,6 +178,31 @@
       </div>
     </section><!-- Benefit Section -->
   </main><!-- End #main -->
+
+  <div class="row">
+    <div class="col-sm-1"></div>
+    <div class="card col-sm-4" style="width: 18rem;">
+      <img class="card-img-top" src="<?= base_url("assets\image\bg_blog.jpg") ?>" alt="Card image cap">
+      <div class="card-body  text-center">
+        <h5 class="card-title">New in NFT ?</h5>
+        <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+        <a href="<?php echo site_url('Home/BlogView') ?>" class="btn btn-primary ">Click here !</a>
+      </div>
+    </div>
+    <div class="col-sm-2"></div>
+    <div class="card col-sm-4" style="width: 18rem;">
+      <img class="card-img-top" src="<?= base_url("assets\image\bg_blog.jpg") ?>" alt="Card image cap">
+      <div class="card-body  text-center">
+        <h5 class="card-title">Want to join live class NFT ?</h5>
+        <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+        <a href="<?= site_url("/SignUp") ?>" class="btn btn-primary ">Join Us</a>
+      </div>
+    </div>
+    <div class="col-sm-1"></div>
+  </div>
+
+
+
 
 
   <!-- ======= Footer ======= -->
