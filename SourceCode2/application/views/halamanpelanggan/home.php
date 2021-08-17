@@ -96,7 +96,7 @@
         </div>
 
         <div class="row">
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+          <div class="col-lg-4 col-md-4 d-flex justify-content-between">
             <div class="member">
               <img src="<?= base_url("assets\img\AOTM\RifqiRubahHitam.png") ?>" alt="">
               <h3>Rifqi Rubah Hitam</h3>
@@ -115,7 +115,7 @@
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+          <div class="col-lg-4 col-md-4 d-flex align-items-stretch">
             <div class="member">
               <img src="<?= base_url("assets\img\AOTM\Suryanto.png") ?>" alt="">
               <h3>Suryanto Sur</h3>
@@ -127,7 +127,7 @@
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+          <div class="col-lg-4 col-md-4 d-flex align-items-stretch">
             <div class="member">
               <img src="<?= base_url("assets\img\AOTM\Tagpaw.png") ?>" alt="">
               <h3>Tagpaw</h3>
@@ -146,7 +146,7 @@
     <!-- ======= Benefit Section ======= -->
     <section id="about" class="about">
       <div class="container">
-        <div class="row">
+        <div class="row ">
           <div class="col-lg-6">
             <img src="<?= base_url() ?>assets/img/Benefit.png" class="img-fluid" alt="">
           </div>
