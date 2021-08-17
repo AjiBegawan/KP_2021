@@ -1,11 +1,10 @@
-
 /*--------------------------------------------------------------
 # Contact
 --------------------------------------------------------------*/
 
 .contact .info {
-    border-top: 3px solid red;
-    border-bottom: 3px solid red;
+    /* border-top: 3px solid red;
+    border-bottom: 3px solid red; */
     padding: 30px;
     width: 100%;
     background-color: #f9f9fa;
@@ -13,7 +12,7 @@
 
 .contact .info i {
     font-size: 20px;
-    color:red;
+    color: red;
     float: left;
     width: 44px;
     height: 44px;
@@ -60,7 +59,7 @@
 }
 
 .contact .info .social-links a:hover {
-    background:red;
+    background: red;
     color: #fff;
 }
 
@@ -73,8 +72,8 @@
 
 .contact .php-email-form {
     width: 100%;
-    border-top: 3px solid red;
-    border-bottom: 3px solid red;
+    /* border-top: 3px solid red;
+    border-bottom: 3px solid red; */
     padding: 30px;
     background-color: #f9f9fa;
 }
@@ -107,7 +106,7 @@
 .contact .php-email-form .sent-message {
     display: none;
     color: #fff;
-    background:red;
+    /* background: red; */
     text-align: center;
     padding: 15px;
     font-weight: 600;
@@ -127,7 +126,7 @@
     width: 24px;
     height: 24px;
     margin: 0 10px -6px 0;
-    border: 3px solid red;
+    /* border: 3px solid red; */
     border-top-color: #eee;
     -webkit-animation: animate-loading 1s linear infinite;
     animation: animate-loading 1s linear infinite;
@@ -143,7 +142,7 @@
 
 .contact .php-email-form input:focus,
 .contact .php-email-form textarea:focus {
-    border-color: red;
+    /* border-color: red; */
 }
 
 .contact .php-email-form input {
@@ -166,6 +165,7 @@
 .contact .php-email-form button[type="submit"]:hover {
     background: rgb(151, 0, 0);
 }
+
 
 /*--------------------------------------------------------------
 # Footer Copyright 

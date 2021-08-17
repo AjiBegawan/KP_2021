@@ -16,7 +16,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
   <!-- Vendor CSS Files -->
   <link href="<?= base_url() ?>assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="<?= base_url() ?>assets/vendor/icofont/icofont.min.css" rel="stylesheet">
@@ -91,14 +91,15 @@
       <div class="container">
 
         <div class="section-title">
-          <span>Artist of The Month</span>
+          <!-- <span>Artist of The Month</span> -->
           <h2>Artist of The Month</h2>
+          <h5>Berikut ini artist NFT pertama di Indonesia</h5>
         </div>
 
         <div class="row">
           <div class="col-lg-4 col-md-4 d-flex justify-content-between">
             <div class="member">
-              <img src="<?= base_url("assets\img\AOTM\RifqiRubahHitam.png") ?>" alt="">
+              <img src="<?= base_url("assets\img\AOTM\RifqiRubahHitam.png") ?>" alt="" height="75%">
               <h3>Rifqi Rubah Hitam</h3>
               <span>
                 <h5>Motion Designer | 2D Animator | 3D Artist</h5>
@@ -117,7 +118,7 @@
 
           <div class="col-lg-4 col-md-4 d-flex align-items-stretch">
             <div class="member">
-              <img src="<?= base_url("assets\img\AOTM\Suryanto.png") ?>" alt="">
+              <img src="<?= base_url("assets\img\AOTM\Suryanto.png") ?>" alt="" height="75%">
               <h3>Suryanto Sur</h3>
               <span><i class="icofont-location-pin"></i>Indonesia</span>
               <div class="social">
@@ -129,7 +130,7 @@
 
           <div class="col-lg-4 col-md-4 d-flex align-items-stretch">
             <div class="member">
-              <img src="<?= base_url("assets\img\AOTM\Tagpaw.png") ?>" alt="">
+              <img src="<?= base_url("assets\img\AOTM\Tagpaw.png") ?>" alt="" height="75%">
               <h3>Tagpaw</h3>
               <span><i class="icofont-location-pin"></i>Jakarta, Indonesia</span>
               <div class="social">
@@ -156,7 +157,7 @@
               Help Indonesian artists start their journey on NFT
             </p>
             <ul>
-              <li><i class="icofont-check-circled" ></i>Learn from 0 to join NFT ART</li>
+              <li><i class="icofont-check-circled"></i>Learn from 0 to join NFT ART</li>
               <li><i class="icofont-check-circled"></i>Promotion of works</li>
               <li><i class="icofont-check-circled"></i>Collaboration forum</li>
               <li><i class="icofont-check-circled"></i>Access to the Exhibition</li>

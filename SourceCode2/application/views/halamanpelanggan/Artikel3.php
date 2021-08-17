@@ -54,7 +54,7 @@
 			<div>
                 <div class="wsite-image wsite-image-border-medium " style="padding-top:5px;padding-bottom:10px;margin-left:0px;margin-right:10px;text-align:center">
                     <a>
-                        <img src="<?= base_url() ?>assets\img\artikel3.jpg" alt="Apa itu NFT" style="width:auto;max-width:100%;">
+                        <img src="<?= base_url() ?>assets\img\ApaItuNFT.png" alt="Apa itu NFT" style="width:auto;max-width:100%;">
                     </a>
            				 <div style="display:block;font-size:90%"></div>
                 </div>

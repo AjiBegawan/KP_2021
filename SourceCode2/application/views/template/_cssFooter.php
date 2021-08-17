@@ -1,7 +1,7 @@
 <!-- Template Main CSS File -->
 <link href="<?= base_url() ?>assets\css\styleFooter.css" rel="stylesheet">
 
-  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+ 
 
 <!-- Vendor JS Files -->
 <script src="<?= base_url() ?>assets/vendor/jquery/jquery.min.js"></script>

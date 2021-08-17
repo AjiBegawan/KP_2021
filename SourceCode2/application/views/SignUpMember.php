@@ -17,11 +17,17 @@
 </head>
 
 <body>
-<?php if ($this->session->flashdata('message')) { ?>
-            <div class="alert alert-success">
-                <?php echo $this->session->flashdata('message') ?>
-            </div>
-        <?php } ?>
+    <?php if ($this->session->flashdata('message')) { ?>
+        <div class="alert alert-success">
+            <?php echo $this->session->flashdata('message') ?>
+        </div>
+    <?php } ?>
+
+    <div>
+        <button type="button" class="close" aria-label="Close" style="margin: -30px 30px 0 0 ;">
+            <a href="<?php echo site_url('Home'); ?>"><span aria-hidden="true">&times;</span></a>
+        </button>
+    </div>
     <div class="container contact-form">
         <div class="contact-image">
             <img src="<?= base_url('assets\image\LogoIDNFT.png') ?>" alt="rocket_contact" />
@@ -56,9 +62,9 @@
                         <option value="Lain - Lain">Lain-lain</option>
                     </select>
                 </div>
-                
+
                 <div class="form-group">
-                    <button type="submit" name="register" class="btn btn-primary btn-center">Register</button>
+                    <button type="submit" name="register" class="btn btn-danger btn-center">Register</button>
                 </div>
 
             </div>

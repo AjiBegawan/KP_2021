@@ -10,9 +10,9 @@
             <li class="nav-item active">
                 <a class="nav-link" href="<?php echo site_url('Home') ?>">Home<span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item"><a class="nav-link" href="">Blog</a></li>
-            <li class="nav-item"><a class="nav-link" href="<?php echo site_url('Home/ShopView1') ?>">Shop & Merch</a></li>
-            <li class="nav-item"><a class="nav-link" href="https://discord.gg/aDtCQEE7">Join Our Discord</a></li>
+            <li class="nav-item"><a class="nav-link" href="<?php echo site_url('Home/BlogView') ?>">Blog</a></li>
+            <!-- <li class="nav-item"><a class="nav-link" href="<?php echo site_url('Home/ShopView1') ?>">Shop & Merch</a></li> -->
+            <li class="nav-item"><a class="nav-link" href="https://discord.gg/DMMF7bVYrh">Join Our Discord</a></li>
             <li class="nav-item"><a class="nav-link" href="<?php echo site_url('Home') ?>#contact">Contact</a></li>
             <?php if ($this->session->userdata('is_login')) { ?>
                 <li class="nav-item"><a class="nav-link" href="<?php echo site_url('Login/logout') ?>">Logout</a></li>

@@ -23,16 +23,15 @@
     <?php require_once('application\views\template\_header2.php'); ?>
     <div class="main-body">
 
-      
+
 
       <!-- Breadcrumb -->
-      <nav aria-label="breadcrumb" class="main-breadcrumb">
-        <ol class="breadcrumb">
+      <!-- <nav aria-label="breadcrumb" class="main-breadcrumb">
+        <ol class="breadcrumb" >
           <li class="breadcrumb-item"><a href="<?php echo site_url('Home') ?>">Home</a></li>
           <li class="breadcrumb-item"><a href="<?php echo site_url('Profile') ?>">User Profile</a></li>
-          
         </ol>
-      </nav>
+      </nav> -->
       <!-- /Breadcrumb -->
 
       <div class="row gutters-sm">
@@ -45,19 +44,17 @@
                   <h4><?= $user->nama; ?></h4>
                   <p class="text-dark mb-1"><?= $user->aliran_seni; ?></p>
                   <p class="text-dark font-size-sm"><?= $user->alamat; ?></p>
-                  <button class="btn btn-primary">Follow</button>
-                  <button class="btn btn-outline-primary">Message</button>
+                  <button class="btn btn-danger">Follow</button>
+                  <button class="btn btn-outline-danger">Message</button>
                 </div>
               </div>
             </div>
           </div>
           <div class="card mt-3">
             <ul class="list-group list-group-flush">
-              
+
               <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-twitter mr-2 icon-inline text-info">
-                    <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
-                  </svg>Twitter</h6>
+                <h6 class="mb-0"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABmJLR0QA/wD/AP+gvaeTAAACxUlEQVRIie2WzWtUZxSHn997Mxqr4EIkE7GWQKXVQEFTaGVmSgpRiDOiKEUXGkvX4kIQ3AhZ+AfUlgqCuBBBaBbaJlOxi2ZIxi6l1MQu/Yozo6DRKprEzHtcmNjJnRnnpmalPqt7z3vOed77wbkX3vO2o4Vocr2zs7l5WTmD+AzvzZz7e/JxkG3L5SYq80a/aV/U3jc6VSUubk+tn1BQaLuQexhVWkwnvkY6A6wOLd1C6pmemr4axFw3pv2xwHat/PXy42pxJnkGaGtytnU24XWUtiW+NNMg0FwzQTzHcICT2NvSnz8nMAAXSt0IJKe9Bse6O8NXUIUZJ+pKAYwY4AS/mNFxN506MLsUEmvxzEFHEJT/KqVTe+r1LKS/Wgfa0GhzgAx2AGtaPoifqCk286MVZytMdq6YSQ4XM4mtFnosjvLaCNKXnbBT8c/zu9XXV56NNc1txmmD7aG6JChbyiRvF+C8jLzhRgwrzzyuhsj0u3rxIdd/tJQmLkp2tk79h4KDiJ8lfw3ZQCQrgNO9qlDlSal1yRUzedD9yE0jUC5bMRybc6sRNzF6ot7CiDx5tHT8Rjg49+Xy+nEhjTMMzk6ruuJV2eFLgmMLqjVdrBUODxDiA/mjwH7BnQXQjjcFvubLWiW2XpxhKQ//AJNvKP6h3uitEqsXjzEq6AIW16iJhODOlHG83nqVGKA1e/k48NP/lQIeuZ6PsvnxeYkF1jqQP+CMzUA/MDYvrdmxeP/QH69LafgjUNi26VPng1MmElGckr5v6R8+pAbDoKa4tGXLUh97lhT2HWIn4UFTm0mZDsezw5FmwStxIZ1ISe4Isk+ANTPf0miIQXl/MJ79cyR6SQUPurqWTzY/2wf6FuhoUPuvwQDenVz129BQ5E3WEldS7E6tVJN94b197KQVJmKgp/I2ZtJI/ElwRbnc9HyF73l3eAHAsPOROmKcIQAAAABJRU5ErkJggg=="> Twitter</h6>
                 <span class="text-dark"><?= $user->twitter; ?></span>
               </li>
               <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
@@ -68,18 +65,10 @@
                   </svg>Instagram</h6>
                 <span class="text-dark"><?= $user->instagram; ?></span>
               </li>
-              <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook mr-2 icon-inline text-primary">
-                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-                  </svg>Facebook</h6>
-                <span class="text-dark"><?= $user->facebook; ?></span>
-              </li>
+
             </ul>
           </div>
         </div>
-
-
-
         <div class="col-md-8">
           <div class="card mb-3">
             <div class="card-body">
@@ -113,7 +102,7 @@
               <hr>
               <div class="row">
                 <div class="col-sm-3">
-                  <h6 class="mb-0">Address</h6>
+                  <h6 class="mb-0">Location 1</h6>
                 </div>
                 <div class="col-sm-9 text-dark">
                   <?= $user->alamat; ?>
@@ -122,7 +111,7 @@
               <hr>
               <div class="row">
                 <div class="col-sm-12">
-                  <a class="btn btn-info px-4 btn-center" target="blank" href="<?= site_url("/Profile/profile_edit") ?>">Edit</a>
+                  <a class="btn btn-danger px-4 btn-center" target="blank" href="<?= site_url("/Profile/profile_edit") ?>">Edit</a>
                 </div>
               </div>
             </div>
