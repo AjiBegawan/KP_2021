@@ -2,11 +2,11 @@ body {
     /* min-height: 100%;
     background-image: url('../image/bg3.jpg');
     background-size: cover; */
-    background: #EEEEEE;
+    background: #ffffff;
 }
 
 .contact-form {
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(22, 253, 126, 0.1);
     margin-top: 5%;
     margin-bottom: 5%;
     width: 50%;
