@@ -40,7 +40,7 @@
       <?php echo $this->session->flashdata('message') ?>
     </div>
   <?php } ?>
-  
+
   <!-- Header -->
   <?php require_once('application\views\template\_header.php'); ?>
 
@@ -146,7 +146,6 @@
     <!-- ======= Benefit Section ======= -->
     <section id="about" class="about">
       <div class="container">
-
         <div class="row">
           <div class="col-lg-6">
             <img src="<?= base_url() ?>assets/img/Benefit.png" class="img-fluid" alt="">
@@ -157,7 +156,7 @@
               Help Indonesian artists start their journey on NFT
             </p>
             <ul>
-              <li><i class="icofont-check-circled"></i>Learn from 0 to join NFT ART</li>
+              <li><i class="icofont-check-circled" ></i>Learn from 0 to join NFT ART</li>
               <li><i class="icofont-check-circled"></i>Promotion of works</li>
               <li><i class="icofont-check-circled"></i>Collaboration forum</li>
               <li><i class="icofont-check-circled"></i>Access to the Exhibition</li>
@@ -171,20 +170,17 @@
       </div>
     </section><!-- Benefit Section -->
 
-    <div class="row">
-      <div class="col-sm-1"></div>
-      <div class="col-sm-4" style="width: 18rem;">
+    <div class="row d-flex justify-content-around">
+      <div class="col-6  pt-4" style="width: 18rem;">
         <a href="<?php echo site_url('Home/BlogView') ?>" class=" ">
           <img class="card-img-top" src="<?= base_url("assets\img\Home\Web01.jpg") ?>" alt="Card image cap">
         </a>
       </div>
-      <div class="col-sm-2"></div>
-      <div class="col-sm-4" style="width: 18rem;">
+      <div class="col-6  pt-4" style="width: 18rem;">
         <a href="<?php echo site_url('Home/BlogView') ?>" class=" ">
           <img class="card-img-top" src="<?= base_url("assets\img\Home\Web02.jpg") ?>" alt="Card image cap">
         </a>
       </div>
-      <div class="col-sm-1"></div>
     </div>
   </main><!-- End #main -->
 

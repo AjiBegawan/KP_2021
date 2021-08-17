@@ -508,3 +508,7 @@ section {
         margin-bottom: 10px;
     }
 }
+
+.container .row .icofont-check-circled {
+    color: red;
+}
