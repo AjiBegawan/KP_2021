@@ -37,7 +37,7 @@
                                     </g>
                                 </svg></i>
                             <h4>Discord : </h4>
-                            <a href="" style="text-decoration: none;">
+                            <a href="https://discord.gg/DvUy82jA" style="text-decoration: none;">
                                 <p>IDNFT</p>
                             </a>
                         </div>

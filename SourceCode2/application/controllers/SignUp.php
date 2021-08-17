@@ -45,8 +45,10 @@ class SignUp extends CI_Controller
 
             if (!mysqli_fetch_assoc($result)) {
                 $this->Auth->register($nama, $username, $password, $email,  $aliran_seni,  $hak_akses);
+                $this->Auth->login_user($username,$password);
                 $this->session->set_flashdata('message', 'Proses Pendaftaran User Berhasil');
-                redirect(site_url('Home'));
+                
+                redirect(site_url('Profile'));
             } else {
                 $this->session->set_flashdata('error', 'Username telah terdaftar');
                 redirect(site_url('SignUp'));
@@ -81,14 +83,14 @@ class SignUp extends CI_Controller
             if (!mysqli_fetch_assoc($result)) {
                 $this->Auth->registerAdmin($nama, $username, $password, $email, $phone, $hak_akses);
                 $this->session->set_flashdata('message', 'Proses Pendaftaran User Berhasil');
-                redirect(site_url('Home'));
+                redirect(site_url('Profile'));
             } else {
-                $this->session->set_flashdata('error', 'Username telah terdaftar 1');
+                $this->session->set_flashdata('error', 'Username telah terdaftar');
                 redirect(site_url('SignUp'));
             }
         } else {
             //  $this->session->set_flashdata('error', validation_errors());
-            $this->session->set_flashdata('error', 'Username telah terdaftar 2');
+            $this->session->set_flashdata('error', 'Data yang Anda masukan salah');
             redirect(site_url('SignUp'));
         }
     }
