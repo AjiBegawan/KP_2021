@@ -113,7 +113,7 @@
 
         <div class="wsite-image wsite-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center">
           <a>
-            <img src="<?= base_url() ?>assets\img\Deera01.jpg" alt="Picture" style="width:auto;max-width:60%;">
+            <img src="<?= base_url("assets\img\Artikel\deera1.jpeg") ?>" alt="Picture" style="width:auto;max-width:60%;">
           </a>
           <div style="display:block;font-size:90%"></div>
         </div>

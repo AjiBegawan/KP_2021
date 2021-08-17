@@ -51,14 +51,14 @@
         <div>
             <div class="wsite-image wsite-image-border-medium " style="padding-top:5px;padding-bottom:10px;margin-left:0px;margin-right:10px;text-align:center">
                 <a>
-                    <img src="<?= base_url() ?>assets\img\NFT.png" alt="NFT ART" style="width:100%;max-width:100%;">
+                    <img src="<?= base_url("assets\img\Artikel\Artikel1.png") ?>" alt="NFT ART" style="width:100%;max-width:100%;">
                 </a>
-                <h6>Ini Caption</h6>
+                
             </div>
         </div>
         <h1 style="text-align:center;">Cara Masuk ke NFT Art</h1>
-        <div class="container">
-            <section class="inner-page">
+        <div class="container" >
+            <section class="inner-page " style="margin: 0 15% 0 15%;">
                 <div class="paragraph" style="text-align:left">
                     <font size="4">Semua orang bisa mengakses NFT Art marketplace, namun untuk bisa melakukan transaksi penjualan atau pembelian ada beberapa tahapan yang harus dilalui :&nbsp;<br>&nbsp;
                         <ol>

@@ -98,17 +98,17 @@
                   <?= $user->phone; ?>
                 </div>
               </div>
-
               <hr>
               <div class="row">
                 <div class="col-sm-3">
-                  <h6 class="mb-0">Location 1</h6>
+                  <h6 class="mb-0">Location</h6>
                 </div>
                 <div class="col-sm-9 text-dark">
                   <?= $user->alamat; ?>
                 </div>
               </div>
               <hr>
+
               <div class="row">
                 <div class="col-sm-12">
                   <a class="btn btn-danger px-4 btn-center" target="blank" href="<?= site_url("/Profile/profile_edit") ?>">Edit</a>

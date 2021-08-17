@@ -22,15 +22,15 @@
             <?php echo $this->session->flashdata('message') ?>
         </div>
     <?php } ?>
-    <div>
-        <button type="button" class="close" aria-label="Close" style="margin: -50px 13px 0 0 ;" >
-            <a href="<?php echo site_url('Home'); ?>"><span aria-hidden="true">&times;</span></a>
-        </button>
-    </div>
-    <div class="container contact-form">
 
-        <div class="contact-image">
-            <img src="<?= base_url('assets\image\LogoIDNFT.png') ?>" alt="rocket_contact" />
+    <div class="container contact-form">
+        <div>
+            <button type="button" class="close" aria-label="Close" style="margin: 10px 0 0 0 ;">
+                <a href="<?php echo site_url('Home'); ?>" style="text-decoration: none;color:red;"><span aria-hidden="true">&times;</span></a>
+            </button>
+        </div>
+        <div class="contact-image" >
+            <img src="<?= base_url('assets\image\LogoIDNFT.png') ?>" alt="IDNFT Logo"/>
         </div>
         <form method="POST" action="<?php echo site_url('Login/prosesLogin'); ?>">
             <h3>Login</h3>
@@ -46,13 +46,14 @@
                 <div class="form-group">
                     <button type="submit" name="register" class="btn btn-danger btn-center">Login</button>
                 </div>
-                <div class="form-group">
-                    <label for="nama">Don't have an Account?</label>
-                    <a href="<?php echo site_url('SignUp'); ?>">Register Now</a>
-                </div>
+
             </div>
         </form>
-
+        <br>
+        <div class="form-group text-center">
+            <label for="">Don't have an Account?</label>
+            <a href="<?php echo site_url('SignUp'); ?>" style="text-decoration: none;color:red;">Register Now</a>
+        </div>
     </div>
 
 

@@ -1,7 +1,7 @@
 <nav class="navbar  navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand mr-auto" href="<?php echo site_url('Home') ?>" style="text-decoration: none; color : black;">
         <img src="<?= base_url("assets\image\LogoIDNFT.png") ?>" width="35" height="35" style="margin: -3px 7px 0 0 ;" class="d-inline-block align-top" alt="Logo IDNFT">
-        IDNFT
+        IDNFT <span style="font-size: 12px;">Beta</span>
     </a>
 
     <!-- Menu -->
