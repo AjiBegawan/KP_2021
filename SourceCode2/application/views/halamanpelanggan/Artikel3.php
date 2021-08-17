@@ -36,15 +36,12 @@
     <!-- End Header -->
 
     <main id="main">
-
         <!-- ======= Breadcrumbs ======= -->
         <section class="breadcrumbs">
             <div class="container">
-
                 <div class="d-flex justify-content-between align-items-center">
                     <h2>Blog Page</h2>
                 </div>
-
             </div>
         </section><!-- End Breadcrumbs -->
         <div class="wsite-image wsite-image-border-medium " style="padding-top:5px;padding-bottom:10px;margin-left:0px;margin-right:10px;text-align:center">
@@ -53,7 +50,6 @@
             </a>
             <h6>First Emoji dari Beeple, seniman NFT tersukses di dunia saat ini dengan total penjualan mencapai $69M di 2021.</h6>
         </div>
-
         <div class="container">
             <section class="inner-page" style="margin: 0 15% 0 15%;">
                 <h1 style="text-align:center;">Tips Untuk Memulai Berkarir di NFT Art Bagi Pemula</h1> <br>
@@ -80,11 +76,7 @@
         </div>
 
     </main><!-- End #main -->
-
     <!-- ======= Footer ======= -->
     <?php require_once('application\views\template\_footer.php'); ?>
-
-
 </body>
-
 </html>
