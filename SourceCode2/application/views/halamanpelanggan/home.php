@@ -35,7 +35,12 @@
 </head>
 
 <body>
-
+  <?php if ($this->session->flashdata('message')) { ?>
+    <div class="alert alert-success">
+      <?php echo $this->session->flashdata('message') ?>
+    </div>
+  <?php } ?>
+  
   <!-- Header -->
   <?php require_once('application\views\template\_header.php'); ?>
 
@@ -88,7 +93,6 @@
         <div class="section-title">
           <span>Artist of The Month</span>
           <h2>Artist of The Month</h2>
-          <p>Text Text Text Text Text Text Text Text Text Text Text</p>
         </div>
 
         <div class="row">
@@ -96,7 +100,9 @@
             <div class="member">
               <img src="<?= base_url("assets\img\AOTM\RifqiRubahHitam.png") ?>" alt="">
               <h3>Rifqi Rubah Hitam</h3>
-              <span><h5>Motion Designer | 2D Animator | 3D Artist</h5> </span>
+              <span>
+                <h5>Motion Designer | 2D Animator | 3D Artist</h5>
+              </span>
               <span><i class="icofont-location-pin"></i>Yogjakarta, Indonesia</span>
               <p>
 

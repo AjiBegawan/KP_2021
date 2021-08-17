@@ -17,11 +17,11 @@
 </head>
 
 <body>
-<?php if ($this->session->flashdata('message')) { ?>
-            <div class="alert alert-success">
-                <?php echo $this->session->flashdata('message') ?>
-            </div>
-        <?php } ?>
+    <?php if ($this->session->flashdata('message')) { ?>
+        <div class="alert alert-success">
+            <?php echo $this->session->flashdata('message') ?>
+        </div>
+    <?php } ?>
     <div class="container contact-form">
         <div class="contact-image">
             <img src="<?= base_url('assets\image\LogoIDNFT.png') ?>" alt="rocket_contact" />
