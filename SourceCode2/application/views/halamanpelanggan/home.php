@@ -170,18 +170,21 @@
       </div>
     </section><!-- Benefit Section -->
 
-    <div class="row d-flex justify-content-around">
-      <div class="col-6  pt-4" style="width: 18rem;">
-        <a href="<?php echo site_url('Home/BlogView') ?>" class=" ">
-          <img class="card-img-top" src="<?= base_url("assets\img\Home\Web01.jpg") ?>" alt="Card image cap">
-        </a>
-      </div>
-      <div class="col-6  pt-4" style="width: 18rem;">
-        <a href="<?php echo site_url('Home/BlogView') ?>" class=" ">
-          <img class="card-img-top" src="<?= base_url("assets\img\Home\Web02.jpg") ?>" alt="Card image cap">
-        </a>
+    <div class="container">
+      <div class="row d-flex justify-content-around">
+        <div class="col-6  pt-4" style="width: 18rem;">
+          <a href="<?php echo site_url('Home/BlogView') ?>" class=" ">
+            <img class="card-img-top" src="<?= base_url("assets\img\Home\Web01.jpg") ?>" alt="Card image cap">
+          </a>
+        </div>
+        <div class="col-6  pt-4" style="width: 18rem;">
+          <a href="<?php echo site_url('Home/BlogView') ?>" class=" ">
+            <img class="card-img-top" src="<?= base_url("assets\img\Home\Web02.jpg") ?>" alt="Card image cap">
+          </a>
+        </div>
       </div>
     </div>
+
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
