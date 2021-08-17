@@ -108,9 +108,9 @@
 
               </p>
               <div class="social">
-                <a href="https://twitter.com/rubahitam"><i class="icofont-twitter"></i></a>
-                <a href="https://www.instagram.com/rubahitam_/"><i class="icofont-instagram"></i></a>
-                <a href="https://lynkfire.com/rubahitam"><i class="icofont-web"></i></a>
+                <a href="https://twitter.com/rubahitam" target="blank"><i class="icofont-twitter"></i></a>
+                <a href="https://www.instagram.com/rubahitam_/" target="blank"><i class="icofont-instagram"></i></a>
+                <a href="https://lynkfire.com/rubahitam" target="blank"><i class="icofont-web"></i></a>
               </div>
             </div>
           </div>
@@ -121,8 +121,8 @@
               <h3>Suryanto Sur</h3>
               <span><i class="icofont-location-pin"></i>Indonesia</span>
               <div class="social">
-                <a href="https://twitter.com/Suryanto_sur234"><i class="icofont-twitter"></i></a>
-                <a href="https://www.instagram.com/suryanto123/"><i class="icofont-instagram"></i></a>
+                <a href="https://twitter.com/Suryanto_sur234" target="blank"><i class="icofont-twitter"></i></a>
+                <a href="https://www.instagram.com/suryanto123/" target="blank"><i class="icofont-instagram"></i></a>
               </div>
             </div>
           </div>
@@ -133,7 +133,7 @@
               <h3>Tagpaw</h3>
               <span><i class="icofont-location-pin"></i>Jakarta, Indonesia</span>
               <div class="social">
-                <a href="https://www.instagram.com/tagapaw/"><i class="icofont-instagram"></i></a>
+                <a href="https://www.instagram.com/tagapaw/" target="blank"><i class="icofont-instagram"></i></a>
               </div>
             </div>
           </div>
