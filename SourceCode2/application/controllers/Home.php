@@ -20,27 +20,66 @@ class Home extends CI_Controller
     }
     public function BlogView()
     {
-        $this->load->view("halamanpelanggan/blogArtikel");
+        if ($this->session->userdata('is_login')) {
+            $data['user'] = $this->getUsernameData();
+            $this->load->view("halamanpelanggan/blogArtikel", $data);
+        } else {
+            $this->load->view("halamanpelanggan/blogArtikel");
+        }
+
     }
     public function ShopView1()
     {
-        $this->load->view("halamanpelanggan/Shop1");
+        if ($this->session->userdata('is_login')) {
+            $data['user'] = $this->getUsernameData();
+            $this->load->view("halamanpelanggan/Shop1", $data);
+        } else {
+            $this->load->view("halamanpelanggan/Shop1");
+        }
+
+        
     }
     public function ShopView2()
     {
+        if ($this->session->userdata('is_login')) {
+            $data['user'] = $this->getUsernameData();
+            $this->load->view("halamanpelanggan/Shop2", $data);
+        } else {
+            $this->load->view("halamanpelanggan/Shop2");
+        }
+
         $this->load->view("halamanpelanggan/Shop2");
     }
     public function AboutView()
     {
-        $this->load->view("halamanpelanggan/About");
+        if ($this->session->userdata('is_login')) {
+            $data['user'] = $this->getUsernameData();
+            $this->load->view("halamanpelanggan/About", $data);
+        } else {
+            $this->load->view("halamanpelanggan/About");
+        }
+
+        
     }
     public function ContactView()
     {
-        $this->load->view("halamanpelanggan/Contact");
+        if ($this->session->userdata('is_login')) {
+            $data['user'] = $this->getUsernameData();
+            $this->load->view("halamanpelanggan/Contact", $data);
+        } else {
+            $this->load->view("halamanpelanggan/Contact");
+        }
+  
     }
     public function DeeraView()
     {
-        $this->load->view("halamanpelanggan/Deera");
+        if ($this->session->userdata('is_login')) {
+            $data['user'] = $this->getUsernameData();
+            $this->load->view("halamanpelanggan/Deera", $data);
+        } else {
+            $this->load->view("halamanpelanggan/Deera");
+        }
+
     }
     function getUsernameData()
     {

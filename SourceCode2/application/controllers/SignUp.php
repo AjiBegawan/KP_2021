@@ -10,7 +10,14 @@ class SignUp extends CI_Controller
     {
         $this->load->library('session');
         $this->load->helper("url");
-        $this->load->view("SignUpMember");
+        if ($this->session->userdata('is_login')) {
+            $data['user'] = $this->getUsernameData();
+            $this->load->view("halamanpelanggan/home", $data);
+        } else {
+            $this->load->view("SignUpMember");
+        }
+
+        
     }
     function SignUpAdmin()
     {
@@ -84,5 +91,12 @@ class SignUp extends CI_Controller
             $this->session->set_flashdata('error', 'Username telah terdaftar 2');
             redirect(site_url('SignUp'));
         }
+    }
+
+    function getUsernameData()
+    {
+        $this->db->where('username', $this->session->userdata('username'));
+        $query = $this->db->get('user')->row();
+        return $query;
     }
 }
