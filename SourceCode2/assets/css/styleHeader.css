@@ -37,6 +37,7 @@
     }
 }
 
+
 /*--------------------------------------------------------------
 # Back to top button
 --------------------------------------------------------------*/
@@ -143,6 +144,7 @@
 .nav-menu .drop-down ul .active>a,
 .nav-menu .drop-down ul li:hover>a {
     color: red;
+    text-decoration: none;
 }
 
 .nav-menu .drop-down>a:after {
