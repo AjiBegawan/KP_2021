@@ -112,7 +112,7 @@
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
             <div class="member">
               <img src="<?= base_url("assets\img\AOTM\Suryanto.png") ?>" alt="">
-              <h4>Suryanto Sur</h4>
+              <h3>Suryanto Sur</h3>
               <span><i class="icofont-location-pin"></i>Indonesia</span>
               <div class="social">
                 <a href="https://twitter.com/Suryanto_sur234"><i class="icofont-twitter"></i></a>
@@ -124,13 +124,10 @@
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
             <div class="member">
               <img src="<?= base_url("assets\img\AOTM\Tagpaw.png") ?>" alt="">
-              <h4>Tagpaw</h4>
+              <h3>Tagpaw</h3>
               <span><i class="icofont-location-pin"></i>Jakarta, Indonesia</span>
               <div class="social">
-                <a href=""><i class="icofont-twitter"></i></a>
-                <a href=""><i class="icofont-facebook"></i></a>
-                <a href="https://instagram.com/ajibegawan"><i class="icofont-instagram"></i></a>
-                <a href=""><i class="icofont-linkedin"></i></a>
+                <a href="https://www.instagram.com/tagapaw/"><i class="icofont-instagram"></i></a>
               </div>
             </div>
           </div>
