@@ -52,7 +52,7 @@
     <ol class="carousel-indicators">
       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
       <li data-target="#myCarousel" data-slide-to="1"></li>
-      <li data-target="#myCarousel" data-slide-to="2"></li>
+      <!-- <li data-target="#myCarousel" data-slide-to="2"></li> -->
     </ol>
 
     <!-- Wrapper for slides -->
@@ -63,12 +63,12 @@
       </div>
 
       <div class="item">
-        <img src="<?= base_url() ?>assets\img\Home\Header.jpg" alt="carousel2" style="width: 100%;">
+        <img src="<?= base_url() ?>assets\img\Home\Header02.jpg" alt="carousel2" style="width: 100%;">
       </div>
-
+<!-- 
       <div class="item">
         <img src="<?= base_url() ?>assets\img\Home\Header.jpg" alt="carousel3" style="width: 100%;">
-      </div>
+      </div> -->
     </div>
 
     <!-- Left and right controls -->
@@ -111,7 +111,7 @@
               <div class="social">
                 <a href="https://twitter.com/rubahitam" target="blank"><i class="icofont-twitter"></i></a>
                 <a href="https://www.instagram.com/rubahitam_/" target="blank"><i class="icofont-instagram"></i></a>
-                <a href="https://lynkfire.com/rubahitam" target="blank"><i class="icofont-web"></i></a>
+                <a href="https://superrare.com/rubahitam" target="blank"><i class="icofont-web"></i></a>
               </div>
             </div>
           </div>
@@ -120,10 +120,14 @@
             <div class="member">
               <img src="<?= base_url("assets\img\AOTM\Suryanto.png") ?>" alt="" height="75%">
               <h3>Suryanto Sur</h3>
+              <span>
+                <h5>3D Artist</h5>
+              </span>
               <span><i class="icofont-location-pin"></i>Indonesia</span>
               <div class="social">
                 <a href="https://twitter.com/Suryanto_sur234" target="blank"><i class="icofont-twitter"></i></a>
                 <a href="https://www.instagram.com/suryanto123/" target="blank"><i class="icofont-instagram"></i></a>
+                <a href="https://superrare.com/suryanto_nft" target="blank"><i class="icofont-web"></i></a>
               </div>
             </div>
           </div>
@@ -132,9 +136,14 @@
             <div class="member">
               <img src="<?= base_url("assets\img\AOTM\Tagpaw.png") ?>" alt="" height="75%">
               <h3>Tagpaw</h3>
+              <span>
+                <h5>3D Artist</h5>
+              </span>
               <span><i class="icofont-location-pin"></i>Jakarta, Indonesia</span>
               <div class="social">
+              <a href="https://twitter.com/TAGAPAW" target="blank"><i class="icofont-twitter"></i></a>
                 <a href="https://www.instagram.com/tagapaw/" target="blank"><i class="icofont-instagram"></i></a>
+                <a href="https://superrare.com/tagapaw" target="blank"><i class="icofont-web"></i></a>
               </div>
             </div>
           </div>
@@ -152,7 +161,7 @@
             <img src="<?= base_url() ?>assets/img/Benefit.png" class="img-fluid" alt="">
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0 content">
-            <h3>Benefits Join with Our Community</h3>
+            <h3>Our Programs</h3>
             <p class="subjudul">
               Help Indonesian artists start their journey on NFT
             </p>

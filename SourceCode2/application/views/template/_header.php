@@ -6,22 +6,22 @@
        <div class="container d-flex align-items-center ">
            <a class="navbar-brand mr-auto" href="<?php echo site_url('Home') ?>" style="text-decoration: none; color : black;">
                <img src="<?= base_url("assets\image\LogoIDNFT.png") ?>" width="40" height="40" style="margin: -9px 7px 0 0 ;" class="d-inline-block align-top" alt="Logo IDNFT">
-               IDNFT <span style="font-size: 10px;">Beta</span>
+               <strong>IDNFT</strong> <span style="font-size: 10px;">Beta</span>
            </a>
            <nav class="nav-menu d-none d-lg-block mx-auto">
                <ul>
-                   <li class="active"><a href="<?php echo site_url('Home') ?>" style="text-decoration: none;">Home</a></li>
-                   <li><a href="<?php echo site_url('Home/DeeraView') ?>" style="text-decoration: none;">DEERA PROJECT</a></li>
-                   <li><a href="<?php echo site_url('Home/BlogView') ?>" style="text-decoration: none;">Blog</a></li>
+                   <li class="active"><a href="<?php echo site_url('Home') ?>" style="text-decoration: none;"><strong>HOME</strong></a></li>
+                   <li><a href="<?php echo site_url('Home/DeeraView') ?>" style="text-decoration: none;"><strong>DEERA IDNFT</strong></a></li>
+                   <li><a href="<?php echo site_url('Home/BlogView') ?>" style="text-decoration: none;"><strong>BLOG</strong></a></li>
                    <!-- <li><a href="<?php echo site_url('Home/ShopView1') ?>">Shop & Merch</a></li> -->
-                   <li><a href="https://discord.gg/DMMF7bVYrh" style="text-decoration: none;" target="blank">Join Our Discord</a></li>
-                   <li><a href="<?php echo site_url('Home') ?>#contact" style="text-decoration: none;">Contact</a></li>
+                   <li><a href="https://discord.gg/DMMF7bVYrh" style="text-decoration: none;" target="blank"><strong>JOIN OUR DISCORD</strong></a></li>
+                   <li><a href="<?php echo site_url('Home') ?>#contact" style="text-decoration: none;"><strong>CONTACT</strong></a></li>
                    <?php if ($this->session->userdata('is_login')) { ?>
-                       <li><a href="<?php echo site_url('Login/logout') ?>" style="text-decoration: none;">Logout</a></li>
+                       <li><a href="<?php echo site_url('Login/logout') ?>" style="text-decoration: none;">LOGOUT</a></li>
                    <?php } ?>
                    <?php if (!$this->session->userdata('is_login')) { ?>
-                       <li><a href="<?= site_url() ?>/Login" class="btn btn-danger" style="text-decoration: none;">Login</a></li>
-                       <li><a href="<?= site_url() ?>/SignUp" class="btn btn-danger" style="text-decoration: none;">Registrasi</a></li>
+                       <li><a href="<?= site_url() ?>/Login"  style="text-decoration: none;"><strong>LOGIN</strong></a></li>
+                       <li><a href="<?= site_url() ?>/SignUp"  style="text-decoration: none;"><strong>REGISTER</strong></a></li>
                    <?php } else { ?>
 
                    <?php } ?>
