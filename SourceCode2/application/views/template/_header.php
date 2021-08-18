@@ -20,8 +20,8 @@
                        <li><a href="<?php echo site_url('Login/logout') ?>" style="text-decoration: none;">Logout</a></li>
                    <?php } ?>
                    <?php if (!$this->session->userdata('is_login')) { ?>
-                       <li><a href="<?= site_url() ?>/Login" class="" style="text-decoration: none;">Login</a></li>
-                       <li><a href="<?= site_url() ?>/SignUp" class="" style="text-decoration: none;">Registrasi</a></li>
+                       <li><a href="<?= site_url() ?>/Login" class="btn btn-danger" style="text-decoration: none;">Login</a></li>
+                       <li><a href="<?= site_url() ?>/SignUp" class="btn btn-danger" style="text-decoration: none;">Registrasi</a></li>
                    <?php } else { ?>
 
                    <?php } ?>
@@ -39,7 +39,6 @@
                <!-- <a href="<?= site_url() ?>/Login" class="get-started-btn scrollto ml-auto btn-danger">Login</a>
                <a href="<?= site_url() ?>/SignUp" class="get-started-btn scrollto ml-auto btn-danger">Registrasi</a> -->
            <?php } ?>
-
            <!-- End Profile -->
        </div>
    </header>
