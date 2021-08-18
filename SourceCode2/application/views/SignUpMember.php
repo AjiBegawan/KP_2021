@@ -23,12 +23,13 @@
         </div>
     <?php } ?>
 
-    <div>
-        <button type="button" class="close" aria-label="Close" style="margin: -30px 30px 0 0 ;">
-            <a href="<?php echo site_url('Home'); ?>"><span aria-hidden="true">&times;</span></a>
-        </button>
-    </div>
+
     <div class="container contact-form">
+    <div>
+            <button type="button" class="close" aria-label="Close" style="margin: 10px 0 0 0 ;">
+                <a href="<?php echo site_url('Home'); ?>" style="text-decoration: none;color:red;"><span aria-hidden="true">&times;</span></a>
+            </button>
+        </div>
         <div class="contact-image">
             <img src="<?= base_url('assets\image\LogoIDNFT.png') ?>" alt="rocket_contact" />
         </div>

@@ -153,7 +153,7 @@
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0 content">
             <h3>Benefits Join with Our Community</h3>
-            <p class="font-italic">
+            <p class="subjudul">
               Help Indonesian artists start their journey on NFT
             </p>
             <ul>

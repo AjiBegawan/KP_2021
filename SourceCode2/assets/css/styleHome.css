@@ -8,9 +8,7 @@
 --------------------------------------------------------------*/
 
 body {
-    /* font-family: "Open Sans", sans-serif; */
-    font-family: 'Roboto', sans-serif;
-    /* font-family: 'Arial', sans-serif; */
+    font-family: 'Montserrat', sans-serif;
     color: #444444;
 }
 
@@ -29,7 +27,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     /* font-family: 'Arial', sans-serif; */
     /* font-family: 'Open Sans', sans-serif; */
     /* font-size: 24px; */
@@ -69,9 +67,7 @@ h6 {
     color: #5f687b;
     transition: 0.3s;
     font-size: 14px;
-    /* font-family: "Open Sans", sans-serif; */
-    /* font-family: 'Arial', sans-serif; */
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .nav-menu a:hover,

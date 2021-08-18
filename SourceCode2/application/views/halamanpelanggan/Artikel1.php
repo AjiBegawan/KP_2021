@@ -56,7 +56,7 @@
                 
             </div>
         </div>
-        <h1 style="text-align:center;">Cara Masuk ke NFT Art</h1>
+        <h1 style="text-align:center;font-size:60px">Cara Masuk ke NFT Art</h1>
         <div class="container" >
             <section class="inner-page " style="margin: 0 15% 0 15%;">
                 <div class="paragraph" style="text-align:left">

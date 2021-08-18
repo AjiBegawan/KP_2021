@@ -14,10 +14,16 @@
                    <li><a href="<?php echo site_url('Home/DeeraView') ?>" style="text-decoration: none;">DEERA PROJECT</a></li>
                    <li><a href="<?php echo site_url('Home/BlogView') ?>" style="text-decoration: none;">Blog</a></li>
                    <!-- <li><a href="<?php echo site_url('Home/ShopView1') ?>">Shop & Merch</a></li> -->
-                   <li><a href="https://discord.gg/DMMF7bVYrh"  style="text-decoration: none;" target="blank">Join Our Discord</a></li>
-                   <li><a href="<?php echo site_url('Home') ?>#contact"  style="text-decoration: none;">Contact</a></li>
+                   <li><a href="https://discord.gg/DMMF7bVYrh" style="text-decoration: none;" target="blank">Join Our Discord</a></li>
+                   <li><a href="<?php echo site_url('Home') ?>#contact" style="text-decoration: none;">Contact</a></li>
                    <?php if ($this->session->userdata('is_login')) { ?>
-                       <li><a href="<?php echo site_url('Login/logout') ?>"  style="text-decoration: none;">Logout</a></li>
+                       <li><a href="<?php echo site_url('Login/logout') ?>" style="text-decoration: none;">Logout</a></li>
+                   <?php } ?>
+                   <?php if (!$this->session->userdata('is_login')) { ?>
+                       <li><a href="<?= site_url() ?>/Login" class="" style="text-decoration: none;">Login</a></li>
+                       <li><a href="<?= site_url() ?>/SignUp" class="" style="text-decoration: none;">Registrasi</a></li>
+                   <?php } else { ?>
+
                    <?php } ?>
                </ul>
            </nav>
@@ -30,8 +36,8 @@
                    <label for="nama" style="font-size: 13px;font-weight: normal; color:#5f687b; font-family: Open Sans, sans-serif;"><?= $user->nama; ?></label>
                </a>
            <?php } else { ?>
-               <a href="<?= site_url() ?>/Login" class="get-started-btn scrollto ml-auto btn-danger">Login</a>
-               <a href="<?= site_url() ?>/SignUp" class="get-started-btn scrollto ml-auto btn-danger">Registrasi</a>
+               <!-- <a href="<?= site_url() ?>/Login" class="get-started-btn scrollto ml-auto btn-danger">Login</a>
+               <a href="<?= site_url() ?>/SignUp" class="get-started-btn scrollto ml-auto btn-danger">Registrasi</a> -->
            <?php } ?>
 
            <!-- End Profile -->
