@@ -399,6 +399,7 @@ section {
 
 .about .content ul li {
     padding-bottom: 10px;
+    font-size: 17px;
 }
 
 .about .content ul i {
@@ -507,4 +508,12 @@ section {
 
 .container .row .icofont-check-circled {
     color: red;
+}
+
+.p{
+    font-size: 16px;
+}
+
+.subjudul{
+    font-size: 16px; ;
 }

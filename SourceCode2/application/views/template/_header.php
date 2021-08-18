@@ -17,7 +17,7 @@
                    <li><a href="https://discord.gg/DMMF7bVYrh" style="text-decoration: none;" target="blank"><strong>JOIN OUR DISCORD</strong></a></li>
                    <li><a href="<?php echo site_url('Home') ?>#contact" style="text-decoration: none;"><strong>CONTACT</strong></a></li>
                    <?php if ($this->session->userdata('is_login')) { ?>
-                       <li><a href="<?php echo site_url('Login/logout') ?>" style="text-decoration: none;">LOGOUT</a></li>
+                       <li><a href="<?php echo site_url('Login/logout') ?>" style="text-decoration: none;"><strong>LOGOUT</strong></a></li>
                    <?php } ?>
                    <?php if (!$this->session->userdata('is_login')) { ?>
                        <li><a href="<?= site_url() ?>/Login"  style="text-decoration: none;"><strong>LOGIN</strong></a></li>

@@ -160,21 +160,23 @@
           <div class="col-lg-6">
             <img src="<?= base_url() ?>assets/img/Benefit.png" class="img-fluid" alt="">
           </div>
-          <div class="col-lg-6 pt-4 pt-lg-0 content">
-            <h3>Our Programs</h3>
-            <p class="subjudul">
-              Help Indonesian artists start their journey on NFT
-            </p>
-            <ul>
-              <li><i class="icofont-check-circled"></i>Learn from 0 to join NFT ART</li>
-              <li><i class="icofont-check-circled"></i>Promotion of works</li>
-              <li><i class="icofont-check-circled"></i>Collaboration forum</li>
-              <li><i class="icofont-check-circled"></i>Access to the Exhibition</li>
-              <li><i class="icofont-check-circled"></i>Special access to collectors</li>
-              <li><i class="icofont-check-circled"></i>The latest update in the NFT world</li>
-              <li><i class="icofont-check-circled"></i>Classes and workshops with senior artists</li>
-              <li><i class="icofont-check-circled"></i>Cryptocurrency exchange</li>
-            </ul>
+          <div class="col-lg-6 d-flex justify-content-center content">
+            <div>
+              <h3>Our Programs</h3>
+              <p class="subjudul">
+                Help Indonesian artists start their journey on NFT
+              </p>
+              <ul>
+                <li><i class="icofont-check-circled"></i>Learn from 0 to join NFT ART</li>
+                <li><i class="icofont-check-circled"></i>Promotion of works</li>
+                <li><i class="icofont-check-circled"></i>Collaboration forum</li>
+                <li><i class="icofont-check-circled"></i>Access to the Exhibition</li>
+                <li><i class="icofont-check-circled"></i>Special access to collectors</li>
+                <li><i class="icofont-check-circled"></i>The latest update in the NFT world</li>
+                <li><i class="icofont-check-circled"></i>Classes and workshops with senior artists</li>
+                <li><i class="icofont-check-circled"></i>Cryptocurrency exchange</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
@@ -182,16 +184,26 @@
 
     <div class="container">
       <div class="row d-flex justify-content-around">
-        <div class="col-6  pt-4" style="width: 18rem;">
-          <a href="<?php echo site_url('Home/BlogView') ?>" class=" ">
-            <img class="card-img-top" src="<?= base_url("assets\img\Home\Web01.jpg") ?>" alt="Card image cap">
-          </a>
-        </div>
-        <div class="col-6  pt-4" style="width: 18rem;">
-          <a href="<?php echo site_url('Home/BlogView') ?>" class=" ">
-            <img class="card-img-top" src="<?= base_url("assets\img\Home\Web02.jpg") ?>" alt="Card image cap">
-          </a>
-        </div>
+        <?php if (!$this->session->userdata('is_login')) { ?>
+              <div class="col-lg-6 col-md-12  " style="margin:16px 0">
+                <a href="<?php echo site_url('SignUp') ?>" class=" ">
+                  <img class="card-img-top" src="<?= base_url("assets\img\Home\Website 01_.jpg") ?>" alt="Card image cap">
+                </a>
+              </div>
+              <div class="col-lg-6 col-md-12" style="margin:16px 0">
+                <a href="<?php echo site_url('Home/BlogView') ?>" class=" ">
+                  <img class="card-img-top" src="<?= base_url("assets\img\Home\web02.jpg") ?>" alt="Card image cap">
+                </a>
+
+              </div>
+        <?php } else { ?>
+              <div class="col-lg-12 col-md-12" style="margin:16px 0">
+                <a href="<?php echo site_url('Home') ?>" class=" ">
+                  <img class="card-img-top" src="<?= base_url("assets\img\Home\Web03.jpg") ?>" alt="Card image cap">
+                </a>
+              </div>
+        <?php } ?>
+
       </div>
     </div>
 

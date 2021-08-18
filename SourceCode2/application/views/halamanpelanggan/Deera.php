@@ -42,7 +42,7 @@
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-          <h2>Deera Page</h2>
+          <h2>Deera NFT</h2>
         </div>
 
       </div>
@@ -52,7 +52,7 @@
       <div class="container">
 
         <h2 style="text-align:center;">
-          <font size="20">IDNFT DEERA PROJECT&nbsp;</font>
+          <font size="20"><strong>DEERA NFT&nbsp;</strong></font>
         </h2>
         <h2 style="text-align:center;">
           <font color="black" size="5">PENDAFTARAN KOLABORASI IDNFT X 76 INDONESIAN NFT ARTIST</font>

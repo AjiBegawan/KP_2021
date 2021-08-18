@@ -67,9 +67,14 @@
                 <div class="form-group">
                     <button type="submit" name="register" class="btn btn-danger btn-center">Register</button>
                 </div>
-
+                <br>
+                    <div class="form-group text-center">
+                        <label for="">Allready have an Account?</label>
+                        <a href="<?php echo site_url('Login'); ?>" style="text-decoration: none;color:red;">Login Now</a>
+                    </div>
             </div>
         </form>
+      
     </div>
 
     <!-- Optional JavaScript; choose one of the two! -->

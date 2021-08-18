@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<!--  This file has been downloaded from bootdey.com @bootdey on twitter -->
 	<!--  All snippets are MIT license http://bootdey.com/license -->
-	<title>profile edit data and skills - Bootdey.com</title>
+	<title>Profile Edit  |  IDNFT</title>
 	<link href='<?php echo base_url("assets\image\LogoIDNFT.png"); ?>' rel='shortcut icon' type='image/x-icon' />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
@@ -23,26 +23,20 @@
 			<br>
 
 			<!-- Breadcrumb -->
-			<nav aria-label="breadcrumb" class="main-breadcrumb">
-				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="<?php echo site_url('Home') ?>">Home</a></li>
-					<li class="breadcrumb-item"><a href="<?php echo site_url('Profile') ?>">User Profile</a></li>
-					<li class="breadcrumb-item active" aria-current="page">Edit Profile</li>
-				</ol>
-			</nav>
+			
 			<!-- /Breadcrumb -->
 			<div class="row">
 				<div class="col-lg-4">
 					<div class="card">
 						<div class="card-body">
 							<div class="d-flex flex-column align-items-center text-center">
-								<img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="Admin" class="rounded-circle p-1 bg-primary" width="110">
+								<img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle p-1 " width="110">
 								<div class="mt-3">
 									<h4><?= $user->nama; ?></h4>
 									<p class="text-dark mb-1"><?= $user->aliran_seni; ?></p>
 									<p class="text-dark font-size-sm"><?= $user->alamat; ?></p>
-									<button class="btn btn-primary">Follow</button>
-									<button class="btn btn-outline-primary">Message</button>
+									<button class="btn btn-danger">Follow</button>
+									<button class="btn btn-outline-danger">Message</button>
 								</div>
 							</div>
 
@@ -70,15 +64,6 @@
 										<input type="text" class="form-control" value="<?= $user->instagram; ?>" name="instagram">
 									</div>
 								</div>
-								<div class="row mb-3">
-									<div class="col-sm-3">
-										<h6 class="mb-0">Facebook</h6>
-									</div>
-									<div class="col-sm-9 text-dark">
-										<input type="text" class="form-control" value="<?= $user->facebook; ?>" name="facebook">
-									</div>
-								</div>
-
 							</div>
 						</div>
 						<div class="card">
