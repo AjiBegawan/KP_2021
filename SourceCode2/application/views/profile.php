@@ -39,7 +39,7 @@
           <div class="card">
             <div class="card-body">
               <div class="d-flex flex-column align-items-center text-center">
-                <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+                <img src="<?php echo site_url("assets\img\user-96.png") ?>" alt="Admin" class="rounded-circle" width="150">
                 <div class="mt-3">
                   <h4><?= $user->nama; ?></h4>
                   <p class="text-dark mb-1"><?= $user->aliran_seni; ?></p>
@@ -111,7 +111,7 @@
 
               <div class="row">
                 <div class="col-sm-12">
-                  <a class="btn btn-danger px-4 btn-center" target="blank" href="<?= site_url("/Profile/profile_edit") ?>">Edit</a>
+                  <a class="btn btn-danger px-4 btn-center" href="<?= site_url("/Profile/profile_edit") ?>">Edit</a>
                 </div>
               </div>
             </div>

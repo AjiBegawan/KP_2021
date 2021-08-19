@@ -30,7 +30,7 @@
 					<div class="card">
 						<div class="card-body">
 							<div class="d-flex flex-column align-items-center text-center">
-								<img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle p-1 " width="110">
+								<img src="<?php echo site_url("assets\img\user-96.png") ?>" alt="Admin" class="rounded-circle p-1 " width="110">
 								<div class="mt-3">
 									<h4><?= $user->nama; ?></h4>
 									<p class="text-dark mb-1"><?= $user->aliran_seni; ?></p>
