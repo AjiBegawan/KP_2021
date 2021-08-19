@@ -40,6 +40,24 @@ class Blog extends CI_Controller
             $this->load->view("halamanpelanggan/Artikel3");
         }
     }
+    public function Artikel4()
+    {
+        if ($this->session->userdata('is_login')) {
+            $data['user'] = $this->getUsernameData();
+            $this->load->view("halamanpelanggan/Artikel4", $data);
+        } else {
+            $this->load->view("halamanpelanggan/Artikel4");
+        }
+    }
+    public function Artikel5()
+    {
+        if ($this->session->userdata('is_login')) {
+            $data['user'] = $this->getUsernameData();
+            $this->load->view("halamanpelanggan/Artikel5", $data);
+        } else {
+            $this->load->view("halamanpelanggan/Artikel5");
+        }
+    }
     function getUsernameData()
     {
         $this->db->where('username', $this->session->userdata('username'));
