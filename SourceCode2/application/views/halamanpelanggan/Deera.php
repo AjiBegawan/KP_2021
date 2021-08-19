@@ -50,79 +50,22 @@
 
     <section class="inner-page">
       <div class="container">
-
-        <h2 style="text-align:center;">
-          <font size="20"><strong>DEERA NFT&nbsp;</strong></font>
-        </h2>
-        <h2 style="text-align:center;">
-          <font color="black" size="5">PENDAFTARAN KOLABORASI IDNFT X 76 INDONESIAN NFT ARTIST</font>
-        </h2>
-
-        <div class="paragraph" style="text-align:justify">
-          <font size="3">Hi Fam, selamat datang di ​seleksi kolaborasi IDNFT x NFT Artist Indonesia dalam rangka memperingati HUT RI 76. Kolaborasi ini berupa pembuatan NFT Collectible Items dengan menggunakan karakter "Rusa Bawen" yang bernama DEERA. Setiap artist terpilih akan mendapatkan satu karakter dengan mock-up dari karya masing-masing artist. Untuk artist 2D proses mock-up akan dibantu oleh tim IDNFT. Untuk Artist 3D akan diberikan file dan guidline untuk bisa diolah sendiri.&nbsp;<br>&nbsp;
-        </div>
-        <div class="paragraph" style="text-align:left"><strong>Ketentuan Fee Penjualan:</strong>
-          <ol>
-            <li>Karya akan mint di akun resmi IDNFT di ETH Platforms (Opensea/lainnya)</li>
-            <li>Wallet akan di-split antara IDNFT dan artist. Jika terjadi penjualan, otomatis artist akan mendapatkan share 60% di&nbsp;akun walletnya, begitu juga dengan penjualan di secondary market.</li>
-            <li>Peserta tidak dikenakan biaya apapun</li>
-            <li>Detail pembagian fee project sebagai berikut:</li>
-          </ol>
-          </font>
-        </div>
-
-        <div>
-          <div class="wsite-image wsite-image-border-medium " style="padding-top:5px;padding-bottom:10px;margin-left:0px;margin-right:10px;text-align:center">
-            <a>
-              <img src="<?= base_url() ?>assets\img\Deera01.jpg" alt="Picture" style="width:auto;max-width:60%;">
-            </a>
-            <div style="display:block;font-size:90%"></div>
-          </div>
-        </div>
-
-        <div class="paragraph" style="text-align:left">
-          <font size="3"><strong>Ketentuan Karya</strong>
-            <ol style="color:rgb(42, 42, 42)">
-              <li>Karya harus original (IDNFT tidak bertanggungjawab terhadap karya yang mengandung unsur plagiat atau hal lain yang melanggar hukum)</li>
-              <li>Artist diperbolehkan menggunakan karya lama/baru</li>
-              <li>Karya yang dikirim belum di mint di blockchain market manapun</li>
-              <li>2D Artist mengirimkan file dalam bentuk JPEG/PNG dengan resolusi minimal 3000x3750p (4:5 portrait).&nbsp;</li>
-              <li>Hasil mock-up sepenuhnya menjadi kewenangan dari tim IDNFT</li>
-              <li>3D Artist mengikuti ketentuan yang ada di bawah</li>
-              <li>Format nama karakter dari masing-masing artist “DEERA+Nomor Unik”</li>
-              <li>Proses seleksi artist sepenuhnya menjadi kewenangan dari pihak&nbsp;IDNFT&nbsp;</li>
-              <li>Pendaftaran + submit karya maksimal dikirimkan pada tanggal 17&nbsp;Agustus 2021</li>
-              <li>Pengumuman seleksi akan di udate setelahnya</li>
-            </ol>
-          </font>
-        </div>
-
-        <div class="paragraph" style="text-align:left color:black">
-          <font size="3"><strong>​Ketentuan 3D Artist</strong>
-            <ol style="color:rgb(42, 42, 42)">
-              <li>3D Artist dapat mengunduh file di link:&nbsp;<a href="https://drive.google.com/drive/folders/1VtppkIUEmCQhKWuMHBi6qJQqTdvvarSX?usp=sharing" target="_blank">Download</a></li>
-              <li>3D Artist boleh menambahkan object, pernak-pernik disekitar model, dan bebas menyesuaikan background sesuai karakter masing-masing artist.</li>
-              <li>3D Artist&nbsp;&nbsp;tidak diperbolehkan merubah angle camera, merubah/mengurangi basic model dari karakter, merubah posisi, skala dan rotasi dari karakter DEERA.</li>
-              <li>3D Artist mengikuti view kamera pada file dari IDNFT dengan output image 3000x3750p (portrait) dengan format Image .PNG</li>
-            </ol>
-          </font>
-          <span style="color:black">
-            <font size="4"><strong>​Note: Bagi peserta yang tidak lolos DILARANG menggunakan karakter DEERA untuk di posting atau untuk keperluan apapun.</strong>
-          </span>
-        </div>
-
-        <div class="wsite-image wsite-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center">
+        <div class = "justify-content-between">
           <a>
-            <img src="<?= base_url("assets\img\Artikel\deera1.jpeg") ?>" alt="Picture" style="width:auto;max-width:60%;">
+            <img src="<?= base_url() ?>assets\img\DeeraPage\Deera03.jpg" alt="Apa itu NFT" style="width:100%; height:50%;">
           </a>
-          <div style="display:block;font-size:90%"></div>
         </div>
-      </div>
 
-      <h2 class="wsite-content-title" style="text-align:center;"><a href="https://forms.gle/JCfBG2GF5C5rokbz8" target="_blank">DAFTAR SEKARANG</a></h2>
-      <h2 class="wsite-content-title" style="text-align:center;">
-        <font size="4">Let's to be part of our movement</a>
-      </h2>
+        <div class="paragraph" style="text-align:center">
+          <font size="5"><br>Deera is a collection of 1,000 handmade, 3D generated and stylistically curated NFTs that exist on the Ethereum Blockchain. Released in waves of 100, Each Deera is unique, and grants you access to exclusive members-only benefits such as raffles, community giveaways, and more.&nbsp;
+          <p><br>Get updates:<br></p>
+          <p>Twitter: @deera_nft | www.deeranft.com </p>
+        </font size>
+        </div>
+
+        <!-- <div class="coming"> -->
+            <h2 class="coming" style="text-align:center; color:red;"><strong><br><br>C&nbsp;O&nbsp;M&nbsp;I&nbsp;N&nbsp;G &nbsp; S&nbsp;O&nbsp;O&nbsp;N</strong></h2>
+        <!-- </div> -->
       </script>
       </div>
     </section>

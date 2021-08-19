@@ -93,7 +93,7 @@
         <div class="section-title">
           <!-- <span>Artist of The Month</span> -->
           <h2>Artist of The Month</h2>
-          <h5>Berikut ini artist NFT pertama di Indonesia</h5>
+          <h5>The First Indonesian NFT Artists</h5>
         </div>
 
         <div class="row">
@@ -162,7 +162,7 @@
           </div>
           <div class="col-lg-6 d-flex justify-content-center content">
             <div>
-              <h3>Our Programs</h3>
+              <h3>OUR  PROGRAMS</h3>
               <p class="subjudul">
                 Help Indonesian artists start their journey on NFT
               </p>
@@ -174,7 +174,7 @@
                 <li><i class="icofont-check-circled"></i>Special access to collectors</li>
                 <li><i class="icofont-check-circled"></i>The latest update in the NFT world</li>
                 <li><i class="icofont-check-circled"></i>Classes and workshops with senior artists</li>
-                <li><i class="icofont-check-circled"></i>Cryptocurrency exchange</li>
+                <li><i class="icofont-check-circled"></i>Free Gas fee fund program</li>
               </ul>
             </div>
           </div>
