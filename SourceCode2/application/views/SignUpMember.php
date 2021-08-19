@@ -31,7 +31,7 @@
             </button>
         </div>
         <div class="contact-image">
-            <img src="<?= base_url('assets\image\LogoIDNFT.png') ?>" alt="rocket_contact" />
+            <img src="<?= base_url('assets\img\LogoIDNFT.png') ?>" alt="rocket_contact" />
         </div>
         <form method="POST" action="<?php echo site_url('SignUp/prosesSignUp'); ?>">
             <h3>Registrasi IDNFT</h3>
@@ -69,7 +69,7 @@
                 </div>
                 <br>
                     <div class="form-group text-center">
-                        <label for="">Allready have an Account?</label>
+                        <label for="">Already have an Account?</label>
                         <a href="<?php echo site_url('Login'); ?>" style="text-decoration: none;color:red;">Login Now</a>
                     </div>
             </div>

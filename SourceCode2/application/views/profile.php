@@ -121,7 +121,7 @@
             <div class="col-sm-6 mb-3">
               <div class="card h-100">
                 <div class="card-body">
-                  <img class="img-thumbnail" src="<?php echo base_url("assets\image\Dftr_nft.jpg"); ?>" />
+                  <img class="img-thumbnail" src="<?php echo base_url("assets\img\Dftr_nft.jpg"); ?>" />
 
                 </div>
               </div>
@@ -129,7 +129,7 @@
             <div class="col-sm-6 mb-3">
               <div class="card h-100">
                 <div class="card-body">
-                  <img class="img-thumbnail" src="<?php echo base_url("assets\image\Dftr_nft.jpg"); ?>" />
+                  <img class="img-thumbnail" src="<?php echo base_url("assets\img\Dftr_nft.jpg"); ?>" />
 
                 </div>
               </div>

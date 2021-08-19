@@ -30,7 +30,7 @@
             </button>
         </div>
         <div class="contact-image" >
-            <img src="<?= base_url('assets\image\LogoIDNFT.png') ?>" alt="IDNFT Logo"/>
+            <img src="<?= base_url('assets\img\LogoIDNFT.png') ?>" alt="IDNFT Logo"/>
         </div>
         <form method="POST" action="<?php echo site_url('Login/prosesLogin'); ?>">
             <h3>Login</h3>
