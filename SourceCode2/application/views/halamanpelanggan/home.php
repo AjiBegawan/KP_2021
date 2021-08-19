@@ -186,7 +186,7 @@
       <div class="row d-flex justify-content-around">
         <?php if (!$this->session->userdata('is_login')) { ?>
               <div class="col-lg-6 col-md-12  " style="margin:16px 0">
-                <a href="<?php echo site_url('SignUp') ?>" class=" ">
+                <a href="<?php echo site_url('https://forms.gle/MtH5ZQwyRetxFpYj7')?>" class=" ">
                   <img class="card-img-top" src="<?= base_url("assets\img\Home\Website 01_.jpg") ?>" alt="Card image cap">
                 </a>
               </div>
@@ -198,7 +198,7 @@
               </div>
         <?php } else { ?>
               <div class="col-lg-12 col-md-12" style="margin:16px 0">
-                <a href="<?php echo site_url('Home') ?>" class=" ">
+                <a href="<?php echo site_url('https://forms.gle/MtH5ZQwyRetxFpYj7') ?>" class=" ">
                   <img class="card-img-top" src="<?= base_url("assets\img\Home\Web03.jpg") ?>" alt="Card image cap">
                 </a>
               </div>
