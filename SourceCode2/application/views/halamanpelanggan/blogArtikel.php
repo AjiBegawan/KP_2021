@@ -11,7 +11,7 @@
 
   <!-- Favicons -->
   <link href="assets/img/LogoIDNFT.png" rel="icon">
-  <link href="assets/img/LogoIDNFT.png" rel="apple-touch-icon">
+  <link href="assets\img\LogoIDNFT.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -73,11 +73,11 @@
     <!-- End Breadcrumbs -->
 
     <section class="inner-page">
-      <div class="container">
+      <div class="container ">
         <!-- Menampilkan card masing masing blog yang ada pada halaman -->
-      
+
         <!-- CARD 1 -->
-      <div class="card-group">
+        <div class="card-group">
           <div class="card">
             <img class="card-img-top" src="<?= base_url("assets\img\Artikel\ApaItuNFT.png") ?>" alt="Apa Itu NFT Art atau Crypto Art">
             <div class="card-body">
@@ -89,24 +89,24 @@
               <small class="text-muted">Posted August 2, 2021</small>
             </div>
           </div>
-     
 
-       <!-- CARD 2 -->
+
+          <!-- CARD 2 -->
           <div class="card">
-              <img class="card-img-top" src="<?= base_url("assets\img\Artikel1_1.png") ?>" alt="Cara Masuk ke NFT Art">
-              
-              <div class="card-body">
-                <h3 class="card-title"><strong>Cara Masuk ke NFT Art</strong></h3>
-                <p class="card-text">Hampir semua transaksi dalam NFT marketplace memerlukan pembayaran yang disebut “gas fee”, jadi wajib untuk kita memiliki saldo didalam wallet kita. Untuk marketplace berbasis Ethereum bisa menggunakan Metamask atau Wallet Connect...</p>
-                <p><a href="<?php echo site_url('Blog/Artikel1') ?>" class="btn btn-danger">Baca Lengkap</a></p>
-              </div>
+            <img class="card-img-top" src="<?= base_url("assets\img\Artikel1_1.png") ?>" alt="Cara Masuk ke NFT Art">
 
-              <div class="card-footer">
-                <small class="text-muted">Posted August 2, 2021</small>
-              </div>
+            <div class="card-body">
+              <h3 class="card-title"><strong>Cara Masuk ke NFT Art</strong></h3>
+              <p class="card-text">Hampir semua transaksi dalam NFT marketplace memerlukan pembayaran yang disebut “gas fee”, jadi wajib untuk kita memiliki saldo didalam wallet kita. Untuk marketplace berbasis Ethereum bisa menggunakan Metamask atau Wallet Connect...</p>
+              <p><a href="<?php echo site_url('Blog/Artikel1') ?>" class="btn btn-danger">Baca Lengkap</a></p>
+            </div>
+
+            <div class="card-footer">
+              <small class="text-muted">Posted August 2, 2021</small>
+            </div>
           </div>
- 
-        <!-- CARD 3 -->
+
+          <!-- CARD 3 -->
           <div class="card">
             <img class="card-img-top" src="<?= base_url("assets\img\Artikel\artikel3.jpeg") ?>" alt="Tips Untuk Memulai Berkarir di NFT Art Bagi Pemula">
             <div class="card-body">
@@ -118,13 +118,13 @@
               <small class="text-muted">Posted August 2, 2021</small>
             </div>
           </div>
-      </div>
-      
-      <br>
-      <br>
-      <div class="card-group">
+        </div>
 
-      <!-- CARD 4 -->
+        <br>
+        <br>
+        <div class="card-group">
+
+          <!-- CARD 4 -->
           <div class="card">
             <img class="card-img-top" src="<?= base_url("assets\img\Artikel4.png") ?>" alt="Card image cap">
             <div class="card-body">
@@ -137,7 +137,7 @@
             </div>
           </div>
 
-      <!-- CARD 5 -->
+          <!-- CARD 5 -->
           <div class="card">
             <img class="card-img-top" src="<?= base_url("assets\img\Meta2.png") ?>" alt="Card image cap">
             <div class="card-body">
@@ -150,19 +150,19 @@
             </div>
           </div>
 
-      <!-- CARD 6 -->
+          <!-- CARD 6 -->
           <div class="card">
             <img class="card-img-top" src="<?= base_url("assets\img\Artikel\comingsoon.jpg") ?>" alt="Card image cap">
             <div class="card-body">
               <h3 class="card-title"></h3>
               <p class="card-text"></p>
-             
+
             </div>
             <div class="card-footer">
               <small class="text-muted">This post will be post soon!!! See you</small>
             </div>
           </div>
-      </div>
+        </div>
 
     </section>
   </main><!-- End #main -->
