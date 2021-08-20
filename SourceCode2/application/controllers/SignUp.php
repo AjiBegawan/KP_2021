@@ -40,11 +40,12 @@ class SignUp extends CI_Controller
             $email = $this->input->post("email");
             $aliran_seni = $this->input->post("aliran_seni");
             $hak_akses = "2";
+            $idnft = rand(0,99999);
 
             $result = $this->db->where("username", $username);
 
             if (!mysqli_fetch_assoc($result)) {
-                $this->Auth->register($nama, $username, $password, $email,  $aliran_seni,  $hak_akses);
+                $this->Auth->register($nama, $username, $password, $email,  $aliran_seni, $idnft, $hak_akses);
                 $this->Auth->login_user($username,$password);
                 $this->session->set_flashdata('message', 'Proses Pendaftaran User Berhasil');
                 

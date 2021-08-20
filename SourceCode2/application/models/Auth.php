@@ -8,7 +8,7 @@ class Auth extends CI_Model
         $this->load->library('session');
     }
 
-    function register($nama, $username, $password, $email, $aliran_seni, $hak_akses)
+    function register($nama, $username, $password, $email, $aliran_seni, $idnft,$hak_akses)
     {
         $data_user = array(
             'nama'          => $nama,
@@ -16,7 +16,8 @@ class Auth extends CI_Model
             'password'      => password_hash($password, PASSWORD_DEFAULT),
             'email'         => $email,
             'aliran_seni'   => $aliran_seni,
-            'role'          => $hak_akses
+            'role'          => $hak_akses,
+            'idnft'         => $idnft
         );
 
         $this->db->insert('user', $data_user);
