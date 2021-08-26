@@ -1,0 +1,63 @@
+body {
+    /* min-height: 100%;
+    background-image: url('../image/bg3.jpg');
+    background-size: cover; */
+    background: #ffffff;
+}
+
+.contact-form {
+    background: rgba(255, 0, 0, 0.05);
+    margin-top: 5%;
+    margin-bottom: 5%;
+    width: 50%;
+    min-width: 300px;
+    border-radius: 13px;
+    backdrop-filter: blur(3px);
+}
+
+.contact-form .form-control {
+    border-radius: 5px;
+}
+
+.contact-image {
+    text-align: center;
+}
+
+.contact-image img {
+    /* border-radius: 6rem; */
+    width: 11%;
+    margin: 25px -15px 0 0;
+    /* transform: rotate(29deg); */
+}
+
+.contact-form form {
+    padding: 10% 20% 0 20%;
+}
+
+.contact-form form .row {
+    margin-bottom: -7%;
+}
+
+.contact-form h3 {
+    margin-bottom: 8%;
+    margin-top: -10%;
+    text-align: center;
+    color: black;
+}
+
+.contact-form h5 {
+    text-align: center;
+    color: black;
+}
+
+.btn-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25%;
+    margin: auto;
+}
+
+label {
+    color: black;
+}
