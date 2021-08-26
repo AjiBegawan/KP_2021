@@ -339,7 +339,16 @@ section {
 }
 
 .team .member img {
-    max-width: 100%;
+    align-items: flex-start;
+    max-width: 200px;
+    width: auto;
+    max-height: 250px;
+    height: 250px;
+    object-fit: cover;
+    /* max-width: 300px;
+    max-height: 300px; */
+    /* width: auto;
+    height: auto; */
     margin: 0 0 30px 0;
 }
 
@@ -510,10 +519,11 @@ section {
     color: red;
 }
 
-.p{
+.p {
     font-size: 16px;
 }
 
-.subjudul{
-    font-size: 16px; ;
+.subjudul {
+    font-size: 16px;
+    ;
 }
