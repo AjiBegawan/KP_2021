@@ -26,6 +26,7 @@
 
   <!-- Template Main CSS File -->
   <link href="<?= base_url() ?>assets\css\styleHome.css" rel="stylesheet">
+  <link href="<?= base_url() ?>assets\css\styleHeader.css" rel="stylesheet">
 
   <!-- Bootsrap -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -35,9 +36,6 @@
 </head>
 
 <body>
-
-
-
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top" style="background-color:white">
     <div class="container d-flex align-items-center ">
@@ -204,7 +202,7 @@
               <h3>OUR PROGRAMS</h3>
               <p class="subjudul">
                 Help Indonesian artists start their journey on NFT
-              </p>
+              </p><br>
               <ul>
                 <li><i class="icofont-check-circled"></i>Learn from 0 to join NFT ART</li>
                 <li><i class="icofont-check-circled"></i>Promotion of works</li>
@@ -230,7 +228,7 @@
             </a>
           </div>
           <div class="col-lg-6 col-md-12  " style="margin:16px 0">
-            <a href="<?php echo site_url('https://forms.gle/MtH5ZQwyRetxFpYj7') ?>" class=" ">
+            <a href="https://forms.gle/MtH5ZQwyRetxFpYj7" class=" ">
               <img class="card-img-top" src="<?= base_url("assets\img\Home\Website 01_.jpg") ?>" alt="Card image cap">
             </a>
           </div>
