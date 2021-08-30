@@ -73,6 +73,7 @@
                <a href="<?= site_url() ?>/SignUp" class="get-started-btn scrollto ml-auto btn-danger">Registrasi</a> -->
       <?php } ?>
       <!-- End Profile -->
+      <br><br>
     </div>
     <?php if ($this->session->flashdata('message')) { ?>
       <div class="alert alert-success">
@@ -84,7 +85,7 @@
 
   <!-- Carousel Section -->
 
-  <div id="myCarousel" class="carousel slide" data-ride="carousel" style="margin: 50px 0 0 0 ;">
+  <div id="myCarousel" class="carousel slide carou" data-ride="carousel" style="margin: 50px 0 0 0 ;">
     <!-- Indicators -->
     <ol class="carousel-indicators">
       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -93,7 +94,7 @@
     </ol>
 
     <!-- Wrapper for slides -->
-    <div class="carousel-inner">
+    <div class="carousel-inner img">
       <div class="item active">
         <img src="<?= base_url() ?>assets\img\Home\Header.jpg" alt="carousel1" style="width: 100%;min-width: 100%;">
 
@@ -129,7 +130,7 @@
 
         <div class="section-title">
           <!-- <span>Artist of The Month</span> -->
-          <h2>Artist of The Month</h2>
+          <h3>Artist of The Month</h3>
           <h5>The First Indonesian NFT Artists</h5>
         </div>
 
@@ -158,7 +159,7 @@
               <img src="<?= base_url("assets\img\AOTM\Suryanto.png") ?>" alt=""  >
               <h3>Suryanto Sur</h3>
               <span>
-                <h5>3D Artist</h5>
+                <h5>2D Artist</h5>
               </span>
               <span><i class="icofont-location-pin"></i>Indonesia</span>
               <div class="social">
@@ -210,7 +211,7 @@
                 <li><i class="icofont-check-circled"></i>Access to the Exhibition</li>
                 <li><i class="icofont-check-circled"></i>Special access to collectors</li>
                 <li><i class="icofont-check-circled"></i>The latest update in the NFT world</li>
-                <li><i class="icofont-check-circled"></i>Classes and workshops with senior artists</li>
+                <li><i class="icofont-check-circled"></i>Classes with senior artists</li>
                 <li><i class="icofont-check-circled"></i>Free Gas fee fund program</li>
               </ul>
             </div>

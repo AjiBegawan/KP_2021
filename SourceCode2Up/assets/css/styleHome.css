@@ -331,11 +331,17 @@ section {
 # Team [ARTIST OF THE WEEK SECTION]
 --------------------------------------------------------------*/
 
+.team {
+    margin-top: -75px;
+}
+
 .team .member {
     text-align: center;
     margin-bottom: 20px;
     padding: 30px 20px;
     background: #fff;
+    max-width: 300px;
+    width: 250px;
 }
 
 .team .member img {
@@ -345,11 +351,12 @@ section {
     max-height: 250px;
     height: 250px;
     object-fit: cover;
-    /* max-width: 300px;
-    max-height: 300px; */
-    /* width: auto;
-    height: auto; */
     margin: 0 0 30px 0;
+}
+
+.team h3 {
+    font-weight: 700;
+    margin-bottom: 2px;
 }
 
 .team .member h3 {
@@ -526,4 +533,8 @@ section {
 .subjudul {
     font-size: 16px;
     ;
+}
+
+.carou .img {
+    padding-top: 25px;
 }
