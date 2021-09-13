@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'sql205.epizy.com',
-	'username' => 'epiz_29486570',
-	'password' => 'Vz7R1b71Aw8mBiK',
-	'database' => 'epiz_29486570_idnft',
+	'hostname' => 'localhost',
+	'username' => 'idnn8893_idnft',
+	'password' => 'idnft2021',
+	'database' => 'idnn8893_idnft',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

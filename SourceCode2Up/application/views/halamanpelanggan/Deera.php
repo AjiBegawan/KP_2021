@@ -132,23 +132,28 @@
         <h2>Contact</h2>
         <p>Stay Update With Our Community!</p>
       </div>
-      <div class="row">
-        <div class="col-lg-12 d-flex align-items-stretch">
-          <div class="info">
+      <!-- Sosmed -->
+      <div class="info">
+        <div class="row">
+          <div class="col-md-4 d-flex justify-content-center">
             <div class="address">
               <i class="icofont-twitter"></i>
-              <h4>Twitter:</h4>
+              <h4>Twitter</h4>
               <a href="https://twitter.com/idnft_" style="text-decoration: none;" target="blank">
                 <p>@idnft_</p>
               </a>
             </div>
+          </div>
+          <div class="col-md-4 d-flex justify-content-center">
             <div class="email">
               <i class="icofont-instagram"></i>
-              <h4>Instagram :</h4>
+              <h4>Instagram </h4>
               <a href="https://www.instagram.com/id.nft/" style="text-decoration: none;" target="blank">
                 <p>id.nft</p>
               </a>
             </div>
+          </div>
+          <div class="col-md-4 d-flex justify-content-center">
             <div class="phone">
               <i class=""><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0 0 172 172" style=" fill:#000000;">
                   <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
@@ -166,45 +171,48 @@
                 </g>
                 </svg>
               </i>
-              <h4>Discord : </h4>
+              <h4>Discord</h4>
               <a href="https://discord.gg/DMMF7bVYrh" style="text-decoration: none;" target="blank">
                 <p>IDNFT</p>
               </a>
             </div>
           </div>
-          <form action="<?php echo site_url('Home/contact'); ?>" method="post" role="form" class="php-email-form">
-            <div class="form-row">
-              <div class="form-group col-md-6">
-                <label for="name">Your Name</label>
-                <input type="text" name="nama" class="form-control" id="name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                <div class="validate"></div>
-              </div>
-              <div class="form-group col-md-6">
-                <label for="name">Your Email</label>
-                <input type="email" class="form-control" name="email" id="email" data-rule="email" data-msg="Please enter a valid email" />
-                <div class="validate"></div>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="name">Subject</label>
-              <input type="text" class="form-control" name="subject" id="subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+        </div>
+
+
+        <!-- Form Email -->
+        <form action="<?php echo site_url('Home/contact'); ?>" method="post" role="form" class="php-email-form">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="name">Your Name</label>
+              <input type="text" name="nama" class="form-control" id="name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
               <div class="validate"></div>
             </div>
-            <div class="form-group">
-              <label for="name">Message</label>
-              <textarea class="form-control" name="message" rows="3" data-rule="required" data-msg="Please write something for us"></textarea>
+            <div class="form-group col-md-6">
+              <label for="name">Your Email</label>
+              <input type="email" class="form-control" name="email" id="email" data-rule="email" data-msg="Please enter a valid email" />
               <div class="validate"></div>
             </div>
-            <div class="mb-3">
-              <div class="loading">Loading</div>
-              <div class="error-message"></div>
-              <div class="sent-message">Your message has been sent. Thank you!</div>
-            </div>
-            <div class="text-center"><button type="submit">Send Message</button></div>
-          </form>
-        </div>
-        <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-        </div>
+          </div>
+          <div class="form-group">
+            <label for="name">Subject</label>
+            <input type="text" class="form-control" name="subject" id="subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+            <div class="validate"></div>
+          </div>
+          <div class="form-group">
+            <label for="name">Message</label>
+            <textarea class="form-control" name="message" rows="3" data-rule="required" data-msg="Please write something for us"></textarea>
+            <div class="validate"></div>
+          </div>
+          <div class="mb-3">
+            <div class="loading">Loading</div>
+            <div class="error-message"></div>
+            <div class="sent-message">Your message has been sent. Thank you!</div>
+          </div>
+          <div class="text-center"><button type="submit">Send Message</button></div>
+        </form>
+
+
       </div>
 
       <div class="container footer-bottom clearfix">
