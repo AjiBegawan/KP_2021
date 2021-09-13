@@ -16,10 +16,7 @@
 
 <body>
     <h1>Shopping</h1>
-
-
     <!-- Fixed navbar -->
-
     <!-- Begin page content -->
     <div class="container">
         <div class="row">

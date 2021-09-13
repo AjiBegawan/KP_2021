@@ -83,13 +83,14 @@
   </header>
   <!-- End Header -->
 
-  <!-- Carousel Section -->
+    <!-- Carousel Section -->
 
-  <div id="myCarousel" class="carousel slide carou" data-ride="carousel" style="margin: 50px 0 0 0 ;">
+    <div id="myCarousel" class="carousel slide carou" data-ride="carousel" style="margin: 50px 0 0 0 ;">
     <!-- Indicators -->
     <ol class="carousel-indicators">
       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
       <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
       <!-- <li data-target="#myCarousel" data-slide-to="2"></li> -->
     </ol>
 
@@ -103,10 +104,10 @@
       <div class="item">
         <img src="<?= base_url() ?>assets\img\Home\Header02.jpg" alt="carousel2" style="width: 100%;">
       </div>
-      <!-- 
+      
       <div class="item">
-        <img src="<?= base_url() ?>assets\img\Home\Header.jpg" alt="carousel3" style="width: 100%;">
-      </div> -->
+        <img src="<?= base_url() ?>assets\img\Home\Header03.jpg" alt="carousel3" style="width: 100%;">
+      </div>
     </div>
 
     <!-- Left and right controls -->

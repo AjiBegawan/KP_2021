@@ -80,6 +80,7 @@
                 <img src="<?php echo site_url("assets\img\user-96.png") ?>" alt="Admin" class="rounded-circle" width="150">
                 <div class="mt-3">
                   <h4><?= $user->nama; ?></h4>
+                  <h6>IDNFT<?= $user->idnft; ?></h6>
                   <p class="text-dark mb-1"><?= $user->aliran_seni; ?></p>
                   <p class="text-dark font-size-sm"><?= $user->alamat; ?></p>
                   <button class="btn btn-danger">Follow</button>
@@ -139,7 +140,7 @@
               <hr>
               <div class="row">
                 <div class="col-sm-3">
-                  <h6 class="mb-0">Location</h6>
+                  <h6 class="mb-0">Domicile</h6>
                 </div>
                 <div class="col-sm-9 text-dark">
                   <?= $user->alamat; ?>
