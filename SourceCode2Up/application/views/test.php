@@ -14,7 +14,8 @@
   </head>
   <body>
     <h1>Hello, world!</h1>
-    <h1>Halaman Test</h1>
+    <h1>IDNFT</h1>
+    <a href="https://idnft.id/beta/">IDNFT</a>
 
     <!-- Optional JavaScript; choose one of the two! -->
 

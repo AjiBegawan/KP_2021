@@ -1,0 +1,35 @@
+/* body {
+    margin-top: 50px;
+} */
+
+
+/* .container {
+    padding: 100px;
+} */
+
+.center {
+    text-align: center;
+}
+
+.buttonmerah {
+    border: 2px solid red;
+    border-radius: 3px;
+    background-color: white;
+    padding: 3px 25px 3px 25px;
+    text-align: center;
+    color: red;
+    font-weight: bold;
+}
+
+.buttonmerah:hover {
+    border: 2px solid red;
+    border-radius: 3px;
+    background-color: red;
+    padding: 3px 25px 3px 25px;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+}
+
+
+/* --- Search Bar */

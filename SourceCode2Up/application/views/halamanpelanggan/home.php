@@ -83,9 +83,9 @@
   </header>
   <!-- End Header -->
 
-    <!-- Carousel Section -->
+  <!-- Carousel Section -->
 
-    <div id="myCarousel" class="carousel slide carou" data-ride="carousel" style="margin: 50px 0 0 0 ;">
+  <div id="myCarousel" class="carousel slide carou" data-ride="carousel" style="margin: 50px 0 0 0 ;">
     <!-- Indicators -->
     <ol class="carousel-indicators">
       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -104,7 +104,7 @@
       <div class="item">
         <img src="<?= base_url() ?>assets\img\Home\Header02.jpg" alt="carousel2" style="width: 100%;">
       </div>
-      
+
       <div class="item">
         <img src="<?= base_url() ?>assets\img\Home\Header03.jpg" alt="carousel3" style="width: 100%;">
       </div>
@@ -138,7 +138,7 @@
         <div class="row">
           <div class="col-lg-4 col-md-4 d-flex justify-content-center">
             <div class="member">
-              <img src="<?= base_url("assets\img\AOTM\RifqiRubahHitam.png") ?>" alt=""  >
+              <img src="<?= base_url("assets\img\AOTM\RifqiRubahHitam.png") ?>" alt="">
               <h3>Rifqi Rubah Hitam</h3>
               <span>
                 <h5>Motion Designer | 2D Animator | 3D Artist</h5>
@@ -157,7 +157,7 @@
 
           <div class="col-lg-4 col-md-4 d-flex justify-content-center">
             <div class="member">
-              <img src="<?= base_url("assets\img\AOTM\Suryanto.png") ?>" alt=""  >
+              <img src="<?= base_url("assets\img\AOTM\Suryanto.png") ?>" alt="">
               <h3>Suryanto Sur</h3>
               <span>
                 <h5>2D Artist</h5>
@@ -173,7 +173,7 @@
 
           <div class="col-lg-4 col-md-4 d-flex justify-content-center">
             <div class="member">
-              <img src="<?= base_url("assets\img\AOTM\Tagpaw.png") ?>" alt=""  >
+              <img src="<?= base_url("assets\img\AOTM\Tagpaw.png") ?>" alt="">
               <h3>Tagpaw</h3>
               <span>
                 <h5>3D Artist</h5>

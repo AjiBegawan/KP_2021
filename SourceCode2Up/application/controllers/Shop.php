@@ -9,6 +9,7 @@ class Shop extends CI_Controller
     function index()
     {
         $data['barang'] =  $this->db->get("test_product");
+        $data['user'] = $this->getUsernameData();
         $this->load->view("shop", $data);
     }
     function getToko()
@@ -16,5 +17,10 @@ class Shop extends CI_Controller
         $data['barang'] =  $this->db->get("test_product");
         $this->load->view("shop", $data);
     }
-    
+    function getUsernameData()
+    {
+        $this->db->where('username', $this->session->userdata('username'));
+        $query = $this->db->get('user')->row();
+        return $query;
+    }
 }

@@ -94,7 +94,7 @@
 
               <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                 <h6 class="mb-0"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABmJLR0QA/wD/AP+gvaeTAAACxUlEQVRIie2WzWtUZxSHn997Mxqr4EIkE7GWQKXVQEFTaGVmSgpRiDOiKEUXGkvX4kIQ3AhZ+AfUlgqCuBBBaBbaJlOxi2ZIxi6l1MQu/Yozo6DRKprEzHtcmNjJnRnnpmalPqt7z3vOed77wbkX3vO2o4Vocr2zs7l5WTmD+AzvzZz7e/JxkG3L5SYq80a/aV/U3jc6VSUubk+tn1BQaLuQexhVWkwnvkY6A6wOLd1C6pmemr4axFw3pv2xwHat/PXy42pxJnkGaGtytnU24XWUtiW+NNMg0FwzQTzHcICT2NvSnz8nMAAXSt0IJKe9Bse6O8NXUIUZJ+pKAYwY4AS/mNFxN506MLsUEmvxzEFHEJT/KqVTe+r1LKS/Wgfa0GhzgAx2AGtaPoifqCk286MVZytMdq6YSQ4XM4mtFnosjvLaCNKXnbBT8c/zu9XXV56NNc1txmmD7aG6JChbyiRvF+C8jLzhRgwrzzyuhsj0u3rxIdd/tJQmLkp2tk79h4KDiJ8lfw3ZQCQrgNO9qlDlSal1yRUzedD9yE0jUC5bMRybc6sRNzF6ot7CiDx5tHT8Rjg49+Xy+nEhjTMMzk6ruuJV2eFLgmMLqjVdrBUODxDiA/mjwH7BnQXQjjcFvubLWiW2XpxhKQ//AJNvKP6h3uitEqsXjzEq6AIW16iJhODOlHG83nqVGKA1e/k48NP/lQIeuZ6PsvnxeYkF1jqQP+CMzUA/MDYvrdmxeP/QH69LafgjUNi26VPng1MmElGckr5v6R8+pAbDoKa4tGXLUh97lhT2HWIn4UFTm0mZDsezw5FmwStxIZ1ISe4Isk+ANTPf0miIQXl/MJ79cyR6SQUPurqWTzY/2wf6FuhoUPuvwQDenVz129BQ5E3WEldS7E6tVJN94b197KQVJmKgp/I2ZtJI/ElwRbnc9HyF73l3eAHAsPOROmKcIQAAAABJRU5ErkJggg=="> Twitter</h6>
-                <span class="text-dark"><?= $user->twitter; ?></span>
+                <span class="text-dark"><a href="https://twitter.com/<?= $user->twitter; ?>" target="_blank"><?= $user->twitter; ?></a></span>
               </li>
               <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                 <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-instagram mr-2 icon-inline text-danger">
@@ -102,7 +102,7 @@
                     <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
                     <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
                   </svg>Instagram</h6>
-                <span class="text-dark"><?= $user->instagram; ?></span>
+                <span class="text-dark"><a href=""><?= $user->instagram; ?></a></span>
               </li>
 
             </ul>
