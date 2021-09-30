@@ -12,7 +12,7 @@
 }
 
 .buttonmerah {
-    border: 2px solid red;
+    border: 1px solid red;
     border-radius: 3px;
     background-color: white;
     padding: 3px 25px 3px 25px;
@@ -22,7 +22,7 @@
 }
 
 .buttonmerah:hover {
-    border: 2px solid red;
+    border: 1px solid red;
     border-radius: 3px;
     background-color: red;
     padding: 3px 25px 3px 25px;
