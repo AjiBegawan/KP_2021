@@ -1,0 +1,27 @@
+Log 
+1. Bab 3.3.1 : penjelasan
+2. Gambar dikasih caption
+3. Gambar dulu dikasih baru penjelasan
+4. Klo dinomorin harus ada nomor di gambar, misal ga dinomorin gausah dimasukin ke gambar
+5. 3.3.2 setelah dilakukan penangkapan proses bisnis, kasih tabel masalah mana di proses mana
+6. benerin promosi atau edukasi. smua konten harus sesuai fokus
+7. 3.4. Kick off projecr dibuat detail
+8. 3.4.2 prioritas diganti sprint
+9. semua tabel dan gambar harus di rujuk
+10. DOD bukan kumpulan fitur. DOD adalah kumpulan syarat yang memungkinkan terciptanya sprint goal. "sesuai dengan spesifikasi di pbi. hanya boleh dirilis kalau sudah dilakukan pengecekan keamanan data.jika sudah dilakukan penandatanganan berita acara perilisan" cari lagi!!!
+11. kick off project dilakukan di sprint 1. 
+--kick off project
+--sprint planning
+--sprint goal-sprint backlog(ngambil dari pbi)-DOD
+--daily scrum.
+12.di daily scrum -- nomor-item diskusi-hasil diskusi
+13. sprint review dimasukin gambar. 
+14. daily scrum masukin product showcase.
+15. bab 4 hanya pengujian. smua perencanaan-koding-testing dimasukin ke bab 3. 
+16. product showcase dimasukin mock up dll.
+17. feedback masuki sprint review
+18. penentuan product backlog baru dimasukin ke daily scrum.
+19. pertanyaan dibuat skala lalu dikasih opsi penjelasan. isinya statement bukan pertanyaan
+20. UAT masuk bab 4
+21. sprint dimasukin ke bab 3 aja ga ke bab 4.
+22. gambar scrum, ss, daily scrum, backlog groming masukin ke 
