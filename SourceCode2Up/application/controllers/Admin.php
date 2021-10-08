@@ -37,8 +37,16 @@ class Admin extends CI_Controller
         $query = $this->db->get('artikel');
         return $query;
     }
-    function editUser()
+    function editUser($username)
     {
-        $this->load->view("editAdminUser");
+        $data['user'] = $this->getUserDatabase($username);
+        $this->load->view("editAdminUser",$data);
+    }
+
+    function getUserDatabase($username)
+    {
+        $this->db->where('username', $username);
+        $query = $this->db->get('user')->row();
+        return $query;
     }
 }

@@ -147,8 +147,8 @@
             <td><?php echo $row->twitter; ?></td>
             <td><?php echo $row->facebook; ?></td>
             <td><?php echo $row->role; ?></td>
-            <td><button type="button" class="btn btn-success">Edit</button></td>
-            <td><button type="button" class="btn btn-danger">Delete</button></td>
+            <td><button type="button" class="btn btn-success"><a href="<?php echo site_url('/admin/editUser/').$row->username ?>">Edit</a></button></td>
+            <td><button type="button" class="btn btn-danger"><a href="<?php echo site_url('/admin/editUser/').$row->username ?>">Delete</a></button></td>
           </tr>
         <?php } ?>
       </tbody>
@@ -327,7 +327,7 @@
               <td><?php echo $row->Paragraf5; ?></td>
               <td><?php echo $row->Paragraf6; ?></td>
               <td><?php echo $row->Paragraf7; ?></td>
-              <td><button type="button" class="btn btn-success">Edit</button></td>
+              <td><button type="button" class="btn btn-success" >Edit</button></td>
               <td><button type="button" class="btn btn-danger">Delete</button></td>
             </tr>
           <?php } ?>
