@@ -36,8 +36,6 @@
         integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
 </head>
 
-
-
 <body>
     <!-- ======= Header ======= -->
     <header id="header" class="fixed-top" style="background-color:white">
@@ -97,7 +95,7 @@
     </header>
     <!-- End Header -->
 
-    <h1>Edit User</h1>
+    <h1>Edit Contact</h1>
 
     <div class="container" style="margin-top: 100px;">
         <form>
@@ -143,36 +141,9 @@
                 <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
                     else.</small>
             </div>
-            <div class="form-group">
-                <label for="exampleInputEmail1">Instagram</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                    placeholder="<?php echo $user->instagram; ?>">
-                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
-                    else.</small>
-            </div>
-            <div class="form-group">
-                <label for="exampleInputEmail1">Twitter</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                    placeholder="<?php echo $user->twitter; ?>">
-                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
-                    else.</small>
-            </div>
-            <div class="form-group">
-                <label for="exampleInputEmail1">Facebook</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                    placeholder="<?php echo $user->facebook; ?>">
-                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
-                    else.</small>
-            </div>
-
-
-
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
-
     </div>
-
-
 </body>
 
 </html>
