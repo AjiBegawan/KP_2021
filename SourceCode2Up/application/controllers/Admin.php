@@ -37,4 +37,8 @@ class Admin extends CI_Controller
         $query = $this->db->get('artikel');
         return $query;
     }
+    function editUser()
+    {
+        $this->load->view("editAdminUser");
+    }
 }
