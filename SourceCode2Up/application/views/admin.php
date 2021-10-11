@@ -104,242 +104,268 @@
 
   </div>
 
-  <!-- Test Table -->
-
-  <div style="margin: 100px ">
-
-    <h1>Data Member</h1>
-    <hr>
-
-    <table id="table-id" class="display">
-      <thead>
-        <tr>
-          <th>Username</th>
-          <!-- <th>Password</th> -->
-          <th>Nama</th>
-          <th>Email</th>
-          <th>Phone</th>
-          <th>Alamat</th>
-          <th>Aliran Seni</th>
-          <th>ID IDNFT</th>
-          <th>Instagram</th>
-          <th>Twitter</th>
-          <th>Instagram</th>
-          <th>Role</th>
-          <th>Edit</th>
-          <th>Delete</th>
-        </tr>
-      </thead>
-      <tbody>
-        <?php
-        foreach ($user->result() as $row) {
-        ?>
-          <tr>
-            <td><?php echo $row->username; ?></td>
-            <!-- <td><?php echo $row->password; ?></td> -->
-            <td><?php echo $row->nama; ?></td>
-            <td><?php echo $row->email; ?></td>
-            <td><?php echo $row->phone; ?></td>
-            <td><?php echo $row->alamat; ?></td>
-            <td><?php echo $row->aliran_seni; ?></td>
-            <td><?php echo $row->idnft; ?></td>
-            <td><?php echo $row->instagram; ?></td>
-            <td><?php echo $row->twitter; ?></td>
-            <td><?php echo $row->facebook; ?></td>
-            <td><?php echo $row->role; ?></td>
-            <td><button type="button" class="btn btn-success"><a href="<?php echo site_url('/admin/editUser/').$row->username ?>">Edit</a></button></td>
-            <td><button type="button" class="btn btn-danger"><a href="<?php echo site_url('/admin/editUser/').$row->username ?>">Delete</a></button></td>
-          </tr>
-        <?php } ?>
-      </tbody>
-    </table>
-
-  </div>
+  <div >
+    <div class="float-left " >
 
 
-  <!-- End Test Table -->
+      <!-- Test Table -->
 
-  <!-- Contact IDNFT -->
-  <div class="container" style="margin-top: 100px;">
+      <div style="margin: 100px ">
 
-    <h1>Data Sosmed IDNFT</h1>
-    <hr>
+        <h1>Data Member</h1>
+        <hr>
 
-    <table id="table_id" class="display">
-      <thead>
-        <tr>
-          <th>Instagram</th>
-          <th>Twitter</th>
-          <th>Discord</th>
-          <th>Edit</th>
-          <th>Delete</th>
-        </tr>
-      </thead>
-      <tbody>
-        <?php
-        foreach ($sosmed->result() as $row) {
-        ?>
-          <tr>
-            <td><?php echo $row->instagram; ?></td>
-            <td><?php echo $row->twitter; ?></td>
-            <td><?php echo $row->discord; ?></td>
-            <td><button type="button" class="btn btn-success">Edit</button></td>
-            <td><button type="button" class="btn btn-danger">Delete</button></td>
-          </tr>
-        <?php } ?>
-      </tbody>
-    </table>
-
-  </div>
-
-  <!-- End Contact IDNFT -->
-
-
-  <!-- Data Pesan Table -->
-  <div style="margin: 100px ">
-
-    <h1>Data Pesan</h1>
-    <hr>
-
-    <table id="table_pesan" class="display">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Nama</th>
-          <th>Email</th>
-          <th>Subject</th>
-          <th>Message</th>
-          <th>Edit</th>
-          <th>Delete</th>
-        </tr>
-      </thead>
-      <tbody>
-        <?php
-        foreach ($pesan->result() as $row) {
-        ?>
-          <tr>
-            <td><?php echo $row->id; ?></td>
-            <td><?php echo $row->nama; ?></td>
-            <td><?php echo $row->email; ?></td>
-            <td><?php echo $row->subject; ?></td>
-            <td><?php echo $row->message; ?></td>
-            <td><button type="button" class="btn btn-success">Edit</button></td>
-            <td><button type="button" class="btn btn-danger">Delete</button></td>
-          </tr>
-        <?php } ?>
-      </tbody>
-    </table>
-
-  </div>
-
-  <!-- End Table Table -->
-
-  <!-- Input Artikel  -->
-
-  <!-- <div class="container">
-    <h1>Input Artikel Blog</h1>
-
-    <form>
-      <div class="form-group">
-        <label for="exampleInputEmail1">Judul</label>
-        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukan Judul">
-        <small id="emailHelp" class="form-text text-muted"></small>
-      </div>
-      <div class="form-group">
-        <label for="exampleInputEmail1">Paragraf 1</label>
-        <textarea name="comment" class="form-control" form="usrform">Masukan Isi Paragraf Disini</textarea>
-      </div>
-
-      <div class="form-group">
-        <label for="exampleInputEmail1">Paragraf 2</label>
-        <textarea name="comment" class="form-control" form="usrform">Masukan Isi Paragraf Disini</textarea>
-      </div>
-
-      <div class="form-group">
-        <label for="exampleInputEmail1">Paragraf 3</label>
-        <textarea name="comment" class="form-control" form="usrform">Masukan Isi Paragraf Disini</textarea>
-      </div>
-
-      <div class="form-group">
-        <label for="exampleInputEmail1">Paragraf 4</label>
-        <textarea name="comment" class="form-control" form="usrform">Masukan Isi Paragraf Disini</textarea>
-      </div>
-
-      <div class="form-group">
-        <label for="exampleInputEmail1">Paragraf 5</label>
-        <textarea name="comment" class="form-control" form="usrform">Masukan Isi Paragraf Disini</textarea>
-      </div>
-
-      <div class="form-group">
-        <label for="exampleInputEmail1">Paragraf 6</label>
-        <textarea name="comment" class="form-control" form="usrform">Masukan Isi Paragraf Disini</textarea>
-      </div>
-
-      <div class="form-group">
-        <label for="exampleInputEmail1">Paragraf 7</label>
-        <textarea name="comment" class="form-control" form="usrform">Masukan Isi Paragraf Disini</textarea>
-      </div>
-
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-
-  </div> -->
-
-  <!-- End Of Artikel -->
-
-  <!-- Tabel Artikel -->
-
-  <div class="container">
-
-
-    <div >
-
-      <h1>Data Pesan</h1>
-      <hr>
-
-      <table id="table_artikel" class="display">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Judul</th>
-            <th>Paragraf 1</th>
-            <th>Paragraf 2</th>
-            <th>Paragraf 3</th>
-            <th>Paragraf 4</th>
-            <th>Paragraf 5</th>
-            <th>Paragraf 6</th>
-            <th>Paragraf 7</th>
-            <th>Edit</th>
-            <th>Delete</th>
-          </tr>
-        </thead>
-        <tbody>
-          <?php
-          foreach ($artikel->result() as $row) {
-          ?>
+        <table id="table-id" class="display" style="max-width: 5 00px;">
+          <thead>
             <tr>
-              <td><?php echo $row->IdArtikel; ?></td>
-              <td><?php echo $row->Judul; ?></td>
-              <td><?php echo $row->Paragraf1; ?></td>
-              <td><?php echo $row->Paragraf2; ?></td>
-              <td><?php echo $row->Paragraf3; ?></td>
-              <td><?php echo $row->Paragraf4; ?></td>
-              <td><?php echo $row->Paragraf5; ?></td>
-              <td><?php echo $row->Paragraf6; ?></td>
-              <td><?php echo $row->Paragraf7; ?></td>
-              <td><button type="button" class="btn btn-success" >Edit</button></td>
-              <td><button type="button" class="btn btn-danger">Delete</button></td>
+              <th>Username</th>
+              <!-- <th>Password</th> -->
+              <th>Nama</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Alamat</th>
+              <th>Aliran Seni</th>
+              <th>ID IDNFT</th>
+              <th>Instagram</th>
+              <th>Twitter</th>
+              <th>Instagram</th>
+              <th>Role</th>
+              <th>Edit</th>
+              <th>Delete</th>
             </tr>
-          <?php } ?>
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            <?php
+            foreach ($user->result() as $row) {
+            ?>
+              <tr>
+                <td><?php echo $row->username; ?></td>
+                <!-- <td><?php echo $row->password; ?></td> -->
+                <td><?php echo $row->nama; ?></td>
+                <td><?php echo $row->email; ?></td>
+                <td><?php echo $row->phone; ?></td>
+                <td><?php echo $row->alamat; ?></td>
+                <td><?php echo $row->aliran_seni; ?></td>
+                <td><?php echo $row->idnft; ?></td>
+                <td><?php echo $row->instagram; ?></td>
+                <td><?php echo $row->twitter; ?></td>
+                <td><?php echo $row->facebook; ?></td>
+                <td><?php echo $row->role; ?></td>
+                <td><button type="button" class="btn btn-success"><a href="<?php echo site_url('/admin/editUser/') . $row->username ?>">Edit</a></button></td>
+                <td><button type="button" class="btn btn-danger"><a href="<?php echo site_url('/admin/editUser/') . $row->username ?>">Delete</a></button></td>
+              </tr>
+            <?php } ?>
+          </tbody>
+        </table>
+
+      </div>
+      <!-- End Test Table -->
 
     </div>
+
+    <div class="float-left ">
+
+
+
+      <!-- Contact IDNFT -->
+      <div style="margin: 100px ">
+
+        <h1>Data Sosmed IDNFT</h1>
+        <hr>
+
+        <table id="table_id" class="display">
+          <thead>
+            <tr>
+              <th>Instagram</th>
+              <th>Twitter</th>
+              <th>Discord</th>
+              <th>Edit</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php
+            foreach ($sosmed->result() as $row) {
+            ?>
+              <tr>
+                <td><?php echo $row->instagram; ?></td>
+                <td><?php echo $row->twitter; ?></td>
+                <td><?php echo $row->discord; ?></td>
+                <td><button type="button" class="btn btn-success">Edit</button></td>
+                <td><button type="button" class="btn btn-danger">Delete</button></td>
+              </tr>
+            <?php } ?>
+          </tbody>
+        </table>
+
+      </div>
+
+      <!-- End Contact IDNFT -->
+    </div>
+
+    <div class="float-left ">
+
+
+
+      <!-- Data Pesan Table -->
+      <div style="margin: 100px ">
+
+        <h1>Data Pesan</h1>
+        <hr>
+
+        <table id="table_pesan" class="display">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nama</th>
+              <th>Email</th>
+              <th>Subject</th>
+              <th>Message</th>
+              <th>Edit</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php
+            foreach ($pesan->result() as $row) {
+            ?>
+              <tr>
+                <td><?php echo $row->id; ?></td>
+                <td><?php echo $row->nama; ?></td>
+                <td><?php echo $row->email; ?></td>
+                <td><?php echo $row->subject; ?></td>
+                <td><?php echo $row->message; ?></td>
+                <td><button type="button" class="btn btn-success">Edit</button></td>
+                <td><button type="button" class="btn btn-danger">Delete</button></td>
+              </tr>
+            <?php } ?>
+          </tbody>
+        </table>
+
+      </div>
+
+      <!-- End Table Table -->
+    </div>
+
+
+
+    <!-- Input Artikel  -->
+
+    <!-- <div class="container">
+      <h1>Input Artikel Blog</h1>
+  
+      <form>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Judul</label>
+          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukan Judul">
+          <small id="emailHelp" class="form-text text-muted"></small>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Paragraf 1</label>
+          <textarea name="comment" class="form-control" form="usrform">Masukan Isi Paragraf Disini</textarea>
+        </div>
+  
+        <div class="form-group">
+          <label for="exampleInputEmail1">Paragraf 2</label>
+          <textarea name="comment" class="form-control" form="usrform">Masukan Isi Paragraf Disini</textarea>
+        </div>
+  
+        <div class="form-group">
+          <label for="exampleInputEmail1">Paragraf 3</label>
+          <textarea name="comment" class="form-control" form="usrform">Masukan Isi Paragraf Disini</textarea>
+        </div>
+  
+        <div class="form-group">
+          <label for="exampleInputEmail1">Paragraf 4</label>
+          <textarea name="comment" class="form-control" form="usrform">Masukan Isi Paragraf Disini</textarea>
+        </div>
+  
+        <div class="form-group">
+          <label for="exampleInputEmail1">Paragraf 5</label>
+          <textarea name="comment" class="form-control" form="usrform">Masukan Isi Paragraf Disini</textarea>
+        </div>
+  
+        <div class="form-group">
+          <label for="exampleInputEmail1">Paragraf 6</label>
+          <textarea name="comment" class="form-control" form="usrform">Masukan Isi Paragraf Disini</textarea>
+        </div>
+  
+        <div class="form-group">
+          <label for="exampleInputEmail1">Paragraf 7</label>
+          <textarea name="comment" class="form-control" form="usrform">Masukan Isi Paragraf Disini</textarea>
+        </div>
+  
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+  
+    </div> -->
+
+    <!-- End Of Artikel -->
+
+    <div class="float-left ">
+
+
+      <!-- Tabel Artikel -->
+
+      <div style="margin: 100px ">
+
+
+
+        <h1>Data Artikel</h1>
+        <hr>
+
+        <table id="table_artikel" class="display">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Judul</th>
+              <th>Paragraf 1</th>
+              <th>Paragraf 2</th>
+              <th>Paragraf 3</th>
+              <th>Paragraf 4</th>
+              <th>Paragraf 5</th>
+              <th>Paragraf 6</th>
+              <th>Paragraf 7</th>
+              <th>Edit</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php
+            foreach ($artikel->result() as $row) {
+            ?>
+              <tr>
+                <td><?php echo $row->IdArtikel; ?></td>
+                <td><?php echo $row->Judul; ?></td>
+                <td><?php echo $row->Paragraf1; ?></td>
+                <td><?php echo $row->Paragraf2; ?></td>
+                <td><?php echo $row->Paragraf3; ?></td>
+                <td><?php echo $row->Paragraf4; ?></td>
+                <td><?php echo $row->Paragraf5; ?></td>
+                <td><?php echo $row->Paragraf6; ?></td>
+                <td><?php echo $row->Paragraf7; ?></td>
+                <td><button type="button" class="btn btn-success">Edit</button></td>
+                <td><button type="button" class="btn btn-danger">Delete</button></td>
+              </tr>
+            <?php } ?>
+          </tbody>
+        </table>
+
+
+      </div>
+
+
+
+      <!-- End Of Tabel Artikel -->
+
+    </div>
+
   </div>
 
 
 
-  <!-- End Of Tabel Artikel -->
+
+
 
 </body>
 

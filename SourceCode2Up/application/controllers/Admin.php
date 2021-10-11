@@ -1,7 +1,8 @@
 <?php
 class Admin extends CI_Controller
 {
-    public function __construct(){
+    public function __construct()
+    {
         parent::__construct();
         $this->load->library('session');
         $this->load->model('Auth');
@@ -40,7 +41,7 @@ class Admin extends CI_Controller
     function editUser($username)
     {
         $data['user'] = $this->getUserDatabase($username);
-        $this->load->view("editAdminUser",$data);
+        $this->load->view("editAdminUser", $data);
     }
     function getUserDatabase($username)
     {
@@ -48,9 +49,21 @@ class Admin extends CI_Controller
         $query = $this->db->get('user')->row();
         return $query;
     }
-    function editUser($username)
+    function editContact($username)
     {
         $data['user'] = $this->getUserDatabase($username);
-        $this->load->view("editAdminUser",$data);
+        $this->load->view("editAdminUser", $data);
+    }
+    function updateUser()
+    {
+        $data = array(
+
+            'username' => $this->input->post("username"),
+            'role' => $this->input->post("role")
+        );
+
+        $this->db->where('username', $this->input->post("username"));
+        $this->db->update('user', $data);
+        $this->index();
     }
 }
