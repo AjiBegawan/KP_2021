@@ -56,14 +56,19 @@ class Admin extends CI_Controller
     }
     function updateUser()
     {
-        $data = array(
+        $username = $this->input->post('username');
+        $role = $this->input->post('role');
 
-            'username' => $this->input->post("username"),
-            'role' => $this->input->post("role")
+        $data = array(
+            'role'      => $role
         );
 
-        $this->db->where('username', $this->input->post("username"));
-        $this->db->update('user', $data);
-        $this->index();
+        // $this->db->set('role', $data['role']);
+        $this->db->where('username', $username);
+        if($this->db->update('user', $data)){
+            $this->index();
+        }else{
+            $this->load->view("gagal");
+        }
     }
 }

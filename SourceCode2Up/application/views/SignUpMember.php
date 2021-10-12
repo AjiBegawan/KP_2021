@@ -25,7 +25,7 @@
 
 
     <div class="container contact-form">
-    <div>
+        <div>
             <button type="button" class="close" aria-label="Close" style="margin: 10px 0 0 0 ;">
                 <a href="<?php echo site_url('Home'); ?>" style="text-decoration: none;color:red;"><span aria-hidden="true">&times;</span></a>
             </button>
@@ -68,13 +68,13 @@
                     <button type="submit" name="register" class="btn btn-danger btn-center">Register</button>
                 </div>
                 <br>
-                    <div class="form-group text-center">
-                        <label for="">Already have an Account?</label>
-                        <a href="<?php echo site_url('Login'); ?>" style="text-decoration: none;color:red;">Login Now</a>
-                    </div>
+                <div class="form-group text-center">
+                    <label for="">Already have an Account?</label>
+                    <a href="<?php echo site_url('Login'); ?>" style="text-decoration: none;color:red;">Login Now</a>
+                </div>
             </div>
         </form>
-      
+
     </div>
 
     <!-- Optional JavaScript; choose one of the two! -->

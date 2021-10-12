@@ -93,47 +93,47 @@
         <form method="POST" action="<?php echo site_url('Admin/updateUser'); ?>">
             <div class="form-group">
                 <label for="exampleInputEmail1">Username</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="username" placeholder="<?php echo $user->username; ?>" readonly>
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="username" value="<?php echo $user->username; ?>" readonly>
 
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Nama</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="<?php echo $user->nama; ?>" readonly>
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="<?php echo $user->nama; ?>" readonly>
 
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Email</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="<?php echo $user->email; ?>" readonly>
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="<?php echo $user->email; ?>" readonly>
 
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Phone</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="<?php echo $user->phone; ?>" readonly>
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="<?php echo $user->phone; ?>" readonly>
 
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Alamat</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="<?php echo $user->alamat; ?>" readonly>
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="<?php echo $user->alamat; ?>" readonly>
 
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Aliran Seni</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="<?php echo $user->aliran_seni; ?>" readonly>
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="<?php echo $user->aliran_seni; ?>" readonly>
 
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Instagram</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="<?php echo $user->instagram; ?>" readonly>
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="<?php echo $user->instagram; ?>" readonly>
 
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Twitter</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="<?php echo $user->twitter; ?>" readonly>
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="<?php echo $user->twitter; ?>" readonly>
 
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Facebook</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="<?php echo $user->facebook; ?>" readonly>
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="<?php echo $user->facebook; ?>" readonly>
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Role</label>
