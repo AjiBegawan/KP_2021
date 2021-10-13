@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Edit User | IDNFT </title>
+    <title>Edit Sosmed | IDNFT </title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -34,8 +34,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
 </head>
-
-
 
 <body>
     <!-- ======= Header ======= -->
@@ -86,62 +84,31 @@
         <?php } ?>
     </header>
     <!-- End Header -->
-
     <h1>Edit User</h1>
-
     <div class="container" style="margin-top: 100px;">
-        <form method="POST" action="<?php echo site_url('Admin/updateUser'); ?>">
-            <div class="form-group">
-                <label for="exampleInputEmail1">Username</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="username" value="<?php echo $user->username; ?>" readonly>
-
-            </div>
-            <div class="form-group">
-                <label for="exampleInputEmail1">Nama</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="<?php echo $user->nama; ?>" readonly>
-
-            </div>
-            <div class="form-group">
-                <label for="exampleInputEmail1">Email</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="<?php echo $user->email; ?>" readonly>
-
-            </div>
-            <div class="form-group">
-                <label for="exampleInputEmail1">Phone</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="<?php echo $user->phone; ?>" readonly>
-
-            </div>
-            <div class="form-group">
-                <label for="exampleInputEmail1">Alamat</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="<?php echo $user->alamat; ?>" readonly>
-
-            </div>
-            <div class="form-group">
-                <label for="exampleInputEmail1">Aliran Seni</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="<?php echo $user->aliran_seni; ?>" readonly>
-
-            </div>
-            <div class="form-group">
-                <label for="exampleInputEmail1">Instagram</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="<?php echo $user->instagram; ?>" readonly>
-
-            </div>
-            <div class="form-group">
-                <label for="exampleInputEmail1">Twitter</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="<?php echo $user->twitter; ?>" readonly>
-
-            </div>
-            <div class="form-group">
-                <label for="exampleInputEmail1">Facebook</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="<?php echo $user->facebook; ?>" readonly>
-            </div>
-            <div class="form-group">
-                <label for="exampleInputEmail1">Role</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="role" placeholder="<?php echo $user->role; ?>">
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+        <form method="POST" action="<?php echo site_url('Admin/updateSosmed'); ?>">
+            <?php
+            foreach ($sosmed->result() as $row) {
+            ?>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">ID</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="id" value="<?php echo $row->id; ?>" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Instagram</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="instagram" value="<?php echo $row->instagram; ?>">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Twitter</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="twitter" value="<?php echo $row->twitter; ?>">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Discord</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="discord" value="<?php echo $row->discord; ?>">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            <?php } ?>
         </form>
-
     </div>
 </body>
 

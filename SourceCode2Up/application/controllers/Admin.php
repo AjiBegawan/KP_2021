@@ -16,7 +16,6 @@ class Admin extends CI_Controller
         $data['artikel'] = $this->getArtikel();
         $this->load->view("admin", $data);
     }
-
     function getUsernameData()
     {
         $query = $this->db->get('user');
@@ -65,9 +64,92 @@ class Admin extends CI_Controller
 
         // $this->db->set('role', $data['role']);
         $this->db->where('username', $username);
-        if($this->db->update('user', $data)){
+        if ($this->db->update('user', $data)) {
             $this->index();
-        }else{
+        } else {
+            $this->load->view("gagal");
+        }
+    }
+    function deleteUser($username)
+    {
+        $this->db->where('username', $username);
+        if ($this->db->delete('user')) {
+            $this->index();
+        } else {
+            $this->load->view("gagal");
+        }
+    }
+    function getUSosmedId($id)
+    {
+        $this->db->where('id', $id);
+        $query = $this->db->get('sosmed');
+        return $query;
+    }
+    function editSosmed($id)
+    {
+        $data['sosmed'] = $this->getUSosmedId($id);
+        $this->load->view("editAdminSosmed", $data);
+    }
+    function updateSosmed()
+    {
+        $id  = $this->input->post('id');
+        $instagram  = $this->input->post('instagram');
+        $twitter    = $this->input->post('twitter');
+        $discord    = $this->input->post('discord');
+
+        $data = array(
+            'instagram'    => $instagram,
+            'twitter'      => $twitter,
+            'discord'      => $discord
+        );
+        $this->db->where('id', $id);
+        if ($this->db->update('sosmed', $data)) {
+            $this->index();
+        } else {
+            $this->load->view("gagal");
+        }
+    }
+    function deleteSosmed($id)
+    {
+        $this->db->where('id', $id);
+        if ($this->db->delete('sosmed')) {
+            $this->index();
+        } else {
+            $this->load->view("gagal");
+        }
+    }
+    function editPesan($id)
+    {
+        $data['contact'] = $this->getPesanId($id);
+        $this->load->view("editAdminPesan", $data);
+    }
+    function getPesanId($id)
+    {
+        $this->db->where('id', $id);
+        $query = $this->db->get('contact')->row();
+        return $query;
+    }
+    function updatePesan()
+    {
+        $id  = $this->input->post('id');
+        $status  = $this->input->post('status');
+
+        $data = array(
+            'status'    => $status
+        );
+        $this->db->where('id', $id);
+        if ($this->db->update('contact', $data)) {
+            $this->index();
+        } else {
+            $this->load->view("gagal");
+        }
+    }
+    function deletePesan($id)
+    {
+        $this->db->where('id', $id);
+        if ($this->db->delete('contact')) {
+            $this->index();
+        } else {
             $this->load->view("gagal");
         }
     }

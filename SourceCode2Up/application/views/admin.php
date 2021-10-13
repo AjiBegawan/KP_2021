@@ -151,8 +151,8 @@
                 <td><?php echo $row->twitter; ?></td>
                 <td><?php echo $row->facebook; ?></td>
                 <td><?php echo $row->role; ?></td>
-                <td><button type="button" class="btn btn-success"><a href="<?php echo site_url('/admin/editUser/').$row->username ?>">Edit</a></button></td>
-                <td><button type="button" class="btn btn-danger"><a href="<?php echo site_url('/admin/editUser/').$row->username ?>">Delete</a></button></td>
+                <td><button type="button" class="btn btn-success"><a href="<?php echo site_url('/admin/editUser/') . $row->username ?>">Edit</a></button></td>
+                <td><button type="button" class="btn btn-danger"><a href="<?php echo site_url('/admin/deleteUser/') . $row->username ?>">Delete</a></button></td>
               </tr>
             <?php } ?>
           </tbody>
@@ -176,6 +176,7 @@
         <table id="table_id" class="display">
           <thead>
             <tr>
+              <th>ID</th>
               <th>Instagram</th>
               <th>Twitter</th>
               <th>Discord</th>
@@ -188,11 +189,12 @@
             foreach ($sosmed->result() as $row) {
             ?>
               <tr>
+                <td><?php echo $row->id; ?></td>
                 <td><?php echo $row->instagram; ?></td>
                 <td><?php echo $row->twitter; ?></td>
                 <td><?php echo $row->discord; ?></td>
-                <td><button type="button" class="btn btn-success">Edit</button></td>
-                <td><button type="button" class="btn btn-danger">Delete</button></td>
+                <td><button type="button" class="btn btn-success"><a href="<?php echo site_url('/admin/editSosmed/').$row->id ?>">Edit</a></button></td>
+                <td><button type="button" class="btn btn-danger"><a href="<?php echo site_url('/admin/deleteSosmed/').$row->id ?>">Delete</a></button></td>
               </tr>
             <?php } ?>
           </tbody>
@@ -221,6 +223,7 @@
               <th>Email</th>
               <th>Subject</th>
               <th>Message</th>
+              <th>Status</th>
               <th>Edit</th>
               <th>Delete</th>
             </tr>
@@ -235,8 +238,9 @@
                 <td><?php echo $row->email; ?></td>
                 <td><?php echo $row->subject; ?></td>
                 <td><?php echo $row->message; ?></td>
-                <td><button type="button" class="btn btn-success">Edit</button></td>
-                <td><button type="button" class="btn btn-danger">Delete</button></td>
+                <td><?php echo $row->status; ?></td>
+                <td><button type="button" class="btn btn-success"><a href="<?php echo site_url('/admin/editPesan/').$row->id ?>">Edit</a></button></td>
+                <td><button type="button" class="btn btn-danger"><a href="<?php echo site_url('/admin/deletePesan/').$row->id ?>">Delete</a></button></td>
               </tr>
             <?php } ?>
           </tbody>
