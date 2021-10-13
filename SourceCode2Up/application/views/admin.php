@@ -251,59 +251,6 @@
       <!-- End Table Table -->
     </div>
 
-
-
-    <!-- Input Artikel  -->
-
-    <!-- <div class="container">
-      <h1>Input Artikel Blog</h1>
-  
-      <form>
-        <div class="form-group">
-          <label for="exampleInputEmail1">Judul</label>
-          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukan Judul">
-          <small id="emailHelp" class="form-text text-muted"></small>
-        </div>
-        <div class="form-group">
-          <label for="exampleInputEmail1">Paragraf 1</label>
-          <textarea name="comment" class="form-control" form="usrform">Masukan Isi Paragraf Disini</textarea>
-        </div>
-  
-        <div class="form-group">
-          <label for="exampleInputEmail1">Paragraf 2</label>
-          <textarea name="comment" class="form-control" form="usrform">Masukan Isi Paragraf Disini</textarea>
-        </div>
-  
-        <div class="form-group">
-          <label for="exampleInputEmail1">Paragraf 3</label>
-          <textarea name="comment" class="form-control" form="usrform">Masukan Isi Paragraf Disini</textarea>
-        </div>
-  
-        <div class="form-group">
-          <label for="exampleInputEmail1">Paragraf 4</label>
-          <textarea name="comment" class="form-control" form="usrform">Masukan Isi Paragraf Disini</textarea>
-        </div>
-  
-        <div class="form-group">
-          <label for="exampleInputEmail1">Paragraf 5</label>
-          <textarea name="comment" class="form-control" form="usrform">Masukan Isi Paragraf Disini</textarea>
-        </div>
-  
-        <div class="form-group">
-          <label for="exampleInputEmail1">Paragraf 6</label>
-          <textarea name="comment" class="form-control" form="usrform">Masukan Isi Paragraf Disini</textarea>
-        </div>
-  
-        <div class="form-group">
-          <label for="exampleInputEmail1">Paragraf 7</label>
-          <textarea name="comment" class="form-control" form="usrform">Masukan Isi Paragraf Disini</textarea>
-        </div>
-  
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
-  
-    </div> -->
-
     <!-- End Of Artikel -->
 
     <div class="float-left ">
@@ -339,7 +286,7 @@
             foreach ($artikel->result() as $row) {
             ?>
               <tr>
-                <td><?php echo $row->IdArtikel; ?></td>
+                <td><?php echo $row->Id; ?></td>
                 <td><?php echo $row->Judul; ?></td>
                 <td><?php echo $row->Paragraf1; ?></td>
                 <td><?php echo $row->Paragraf2; ?></td>
@@ -348,8 +295,8 @@
                 <td><?php echo $row->Paragraf5; ?></td>
                 <td><?php echo $row->Paragraf6; ?></td>
                 <td><?php echo $row->Paragraf7; ?></td>
-                <td><button type="button" class="btn btn-success">Edit</button></td>
-                <td><button type="button" class="btn btn-danger">Delete</button></td>
+                <td><button type="button" class="btn btn-success"><a href="<?php echo site_url('/admin/editArtikel/').$row->Id ?>">Edit</a></button></button></td>
+                <td><button type="button" class="btn btn-danger"><a href="<?php echo site_url('/admin/deleteArtikel/').$row->Id ?>">Delete</a></button></button></td>
               </tr>
             <?php } ?>
           </tbody>

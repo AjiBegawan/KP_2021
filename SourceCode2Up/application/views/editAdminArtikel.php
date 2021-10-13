@@ -90,54 +90,50 @@
     <h1>Edit User</h1>
 
     <div class="container" style="margin-top: 100px;">
-        <form method="POST" action="<?php echo site_url('Admin/updateUser'); ?>">
+        <form method="POST" action="<?php echo site_url('Admin/updateArtikel'); ?>">
             <div class="form-group">
-                <label for="exampleInputEmail1">Username</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="username" value="<?php echo $user->username; ?>" readonly>
+                <label for="exampleInputEmail1">ID</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="id" value="<?php echo $artikel->Id; ?>" readonly>
 
             </div>
             <div class="form-group">
-                <label for="exampleInputEmail1">Nama</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="<?php echo $user->nama; ?>" readonly>
+                <label for="exampleInputEmail1">Judul</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="judul" value="<?php echo $artikel->Judul; ?>">
 
             </div>
             <div class="form-group">
-                <label for="exampleInputEmail1">Email</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="<?php echo $user->email; ?>" readonly>
-
+                <label for="exampleInputEmail1">Paragraf 1</label>
+             
+                <textarea name="paragraf1" class="form-control" id="" cols="30" rows="10"><?php echo $artikel->Paragraf1; ?></textarea>
             </div>
             <div class="form-group">
-                <label for="exampleInputEmail1">Phone</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="<?php echo $user->phone; ?>" readonly>
-
+                <label for="exampleInputEmail1">Paragraf 2</label>
+       
+                <textarea name="paragraf2" class="form-control" id="" cols="30" rows="10"><?php echo $artikel->Paragraf2; ?></textarea>
             </div>
             <div class="form-group">
-                <label for="exampleInputEmail1">Alamat</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="<?php echo $user->alamat; ?>" readonly>
-
+                <label for="exampleInputEmail1">Paragraf 3</label>
+                <textarea name="paragraf3" class="form-control" id="" cols="30" rows="10"><?php echo $artikel->Paragraf3; ?></textarea>
             </div>
             <div class="form-group">
-                <label for="exampleInputEmail1">Aliran Seni</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="<?php echo $user->aliran_seni; ?>" readonly>
-
+                <label for="exampleInputEmail1">Paragraf 4</label>
+                <textarea name="paragraf4" class="form-control" id="" cols="30" rows="10"><?php echo $artikel->Paragraf4; ?></textarea>
             </div>
             <div class="form-group">
-                <label for="exampleInputEmail1">Instagram</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="<?php echo $user->instagram; ?>" readonly>
-
+                <label for="exampleInputEmail1">Paragraf 5</label>
+                <textarea name="paragraf5" class="form-control" id="" cols="30" rows="10"><?php echo $artikel->Paragraf5; ?></textarea>
             </div>
             <div class="form-group">
-                <label for="exampleInputEmail1">Twitter</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="<?php echo $user->twitter; ?>" readonly>
-
+                <label for="exampleInputEmail1">Paragraf 6</label>
+                <textarea name="paragraf6" class="form-control" id="" cols="30" rows="10"><?php echo $artikel->Paragraf6; ?></textarea>
             </div>
             <div class="form-group">
-                <label for="exampleInputEmail1">Facebook</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="<?php echo $user->facebook; ?>" readonly>
+                <label for="exampleInputEmail1">Paragraf 7</label>
+                <textarea name="paragraf7" class="form-control" id="" cols="30" rows="10"><?php echo $artikel->Paragraf7; ?></textarea>
             </div>
             <div class="form-group">
-                <label for="exampleInputEmail1">Role</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="role" placeholder="<?php echo $user->role; ?>">
+                <label for="exampleInputEmail1">Gambar</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="gambar" placeholder="<?php echo $artikel->gambar; ?>">
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>

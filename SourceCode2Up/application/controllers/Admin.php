@@ -153,4 +153,56 @@ class Admin extends CI_Controller
             $this->load->view("gagal");
         }
     }
+    function editArtikel($id)
+    {
+        $data['artikel'] = $this->getArtikelId($id);
+        $this->load->view("editAdminArtikel", $data);
+    }
+    function getArtikelId($id)
+    {
+        $this->db->where('id', $id);
+        $query = $this->db->get('artikel')->row();
+        return $query;
+    }
+    function updateArtikel()
+    {
+        $id  = $this->input->post('id');
+        $judul  = $this->input->post('judul');
+        $paragraf1  = $this->input->post('paragraf1');
+        $paragraf2  = $this->input->post('paragraf2');
+        $paragraf3  = $this->input->post('paragraf3');
+        $paragraf4  = $this->input->post('paragraf4');
+        $paragraf5  = $this->input->post('paragraf5');
+        $paragraf6  = $this->input->post('paragraf6');
+        $paragraf7  = $this->input->post('paragraf7');
+        $gambar  = $this->input->post('gambar');
+
+        $data = array(
+            'id'    => $id,
+            'judul'    => $judul,
+            'paragraf1'    => $paragraf1,
+            'paragraf2'    => $paragraf2,
+            'paragraf3'    => $paragraf3,
+            'paragraf4'    => $paragraf4,
+            'paragraf5'    => $paragraf5,
+            'paragraf6'    => $paragraf6,
+            'paragraf7'    => $paragraf7,
+            'gambar'    => $gambar
+        );
+        $this->db->where('id', $id);
+        if ($this->db->update('artikel', $data)) {
+            $this->index();
+        } else {
+            $this->load->view("gagal");
+        }
+    }
+    function deleteArtikel($id)
+    {
+        $this->db->where('id', $id);
+        if ($this->db->delete('artikel')) {
+            $this->index();
+        } else {
+            $this->load->view("gagal");
+        }
+    }
 }
