@@ -193,8 +193,8 @@
                 <td><?php echo $row->instagram; ?></td>
                 <td><?php echo $row->twitter; ?></td>
                 <td><?php echo $row->discord; ?></td>
-                <td><button type="button" class="btn btn-success"><a href="<?php echo site_url('/admin/editSosmed/').$row->id ?>">Edit</a></button></td>
-                <td><button type="button" class="btn btn-danger"><a href="<?php echo site_url('/admin/deleteSosmed/').$row->id ?>">Delete</a></button></td>
+                <td><button type="button" class="btn btn-success"><a href="<?php echo site_url('/admin/editSosmed/') . $row->id ?>">Edit</a></button></td>
+                <td><button type="button" class="btn btn-danger"><a href="<?php echo site_url('/admin/deleteSosmed/') . $row->id ?>">Delete</a></button></td>
               </tr>
             <?php } ?>
           </tbody>
@@ -239,8 +239,8 @@
                 <td><?php echo $row->subject; ?></td>
                 <td><?php echo $row->message; ?></td>
                 <td><?php echo $row->status; ?></td>
-                <td><button type="button" class="btn btn-success"><a href="<?php echo site_url('/admin/editPesan/').$row->id ?>">Edit</a></button></td>
-                <td><button type="button" class="btn btn-danger"><a href="<?php echo site_url('/admin/deletePesan/').$row->id ?>">Delete</a></button></td>
+                <td><button type="button" class="btn btn-success"><a href="<?php echo site_url('/admin/editPesan/') . $row->id ?>">Edit</a></button></td>
+                <td><button type="button" class="btn btn-danger"><a href="<?php echo site_url('/admin/deletePesan/') . $row->id ?>">Delete</a></button></td>
               </tr>
             <?php } ?>
           </tbody>
@@ -295,8 +295,8 @@
                 <td><?php echo $row->Paragraf5; ?></td>
                 <td><?php echo $row->Paragraf6; ?></td>
                 <td><?php echo $row->Paragraf7; ?></td>
-                <td><button type="button" class="btn btn-success"><a href="<?php echo site_url('/admin/editArtikel/').$row->Id ?>">Edit</a></button></button></td>
-                <td><button type="button" class="btn btn-danger"><a href="<?php echo site_url('/admin/deleteArtikel/').$row->Id ?>">Delete</a></button></button></td>
+                <td><button type="button" class="btn btn-success"><a href="<?php echo site_url('/admin/editArtikel/') . $row->Id ?>">Edit</a></button></button></td>
+                <td><button type="button" class="btn btn-danger"><a href="<?php echo site_url('/admin/deleteArtikel/') . $row->Id ?>">Delete</a></button></button></td>
               </tr>
             <?php } ?>
           </tbody>

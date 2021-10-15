@@ -277,24 +277,26 @@
         <div class="row">
           <div class="col-md-4 d-flex justify-content-center">
             <div class="address">
-              <i class="icofont-twitter"></i>
-              <h4>Twitter</h4>
-              <a href="https://twitter.com/idnft_" style="text-decoration: none;" target="blank">
+
+              <a href="<?= $sosmed->twitter; ?>" style="text-decoration: none;" target="blank">
+                <i class="icofont-twitter"></i>
+                <h4>Twitter</h4>
                 <p>@idnft_</p>
               </a>
             </div>
           </div>
           <div class="col-md-4 d-flex justify-content-center">
             <div class="email">
-              <i class="icofont-instagram"></i>
-              <h4>Instagram </h4>
-              <a href="https://www.instagram.com/id.nft/" style="text-decoration: none;" target="blank">
+              <a href="<?= $sosmed->instagram; ?>" style="text-decoration: none;" target="blank">
+                <i class="icofont-instagram"></i>
+                <h4>Instagram </h4>
                 <p>id.nft</p>
               </a>
             </div>
           </div>
           <div class="col-md-4 d-flex justify-content-center">
             <div class="phone">
+              <a href="<?= $sosmed->discord; ?>" style="text-decoration: none;" target="blank">
               <i class=""><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0 0 172 172" style=" fill:#000000;">
                   <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
                     <path d="M0,172v-172h172v172z" fill="none"></path>
@@ -312,7 +314,6 @@
                 </svg>
               </i>
               <h4>Discord</h4>
-              <a href="https://discord.gg/DMMF7bVYrh" style="text-decoration: none;" target="blank">
                 <p>IDNFT</p>
               </a>
             </div>

@@ -13,9 +13,11 @@ class Home extends CI_Controller
     {
         if ($this->session->userdata('is_login')) {
             $data['user'] = $this->getUsernameData();
+            $data['sosmed'] = $this->getUSosmedIdnft();
             $this->load->view("halamanpelanggan/home", $data);
         } else {
-            $this->load->view("halamanpelanggan/home");
+            $data['sosmed'] = $this->getUSosmedIdnft();
+            $this->load->view("halamanpelanggan/home", $data);
         }
     }
     public function BlogView()
@@ -104,13 +106,16 @@ class Home extends CI_Controller
             'message' => $message
         );
 
-        // $this->db->insert('contact', $data_contact);
-
         if($this->db->insert('contact', $data_contact)){
             redirect(site_url('home'));
         }else{
             $this->load->view("gagal");
         }
+    }
 
+    function getUSosmedIdnft()
+    {
+        $query = $this->db->get('sosmed')->row();
+        return $query;
     }
 }
