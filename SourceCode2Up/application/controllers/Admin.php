@@ -32,6 +32,43 @@ class Admin extends CI_Controller
         $query = $this->db->get('contact');
         return $query;
     }
+    function addArtikel()
+    {
+        $this->load->view("addAdminArtikel");
+    }
+    function ProsesAddArtikel()
+    {
+        $id = $this->input->post('id');
+        $judul = $this->input->post('judul');
+        $paragraf1 = $this->input->post('paragraf1');
+        $paragraf2 = $this->input->post('paragraf2');
+        $paragraf3 = $this->input->post('paragraf3');
+        $paragraf4 = $this->input->post('paragraf4');
+        $paragraf5 = $this->input->post('paragraf5');
+        $paragraf6 = $this->input->post('paragraf6');
+        $paragraf7 = $this->input->post('paragraf7');
+        $gambar = $this->input->post('gambar');
+
+        $data = array(
+            'Id'      => $id,
+            'Judul'      => $judul,
+            'Paragraf1'      => $paragraf1,
+            'Paragraf2'      => $paragraf2,
+            'Paragraf3'      => $paragraf3,
+            'Paragraf4'      => $paragraf4,
+            'Paragraf5'      => $paragraf5,
+            'Paragraf6'      => $paragraf6,
+            'Paragraf7'      => $paragraf7,
+            'Gambar'      => $gambar
+        );
+
+        // $this->db->set('role', $data['role']);
+        if ($this->db->update('artikel', $data)) {
+            $this->index();
+        } else {
+            $this->load->view("gagal");
+        }
+    }
     function getArtikel()
     {
         $query = $this->db->get('artikel');

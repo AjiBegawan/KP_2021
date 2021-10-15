@@ -264,7 +264,7 @@
 
         <h1>Data Artikel</h1>
         <hr>
-
+        <button type="button" class="btn btn-success" ><a href="<?php echo site_url('/admin/addArtikel/')?>" style="text-decoration: none;">Tambah Artikel</a></button></button> <br><br>
         <table id="table_artikel" class="display">
           <thead>
             <tr>
