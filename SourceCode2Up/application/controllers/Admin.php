@@ -47,7 +47,7 @@ class Admin extends CI_Controller
         $paragraf5 = $this->input->post('paragraf5');
         $paragraf6 = $this->input->post('paragraf6');
         $paragraf7 = $this->input->post('paragraf7');
-        $gambar = $this->input->post('gambar');
+        // $gambar = $this->input->post('gambar');
 
         $data = array(
             'Id'      => $id,
@@ -58,15 +58,46 @@ class Admin extends CI_Controller
             'Paragraf4'      => $paragraf4,
             'Paragraf5'      => $paragraf5,
             'Paragraf6'      => $paragraf6,
-            'Paragraf7'      => $paragraf7,
-            'Gambar'      => $gambar
+            'Paragraf7'      => $paragraf7
+            // 'Gambar'      => $gambar
         );
 
         // $this->db->set('role', $data['role']);
-        if ($this->db->update('artikel', $data)) {
+        if ($this->db->insert('artikel', $data)) {
             $this->index();
         } else {
             $this->load->view("gagal");
+        }
+    }
+    public function upload()
+    {
+        $config['upload_path'] = './upload/';
+        $config['allowed_types'] = 'gif|jpg|png';
+        $config['max_size'] = 2000;
+
+
+        $this->load->library('upload', $config);
+
+        if (!$this->upload->do_upload('profile_pic')) {
+            $error = array('error' => $this->upload->display_errors());
+
+            $this->load->view('imageupload_form', $error);
+        } else {
+            $data = array('image_metadata' => $this->upload->data());
+            $upload_data = $this->upload->data();
+            $file_name = $upload_data['file_name'];
+
+            $name = array(
+                'gambar'      => $file_name
+            );
+            if ($this->db->update('artikel', $name)) {
+                $this->index();
+            } else {
+                $this->load->view("gagal");
+            }
+
+            $this->index();
+            $this->load->view('imageupload_success', $data);
         }
     }
     function getArtikel()

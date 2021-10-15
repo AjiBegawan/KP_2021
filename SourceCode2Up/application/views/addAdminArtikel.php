@@ -91,11 +91,11 @@
 
     <div class="container" style="margin-top: 100px;">
         <form method="POST" action="<?php echo site_url('Admin/ProsesAddArtikel'); ?>">
-            <div class="form-group">
+            <!-- <div class="form-group">
                 <label for="exampleInputEmail1">ID</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="id" value="" >
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="id" value="">
 
-            </div>
+            </div> -->
             <div class="form-group">
                 <label for="exampleInputEmail1">Judul</label>
                 <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="judul">
@@ -131,7 +131,11 @@
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Gambar</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="gambar" placeholder="">
+                <?php echo form_open_multipart('Admin/upload'); ?>
+                <input type='file' name='profile_pic' size='20'>
+                <input type='submit' name='submit' value='Upload'>
+
+                <!-- <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="gambar" placeholder=""> -->
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
