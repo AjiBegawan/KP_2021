@@ -62,6 +62,15 @@ class Admin extends CI_Controller
             // 'Gambar'      => $gambar
         );
 
+
+
+
+
+
+
+
+
+
         // $this->db->set('role', $data['role']);
         if ($this->db->insert('artikel', $data)) {
             $this->index();
@@ -97,7 +106,7 @@ class Admin extends CI_Controller
             }
 
             $this->index();
-            $this->load->view('imageupload_success', $data);
+            // $this->load->view('imageupload_success', $data);
         }
     }
     function getArtikel()
