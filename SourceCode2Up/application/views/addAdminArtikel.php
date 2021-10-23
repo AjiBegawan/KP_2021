@@ -129,14 +129,14 @@
                 <label for="exampleInputEmail1">Paragraf 7</label>
                 <textarea name="paragraf7" class="form-control" id="" cols="30" rows="10" name="paragraf7"> </textarea>
             </div>
-            <div class="form-group">
+            <!-- <div class="form-group">
                 <label for="exampleInputEmail1">Gambar</label>
                 <?php echo form_open_multipart('Admin/upload'); ?>
                 <input type='file' name='profile_pic' size='20'>
-                <input type='submit' name='submit' value='Upload'>
+                <input type='submit' name='submit' value='Upload'> -->
 
                 <!-- <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="gambar" placeholder=""> -->
-            </div>
+            <!-- </div> -->
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
 

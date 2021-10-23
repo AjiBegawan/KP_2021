@@ -59,16 +59,8 @@ class Admin extends CI_Controller
             'Paragraf5'      => $paragraf5,
             'Paragraf6'      => $paragraf6,
             'Paragraf7'      => $paragraf7
-            // 'Gambar'      => $gambar
+            //'Gambar'      => $gambar
         );
-
-
-
-
-
-
-
-
 
 
         // $this->db->set('role', $data['role']);
@@ -99,13 +91,14 @@ class Admin extends CI_Controller
             $name = array(
                 'gambar'      => $file_name
             );
-            if ($this->db->update('artikel', $name)) {
-                $this->index();
-            } else {
-                $this->load->view("gagal");
-            }
+            $this->db->insert('artikel', $name);
+            // if ($this->db->update('artikel', $name)) {
+            //     $this->index();
+            // } else {
+            //     $this->load->view("gagal");
+            // }
 
-            $this->index();
+            // $this->index();
             // $this->load->view('imageupload_success', $data);
         }
     }

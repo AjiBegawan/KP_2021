@@ -10,7 +10,7 @@ class uploadGambarArtikel extends CI_Controller
     }
     function index()
     {
-        $this->load->view('imageupload_form');
+        $this->load->view('admin');
     }
     public function upload()
     {
@@ -22,9 +22,9 @@ class uploadGambarArtikel extends CI_Controller
         $this->load->library('upload', $config);
 
         if (!$this->upload->do_upload('profile_pic')) {
-            $error = array('error' => $this->upload->display_errors());
+            // $error = array('error' => $this->upload->display_errors());
 
-            $this->load->view('imageupload_form', $error);
+            $this->index();
         } else {
             $data = array('image_metadata' => $this->upload->data());
             $upload_data = $this->upload->data();
@@ -36,11 +36,11 @@ class uploadGambarArtikel extends CI_Controller
             if ($this->db->update('artikel', $name)) {
                 $this->index();
             } else {
-                $this->load->view("gagal");
+                $this->index();
             }
 
-            $this->index();
-            $this->load->view('imageupload_success', $data);
+            // $this->index();
+            // $this->load->view('imageupload_success', $data);
         }
     }
 }

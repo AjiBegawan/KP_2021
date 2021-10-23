@@ -264,7 +264,7 @@
 
         <h1>Data Artikel</h1>
         <hr>
-        <button type="button" class="btn btn-success" ><a href="<?php echo site_url('/admin/addArtikel/')?>" style="text-decoration: none;">Tambah Artikel</a></button></button> <br><br>
+        <button type="button" class="btn btn-success"><a href="<?php echo site_url('/admin/addArtikel/') ?>" style="text-decoration: none;">Tambah Artikel</a></button></button> <br><br>
         <table id="table_artikel" class="display">
           <thead>
             <tr>
@@ -277,8 +277,9 @@
               <th>Paragraf 5</th>
               <th>Paragraf 6</th>
               <th>Paragraf 7</th>
+              <th>Upload Gambar</th>
               <th>Nama File Gambar</th>
-              <th>Nama File Gambar</th>
+              <th>Gambar</th>
               <th>Edit</th>
               <th>Delete</th>
             </tr>
@@ -297,8 +298,12 @@
                 <td><?php echo $row->Paragraf5; ?></td>
                 <td><?php echo $row->Paragraf6; ?></td>
                 <td><?php echo $row->Paragraf7; ?></td>
+                <td><?php echo form_open_multipart('uploadGambarArtikel/upload'); ?>
+                  <?php echo "<input type='file' name='profile_pic' size='20' />"; ?>
+                  <?php echo "<input type='submit' name='submit' value='upload'  class='btn btn-success'/> "; ?>
+                  <?php echo "</form>" ?></td>
                 <td><?php echo $row->gambar; ?></td>
-                <td><img src=" <?=('upload/'.$row->gambar)?>" alt="<?=$row->gambar?>" style="width: 150px;height:150px"></td>
+                <td><img src=" <?= ('upload/' . $row->gambar) ?>" alt="<?= $row->gambar ?>" style="width: 150px;height:150px"></td>
                 <td><button type="button" class="btn btn-success"><a href="<?php echo site_url('/admin/editArtikel/') . $row->Id ?>">Edit</a></button></button></td>
                 <td><button type="button" class="btn btn-danger"><a href="<?php echo site_url('/admin/deleteArtikel/') . $row->Id ?>">Delete</a></button></button></td>
               </tr>
