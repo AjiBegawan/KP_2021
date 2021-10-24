@@ -50,6 +50,8 @@ class uploadPhotoProfile extends CI_Controller
         $config['upload_path'] = './upload/photoProfile';
         $config['allowed_types'] = 'gif|jpg|png|jpeg';
         $config['max_size'] = 2000;
+        $new_name = time()."_".$id."_".rand(0,999999999);
+        $config['file_name'] = $new_name;
 
 
         $this->load->library('upload', $config);
@@ -58,10 +60,8 @@ class uploadPhotoProfile extends CI_Controller
             // $this->load->view("Imageupload_failed");
             $this->load->view("gagal");
         } else {
-            // $data = array('image_metadata' => $this->upload->data());
             $upload_data = $this->upload->data();
             $file_name = $upload_data['file_name'];
-
             $data = array(
                 'dp'      => $file_name
             );

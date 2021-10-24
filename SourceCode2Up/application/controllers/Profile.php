@@ -14,6 +14,7 @@ class Profile extends CI_Controller
     {
         if ($this->session->userdata('is_login')) {
             $data['user'] = $this->getUsernameData();
+            $data['login'] = $this->getUsernameLogin();
             $this->load->view("profile", $data);
         } else {
             $this->load->view("Login");

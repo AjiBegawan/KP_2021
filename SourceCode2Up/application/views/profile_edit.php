@@ -81,11 +81,12 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="d-flex flex-column align-items-center text-center">
-                                <img src="<?php echo site_url("assets\img\user-96.png") ?>" alt="Admin"
-                                    class="rounded-circle p-1 " width="110">
+                                <img src=" <?= base_url('upload/photoProfile/'.$login->dp) ?>" alt="<?= ($login->dp) ?>"
+                                    class="rounded-circle p-1 " style="width: 200px;height:200px">
                                 <div>
+									<br>
                                     <?php echo form_open_multipart('uploadPhotoProfile/upload/'.$login->username) ?>
-                                    <?php echo "<input type='file' name='profile_pic' size='20' class='btn btn-danger'/>"; ?><br><br>
+                                    <?php echo "<input type='file' name='profile_pic' size='20' class='btn btn-danger' style='width: 200px;'/>"; ?><br><br>
                                     <?php echo "<input type='submit' name='submit' value='Upload'  class='btn btn-danger'/> "; ?>
                                     <?php echo "</form>" ?>
                                 </div>
