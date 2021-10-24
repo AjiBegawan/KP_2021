@@ -7,9 +7,9 @@
 </head>
 <body>
 <div>
-        <h3>SELAMAT!!!, gambar telah berhasil diupload</h3>
+        <h3>Maaf, Gambar Anda gagal di unggah</h3>
         <p>
-        <?php echo anchor('admin', 'Kembali ke halaman admin'); ?>
+            <?php echo anchor('admin', 'Kembali ke halaman admin'); ?>
         </p>
     </div>
 </body>

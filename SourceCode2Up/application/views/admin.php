@@ -298,7 +298,7 @@
                 <td><?php echo $row->Paragraf5; ?></td>
                 <td><?php echo $row->Paragraf6; ?></td>
                 <td><?php echo $row->Paragraf7; ?></td>
-                <td><?php echo form_open_multipart('uploadGambarArtikel/upload'); ?>
+                <td><?php echo form_open_multipart('uploadGambarArtikel/upload/'.$row->Id); ?>
                   <?php echo "<input type='file' name='profile_pic' size='20' />"; ?>
                   <?php echo "<input type='submit' name='submit' value='upload'  class='btn btn-success'/> "; ?>
                   <?php echo "</form>" ?></td>

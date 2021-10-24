@@ -65,7 +65,12 @@ class Admin extends CI_Controller
 
         // $this->db->set('role', $data['role']);
         if ($this->db->insert('artikel', $data)) {
-            $this->index();
+            $this->load->helper("url");
+            $data['user'] = $this->getUsernameData();
+            $data['sosmed'] = $this->getUSosmedIdnft();
+            $data['pesan'] = $this->getPesan();
+            $data['artikel'] = $this->getArtikel();
+            $this->load->view("admin", $data);
         } else {
             $this->load->view("gagal");
         }
