@@ -23,6 +23,11 @@ class CekPage extends CI_Controller
         $this->load->helper("url");
         $this->load->view("gagal");
     }
+    function pagination()
+    {
+        $this->load->helper("url");
+        $this->load->view("cekPagination");
+    }
 
 
 }

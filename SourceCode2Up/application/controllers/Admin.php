@@ -10,11 +10,18 @@ class Admin extends CI_Controller
     function index()
     {
         $this->load->helper("url");
+        $data['login'] = $this->getUsernameLogin();
         $data['user'] = $this->getUsernameData();
         $data['sosmed'] = $this->getUSosmedIdnft();
         $data['pesan'] = $this->getPesan();
         $data['artikel'] = $this->getArtikel();
         $this->load->view("admin", $data);
+    }
+    function getUsernameLogin()
+    {
+        $this->db->where('username', $this->session->userdata('username'));
+        $query = $this->db->get('user')->row();
+        return $query;
     }
     function getUsernameData()
     {
@@ -34,7 +41,8 @@ class Admin extends CI_Controller
     }
     function addArtikel()
     {
-        $this->load->view("addAdminArtikel");
+        $data['login'] = $this->getUsernameLogin();
+        $this->load->view("addAdminArtikel", $data);
     }
     function ProsesAddArtikel()
     {
@@ -66,6 +74,7 @@ class Admin extends CI_Controller
         // $this->db->set('role', $data['role']);
         if ($this->db->insert('artikel', $data)) {
             $this->load->helper("url");
+            $data['login'] = $this->getUsernameLogin();
             $data['user'] = $this->getUsernameData();
             $data['sosmed'] = $this->getUSosmedIdnft();
             $data['pesan'] = $this->getPesan();

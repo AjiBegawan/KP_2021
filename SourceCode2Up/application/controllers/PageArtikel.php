@@ -28,8 +28,15 @@ class PageArtikel extends CI_Controller
         $query = $this->db->get('artikel');
         return $query;
     }
+    function getUsernameLogin()
+    {
+        $this->db->where('username', $this->session->userdata('username'));
+        $query = $this->db->get('user')->row();
+        return $query;
+    }
     function LoadArtikelDetail($id)
     {
+        $data['login'] = $this->getUsernameLogin();
         $data['artikel'] = $this->getArtikelDetail($id);
         $this->load->view("PageArtikelDetail", $data);
     }

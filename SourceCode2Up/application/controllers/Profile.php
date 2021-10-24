@@ -23,10 +23,17 @@ class Profile extends CI_Controller
     {
         if ($this->session->userdata('is_login')) {
             $data['user'] = $this->getUsernameData();
+            $data['login'] = $this->getUsernameLogin();
             $this->load->view("profile_edit", $data);
         } else {
             $this->load->view("Login");
         }
+    }
+    function getUsernameLogin()
+    {
+        $this->db->where('username', $this->session->userdata('username'));
+        $query = $this->db->get('user')->row();
+        return $query;
     }
     function getUsernameData()
     {
