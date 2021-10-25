@@ -72,6 +72,13 @@ class AdminModel extends CI_Model
         return $query;
     }
 
+    function getArtikelId($id)
+    {
+        $this->db->where('id', $id);
+        $query = $this->db->get('artikel')->row();
+        return $query;
+    }
+
 
     
 }

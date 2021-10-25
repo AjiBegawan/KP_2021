@@ -194,7 +194,7 @@ class Profile extends CI_Controller
                     'gambar'    => $file_name
                 );
                 if ($this->db->insert('portfolio', $data)) {
-    
+
                     $this->index();
                 } else {
                     $this->load->view("gagal");

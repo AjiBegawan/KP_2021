@@ -151,7 +151,7 @@
                 <input type="submit" value="Add" class="form-control btn btn-primary" />
             </fieldset>
         <?php echo form_close(); ?>
-
+<br>
     </div>
 </body>
 

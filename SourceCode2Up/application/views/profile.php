@@ -86,7 +86,7 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="d-flex flex-column align-items-center text-center">
-                                <img src=" <?= base_url('upload/photoProfile/'.$login->dp) ?>" alt="Admin"
+                                <img src=" <?= base_url('upload/photoProfile/'.$login->dp) ?>" alt=""
                                     class="rounded-circle" style="width: 200px;height:200px">
                                 <div class="mt-3">
                                     <h4><?= $user->nama; ?></h4>

@@ -120,30 +120,7 @@
 
             <input type="submit" value="Add" class="form-control btn btn-primary"/>
         </fieldset>
-
         <?php echo form_close(); ?>
-
-
-
-
-        <!-- <form method="POST" action="<?php echo site_url('Profile/addPortfolio'); ?>">
-            <div class="form-group">
-                <label for="exampleInputEmail1">Nama Portfolio</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                    name="judul">
-            </div>
-            <div class="form-group">
-                <label for="exampleInputEmail1">Deskripsi</label>
-                <textarea name="paragraf1" class="form-control" id="" cols="30" rows="10" name="deskripsi"> </textarea>
-            </div>
-
-            <div class="form-group">
-                <label for="exampleInputEmail1">File Gambar</label>
-                <input type='file' class="form-control" name='gambar' size='20'>
-            </div>
-            <button type="submit" class="form-control btn btn-primary">Submit</button>
-        </form> -->
-
     </div>
 </body>
 

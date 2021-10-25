@@ -1,19 +1,24 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class PageArtikel extends CI_Controller
+class Artikel extends CI_Controller
 {
-
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->library('session');
+        $this->load->model('ArtikelModel');
+    }
     public function index()
     {
         if ($this->session->userdata('is_login')) {
             $data['user'] = $this->getUsernameData();
             $data['artikel'] = $this->getArtikel();
 
-            $this->load->view("PageArtikel", $data);
+            $this->load->view("Artikel", $data);
         } else {
             $data['artikel'] = $this->getArtikel();
-            $this->load->view("PageArtikel", $data);
+            $this->load->view("Artikel", $data);
         }
     }
     function getUsernameData()
@@ -24,7 +29,6 @@ class PageArtikel extends CI_Controller
     }
     function getArtikel()
     {
-        // $this->db->where('username', $this->session->userdata('username'));
         $query = $this->db->get('artikel');
         return $query;
     }
