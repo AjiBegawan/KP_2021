@@ -25,5 +25,6 @@ class ProfileModel extends CI_Model
         $query = $this->db->get('user');
         return $query;
     }
+    
 
 }

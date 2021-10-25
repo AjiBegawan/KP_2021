@@ -17,7 +17,6 @@ class Profile extends CI_Controller
         if ($this->session->userdata('is_login')) {
             $data['user'] = $this->getUsernameData();
             $data['login'] = $this->getUsernameLogin();
-
             $data['test'] = $this->ProfileModel->getAllUser();
             // $data['portfolio'] = $this->getUsernamePortfolio();
 
@@ -50,13 +49,13 @@ class Profile extends CI_Controller
         $config['next_tag_open'] = ' <li class="page-item">';
         $config['next_tag_close'] = ' </li>';
         
-        $config['cur_tag_open'] = ' <li class="page-item active"><a class="page-link" href="#">';
+        $config['cur_tag_open'] = ' <li class="page-item"><a class="page-link  text-danger" href="#">';
         $config['cur_tag_close'] = ' </a></li>';
         
         $config['num_tag_open'] = ' <li class="page-item">';
         $config['num_tag_close'] = ' </li>';
 
-        $config['attributes'] = array('class' => 'page-link');
+        $config['attributes'] = array('class' => 'page-link bg-danger text-white');
 
         $this->pagination->initialize($config);
 
@@ -114,7 +113,6 @@ class Profile extends CI_Controller
         $query = $this->db->get('user')->row();
         return $query;
     }
-
     function editUserData()
     {
         $data = array(
@@ -170,9 +168,6 @@ class Profile extends CI_Controller
     function addPortfolio()
     {
         $this->load->library('upload');
-
-        
-
         if (!empty($_FILES['gambar']['name'])){
 
             $config['upload_path'] = './upload/portfolio';
@@ -184,22 +179,19 @@ class Profile extends CI_Controller
     
             $this->upload->initialize($config);
 
-            // $this->load->view("sukses");
             $this->load->library('upload', $config);
 
             if (!$this->upload->do_upload('gambar')) {
-                // $this->load->view("Imageupload_failed");
-                // $this->load->view("sukses");
                 $this->load->view("gagal");
             } else {
                 $upload_data = $this->upload->data();
                 $file_name = $upload_data['file_name'];
                 $data = array(
-                    'username' => $this->session->userdata('username'),
-                    'nama' => $this->session->userdata('nama'),
-                    'judul' => $this->input->post("judul"),
+                    'username'  => $this->session->userdata('username'),
+                    'nama'      => $this->session->userdata('nama'),
+                    'judul'     => $this->input->post("judul"),
                     'deskripsi' => $this->input->post("deskripsi"),
-                    'gambar'      => $file_name
+                    'gambar'    => $file_name
                 );
                 if ($this->db->insert('portfolio', $data)) {
     
@@ -208,14 +200,8 @@ class Profile extends CI_Controller
                     $this->load->view("gagal");
                 }
             }
-
         }else{
             $this->load->view("gagal");
         }
-
-        
-
-
     }
-    
 }

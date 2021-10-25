@@ -5,43 +5,89 @@ class Admin extends CI_Controller
     {
         parent::__construct();
         $this->load->library('session');
+        $this->load->helper("url");
         $this->load->model('Auth');
+        $this->load->model('AdminModel');
     }
     function index()
     {
         $this->load->helper("url");
-        $data['login'] = $this->getUsernameLogin();
-        $data['user'] = $this->getUsernameData();
-        $data['sosmed'] = $this->getUSosmedIdnft();
-        $data['pesan'] = $this->getPesan();
-        $data['artikel'] = $this->getArtikel();
+        $data['login'] = $this->AdminModel->getUsernameLogin();
+        $data['user'] = $this->AdminModel->getUsernameData();
+        $data['sosmed'] = $this->AdminModel->getUSosmedIdnft();
+        $data['pesan'] = $this->AdminModel->getPesan();
+        $data['artikel'] = $this->AdminModel->getArtikel();
         $this->load->view("admin", $data);
     }
-    function getUsernameLogin()
+
+    function member()
     {
-        $this->db->where('username', $this->session->userdata('username'));
-        $query = $this->db->get('user')->row();
-        return $query;
+        // Pagination
+        $this->load->library('pagination');
+
+        $config['base_url'] = 'http://localhost/KP_2021/SourceCode2Up/admin/member';
+        $config['total_rows'] =  $this->AdminModel->getCountUserAll();
+        $config['per_page'] = 10;
+
+        // var_dump($config['total_rows']);die;
+
+        $this->pagination->initialize($config);
+
+        $data['start'] = $this->uri->segment(3);
+        // var_dump($data['start']);die;
+        $data['user'] = $this->AdminModel->getAllUser($config['per_page'], $data['start']);
+
+        $this->load->view("admin\member", $data);
     }
-    function getUsernameData()
+    function contact()
     {
-        $query = $this->db->get('user');
-        return $query;
+        // Pagination
+        $this->load->library('pagination');
+
+        $config['base_url'] = 'http://localhost/KP_2021/SourceCode2Up/admin/contact';
+        $config['total_rows'] =  $this->AdminModel->getCountContact();
+        $config['per_page'] = 10;
+
+        $this->pagination->initialize($config);
+
+        $data['start'] = $this->uri->segment(3);
+        $data['contact'] = $this->AdminModel->getAllContact($config['per_page'], $data['start']);
+
+
+        $this->load->helper("url");
+        $this->load->view("admin\contact", $data);
+    }
+    function artikel()
+    {
+        // Pagination
+        $this->load->library('pagination');
+
+        $config['base_url'] = 'http://localhost/KP_2021/SourceCode2Up/admin/artikel';
+        $config['total_rows'] =  $this->AdminModel->getCountArtikel();
+        $config['per_page'] = 10;
+
+        $this->pagination->initialize($config);
+
+        $data['start'] = $this->uri->segment(3);
+        $data['artikel'] = $this->AdminModel->getAllArtikel($config['per_page'], $data['start']);
+
+
+        $this->load->helper("url");
+        $this->load->view("admin\artikel", $data);
     }
 
-    function getUSosmedIdnft()
+    function sosmed()
     {
-        $query = $this->db->get('sosmed');
-        return $query;
+
+        $this->load->helper("url");
+        $data['login'] = $this->AdminModel->getUsernameLogin();
+        $data['sosmed'] = $this->AdminModel->getUSosmedIdnft();
+        $this->load->view("admin\sosmed", $data);
     }
-    function getPesan()
-    {
-        $query = $this->db->get('contact');
-        return $query;
-    }
+
     function addArtikel()
     {
-        $data['login'] = $this->getUsernameLogin();
+        $data['login'] = $this->AdminModel->getUsernameLogin();
         $this->load->view("addAdminArtikel", $data);
     }
     function ProsesAddArtikel()
@@ -58,15 +104,15 @@ class Admin extends CI_Controller
         // $gambar = $this->input->post('gambar');
 
         $data = array(
-            'Id'      => $id,
-            'Judul'      => $judul,
-            'Paragraf1'      => $paragraf1,
-            'Paragraf2'      => $paragraf2,
-            'Paragraf3'      => $paragraf3,
-            'Paragraf4'      => $paragraf4,
-            'Paragraf5'      => $paragraf5,
-            'Paragraf6'      => $paragraf6,
-            'Paragraf7'      => $paragraf7
+            'Id'      => $this->input->post('id'),
+            'Judul'      => $this->input->post('judul'),
+            'Paragraf1'      => $this->input->post('paragraf1'),
+            'Paragraf2'      => $this->input->post('paragraf2'),
+            'Paragraf3'      => $this->input->post('paragraf3'),
+            'Paragraf4'      => $this->input->post('paragraf4'),
+            'Paragraf5'      => $this->input->post('paragraf5'),
+            'Paragraf6'      => $this->input->post('paragraf6'),
+            'Paragraf7'      => $this->input->post('paragraf7')
             //'Gambar'      => $gambar
         );
 
@@ -74,11 +120,11 @@ class Admin extends CI_Controller
         // $this->db->set('role', $data['role']);
         if ($this->db->insert('artikel', $data)) {
             $this->load->helper("url");
-            $data['login'] = $this->getUsernameLogin();
-            $data['user'] = $this->getUsernameData();
-            $data['sosmed'] = $this->getUSosmedIdnft();
-            $data['pesan'] = $this->getPesan();
-            $data['artikel'] = $this->getArtikel();
+            $data['login'] = $this->AdminModel->getUsernameLogin();
+            $data['user'] = $this->AdminModel->getUsernameData();
+            $data['sosmed'] = $this->AdminModel->getUSosmedIdnft();
+            $data['pesan'] = $this->AdminModel->getPesan();
+            $data['artikel'] = $this->AdminModel->getArtikel();
             $this->load->view("admin", $data);
         } else {
             $this->load->view("gagal");
@@ -115,11 +161,6 @@ class Admin extends CI_Controller
             // $this->index();
             // $this->load->view('imageupload_success', $data);
         }
-    }
-    function getArtikel()
-    {
-        $query = $this->db->get('artikel');
-        return $query;
     }
     function editUser($username)
     {

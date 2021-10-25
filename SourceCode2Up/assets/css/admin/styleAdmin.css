@@ -1,0 +1,31 @@
+td.tabel_member {
+    max-width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    table-layout: fixed;
+}
+
+td.tabel_contact {
+    width: 200px;
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+td.tabel_artikel {
+    width: 150px;
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.wadah {
+    margin: 200px 50px 0px 50px;
+}
+
+ul li .aclass {
+    text-decoration: none;
+}

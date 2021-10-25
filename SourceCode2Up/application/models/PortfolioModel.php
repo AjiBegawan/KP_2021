@@ -35,8 +35,7 @@ class PortfolioModel extends CI_Model
     }
     function getUsernamePortfolio($limit, $start)
     {
-        $this->db->where('username', $this->session->userdata('username'));
-        $query = $this->db->get('portfolio',$limit, $start);
+        $query = $this->db->get('user',$limit, $start);
         return $query;
     }
 }

@@ -106,41 +106,10 @@
     </header>
     <!-- End Header -->
 
-    <main id="main">
 
-        <div class="container" style="margin-top: 100px">
-            <h1>Karya Seniman Indonesia</h1>
-            <div class="d-flex justify-content-center">
-                <?= $this->pagination->create_links(); ?>
-            </div>
-            <div class="row">
-                <div class="col-sm-12">
-
-                    <div class="row gutters-sm">
-                        <?php foreach ($portfolio->result() as $row) {  ?>
-                        <div class="col-lg-3 mb-3">
-                            <div class="card h-100">
-                                <img class="card-img-top" style="height: 200px;object-fit: contain;"
-                                    src="<?php echo base_url('upload/portfolio/'.$row->gambar); ?>" />
-                                <div class="card-body">
-                                    <h3 class="card-title"><?php echo $row->nama; ?></h3>
-                                    <h5 class="card-title"><?php echo $row->judul; ?></h5>
-                                    <p class="card-text"><?php echo $row->deskripsi; ?></p>
-                                </div>
-                            </div>
-                        </div>
-                        <?php } ?>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </main><!-- End #main -->
 
     <!-- ======= Footer ======= -->
-
     <!-- ======= Contact Section ======= -->
-
     <section id="contact" class="contact">
         <div class="container">
             <div class="section-title">
@@ -206,8 +175,6 @@
                         </div>
                     </div>
                 </div>
-
-
                 <!-- Form Email -->
                 <form action="<?php echo site_url('Home/contact'); ?>" method="post" role="form" class="php-email-form">
                     <div class="form-row">
@@ -254,9 +221,6 @@
     </section>
     <!-- End Contact Section -->
     <!-- ======= End Footer ======= -->
-
-
-
 </body>
 
 </html>

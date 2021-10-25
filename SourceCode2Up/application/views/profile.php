@@ -179,7 +179,9 @@
                             </div>
                         </div>
                     </div>
-                    <?= $this->pagination->create_links(); ?>
+                    <div class="d-flex justify-content-center">
+                        <?= $this->pagination->create_links(); ?>
+                    </div>
                     <div class="row gutters-sm">
                         <?php foreach ($portfolio->result() as $row) {  ?>
                         <div class="col-sm-6 mb-3">
@@ -194,6 +196,4 @@
                         </div>
                         <?php } ?>
                     </div>
-                    
-
 </html>

@@ -28,6 +28,14 @@ class CekPage extends CI_Controller
         $this->load->helper("url");
         $this->load->view("cekPagination");
     }
+    function template()
+    {
+        $this->load->helper("url");
+        $this->load->model('_tempalatePageModel','tp');
+        $data['sosmed'] = $this->tp->getSosmedIdnft();
+        $data['login'] = $this->tp->getUsernameData();
+        $this->load->view("template\_templatePage.php", $data);
+    }
 
 
 }
