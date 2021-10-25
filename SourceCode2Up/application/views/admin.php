@@ -38,13 +38,6 @@
     <script src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
 
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-bootgrid/1.3.1/jquery.bootgrid.min.js"
-        integrity="sha512-ut+jq2MDKjyWKK7rpEbyHjJ2kDBDO58DLFw4xJobqvS2kUgx4DJbj3OLjwk4F0pKtcxUoUIRS6esQVhh4fmWNA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-bootgrid/1.3.1/jquery.bootgrid.css"
-        integrity="sha512-CF1ovh2vRt2kC4JJ/Hl7VC7a+tu/NTO8iW+iltdfvIjvsb45t/6NkRNSrOe6HBxCTVplYLHW5GdlbtRLlCUp2A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
-
     <script>
     $(document).ready(function() {
         $('#table-id').DataTable();

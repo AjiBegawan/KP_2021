@@ -52,7 +52,7 @@ class Auth extends CI_Model
                     'is_login'    => true,
                     'password'    => $query->password,
                     'username'    => $query->username,
-                    'name'          => $query->name,
+                    'nama'        => $query->nama,
                     'email'       => $query->email,
                     'phone'       => $query->phone,
                   );

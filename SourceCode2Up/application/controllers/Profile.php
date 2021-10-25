@@ -196,6 +196,7 @@ class Profile extends CI_Controller
                 $file_name = $upload_data['file_name'];
                 $data = array(
                     'username' => $this->session->userdata('username'),
+                    'nama' => $this->session->userdata('nama'),
                     'judul' => $this->input->post("judul"),
                     'deskripsi' => $this->input->post("deskripsi"),
                     'gambar'      => $file_name

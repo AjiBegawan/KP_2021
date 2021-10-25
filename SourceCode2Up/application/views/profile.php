@@ -179,10 +179,11 @@
                             </div>
                         </div>
                     </div>
+                    <?= $this->pagination->create_links(); ?>
                     <div class="row gutters-sm">
                         <?php foreach ($portfolio->result() as $row) {  ?>
                         <div class="col-sm-6 mb-3">
-                            <div class="card h-100" >
+                            <div class="card h-100">
                                 <img class="card-img-top" style="height: 300px;object-fit: contain;"
                                     src="<?php echo base_url('upload/portfolio/'.$row->gambar); ?>" />
                                 <div class="card-body">
@@ -193,7 +194,6 @@
                         </div>
                         <?php } ?>
                     </div>
-                    <?= $this->pagination->create_links(); ?>
                     
 
 </html>
