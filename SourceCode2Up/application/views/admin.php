@@ -34,16 +34,16 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
     <!-- Jquery Table -->
-    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-bootgrid/1.3.1/jquery.bootgrid.min.js"
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-bootgrid/1.3.1/jquery.bootgrid.min.js"
         integrity="sha512-ut+jq2MDKjyWKK7rpEbyHjJ2kDBDO58DLFw4xJobqvS2kUgx4DJbj3OLjwk4F0pKtcxUoUIRS6esQVhh4fmWNA=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-bootgrid/1.3.1/jquery.bootgrid.css"
         integrity="sha512-CF1ovh2vRt2kC4JJ/Hl7VC7a+tu/NTO8iW+iltdfvIjvsb45t/6NkRNSrOe6HBxCTVplYLHW5GdlbtRLlCUp2A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
 
     <script>
     $(document).ready(function() {
@@ -51,12 +51,7 @@
         $('#table_id').DataTable();
         $('#table_pesan').DataTable();
         $('#table_artikel').DataTable();
-    });
-    </script>
-    <script>
-    $(document).ready(function() {
-        $("#grid").bootgrid({
-        });
+        $('#table_test').DataTable();
     });
     </script>
 
@@ -131,7 +126,7 @@
 
             <!-- Test Table -->
 
-            <div style="margin: 100px ">
+            <div style="margin: 100px;width:1300px; ">
 
                 <h1>Data Member</h1>
                 <hr>
@@ -140,7 +135,6 @@
                     <thead>
                         <tr>
                             <th data-column-id="username">Username</th>
-                            <!-- <th>Password</th> -->
                             <th data-column-id="nama">Nama</th>
                             <th data-column-id="email">Email</th>
                             <th data-column-id="phone">Phone</th>
@@ -189,9 +183,6 @@
         </div>
 
         <div class="float-left ">
-
-
-
             <!-- Contact IDNFT -->
             <div style="margin: 100px ">
 
@@ -239,7 +230,7 @@
 
 
             <!-- Data Pesan Table -->
-            <div style="margin: 100px ">
+            <div style="margin: 100px;width:1300px;  ">
 
                 <h1>Data Pesan</h1>
                 <hr>
@@ -287,14 +278,8 @@
         <!-- End Of Artikel -->
 
         <div class="float-left ">
-
-
             <!-- Tabel Artikel -->
-
-            <div style="margin: 100px ">
-
-
-
+            <div style="margin: 100px;width:1300px; ">
                 <h1>Data Artikel</h1>
                 <hr>
                 <button type="button" class="btn btn-success"><a href="<?php echo site_url('/admin/addArtikel/') ?>"
@@ -352,20 +337,27 @@
 
 
             </div>
-
-
-
+            <table id="table_test" class="display">
+                            <thead>
+                                <tr>
+                                    <th>Column 1</th>
+                                    <th>Column 2</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Row 1 Data 1</td>
+                                    <td>Row 1 Data 2</td>
+                                </tr>
+                                <tr>
+                                    <td>Row 2 Data 1</td>
+                                    <td>Row 2 Data 2</td>
+                                </tr>
+                            </tbody>
+                        </table>
             <!-- End Of Tabel Artikel -->
-
         </div>
-
     </div>
-
-
-
-
-
-
 </body>
 
 </html>
