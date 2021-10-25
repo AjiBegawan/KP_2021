@@ -3,36 +3,13 @@
 
 <head>
     <meta charset="utf-8">
-
-    <title>Profile <?= $user->nama; ?> | IDNFT</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script> -->
+    <title>Profile Edit | IDNFT</title>
     <link href='<?php echo base_url("assets\image\LogoIDNFT.png"); ?>' rel='shortcut icon' type='image/x-icon' />
-    <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
-    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets\css\styleProfile.css'); ?>" media="all" />
-
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets\css\paginationProfile.css'); ?>"
-        media="all" />
-
-    <!-- Jquery Table -->
-    <!-- <script src="<?php echo base_url('assets\js\jquery-3.6.0.min.js'); ?>"></script>
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js">
-    </script> -->
-
-    <script>
-    $(document).ready(function() {
-        $('#table_id').DataTable();
-        $('#karya').DataTable();
-        $('#test').DataTable();
-    });
-    </script>
 
 
 </head>
@@ -202,134 +179,21 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="row">
-
-                        <table class="col-sm-12 mb-3 d-flex justify-content-center" id="karya">
-                            <!-- <thead>
-                                <tr>Paragraf 1</tr>
-                                <tr>Paragraf 1</tr>
-                            </thead> -->
-                            <tbody>
-                                <td>
-                                    <img class="img-thumbnail"
-                                        src="<?php echo base_url("assets\img\Dftr_nft.jpg"); ?>" />
-                                </td>
-                                <td>
-                                    <img class="img-thumbnail"
-                                        src="<?php echo base_url("assets\img\Dftr_nft.jpg"); ?>" />
-                                </td>
-                                <td>
-                                    <img class="img-thumbnail"
-                                        src="<?php echo base_url("assets\img\Dftr_nft.jpg"); ?>" />
-                                </td>
-                            </tbody>
-                        </table>
-                    </div>
                     <div class="row gutters-sm">
+                        <?php foreach ($portfolio->result() as $row) {  ?>
                         <div class="col-sm-6 mb-3">
-                            <div class="card h-100">
+                            <div class="card h-100" >
+                                <img class="card-img-top" style="height: 300px;object-fit: contain;"
+                                    src="<?php echo base_url('upload/portfolio/'.$row->gambar); ?>" />
                                 <div class="card-body">
-                                    <img class="img-thumbnail"
-                                        src="<?php echo base_url("assets\img\Dftr_nft.jpg"); ?>" />
-
+                                    <h5 class="card-title"><?php echo $row->judul; ?></h5>
+                                    <p class="card-text"><?php echo $row->deskripsi; ?></p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-6 mb-3">
-                            <div class="card h-100">
-                                <div class="card-body">
-                                    <img class="img-thumbnail"
-                                        src="<?php echo base_url("assets\img\Dftr_nft.jpg"); ?>" />
-
-                                </div>
-                            </div>
-                        </div>
+                        <?php } ?>
                     </div>
-                    <div class="float-left ">
-                        <!-- Contact IDNFT -->
-                        <!-- <div style="margin: 100px ">
-
-                            <h1>Data Sosmed IDNFT</h1>
-                            <hr>
-
-                            <table id="table_id" class="display">
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Instagram</th>
-                                        <th>Twitter</th>
-                                        <th>Discord</th>
-
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php
-                                    for ($x = 0; $x <= 10; $x++) {
-                                  
-                                    ?>
-                                    <tr>
-                                        <td>
-                                            <div class="card-body">
-                                                <img class="img-thumbnail"
-                                                    src="<?php echo base_url("assets\img\Dftr_nft.jpg"); ?>" />
-
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="card-body">
-                                                <img class="img-thumbnail"
-                                                    src="<?php echo base_url("assets\img\Dftr_nft.jpg"); ?>" />
-
-                                            </div>
-                                        </td>
-
-
-                                    </tr>
-                                    <?php } ?>
-                                </tbody>
-                            </table>
-
-                        </div> -->
-
-                        <!-- End Contact IDNFT -->
-
-                        <!-- test Pagination -->
-                        <div class="container">
-                            <div class="row">
-                                <div class="col">
-                                    <h1 class="mt-2">Portfolio</h1>
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">Judul</th>
-                                                <th scope="col">Deskripsi</th>
-                                                <th scope="col">Gambar</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php
-                                            foreach ($portfolio->result() as $row) {
-                                            ?>
-                                            <tr>
-                                                <td><?php echo $row->judul; ?></td>
-                                                <td><?php echo $row->deskripsi; ?></td>
-                                                <td>
-                                                    <div class="card-body">
-                                                        <img class="img-thumbnail"
-                                                            src="<?php echo base_url('upload/portfolio/'.$row->gambar); ?>" />
-                                                    </div>
-                                                </td>
-                                                <td><?php echo $row->gambar; ?></td>
-                                            </tr>
-                                            <?php } ?>
-                                        </tbody>
-                                        
-                                    </table>
-                                    <?= $this->pagination->create_links(); ?>
-                                </div>
-                            </div>
-                        </div>
-</body>
+                    <?= $this->pagination->create_links(); ?>
+                    
 
 </html>
