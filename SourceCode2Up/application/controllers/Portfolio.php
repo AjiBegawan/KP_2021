@@ -19,7 +19,7 @@ class Portfolio extends CI_Controller
 
         $config['base_url'] = 'http://localhost/KP_2021/SourceCode2Up/portfolio/index';
         $config['total_rows'] =  $this->PortfolioModel->getCountPortfolioAll();
-        $config['per_page'] = 4;
+        $config['per_page'] = 12;
 
         // var_dump($config['total_rows']);die;
 

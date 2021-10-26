@@ -32,11 +32,13 @@ class ArtikelModel extends CI_Model
     }
     function getCountArtikelAll()
     {
+        
         $query = $this->db->get('artikel')->num_rows();
         return $query;
     }
     function getAllArtikel($limit, $start)
     {
+        $this->db->order_by('RAND()');
         $query = $this->db->get('artikel',$limit, $start);
         return $query;
     }

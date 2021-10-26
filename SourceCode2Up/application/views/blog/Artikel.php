@@ -103,42 +103,38 @@
             </div>
         </section>
         <!-- End Breadcrumbs -->
-        <div class="container">
-            <div class="d-flex justify-content-center">
-                <?= $this->pagination->create_links(); ?>
-            </div>
-            <div class="row">
-                <?php foreach ($artikel->result() as $row) {  ?>
-                <div class="col-sm-12 mb-3">
-                    <div class="card h-100" id="kartu">
-                        <div class="row">
-                            <div class="col-md-3">
-                                <img class="card-img-top" id="img" 
-                                    src="<?= base_url('upload/artikel/'.$row->gambar); ?>" />
-                            </div>
-                            <div class="card-body col-md-9">
-                                <div id="konten">
-                                    <h5 class="card-title"><?= $row->Judul; ?></h5>
-                                    <p class="card-title" id="paragraf"><?= $row->Paragraf1; ?></p>
-                                </div>
-                                <p><a href="<?= site_url('PageArtikel/LoadArtikelDetail/') . $row->Id ?>"
-                                        class="btn btn-danger">Baca Selengkapnya</a>
-                                </p>
-                                
-                            </div>
+        <section>
 
+            <div class="container">
+                <div class="d-flex justify-content-center">
+                    <?= $this->pagination->create_links(); ?>
+                </div>
+                <div class="row">
+                    <?php foreach ($artikel->result() as $row) {  ?>
+                    <div class="col-sm-12 mb-3">
+                        <div class="card h-100" id="kartu">
+                            <div class="row">
+                                <div class="col-md-3 img-hover-zoom">
+                                    <img class="card-img-top" id="img"
+                                        src="<?= base_url('upload/artikel/'.$row->gambar); ?>" />
+                                </div>
+                                <div class="card-body col-md-9">
+                                    <div id="konten">
+                                        <a href="<?= site_url('Artikel/LoadArtikelDetail/') . $row->Id ?>" class="text-danger">
+                                            <h5 class=""><?= $row->Judul; ?></h5>
+                                        </a>
+                                        <!-- <h5 class="card-title"><?= $row->Judul; ?></h5> -->
+                                        <p class="card-title" id="paragraf"><?= $row->Paragraf1; ?></p>
+                                    </div>
+
+                                </div>
+
+                            </div>
                         </div>
                     </div>
+                    <?php } ?>
                 </div>
-                <?php } ?>
-            </div>
-
-            </section>
-
-
-
-
-
+        </section>
     </main><!-- End #main -->
 
     <!-- ======= Footer ======= -->

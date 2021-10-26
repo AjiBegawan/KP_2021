@@ -16,7 +16,7 @@ class Artikel extends CI_Controller
 
         $config['base_url'] = 'http://localhost/KP_2021/SourceCode2Up/artikel/index';
         $config['total_rows'] =  $this->ArtikelModel->getCountArtikelAll();
-        $config['per_page'] = 3;
+        $config['per_page'] = 10;
 
         // var_dump($config['total_rows']);die;
 

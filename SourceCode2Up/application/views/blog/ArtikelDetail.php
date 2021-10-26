@@ -14,19 +14,16 @@
     <link href="<?= base_url() ?>assets/img/LogoIDNFT.png" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
 
     <!-- Vendor CSS Files -->
     <link href="<?= base_url() ?>assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?= base_url() ?>assets/vendor/icofont/icofont.min.css" rel="stylesheet">
-    <link href="<?= base_url() ?>assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="<?= base_url() ?>assets/vendor/venobox/venobox.css" rel="stylesheet">
-    <link href="<?= base_url() ?>assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
 
     <!-- Template Main CSS File -->
     <link href="<?= base_url() ?>assets/css/style.css" rel="stylesheet">
+    <link href="<?= base_url() ?>assets\css\styleFooter.css" rel="stylesheet">
+
 
     <link rel="icon" type="image/png" href="https://www.weebly.com/uploads/reseller/assets/438585504-favicon.ico">
 
@@ -96,31 +93,21 @@
             </div>
         </section><!-- End Breadcrumbs -->
 
-        <div>
-            <div class="wsite-image wsite-image-border-medium "
-                style="padding-top:5px;padding-bottom:10px;margin-left:0px;margin-right:10px;text-align:center">
-                <a>
-                    <!-- <img src="<<?= base_url('upload/'.$artikel->gambar) ?>" alt="NFT ART" style="width:100%;max-width:100%;"> -->
-                    <img class="card-img-top" src="<?= base_url('upload/'.$artikel->gambar) ?>" alt="" style="width: auto;height: 500px;">
-                </a>
-
-            </div>
-        </div>
-        <h1 style="text-align:center;font-size:60px"><?php echo $artikel->Judul; ?></h1>
+        
         <div class="container">
+            <div class="img">
+            <img src="<?= base_url('upload/artikel/'.$artikel->gambar) ?>" alt="NFT ART"
+                        style="width:100%;max-width:100%;">
+            </div><br>
+            <h1 style="text-align:center;font-size:60px"><?php echo $artikel->Judul; ?></h1><hr>
             <section class="inner-page " style="margin: 0 15% 0 15%;">
                 <div class="paragraph" style="text-align:left">
                     <font size="4">
                         <ol>
-                            <!-- <li><strong>Membuat Crypto Digital Wallet</strong></li> -->
                             <p><?php echo $artikel->Paragraf1; ?></p>
-                            <!-- <li><strong>Menentukan Crypto Marketplace (Jenis Blockchain)</strong></li> -->
-                            <p> <?php echo $artikel->Paragraf2; ?></p>
-                            <!-- <li><strong>Mendaftar di NFT Marketplace</strong></li> -->
+                            <p><?php echo $artikel->Paragraf2; ?></p>
                             <p><?php echo $artikel->Paragraf3; ?></p>
-                            <!-- <li><strong>Melakukan proses Minting dan Listing</strong></li> -->
                             <p><?php echo $artikel->Paragraf4; ?></p>
-                            <!-- <li><strong>Menerima pembayaran</strong></li> -->
                             <p><?php echo $artikel->Paragraf5; ?></p>
                             <p><?php echo $artikel->Paragraf6; ?></p>
                             <p><?php echo $artikel->Paragraf7; ?></p>
@@ -130,22 +117,7 @@
         </div>
         </section>
         <!-- ======= Footer ======= -->
-        <!-- CSS Tempalte -->
-        <link href="<?= base_url() ?>assets\css\styleFooter.css" rel="stylesheet">
 
-        <!-- Vendor JS Files -->
-        <script src="<?= base_url() ?>assets/vendor/jquery/jquery.min.js"></script>
-        <script src="<?= base_url() ?>assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <script src="<?= base_url() ?>assets/vendor/jquery.easing/jquery.easing.min.js"></script>
-        <script src="<?= base_url() ?>assets/vendor/php-email-form/validate.js"></script>
-        <script src="<?= base_url() ?>assets/vendor/waypoints/jquery.waypoints.min.js"></script>
-        <script src="<?= base_url() ?>assets/vendor/counterup/counterup.min.js"></script>
-        <script src="<?= base_url() ?>assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-        <script src="<?= base_url() ?>assets/vendor/venobox/venobox.min.js"></script>
-        <script src="<?= base_url() ?>assets/vendor/owl.carousel/owl.carousel.min.js"></script>
-
-        <!-- Template Main JS File -->
-        <script src="<?= base_url() ?>assets/js/main.js"></script>
         <!-- ======= Contact Section ======= -->
         <section id="contact" class="contact">
             <div class="container">
