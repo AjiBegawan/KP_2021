@@ -115,7 +115,6 @@
             </div>
             <div class="row">
                 <div class="col-sm-12">
-
                     <div class="row gutters-sm">
                         <?php foreach ($portfolio->result() as $row) {  ?>
                         <div class="col-lg-3 mb-3">

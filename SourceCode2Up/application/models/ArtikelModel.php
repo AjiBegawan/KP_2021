@@ -7,4 +7,37 @@ class ArtikelModel extends CI_Model
         parent::__construct();
         $this->load->library('session');
     }
+    function getUsernameData()
+    {
+        $this->db->where('username', $this->session->userdata('username'));
+        $query = $this->db->get('user')->row();
+        return $query;
+    }
+    function getArtikel()
+    {
+        $query = $this->db->get('artikel');
+        return $query;
+    }
+    function getUsernameLogin()
+    {
+        $this->db->where('username', $this->session->userdata('username'));
+        $query = $this->db->get('user')->row();
+        return $query;
+    }
+    function getArtikelDetail($id)
+    {
+        $this->db->where('Id', $id);
+        $query = $this->db->get('artikel')->row();
+        return $query;
+    }
+    function getCountArtikelAll()
+    {
+        $query = $this->db->get('artikel')->num_rows();
+        return $query;
+    }
+    function getAllArtikel($limit, $start)
+    {
+        $query = $this->db->get('artikel',$limit, $start);
+        return $query;
+    }
 }

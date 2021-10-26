@@ -11,43 +11,35 @@ class Artikel extends CI_Controller
     }
     public function index()
     {
+        // Pagination
+        $this->load->library('pagination');
+
+        $config['base_url'] = 'http://localhost/KP_2021/SourceCode2Up/artikel/index';
+        $config['total_rows'] =  $this->ArtikelModel->getCountArtikelAll();
+        $config['per_page'] = 3;
+
+        // var_dump($config['total_rows']);die;
+
+        $this->pagination->initialize($config);
+
+        $data['start'] = $this->uri->segment(3);
+        $data['artikel'] = $this->ArtikelModel->getAllArtikel($config['per_page'], $data['start']);
+
+        // var_dump($data['portfolio']);die;
+
+
         if ($this->session->userdata('is_login')) {
-            $data['user'] = $this->getUsernameData();
-            $data['artikel'] = $this->getArtikel();
+            $data['user'] = $this->ArtikelModel->getUsernameData();
 
             $this->load->view("Artikel", $data);
         } else {
-            $data['artikel'] = $this->getArtikel();
-            $this->load->view("Artikel", $data);
+            $this->load->view("blog/artikel", $data);
         }
-    }
-    function getUsernameData()
-    {
-        $this->db->where('username', $this->session->userdata('username'));
-        $query = $this->db->get('user')->row();
-        return $query;
-    }
-    function getArtikel()
-    {
-        $query = $this->db->get('artikel');
-        return $query;
-    }
-    function getUsernameLogin()
-    {
-        $this->db->where('username', $this->session->userdata('username'));
-        $query = $this->db->get('user')->row();
-        return $query;
     }
     function LoadArtikelDetail($id)
     {
-        $data['login'] = $this->getUsernameLogin();
-        $data['artikel'] = $this->getArtikelDetail($id);
-        $this->load->view("PageArtikelDetail", $data);
-    }
-    function getArtikelDetail($id)
-    {
-        $this->db->where('Id', $id);
-        $query = $this->db->get('artikel')->row();
-        return $query;
+        $data['login'] = $this->ArtikelModel->getUsernameLogin();
+        $data['artikel'] = $this->ArtikelModel->getArtikelDetail($id);
+        $this->load->view("blog/artikelDetail", $data);
     }
 }

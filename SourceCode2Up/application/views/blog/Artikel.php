@@ -27,172 +27,13 @@
 
     <!-- Template Main CSS File -->
     <link href="<?= base_url() ?>assets/css/style.css" rel="stylesheet">
-
-    <!-- TAMBAHAN -->
-    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Vidaloka" rel="stylesheet">
-
-    <link rel="stylesheet" href="<?= base_url() ?>assets/css/css/mixins/_text-hide.css">
-    <link rel="stylesheet" href="<?= base_url() ?>assets/css/css/bootstrap-reboot.css">
-
-    <link rel="stylesheet" href="<?= base_url() ?>assets/css/open-iconic-bootstrap.min.css">
-    <link rel="stylesheet" href="<?= base_url() ?>assets/css/animate.css">
-
-    <link rel="stylesheet" href="<?= base_url() ?>assets/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="<?= base_url() ?>assets/css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="<?= base_url() ?>assets/css/magnific-popup.css">
-
-    <link rel="stylesheet" href="<?= base_url() ?>assets/css/aos.css">
-
-    <link rel="stylesheet" href="<?= base_url() ?>assets/css/ionicons.min.css">
-
-    <link rel="stylesheet" href="<?= base_url() ?>assets/css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="<?= base_url() ?>assets/css/jquery.timepicker.css">
-
-
-    <link rel="stylesheet" href="<?= base_url() ?>assets/css/flaticon.css">
-    <link rel="stylesheet" href="<?= base_url() ?>assets/css/icomoon.css">
-    <link rel="stylesheet" href="<?= base_url() ?>assets/css/style.css">
+    <link href="<?= base_url() ?>assets\css\styleArtikel.css" rel="stylesheet">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-    <!-- <script type="text/javascript" src="<?= base_url() ?>assets\js\jquery.paginate.js"></script>
-    <script type="text/javascript" src="<?= base_url() ?>assets\js\jquery.paginate.min.js"></script>
 
-    <script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-    <script src="//raw.github.com/botmonster/jquery-bootpag/master/lib/jquery.bootpag.min.js"></script>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
- -->
     <script src="<?= base_url('assets\js\jquery-3.6.0.min.js') ?>"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-    <style>
-    .pagination ul {
-        align-items: center;
-        margin: auto;
-        width: 100%;
-        display: flex;
-        flex-wrap: wrap;
-        background: #fff;
-        padding: 8px;
-        border-radius: 50px;
-        box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
-    }
-
-    .pagination ul li {
-        color: #20B2AA;
-        list-style: none;
-        line-height: 45px;
-        text-align: center;
-        font-size: 18px;
-        font-weight: 500;
-        cursor: pointer;
-        user-select: none;
-        transition: all 0.3s ease;
-    }
-
-    .pagination ul li.numb {
-        list-style: none;
-        height: 45px;
-        width: 45px;
-        margin: 0 3px;
-        line-height: 45px;
-        border-radius: 50%;
-    }
-
-    .pagination ul li.numb.first {
-        margin: 0px 3px 0 -5px;
-    }
-
-    .pagination ul li.numb.last {
-        margin: 0px -5px 0 3px;
-    }
-
-    .pagination ul li.dots {
-        font-size: 22px;
-        cursor: default;
-    }
-
-    .pagination ul li.btn {
-        padding: 0 20px;
-        border-radius: 50px;
-    }
-
-    .pagination li.active,
-    .pagination ul li.numb:hover,
-    .pagination ul li:first-child:hover,
-    .pagination ul li:last-child:hover {
-        color: #fff;
-        background: #20B2AA;
-    }
-    </style>
-
-    <script>
-    // selecting required element
-    const element = document.querySelector(".pagination ul");
-    let totalPages = 20;
-    let page = 10;
-    //calling function with passing parameters and adding inside element which is ul tag
-    element.innerHTML = createPagination(totalPages, page);
-
-    function createPagination(totalPages, page) {
-        let liTag = '';
-        let active;
-        let beforePage = page - 1;
-        let afterPage = page + 1;
-        if (page > 1) { //show the next button if the page value is greater than 1
-            liTag +=
-                `<li class="btn prev" onclick="createPagination(totalPages, ${page - 1})"><span><i class="fas fa-angle-left"></i> Prev</span></li>`;
-        }
-        if (page > 2) { //if page value is less than 2 then add 1 after the previous button
-            liTag += `<li class="first numb" onclick="createPagination(totalPages, 1)"><span>1</span></li>`;
-            if (page > 3) { //if page value is greater than 3 then add this (...) after the first li or page
-                liTag += `<li class="dots"><span>...</span></li>`;
-            }
-        }
-        // how many pages or li show before the current li
-        if (page == totalPages) {
-            beforePage = beforePage - 2;
-        } else if (page == totalPages - 1) {
-            beforePage = beforePage - 1;
-        }
-        // how many pages or li show after the current li
-        if (page == 1) {
-            afterPage = afterPage + 2;
-        } else if (page == 2) {
-            afterPage = afterPage + 1;
-        }
-        for (var plength = beforePage; plength <= afterPage; plength++) {
-            if (plength > totalPages) { //if plength is greater than totalPage length then continue
-                continue;
-            }
-            if (plength == 0) { //if plength is 0 than add +1 in plength value
-                plength = plength + 1;
-            }
-            if (page == plength) { //if page is equal to plength than assign active string in the active variable
-                active = "active";
-            } else { //else leave empty to the active variable
-                active = "";
-            }
-            liTag +=
-                `<li class="numb ${active}" onclick="createPagination(totalPages, ${plength})"><span>${plength}</span></li>`;
-        }
-        if (page < totalPages - 1) { //if page value is less than totalPage value by -1 then show the last li or page
-            if (page < totalPages -
-                2) { //if page value is less than totalPage value by -2 then add this (...) before the last li or page
-                liTag += `<li class="dots"><span>...</span></li>`;
-            }
-            liTag +=
-                `<li class="last numb" onclick="createPagination(totalPages, ${totalPages})"><span>${totalPages}</span></li>`;
-        }
-        if (page < totalPages) { //show the next button if the page value is less than totalPage(20)
-            liTag +=
-                `<li class="btn next" onclick="createPagination(totalPages, ${page + 1})"><span>Next <i class="fas fa-angle-right"></i></span></li>`;
-        }
-        element.innerHTML = liTag; //add li tag inside ul tag
-        return liTag; //reurn the li tag
-    }
-    </script>
 </head>
 
 <body>
@@ -262,54 +103,39 @@
             </div>
         </section>
         <!-- End Breadcrumbs -->
-
-        <section class="inner-page">
-            <div class="container ">
-                <!-- Menampilkan card masing masing blog yang ada pada halaman -->
-
-                <div class="row" id="page-selection">
-                    <div id="content">Dynamic Content goes here</div>
-
-                    <!-- CARD -->
-                    <div class="card-group">
-                        <?php
-                      foreach ($artikel->result() as $row) {
-                      ?>
-                        <div class="card">
-                            <img class="card-img-top" src="<?= base_url('upload/'.$row->gambar) ?>" alt=""
-                                style="width: auto;height: 300px;">
-                            <div class="card-body">
-                                <h3 class="card-title"><strong><?php echo $row->Judul; ?></strong></h3>
-                                <!-- <p class="card-text" ><?php echo $row->Paragraf1; ?></p> -->
-                                <p><a href="<?php echo site_url('PageArtikel/LoadArtikelDetail/').$row->Id ?>"
-                                        class="btn btn-danger">Baca Lengkap</a>
+        <div class="container">
+            <div class="d-flex justify-content-center">
+                <?= $this->pagination->create_links(); ?>
+            </div>
+            <div class="row">
+                <?php foreach ($artikel->result() as $row) {  ?>
+                <div class="col-sm-12 mb-3">
+                    <div class="card h-100" id="kartu">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <img class="card-img-top" id="img" 
+                                    src="<?= base_url('upload/artikel/'.$row->gambar); ?>" />
+                            </div>
+                            <div class="card-body col-md-9">
+                                <div id="konten">
+                                    <h5 class="card-title"><?= $row->Judul; ?></h5>
+                                    <p class="card-title" id="paragraf"><?= $row->Paragraf1; ?></p>
+                                </div>
+                                <p><a href="<?= site_url('PageArtikel/LoadArtikelDetail/') . $row->Id ?>"
+                                        class="btn btn-danger">Baca Selengkapnya</a>
                                 </p>
+                                
                             </div>
-                            <div class="card-footer">
-                                <small class="text-muted">Posted August 2, 2021</small>
-                            </div>
+
                         </div>
-                        <?php } ?>
                     </div>
                 </div>
+                <?php } ?>
             </div>
 
+            </section>
 
-        </section>
 
-        <div class="pagination">
-            <ul>
-                <li><span><i class="fas fa-angle-left"></i>prev</span></li>
-                <li class="numb"><span>1</span></li>
-                <li class="numb"><span>2</span></li>
-                <li class="dots"><span>...</span></li>
-                <li class="numb"><span>4</span></li>
-                <li class="numb"><span>5</span></li>
-                <li class="dots"><span>...</span></li>
-                <li class="numb"><span>7</span></li>
-                <li><span><i class="fas fa-angle-right"></i>next</span></li>
-            </ul>
-        </div>
 
 
 
@@ -318,17 +144,6 @@
     <!-- ======= Footer ======= -->
     <!-- CSS Tempalte -->
     <link href="<?= base_url() ?>assets\css\styleFooter.css" rel="stylesheet">
-
-    <!-- Vendor JS Files -->
-    <script src="<?= base_url() ?>assets/vendor/jquery/jquery.min.js"></script>
-    <script src="<?= base_url() ?>assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="<?= base_url() ?>assets/vendor/jquery.easing/jquery.easing.min.js"></script>
-    <script src="<?= base_url() ?>assets/vendor/php-email-form/validate.js"></script>
-    <script src="<?= base_url() ?>assets/vendor/waypoints/jquery.waypoints.min.js"></script>
-    <script src="<?= base_url() ?>assets/vendor/counterup/counterup.min.js"></script>
-    <script src="<?= base_url() ?>assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-    <script src="<?= base_url() ?>assets/vendor/venobox/venobox.min.js"></script>
-    <script src="<?= base_url() ?>assets/vendor/owl.carousel/owl.carousel.min.js"></script>
 
     <!-- Template Main JS File -->
     <script src="<?= base_url() ?>assets/js/main.js"></script>
