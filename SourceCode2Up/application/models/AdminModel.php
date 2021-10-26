@@ -47,6 +47,12 @@ class AdminModel extends CI_Model
         $query = $this->db->get('user',$limit, $start);
         return $query;
     }
+    function getUserDatabase($username)
+    {
+        $this->db->where('username', $username);
+        $query = $this->db->get('user')->row();
+        return $query;
+    }
 
     // Function Get for Contact Page
     function getCountContact()
@@ -57,6 +63,12 @@ class AdminModel extends CI_Model
     function getAllContact($limit, $start)
     {
         $query = $this->db->get('contact',$limit, $start);
+        return $query;
+    }
+    function getPesanId($id)
+    {
+        $this->db->where('id', $id);
+        $query = $this->db->get('contact')->row();
         return $query;
     }
 
@@ -71,13 +83,21 @@ class AdminModel extends CI_Model
         $query = $this->db->get('artikel',$limit, $start);
         return $query;
     }
-
     function getArtikelId($id)
     {
         $this->db->where('id', $id);
         $query = $this->db->get('artikel')->row();
         return $query;
     }
+
+    // Function Get for Sosmed Page
+    function getUSosmedId($id)
+    {
+        $this->db->where('id', $id);
+        $query = $this->db->get('sosmed');
+        return $query;
+    }
+
 
 
     

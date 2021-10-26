@@ -14,6 +14,7 @@ class Admin extends CI_Controller
         $this->member();
     }
 
+    // All function to call page and manage pagination
     function member()
     {
         // Pagination
@@ -23,12 +24,9 @@ class Admin extends CI_Controller
         $config['total_rows'] =  $this->AdminModel->getCountUserAll();
         $config['per_page'] = 10;
 
-        // var_dump($config['total_rows']);die;
-
         $this->pagination->initialize($config);
 
         $data['start'] = $this->uri->segment(3);
-        // var_dump($data['start']);die;
         $data['user'] = $this->AdminModel->getAllUser($config['per_page'], $data['start']);
 
         $this->load->view("admin\member", $data);
@@ -47,7 +45,6 @@ class Admin extends CI_Controller
         $data['start'] = $this->uri->segment(3);
         $data['contact'] = $this->AdminModel->getAllContact($config['per_page'], $data['start']);
 
-
         $this->load->helper("url");
         $this->load->view("admin\contact", $data);
     }
@@ -61,11 +58,9 @@ class Admin extends CI_Controller
         $config['per_page'] = 10;
 
         $this->pagination->initialize($config);
-        // var_dump($config['total_rows']);die;
 
         $data['start'] = $this->uri->segment(3);
         $data['artikel'] = $this->AdminModel->getAllArtikel($config['per_page'], $data['start']);
-
 
         $this->load->helper("url");
         $this->load->view("admin\artikel", $data);
@@ -73,66 +68,16 @@ class Admin extends CI_Controller
 
     function sosmed()
     {
-
         $this->load->helper("url");
         $data['login'] = $this->AdminModel->getUsernameLogin();
         $data['sosmed'] = $this->AdminModel->getUSosmedIdnft();
         $this->load->view("admin\sosmed", $data);
     }
 
-    function addArtikel()
-    {
-        $data['login'] = $this->AdminModel->getUsernameLogin();
-        $this->load->view("addAdminArtikel", $data);
-    }
-    
-
-    public function upload()
-    {
-        $config['upload_path'] = './upload/';
-        $config['allowed_types'] = 'gif|jpg|png';
-        $config['max_size'] = 2000;
-
-
-        $this->load->library('upload', $config);
-
-        if (!$this->upload->do_upload('profile_pic')) {
-            $error = array('error' => $this->upload->display_errors());
-
-            $this->load->view('imageupload_form', $error);
-        } else {
-            $data = array('image_metadata' => $this->upload->data());
-            $upload_data = $this->upload->data();
-            $file_name = $upload_data['file_name'];
-
-            $name = array(
-                'gambar'      => $file_name
-            );
-            $this->db->insert('artikel', $name);
-            // if ($this->db->update('artikel', $name)) {
-            //     $this->index();
-            // } else {
-            //     $this->load->view("gagal");
-            // }
-
-            // $this->index();
-            // $this->load->view('imageupload_success', $data);
-        }
-    }
+     // All Function User
     function editUser($username)
     {
-        $data['user'] = $this->getUserDatabase($username);
-        $this->load->view("editAdminUser", $data);
-    }
-    function getUserDatabase($username)
-    {
-        $this->db->where('username', $username);
-        $query = $this->db->get('user')->row();
-        return $query;
-    }
-    function editContact($username)
-    {
-        $data['user'] = $this->getUserDatabase($username);
+        $data['user'] = $this->AdminModel->getUserDatabase($username);
         $this->load->view("editAdminUser", $data);
     }
     function updateUser()
@@ -143,8 +88,6 @@ class Admin extends CI_Controller
         $data = array(
             'role'      => $role
         );
-
-        // $this->db->set('role', $data['role']);
         $this->db->where('username', $username);
         if ($this->db->update('user', $data)) {
             $this->index();
@@ -161,15 +104,11 @@ class Admin extends CI_Controller
             $this->load->view("gagal");
         }
     }
-    function getUSosmedId($id)
-    {
-        $this->db->where('id', $id);
-        $query = $this->db->get('sosmed');
-        return $query;
-    }
+
+    // All Function Sosmed
     function editSosmed($id)
     {
-        $data['sosmed'] = $this->getUSosmedId($id);
+        $data['sosmed'] = $this->AdminModel->getUSosmedId($id);
         $this->load->view("editAdminSosmed", $data);
     }
     function updateSosmed()
@@ -191,26 +130,15 @@ class Admin extends CI_Controller
             $this->load->view("gagal");
         }
     }
-    function deleteSosmed($id)
-    {
-        $this->db->where('id', $id);
-        if ($this->db->delete('sosmed')) {
-            $this->index();
-        } else {
-            $this->load->view("gagal");
-        }
-    }
+
+    // All Function Pesan / Contact
     function editPesan($id)
     {
-        $data['contact'] = $this->getPesanId($id);
+        $data['contact'] = $this->AdminModel->getPesanId($id);
         $this->load->view("editAdminPesan", $data);
     }
-    function getPesanId($id)
-    {
-        $this->db->where('id', $id);
-        $query = $this->db->get('contact')->row();
-        return $query;
-    }
+
+
     function updatePesan()
     {
         $id  = $this->input->post('id');
@@ -234,6 +162,13 @@ class Admin extends CI_Controller
         } else {
             $this->load->view("gagal");
         }
+    }
+
+    // All Function Artikel
+    function addArtikel()
+    {
+        $data['login'] = $this->AdminModel->getUsernameLogin();
+        $this->load->view("addAdminArtikel", $data);
     }
     function editArtikel($id)
     {
@@ -324,5 +259,4 @@ class Admin extends CI_Controller
             $this->load->view("gagal");
         }
     }
-    
 }
