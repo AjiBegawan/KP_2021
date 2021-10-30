@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Edit User | IDNFT </title>
+    <title>Profile | IDNFT </title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -13,30 +13,24 @@
     <link href="<?= base_url() ?>assets/img/LogoIDNFT.png" rel="icon">
     <link href="<?= base_url() ?>assets/img/LogoIDNFT.png" rel="apple-touch-icon">
 
+    <!-- Bootsrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+
     <!-- Vendor CSS Files -->
-    <link href="<?= base_url() ?>assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?= base_url() ?>assets/vendor/icofont/icofont.min.css" rel="stylesheet">
-    <link href="<?= base_url() ?>assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="<?= base_url() ?>assets/vendor/venobox/venobox.css" rel="stylesheet">
-    <link href="<?= base_url() ?>assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
 
     <!-- Template Main CSS File -->
-    <link href="<?= base_url() ?>assets\css\styleHome.css" rel="stylesheet">
     <link href="<?= base_url() ?>assets\css\styleHeader.css" rel="stylesheet">
+    <link href="<?= base_url() ?>assets\css\profile\styleProfile.css" rel="stylesheet">
+    <link href="<?= base_url() ?>assets\css\styleHome.css" rel="stylesheet">
 
-    <!-- Bootsrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
+    <!-- Template Main JS File -->
+    <script src="<?= base_url() ?>assets/js/main.js"></script>
+
 </head>
-
-
 
 <body>
     <!-- ======= Header ======= -->
@@ -56,7 +50,6 @@
                                 NFT</strong></a></li>
                     <li><a href="<?php echo site_url('Home/BlogView') ?>"
                             style="text-decoration: none;"><strong>BLOG</strong></a></li>
-                    <!-- <li><a href="<?php echo site_url('Home/ShopView1') ?>">Shop & Merch</a></li> -->
                     <li><a href="https://discord.gg/DMMF7bVYrh" style="text-decoration: none;"
                             target="_blank"><strong>JOIN OUR DISCORD</strong></a></li>
                     <li><a href="<?php echo site_url('Home') ?>#contact"
@@ -97,61 +90,79 @@
     </header>
     <!-- End Header -->
 
-    <h1>Edit User</h1>
+    <!-- Detail Profile -->
+    <div class="wadah">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="d-flex flex-column align-items-center">
+                        <img src=" <?= base_url('upload/photoProfile/'.$login->dp) ?>" alt="">
 
-    <div class="container" style="margin-top: 100px;">
-        <?php echo form_open_multipart('Admin/ProsesAddArtikel'); ?>
-            <fieldset>
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Judul</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                        name="judul">
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Paragraf 1</label>
-                    <textarea name="paragraf1" class="form-control" cols="30" rows="10"
-                        name="paragraf1"> </textarea>
+                <div class="col-lg-7">
+                    <div class="d-flex flex-column align-items-left">
+                        <div class="mt-3">
+                            <h3><?= $user->nama; ?></h3>
+                            <h6><span><i class="icofont-id"></i></span>&emsp;IDNFT<?= $user->idnft; ?></h6>
+                            <p class="text-dark mb-1"><span><i
+                                        class="icofont-paint"></i></span>&emsp;<?= $user->aliran_seni; ?></p>
+                            <hr>
+                            <h5>Contact Information</h5><br>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <p><span><i class="icofont-ui-email"></i></span>&emsp;<?= $user->email; ?></p>
+                                    <p><span><i class="icofont-phone"></i></span>&emsp;<?= $user->phone; ?></p>
+                                    <p><span><i class="icofont-location-pin"></i></span>&emsp;<?= $user->alamat; ?></p>
+                                </div>
+                                <div class="col-sm-">
+                                    <p><span><i class="icofont-twitter"></i></span>&emsp;<?= $user->twitter; ?></p>
+                                    <p><span><i class="icofont-instagram"></i></span>&emsp;<?= $user->instagram; ?></p>
+                                    <p><span><i class="icofont-web"></i></span>&emsp;</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Paragraf 2</label>
-                    <textarea name="paragraf2" class="form-control" cols="30" rows="10"
-                        name="paragraf2"> </textarea>
+                <div class="col-lg-1">
+                    <button type="button" class="btn btn-danger"><i class="icofont-ui-edit"></i></button>
                 </div>
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Paragraf 3</label>
-                    <textarea name="paragraf3" class="form-control" cols="30" rows="10"
-                        name="paragraf3"> </textarea>
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Paragraf 4</label>
-                    <textarea name="paragraf4" class="form-control" cols="30" rows="10"
-                        name="paragraf4"> </textarea>
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Paragraf 5</label>
-                    <textarea name="paragraf5" class="form-control" cols="30" rows="10"
-                        name="paragraf5"> </textarea>
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Paragraf 6</label>
-                    <textarea name="paragraf6" class="form-control" cols="30" rows="10"
-                        name="paragraf6"> </textarea>
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Paragraf 7</label>
-                    <textarea name="paragraf7" class="form-control" cols="30" rows="10"
-                        name="paragraf7"> </textarea>
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Upload Gambar Header</label>
-                    <input type='file' class="form-control" name='gambar' size='20'>
-                </div>
+            </div>
+            <hr>
 
-                <input type="submit" value="Add" class="form-control btn btn-primary" />
-            </fieldset>
-        <?php echo form_close(); ?>
-<br>
+            <!-- Section Portfolio / Karya -->
+            <div class="d-flex justify-content-center">
+                <h1>Karya</h1>
+            </div>
+            <div class="row">
+                <div class="col-lg-11">
+                    <?= $this->pagination->create_links(); ?>
+                </div>
+                <div class="col-lg-1">
+                    <a href="<?= site_url('/Profile/managePortfolio/') ?>"><button type="button"
+                            class="btn btn-danger"><i class="icofont-gear"></i></button></a>
+                </div>
+            </div>
+            <div class="row gutters-sm">
+                <?php foreach ($portfolio->result() as $row) {  ?>
+                <div class="col-sm-4 mb-3">
+                    <div class="card h-100">
+                        <img class="card-img-top" style="height: 300px;object-fit: contain;"
+                            src="<?php echo base_url('upload/portfolio/'.$row->gambar); ?>" />
+                        <div class="card-body">
+                            <h5 class="card-title"><?php echo $row->judul; ?></h5>
+                            <p class="card-text"><?php echo $row->deskripsi; ?></p>
+                        </div>
+                    </div>
+                </div>
+                <?php } ?>
+            </div>
+
+        </div>
+
     </div>
+
+
 </body>
 
 </html>

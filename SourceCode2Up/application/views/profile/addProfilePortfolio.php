@@ -36,8 +36,6 @@
         integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
 </head>
 
-
-
 <body>
     <!-- ======= Header ======= -->
     <header id="header" class="fixed-top" style="background-color:white">
@@ -100,57 +98,26 @@
     <h1>Edit User</h1>
 
     <div class="container" style="margin-top: 100px;">
-        <?php echo form_open_multipart('Admin/ProsesAddArtikel'); ?>
-            <fieldset>
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Judul</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                        name="judul">
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Paragraf 1</label>
-                    <textarea name="paragraf1" class="form-control" cols="30" rows="10"
-                        name="paragraf1"> </textarea>
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Paragraf 2</label>
-                    <textarea name="paragraf2" class="form-control" cols="30" rows="10"
-                        name="paragraf2"> </textarea>
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Paragraf 3</label>
-                    <textarea name="paragraf3" class="form-control" cols="30" rows="10"
-                        name="paragraf3"> </textarea>
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Paragraf 4</label>
-                    <textarea name="paragraf4" class="form-control" cols="30" rows="10"
-                        name="paragraf4"> </textarea>
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Paragraf 5</label>
-                    <textarea name="paragraf5" class="form-control" cols="30" rows="10"
-                        name="paragraf5"> </textarea>
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Paragraf 6</label>
-                    <textarea name="paragraf6" class="form-control" cols="30" rows="10"
-                        name="paragraf6"> </textarea>
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Paragraf 7</label>
-                    <textarea name="paragraf7" class="form-control" cols="30" rows="10"
-                        name="paragraf7"> </textarea>
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Upload Gambar Header</label>
-                    <input type='file' class="form-control" name='gambar' size='20'>
-                </div>
+        <?php echo form_open_multipart('Profile/addPortfolio'); ?>
 
-                <input type="submit" value="Add" class="form-control btn btn-primary" />
-            </fieldset>
+        <fieldset>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Nama Portfolio</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                    name="judul">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Deskripsi</label>
+                <textarea class="form-control" id="" cols="30" rows="10" name="deskripsi"> </textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="exampleInputEmail1">File Gambar</label>
+                <input type='file' class="form-control" name='gambar' size='20'>
+            </div>
+            <input type="submit" value="Add" class="form-control btn btn-primary"/>
+        </fieldset>
         <?php echo form_close(); ?>
-<br>
     </div>
 </body>
 

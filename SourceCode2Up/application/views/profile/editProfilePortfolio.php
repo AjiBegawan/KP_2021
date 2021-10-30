@@ -36,8 +36,6 @@
         integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
 </head>
 
-
-
 <body>
     <!-- ======= Header ======= -->
     <header id="header" class="fixed-top" style="background-color:white">
@@ -100,25 +98,22 @@
     <h1>Edit User</h1>
 
     <div class="container" style="margin-top: 100px;">
-        <?php echo form_open_multipart('Profile/addPortfolio'); ?>
-
+        <?php echo form_open_multipart('Profile/updatePortfolio/'.$portfolio->id); ?>
         <fieldset>
             <div class="form-group">
                 <label for="exampleInputEmail1">Nama Portfolio</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                    name="judul">
+                <input type="text" class="form-control" name="judul" value="<?= $portfolio->judul; ?>">
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Deskripsi</label>
-                <textarea class="form-control" id="" cols="30" rows="10" name="deskripsi"> </textarea>
+                <textarea class="form-control" id="" cols="30" rows="10" name="deskripsi" ><?= $portfolio->deskripsi; ?></textarea>
             </div>
 
             <div class="form-group">
                 <label for="exampleInputEmail1">File Gambar</label>
-                <input type='file' class="form-control" name='gambar' size='20'>
+                <input type='file' class="form-control" name='gambar' size='20' placeholder="<?= $portfolio->gambar; ?>">
             </div>
-
-            <input type="submit" value="Add" class="form-control btn btn-primary"/>
+            <input type="submit" value="Update" class="form-control btn btn-primary" />
         </fieldset>
         <?php echo form_close(); ?>
     </div>

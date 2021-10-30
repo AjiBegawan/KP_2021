@@ -3,11 +3,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Profile extends CI_Controller
 {
-
     public function __construct()
     {
         parent::__construct();
         $this->load->library('session');
+        $this->load->Model('ProfileModel');
     }
 
     public function index()
@@ -15,10 +15,9 @@ class Profile extends CI_Controller
         $this->load->model('ProfileModel');
 
         if ($this->session->userdata('is_login')) {
-            $data['user'] = $this->getUsernameData();
-            $data['login'] = $this->getUsernameLogin();
+            $data['user'] = $this->ProfileModel->getUsernameData();
+            $data['login'] = $this->ProfileModel->getUsernameLogin();
             $data['test'] = $this->ProfileModel->getAllUser();
-            // $data['portfolio'] = $this->getUsernamePortfolio();
 
         // Pagination
         $this->load->library('pagination');
@@ -27,52 +26,47 @@ class Profile extends CI_Controller
         $config['total_rows'] =  $this->ProfileModel->getCountPortfolioUser();
         $config['per_page'] = 3;
 
-        // var_dump($config['total_rows']);die;
-
-        // styling
-        $config['full_tag_open'] = '<nav aria-label="Page navigation example"> <ul class="pagination">';
-        $config['full_tag_close'] = '</ul> </nav>';
-
-        $config['first_link'] = 'First';
-        $config['first_tag_open'] = ' <li class="page-item">';
-        $config['first_tag_close'] = ' </li>';
-        
-        $config['last_link'] = 'Last';
-        $config['last_tag_open'] = ' <li class="page-item">';
-        $config['last_tag_close'] = ' </li>';
-        
-        $config['next_link'] = '&raquo';
-        $config['next_tag_open'] = ' <li class="page-item">';
-        $config['next_tag_close'] = ' </li>';
-        
-        $config['prev_link'] = '&laquo';
-        $config['next_tag_open'] = ' <li class="page-item">';
-        $config['next_tag_close'] = ' </li>';
-        
-        $config['cur_tag_open'] = ' <li class="page-item"><a class="page-link  text-danger" href="#">';
-        $config['cur_tag_close'] = ' </a></li>';
-        
-        $config['num_tag_open'] = ' <li class="page-item">';
-        $config['num_tag_close'] = ' </li>';
-
-        $config['attributes'] = array('class' => 'page-link bg-danger text-white');
-
         $this->pagination->initialize($config);
 
         $data['start'] = $this->uri->segment(3);
-        $data['portfolio'] = $this->ProfileModel->getUsernamePortfolio($config['per_page'],$data['start']);
+        $data['portfolio'] = $this->ProfileModel->getUsernamePortfolioPag($config['per_page'],$data['start']);
        
-            $this->load->view("profile", $data);
+            $this->load->view("profile/profile", $data);
         } else {
             $this->load->view("Login");
         }
     }
+
+    public function managePortfolio(){
+        if ($this->session->userdata('is_login')) {
+            $data['user'] = $this->ProfileModel->getUsernameData();
+            $data['login'] = $this->ProfileModel->getUsernameLogin();
+            $data['test'] = $this->ProfileModel->getAllUser();
+
+        // Pagination
+        $this->load->library('pagination');
+
+        $config['base_url'] = 'http://localhost/KP_2021/SourceCode2Up/Profile/managePortfolio/';
+        $config['total_rows'] =  $this->ProfileModel->getCountPortfolioUser();
+        $config['per_page'] = 8;
+
+        $this->pagination->initialize($config);
+
+        $data['start'] = $this->uri->segment(3);
+        $data['portfolio'] = $this->ProfileModel->getUsernamePortfolioPag($config['per_page'],$data['start']);
+       
+            $this->load->view("profile/managePortfolio", $data);
+        } else {
+            $this->load->view("Login");
+        }
+    }
+
     public function profile_edit()
     {
         if ($this->session->userdata('is_login')) {
-            $data['user'] = $this->getUsernameData();
-            $data['login'] = $this->getUsernameLogin();
-            $data['portfolio'] = $this->getUsernamePortfolio();
+            $data['user'] = $this->ProfileModel->getUsernameData();
+            $data['login'] = $this->ProfileModel->getUsernameLogin();
+            $data['portfolio'] = $this->ProfileModel->getUsernamePortfolio();
             $this->load->view("profile_edit", $data);
         } else {
             $this->load->view("Login");
@@ -81,37 +75,24 @@ class Profile extends CI_Controller
     public function profilePortfolio()
     {
         if ($this->session->userdata('is_login')) {
-            $data['user'] = $this->getUsernameData();
-            $data['login'] = $this->getUsernameLogin();
-            $data['portfolio'] = $this->getUsernamePortfolio();
-            $this->load->view("addProfilePortfolio", $data);
+            $data['user'] = $this->ProfileModel->getUsernameData();
+            $data['login'] = $this->ProfileModel->getUsernameLogin();
+            $data['portfolio'] = $this->ProfileModel->getUsernamePortfolio();
+            $this->load->view("/profile/AddProfilePortfolio", $data);
         } else {
             $this->load->view("Login");
         }
     }
-    function getUsernamePortfolio()
+    public function EditPortfolio($id)
     {
-        $this->db->where('username', $this->session->userdata('username'));
-        $query = $this->db->get('portfolio');
-        return $query;
-    }
-    function getUsernamePortfolioPag($limit, $start)
-    {
-        $this->db->where('username', $this->session->userdata('username'));
-        $query = $this->db->get('portfolio',$limit, $start);
-        return $query;
-    }
-    function getUsernameLogin()
-    {
-        $this->db->where('username', $this->session->userdata('username'));
-        $query = $this->db->get('user')->row();
-        return $query;
-    }
-    function getUsernameData()
-    {
-        $this->db->where('username', $this->session->userdata('username'));
-        $query = $this->db->get('user')->row();
-        return $query;
+        if ($this->session->userdata('is_login')) {
+            $data['user'] = $this->ProfileModel->getUsernameData();
+            $data['login'] = $this->ProfileModel->getUsernameLogin();
+            $data['portfolio'] = $this->ProfileModel->getUsernamePortfolioId($id);
+            $this->load->view("/profile/editProfilePortfolio", $data);
+        } else {
+            $this->load->view("Login");
+        }
     }
     function editUserData()
     {
@@ -140,11 +121,9 @@ class Profile extends CI_Controller
         $new_name = time()."_".$id."_".rand(0,999999999);
         $config['file_name'] = $new_name;
 
-
         $this->load->library('upload', $config);
 
         if (!$this->upload->do_upload('profile_pic')) {
-            // $this->load->view("Imageupload_failed");
             $this->load->view("gagal");
         } else {
             $upload_data = $this->upload->data();
@@ -154,12 +133,9 @@ class Profile extends CI_Controller
             );
             $this->db->where('username', $id);
             if ($this->db->update('user', $data)) {
-                // redirect(base_url('../Profile'));
-                // $this->load->view("Imageupload_success");
-                $this->index();
+                // $this->index();
+                redirect(site_url('Profile'));
             } else {
-                // $this->load->library('../admin');
-                // $this->load->view("Imageupload_failed");
                 $this->load->view("gagal");
             }
         }
@@ -194,13 +170,60 @@ class Profile extends CI_Controller
                     'gambar'    => $file_name
                 );
                 if ($this->db->insert('portfolio', $data)) {
-
-                    $this->index();
+                    redirect(site_url('Profile/managePortfolio'));
                 } else {
                     $this->load->view("gagal");
                 }
             }
         }else{
+            $this->load->view("gagal");
+        }
+    }
+    function updatePortfolio($id)
+    {
+        $this->load->library('upload');
+        if (!empty($_FILES['gambar']['name'])){
+
+            $config['upload_path'] = './upload/portfolio';
+            $config['allowed_types'] = 'gif|jpg|png|jpeg';
+            $config['max_size'] = 2000;
+            $date = date('Ymd');
+            $new_name = $this->session->userdata('username')."_".$date."_".rand(0,999999999);
+            $config['file_name'] = $new_name;
+    
+            $this->upload->initialize($config);
+
+            $this->load->library('upload', $config);
+
+            if (!$this->upload->do_upload('gambar')) {
+                $this->load->view("gagal");
+            } else {
+                $upload_data = $this->upload->data();
+                $file_name = $upload_data['file_name'];
+                $data = array(
+                    'username'  => $this->session->userdata('username'),
+                    'nama'      => $this->session->userdata('nama'),
+                    'judul'     => $this->input->post("judul"),
+                    'deskripsi' => $this->input->post("deskripsi"),
+                    'gambar'    => $file_name
+                );
+                $this->db->where('id', $id);
+                if ($this->db->update('portfolio', $data)) {
+                    redirect(site_url('Profile/managePortfolio'));
+                } else {
+                    $this->load->view("gagal");
+                }
+            }
+        }else{
+            $this->load->view("gagal");
+        }
+    }
+    function deletePortfolio($id)
+    {
+        $this->db->where('id', $id);
+        if ($this->db->delete('portfolio')) {
+            redirect(site_url('Profile/managePortfolio'));
+        } else {
             $this->load->view("gagal");
         }
     }

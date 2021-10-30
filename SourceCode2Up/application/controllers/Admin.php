@@ -13,7 +13,6 @@ class Admin extends CI_Controller
     {
         $this->member();
     }
-
     // All function to call page and manage pagination
     function member()
     {
@@ -28,6 +27,8 @@ class Admin extends CI_Controller
 
         $data['start'] = $this->uri->segment(3);
         $data['user'] = $this->AdminModel->getAllUser($config['per_page'], $data['start']);
+
+        $data['login'] = $this->AdminModel->getUsernameLogin();
 
         $this->load->view("admin\member", $data);
     }
@@ -44,6 +45,8 @@ class Admin extends CI_Controller
 
         $data['start'] = $this->uri->segment(3);
         $data['contact'] = $this->AdminModel->getAllContact($config['per_page'], $data['start']);
+
+        $data['login'] = $this->AdminModel->getUsernameLogin();
 
         $this->load->helper("url");
         $this->load->view("admin\contact", $data);
@@ -62,6 +65,8 @@ class Admin extends CI_Controller
         $data['start'] = $this->uri->segment(3);
         $data['artikel'] = $this->AdminModel->getAllArtikel($config['per_page'], $data['start']);
 
+        $data['login'] = $this->AdminModel->getUsernameLogin();
+
         $this->load->helper("url");
         $this->load->view("admin\artikel", $data);
     }
@@ -78,7 +83,7 @@ class Admin extends CI_Controller
     function editUser($username)
     {
         $data['user'] = $this->AdminModel->getUserDatabase($username);
-        $this->load->view("editAdminUser", $data);
+        $this->load->view("admin/editAdminUser", $data);
     }
     function updateUser()
     {
@@ -104,12 +109,11 @@ class Admin extends CI_Controller
             $this->load->view("gagal");
         }
     }
-
     // All Function Sosmed
     function editSosmed($id)
     {
         $data['sosmed'] = $this->AdminModel->getUSosmedId($id);
-        $this->load->view("editAdminSosmed", $data);
+        $this->load->view("admin/editAdminSosmed", $data);
     }
     function updateSosmed()
     {
@@ -130,14 +134,12 @@ class Admin extends CI_Controller
             $this->load->view("gagal");
         }
     }
-
     // All Function Pesan / Contact
     function editPesan($id)
     {
         $data['contact'] = $this->AdminModel->getPesanId($id);
-        $this->load->view("editAdminPesan", $data);
+        $this->load->view("admin/editAdminPesan", $data);
     }
-
 
     function updatePesan()
     {
@@ -145,11 +147,12 @@ class Admin extends CI_Controller
         $status  = $this->input->post('status');
 
         $data = array(
+            'id'    =>$id,
             'status'    => $status
         );
         $this->db->where('id', $id);
         if ($this->db->update('contact', $data)) {
-            $this->index();
+            $this->contact();
         } else {
             $this->load->view("gagal");
         }
@@ -158,7 +161,7 @@ class Admin extends CI_Controller
     {
         $this->db->where('id', $id);
         if ($this->db->delete('contact')) {
-            $this->index();
+            $this->contact();
         } else {
             $this->load->view("gagal");
         }
@@ -168,12 +171,13 @@ class Admin extends CI_Controller
     function addArtikel()
     {
         $data['login'] = $this->AdminModel->getUsernameLogin();
-        $this->load->view("addAdminArtikel", $data);
+        $this->load->view("admin/addAdminArtikel", $data);
     }
     function editArtikel($id)
     {
         $data['artikel'] = $this->AdminModel->getArtikelId($id);
-        $this->load->view("editAdminArtikel", $data);
+        $data['login'] = $this->AdminModel->getUsernameLogin();
+        $this->load->view("admin/editAdminArtikel", $data);
     }
     function deleteArtikel($id)
     {
@@ -184,34 +188,46 @@ class Admin extends CI_Controller
             $this->load->view("gagal");
         }
     }
-    function updateArtikel()
+    function updateArtikel($id)
     {
-        $id  = $this->input->post('id');
-        $judul  = $this->input->post('judul');
-        $paragraf1  = $this->input->post('paragraf1');
-        $paragraf2  = $this->input->post('paragraf2');
-        $paragraf3  = $this->input->post('paragraf3');
-        $paragraf4  = $this->input->post('paragraf4');
-        $paragraf5  = $this->input->post('paragraf5');
-        $paragraf6  = $this->input->post('paragraf6');
-        $paragraf7  = $this->input->post('paragraf7');
-        $gambar  = $this->input->post('gambar');
+        $this->load->library('upload');
+        if (!empty($_FILES['gambar']['name'])) {
 
-        $data = array(
-            'id'    => $id,
-            'judul'    => $judul,
-            'paragraf1'    => $paragraf1,
-            'paragraf2'    => $paragraf2,
-            'paragraf3'    => $paragraf3,
-            'paragraf4'    => $paragraf4,
-            'paragraf5'    => $paragraf5,
-            'paragraf6'    => $paragraf6,
-            'paragraf7'    => $paragraf7,
-            'gambar'    => $gambar
-        );
-        $this->db->where('id', $id);
-        if ($this->db->update('artikel', $data)) {
-            $this->artikel();
+            $config['upload_path'] = './upload/artikel';
+            $config['allowed_types'] = 'gif|jpg|png|jpeg';
+            $config['max_size'] = 2000;
+            $date = date('Ymd');
+            $new_name = $date . "_" . rand(0, 999999999);
+            $config['file_name'] = $new_name;
+
+            $this->upload->initialize($config);
+
+            $this->load->library('upload', $config);
+
+            if (!$this->upload->do_upload('gambar')) {
+                $this->load->view("gagal");
+            } else {
+                $upload_data = $this->upload->data();
+                $file_name = $upload_data['file_name'];
+                $data = array(
+                    'Id'        => $this->input->post('id'),
+                    'Judul'     => $this->input->post('judul'),
+                    'Paragraf1' => $this->input->post('paragraf1'),
+                    'Paragraf2' => $this->input->post('paragraf2'),
+                    'Paragraf3' => $this->input->post('paragraf3'),
+                    'Paragraf4' => $this->input->post('paragraf4'),
+                    'Paragraf5' => $this->input->post('paragraf5'),
+                    'Paragraf6' => $this->input->post('paragraf6'),
+                    'Paragraf7' => $this->input->post('paragraf7'),
+                    'gambar'    => $file_name
+                );
+                $this->db->where('id', $id);
+                if ($this->db->update('artikel', $data)) {
+                    $this->artikel();
+                } else {
+                    $this->load->view("gagal");
+                }
+            }
         } else {
             $this->load->view("gagal");
         }

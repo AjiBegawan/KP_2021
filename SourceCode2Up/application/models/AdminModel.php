@@ -14,7 +14,7 @@ class AdminModel extends CI_Model
         return $query;
     }
 
-// All Get Data For Admin
+// All Get Data For Admin   
     function getUsernameData()
     {
         $query = $this->db->get('user');

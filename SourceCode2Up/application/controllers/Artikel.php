@@ -16,7 +16,7 @@ class Artikel extends CI_Controller
 
         $config['base_url'] = 'http://localhost/KP_2021/SourceCode2Up/artikel/index';
         $config['total_rows'] =  $this->ArtikelModel->getCountArtikelAll();
-        $config['per_page'] = 10;
+        $config['per_page'] = 5;
 
         // var_dump($config['total_rows']);die;
 
@@ -31,7 +31,7 @@ class Artikel extends CI_Controller
         if ($this->session->userdata('is_login')) {
             $data['user'] = $this->ArtikelModel->getUsernameData();
 
-            $this->load->view("Artikel", $data);
+            $this->load->view("blog/Artikel", $data);
         } else {
             $this->load->view("blog/artikel", $data);
         }

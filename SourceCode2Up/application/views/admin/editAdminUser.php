@@ -91,6 +91,7 @@
 
     <div class="container" style="margin-top: 100px;">
         <form method="POST" action="<?php echo site_url('Admin/updateUser'); ?>">
+        <a href="<?php echo site_url('Admin/member'); ?>"><button type="submit" class="btn btn-warning">Back</button></a>
             <div class="form-group">
                 <label for="exampleInputEmail1">Username</label>
                 <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="username" value="<?php echo $user->username; ?>" readonly>
@@ -135,11 +136,12 @@
                 <label for="exampleInputEmail1">Facebook</label>
                 <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="<?php echo $user->facebook; ?>" readonly>
             </div>
-            <div class="form-group">
+            <!-- <div class="form-group">
                 <label for="exampleInputEmail1">Role</label>
                 <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="role" placeholder="<?php echo $user->role; ?>">
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            </div> -->
+            
+            
         </form>
 
     </div>
