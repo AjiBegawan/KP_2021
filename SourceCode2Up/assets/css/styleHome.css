@@ -538,3 +538,8 @@ section {
 .carou .img {
     padding-top: 25px;
 }
+
+nav ul li a {
+    font-family: 'Montserrat', sans-serif;
+    text-decoration: none;
+}

@@ -34,11 +34,11 @@ class Portfolio extends CI_Controller
             $data['login'] = $this->PortfolioModel->getLogin();
             $data['sosmed'] = $this->PortfolioModel->getSosmedIdnft();
             $data['user'] = $this->PortfolioModel->getAllUser();
-            $this->load->view("portfolio", $data);
+            $this->load->view("portfolio/portfolio", $data);
         } else {
             $data['sosmed'] = $this->PortfolioModel->getSosmedIdnft();
             $data['user'] = $this->PortfolioModel->getAllUser();
-            $this->load->view("portfolio", $data);
+            $this->load->view("portfolio/portfolio", $data);
         }
     }
 

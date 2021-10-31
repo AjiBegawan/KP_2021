@@ -29,7 +29,7 @@ class Artikel extends CI_Controller
 
 
         if ($this->session->userdata('is_login')) {
-            $data['user'] = $this->ArtikelModel->getUsernameData();
+            $data['login'] = $this->ArtikelModel->getUsernameData();
 
             $this->load->view("blog/Artikel", $data);
         } else {

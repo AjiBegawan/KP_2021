@@ -12,45 +12,13 @@ class Home extends CI_Controller
     public function index()
     {
         if ($this->session->userdata('is_login')) {
-            $data['user'] = $this->getUsernameData();
+            $data['login'] = $this->getUsernameData();
             $data['sosmed'] = $this->getUSosmedIdnft();
             $this->load->view("halamanpelanggan/home", $data);
         } else {
             $data['sosmed'] = $this->getUSosmedIdnft();
             $this->load->view("halamanpelanggan/home", $data);
         }
-    }
-    public function BlogView()
-    {
-        if ($this->session->userdata('is_login')) {
-            $data['user'] = $this->getUsernameData();
-            $this->load->view("halamanpelanggan/blogArtikel", $data);
-        } else {
-            $this->load->view("halamanpelanggan/blogArtikel");
-        }
-
-    }
-    public function ShopView1()
-    {
-        if ($this->session->userdata('is_login')) {
-            $data['user'] = $this->getUsernameData();
-            $this->load->view("halamanpelanggan/Shop1", $data);
-        } else {
-            $this->load->view("halamanpelanggan/Shop1");
-        }
-
-        
-    }
-    public function ShopView2()
-    {
-        if ($this->session->userdata('is_login')) {
-            $data['user'] = $this->getUsernameData();
-            $this->load->view("halamanpelanggan/Shop2", $data);
-        } else {
-            $this->load->view("halamanpelanggan/Shop2");
-        }
-
-        $this->load->view("halamanpelanggan/Shop2");
     }
     public function AboutView()
     {
@@ -60,8 +28,6 @@ class Home extends CI_Controller
         } else {
             $this->load->view("halamanpelanggan/About");
         }
-
-        
     }
     public function ContactView()
     {
@@ -76,7 +42,7 @@ class Home extends CI_Controller
     public function DeeraView()
     {
         if ($this->session->userdata('is_login')) {
-            $data['user'] = $this->getUsernameData();
+            $data['login'] = $this->getUsernameData();
             $this->load->view("halamanpelanggan/Deera", $data);
         } else {
             $this->load->view("halamanpelanggan/Deera");
