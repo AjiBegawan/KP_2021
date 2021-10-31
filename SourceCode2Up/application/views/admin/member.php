@@ -25,10 +25,8 @@
     <!-- Template Main CSS File -->
     <link href="<?= base_url() ?>assets\css\styleHome.css" rel="stylesheet">
     <link href="<?= base_url() ?>assets\css\styleHeader.css" rel="stylesheet">
-    <link href="<?= base_url() ?>assets\css\admin\styleAdmin.css" rel="stylesheet">
-
-    <!-- CSS Tempalte -->
     <link href="<?= base_url() ?>assets\css\styleFooter.css" rel="stylesheet">
+    <link href="<?= base_url() ?>assets\css\admin\styleAdmin.css" rel="stylesheet">
 
     <!-- Template Main JS File -->
     <script src="<?= base_url() ?>assets/js/main.js"></script>

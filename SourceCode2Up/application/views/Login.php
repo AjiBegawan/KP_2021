@@ -44,10 +44,6 @@
                     <input type="password" name="password" class="form-control" required />
                 </div>
                 <div class="form-group">
-                    <?= $script;?>
-                    <?= $widget;?>
-                </div>
-                <div class="form-group">
                     <button type="submit" name="register" class="btn btn-danger btn-center">Login</button>
                 </div>
 

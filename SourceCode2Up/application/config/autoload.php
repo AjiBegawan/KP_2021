@@ -58,7 +58,7 @@ $autoload['packages'] = array();
 |
 |	$autoload['libraries'] = array('user_agent' => 'ua');
 */
-$autoload['libraries'] = array("session", "database","form_validation","recaptcha");
+$autoload['libraries'] = array("session", "database","form_validation");
 
 /*
 | -------------------------------------------------------------------
@@ -103,7 +103,7 @@ $autoload['helper'] = array('url','form');
 | config files.  Otherwise, leave it blank.
 |
 */
-$autoload['config'] = array('recaptcha');
+$autoload['config'] = array();
 
 /*
 | -------------------------------------------------------------------
