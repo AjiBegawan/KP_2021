@@ -37,7 +37,23 @@
     <link href="<?= base_url() ?>assets\css\styleFooter.css" rel="stylesheet">
 
     <!-- Template Main JS File -->
-    <script src="<?= base_url() ?>assets/js/main.js"></script>
+    <script src="<?= base_url() ?>assets\js\jquery-3.6.0.min.js"></script>
+    <script src="<?= base_url() ?>assets\js\sweetalert2.all.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            const flashData = $('.flash-data').data('flashdata');
+
+            if (flashData) {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Data Artikel',
+                    text: 'Berhasil ' + flashData,
+                    backdrop: 'rgba(255,0,0,0.1) ',
+                });
+            }
+        });
+    </script>
 
 </head>
 
@@ -45,10 +61,8 @@
     <!-- ======= Header ======= -->
     <header id="header" class="fixed-top" style="background-color:white">
         <div class="container d-flex align-items-center ">
-            <a class="navbar-brand mr-auto" href="<?php echo site_url('Home') ?>"
-                style="text-decoration: none; color : black;">
-                <img src="<?= base_url("assets\img\LogoIDNFT.png") ?>" width="40" height="40"
-                    style="margin: -9px 7px 0 0 ;" class="d-inline-block align-top" alt="Logo IDNFT">
+            <a class="navbar-brand mr-auto" href="<?php echo site_url('Home') ?>" style="text-decoration: none; color : black;">
+                <img src="<?= base_url("assets\img\LogoIDNFT.png") ?>" width="40" height="40" style="margin: -9px 7px 0 0 ;" class="d-inline-block align-top" alt="Logo IDNFT">
                 <strong>IDNFT</strong> <span style="font-size: 10px;">Beta</span>
             </a>
             <nav class="nav-menu d-none d-lg-block mx-auto">
@@ -63,12 +77,12 @@
                     <li><a class="aclass" href="<?php echo site_url('Admin/artikel') ?>">ARTIKEL</a>
                     </li>
                     <?php if ($this->session->userdata('is_login')) { ?>
-                    <li><a class="aclass" href="<?php echo site_url('Login/logout') ?>">LOGOUT</a></li>
+                        <li><a class="aclass" href="<?php echo site_url('Login/logout') ?>">LOGOUT</a></li>
                     <?php } ?>
                     <?php if (!$this->session->userdata('is_login')) { ?>
-                    <li><a class="aclass" href="<?= site_url() ?>/Login">LOGIN</a></li>
-                    <li><a class="aclass" href="<?= site_url() ?>/SignUp">REGISTER</a>
-                    </li>
+                        <li><a class="aclass" href="<?= site_url() ?>/Login">LOGIN</a></li>
+                        <li><a class="aclass" href="<?= site_url() ?>/SignUp">REGISTER</a>
+                        </li>
                     <?php } else { ?>
                     <?php } ?>
                 </ul>
@@ -76,22 +90,16 @@
             <!-- .nav-menu -->
             <!-- Profile -->
             <?php if ($this->session->userdata('is_login')) { ?>
-            <a class="navbar-brand ml-auto" href="<?php echo site_url('/profile') ?>" style="text-decoration: none;">
-                <img src="<?= base_url("assets\img\profile.png") ?>" width="35" height="35"
-                    style="margin: -5px 3px 0 0 ;" class="d-inline-block align-top" alt="Logo IDNFT">
-                <label for="nama"
-                    style="font-size: 13px;font-weight: normal; color:#5f687b; font-family: Open Sans, sans-serif;"><?= $login->nama; ?></label>
-            </a>
+                <a class="navbar-brand ml-auto" href="<?php echo site_url('/profile') ?>" style="text-decoration: none;">
+                    <img src="<?= base_url("assets\img\profile.png") ?>" width="35" height="35" style="margin: -5px 3px 0 0 ;" class="d-inline-block align-top" alt="Logo IDNFT">
+                    <label for="nama" style="font-size: 13px;font-weight: normal; color:#5f687b; font-family: Open Sans, sans-serif;"><?= $login->nama; ?></label>
+                </a>
             <?php } else { ?>
             <?php } ?>
             <!-- End Profile -->
             <br><br>
         </div>
-        <?php if ($this->session->flashdata('message')) { ?>
-        <div class="alert alert-success">
-            <?php echo $this->session->flashdata('message') ?>
-        </div>
-        <?php } ?>
+        <div class="flash-data" data-flashdata="<?= $this->session->flashdata('message'); ?>"></div>
     </header>
     <!-- End Header -->
 
@@ -105,8 +113,7 @@
                         <?= $this->pagination->create_links(); ?>
                     </div>
                     <hr>
-                    <a href="<?php echo site_url('/admin/addArtikel/') ?>" style="text-decoration: none;"><button
-                            type="button" class="btn btn-success">Tambah Artikel</button></button></a> <br><br>
+                    <a href="<?php echo site_url('/admin/addArtikel/') ?>" style="text-decoration: none;"><button type="button" class="btn btn-success">Tambah Artikel</button></button></a> <br><br>
                     <table id="table_artikel" class="table table-condensed table-hover table-striped">
                         <thead>
                             <tr>
@@ -123,21 +130,15 @@
                             <?php
                             foreach ($artikel->result() as $row) {
                             ?>
-                            <tr>
-                                <td class="tabel_artikel"><?php echo $row->Id; ?></td>
-                                <td class="tabel_artikel"><?php echo $row->Judul; ?></td>
-                                <td class="tabel_artikel"><?php echo $row->Paragraf1; ?></td>
-                                <td class="tabel_artikel"><?php echo $row->Paragraf2; ?></td>
-                                <td class="tabel_artikel"><?php echo $row->Paragraf3; ?></td>
-                                <td class="tabel_artikel"><a
-                                        href="<?php echo site_url('/admin/editArtikel/') . $row->Id ?>"><button
-                                            type="button" class="btn btn-success"><i
-                                                class="icofont-edit"></i></button></a></td>
-                                <td class="tabel_artikel"><a
-                                        href="<?php echo site_url('/admin/deleteArtikel/') . $row->Id ?>"><button
-                                            type="button" class="btn btn-danger"><i
-                                                class="icofont-garbage"></i></button></a></td>
-                            </tr>
+                                <tr>
+                                    <td class="tabel_artikel"><?php echo $row->Id; ?></td>
+                                    <td class="tabel_artikel"><?php echo $row->Judul; ?></td>
+                                    <td class="tabel_artikel"><?php echo $row->Paragraf1; ?></td>
+                                    <td class="tabel_artikel"><?php echo $row->Paragraf2; ?></td>
+                                    <td class="tabel_artikel"><?php echo $row->Paragraf3; ?></td>
+                                    <td class="tabel_artikel"><a href="<?php echo site_url('/admin/editArtikel/') . $row->Id ?>"><button type="button" class="btn btn-success"><i class="icofont-edit"></i></button></a></td>
+                                    <td class="tabel_artikel"><a href="<?php echo site_url('/admin/deleteArtikel/') . $row->Id ?>"><button type="button" class="btn btn-danger"><i class="icofont-garbage"></i></button></a></td>
+                                </tr>
                             <?php } ?>
                         </tbody>
                     </table>

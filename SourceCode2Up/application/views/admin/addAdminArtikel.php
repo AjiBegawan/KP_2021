@@ -13,30 +13,26 @@
     <link href="<?= base_url() ?>assets/img/LogoIDNFT.png" rel="icon">
     <link href="<?= base_url() ?>assets/img/LogoIDNFT.png" rel="apple-touch-icon">
 
+    <!-- Bootsrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+
     <!-- Vendor CSS Files -->
-    <link href="<?= base_url() ?>assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?= base_url() ?>assets/vendor/icofont/icofont.min.css" rel="stylesheet">
-    <link href="<?= base_url() ?>assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="<?= base_url() ?>assets/vendor/venobox/venobox.css" rel="stylesheet">
-    <link href="<?= base_url() ?>assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
 
     <!-- Template Main CSS File -->
     <link href="<?= base_url() ?>assets\css\styleHome.css" rel="stylesheet">
     <link href="<?= base_url() ?>assets\css\styleHeader.css" rel="stylesheet">
+    <link href="<?= base_url() ?>assets\css\styleFooter.css" rel="stylesheet">
+    <link href="<?= base_url() ?>assets\css\admin\styleAdmin.css" rel="stylesheet">
 
-    <!-- Bootsrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
+    <!-- Template Main JS File -->
+    <script src="<?= base_url() ?>assets\js\jquery-3.6.0.min.js"></script>
+    <script src="<?= base_url() ?>assets\js\sweetalert2.all.min.js"></script>
+
 </head>
-
-
 
 <body>
     <!-- ======= Header ======= -->
@@ -50,24 +46,21 @@
             </a>
             <nav class="nav-menu d-none d-lg-block mx-auto">
                 <ul>
-                    <li class="active"><a href="<?php echo site_url('Home') ?>"
-                            style="text-decoration: none;"><strong>HOME</strong></a></li>
-                    <li><a href="<?php echo site_url('Home/DeeraView') ?>" style="text-decoration: none;"><strong>DEERA
-                                NFT</strong></a></li>
-                    <li><a href="<?php echo site_url('Home/BlogView') ?>"
-                            style="text-decoration: none;"><strong>BLOG</strong></a></li>
-                    <!-- <li><a href="<?php echo site_url('Home/ShopView1') ?>">Shop & Merch</a></li> -->
-                    <li><a href="https://discord.gg/DMMF7bVYrh" style="text-decoration: none;"
-                            target="_blank"><strong>JOIN OUR DISCORD</strong></a></li>
-                    <li><a href="<?php echo site_url('Home') ?>#contact"
-                            style="text-decoration: none;"><strong>CONTACT</strong></a></li>
+                    <li><a class="aclass" href="<?php echo site_url('Home') ?>">HOME</a>
+                    </li>
+                    <li><a class="aclass" href="<?php echo site_url('Admin/member') ?>">MEMBER</a></li>
+                    <li><a class="aclass" href="<?php echo site_url('Admin/sosmed') ?>">CONTACT
+                        </a></li>
+                    <li><a class="aclass" href="<?php echo site_url('Admin/contact') ?>">MESSAGE</a>
+                    </li>
+                    <li><a class="aclass" href="<?php echo site_url('Admin/artikel') ?>">ARTIKEL</a>
+                    </li>
                     <?php if ($this->session->userdata('is_login')) { ?>
-                    <li><a href="<?php echo site_url('Login/logout') ?>"
-                            style="text-decoration: none;"><strong>LOGOUT</strong></a></li>
+                    <li><a class="aclass" href="<?php echo site_url('Login/logout') ?>">LOGOUT</a></li>
                     <?php } ?>
                     <?php if (!$this->session->userdata('is_login')) { ?>
-                    <li><a href="<?= site_url() ?>/Login" style="text-decoration: none;"><strong>LOGIN</strong></a></li>
-                    <li><a href="<?= site_url() ?>/SignUp" style="text-decoration: none;"><strong>REGISTER</strong></a>
+                    <li><a class="aclass" href="<?= site_url() ?>/Login">LOGIN</a></li>
+                    <li><a class="aclass" href="<?= site_url() ?>/SignUp">REGISTER</a>
                     </li>
                     <?php } else { ?>
                     <?php } ?>
@@ -83,24 +76,19 @@
                     style="font-size: 13px;font-weight: normal; color:#5f687b; font-family: Open Sans, sans-serif;"><?= $login->nama; ?></label>
             </a>
             <?php } else { ?>
-            <!-- <a href="<?= site_url() ?>/Login" class="get-started-btn scrollto ml-auto btn-danger">Login</a>
-               <a href="<?= site_url() ?>/SignUp" class="get-started-btn scrollto ml-auto btn-danger">Registrasi</a> -->
             <?php } ?>
             <!-- End Profile -->
             <br><br>
         </div>
-        <?php if ($this->session->flashdata('message')) { ?>
-        <div class="alert alert-success">
-            <?php echo $this->session->flashdata('message') ?>
-        </div>
-        <?php } ?>
+        <div class="flash-data" data-flashdata="<?= $this->session->flashdata('message') ?>"></div>
     </header>
     <!-- End Header -->
 
-    <h1>Edit User</h1>
 
-    <div class="container" style="margin-top: 100px;">
-        <?php echo form_open_multipart('Admin/ProsesAddArtikel'); ?>
+    <div class="wadah">
+        <div class="container" style="margin-top: 100px;">
+            <h1>Edit User</h1><hr>
+            <?php echo form_open_multipart('Admin/ProsesAddArtikel'); ?>
             <fieldset>
                 <div class="form-group">
                     <label for="exampleInputEmail1">Judul</label>
@@ -109,38 +97,31 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail1">Paragraf 1</label>
-                    <textarea name="paragraf1" class="form-control" cols="30" rows="10"
-                        name="paragraf1"> </textarea>
+                    <textarea name="paragraf1" class="form-control" cols="20" rows="5" name="paragraf1"> </textarea>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail1">Paragraf 2</label>
-                    <textarea name="paragraf2" class="form-control" cols="30" rows="10"
-                        name="paragraf2"> </textarea>
+                    <textarea name="paragraf2" class="form-control" cols="20" rows="5" name="paragraf2"> </textarea>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail1">Paragraf 3</label>
-                    <textarea name="paragraf3" class="form-control" cols="30" rows="10"
-                        name="paragraf3"> </textarea>
+                    <textarea name="paragraf3" class="form-control" cols="20" rows="5" name="paragraf3"> </textarea>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail1">Paragraf 4</label>
-                    <textarea name="paragraf4" class="form-control" cols="30" rows="10"
-                        name="paragraf4"> </textarea>
+                    <textarea name="paragraf4" class="form-control" cols="20" rows="5" name="paragraf4"> </textarea>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail1">Paragraf 5</label>
-                    <textarea name="paragraf5" class="form-control" cols="30" rows="10"
-                        name="paragraf5"> </textarea>
+                    <textarea name="paragraf5" class="form-control" cols="20" rows="5" name="paragraf5"> </textarea>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail1">Paragraf 6</label>
-                    <textarea name="paragraf6" class="form-control" cols="30" rows="10"
-                        name="paragraf6"> </textarea>
+                    <textarea name="paragraf6" class="form-control" cols="20" rows="5" name="paragraf6"> </textarea>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail1">Paragraf 7</label>
-                    <textarea name="paragraf7" class="form-control" cols="30" rows="10"
-                        name="paragraf7"> </textarea>
+                    <textarea name="paragraf7" class="form-control" cols="20" rows="5" name="paragraf7"> </textarea>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail1">Upload Gambar Header</label>
@@ -149,9 +130,11 @@
 
                 <input type="submit" value="Add" class="form-control btn btn-primary" />
             </fieldset>
-        <?php echo form_close(); ?>
-<br>
+            <?php echo form_close(); ?>
+            <br>
+        </div>
     </div>
+
 </body>
 
 </html>

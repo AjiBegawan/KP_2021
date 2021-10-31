@@ -44,8 +44,9 @@ class Auth extends CI_Model
 
     function login_user($username, $password)
     {
-        $query = $this->db->get_where('user', array('username' => $username));
-        if ($query->num_rows() > 0) {
+        // $query = $this->db->get_where('user', array('username' => $username));
+        if ($this->db->get_where('user', array('username' => $username))->num_rows()) {
+            $query = $this->db->get_where('user', array('username' => $username));
             $data_user = $query->row();
             if (password_verify($password, $data_user->password)) {
                 $query = $this->getDataByUsername($username);
@@ -58,10 +59,6 @@ class Auth extends CI_Model
                     'phone'       => $query->phone,
                   );
                   $this->session->set_userdata($userdata);
-
-                // $this->session->set_userdata('username', $username);
-                // $this->session->set_userdata('nama', $data_user->nama);
-                // $this->session->set_userdata('is_login', TRUE);
                 return TRUE;
             } else {
                 return FALSE;

@@ -79,10 +79,12 @@ class Admin extends CI_Controller
         $this->load->view("admin\sosmed", $data);
     }
 
-     // All Function User
+    // All Function User
     function editUser($username)
     {
+        $data['login'] = $this->AdminModel->getUsernameLogin();
         $data['user'] = $this->AdminModel->getUserDatabase($username);
+        $this->session->set_flashdata('message', 'Memunculkan Data');
         $this->load->view("admin/editAdminUser", $data);
     }
     function updateUser()
@@ -113,6 +115,7 @@ class Admin extends CI_Controller
     function editSosmed($id)
     {
         $data['sosmed'] = $this->AdminModel->getUSosmedId($id);
+        $data['login'] = $this->AdminModel->getUsernameLogin();
         $this->load->view("admin/editAdminSosmed", $data);
     }
     function updateSosmed()
@@ -129,7 +132,9 @@ class Admin extends CI_Controller
         );
         $this->db->where('id', $id);
         if ($this->db->update('sosmed', $data)) {
-            $this->index();
+            $this->session->set_flashdata('message', 'Disimpan');
+            redirect(site_url('admin/sosmed'));
+            // $this->index();
         } else {
             $this->load->view("gagal");
         }
@@ -147,7 +152,7 @@ class Admin extends CI_Controller
         $status  = $this->input->post('status');
 
         $data = array(
-            'id'    =>$id,
+            'id'    => $id,
             'status'    => $status
         );
         $this->db->where('id', $id);
@@ -161,7 +166,8 @@ class Admin extends CI_Controller
     {
         $this->db->where('id', $id);
         if ($this->db->delete('contact')) {
-            $this->contact();
+            $this->session->set_flashdata('message', 'Dihapus');
+            redirect(site_url('admin/contact'));
         } else {
             $this->load->view("gagal");
         }
@@ -183,7 +189,8 @@ class Admin extends CI_Controller
     {
         $this->db->where('id', $id);
         if ($this->db->delete('artikel')) {
-            $this->artikel();
+            $this->session->set_flashdata('message', 'Dihapus');
+            redirect(site_url('admin/artikel'));
         } else {
             $this->load->view("gagal");
         }
@@ -191,43 +198,37 @@ class Admin extends CI_Controller
     function updateArtikel($id)
     {
         $this->load->library('upload');
-        if (!empty($_FILES['gambar']['name'])) {
 
-            $config['upload_path'] = './upload/artikel';
-            $config['allowed_types'] = 'gif|jpg|png|jpeg';
-            $config['max_size'] = 2000;
-            $date = date('Ymd');
-            $new_name = $date . "_" . rand(0, 999999999);
-            $config['file_name'] = $new_name;
+        $config['upload_path'] = './upload/artikel';
+        $config['allowed_types'] = 'gif|jpg|png|jpeg';
+        $config['max_size'] = 2000;
+        
+        $date = date('Ymd');
+        $new_name = $date . "_" . rand(0, 999999999);
+        $config['file_name'] = $new_name;
 
-            $this->upload->initialize($config);
+        $this->upload->initialize($config);
+        $this->load->library('upload', $config);
+        $this->upload->do_upload('gambar');
 
-            $this->load->library('upload', $config);
-
-            if (!$this->upload->do_upload('gambar')) {
-                $this->load->view("gagal");
-            } else {
-                $upload_data = $this->upload->data();
-                $file_name = $upload_data['file_name'];
-                $data = array(
-                    'Id'        => $this->input->post('id'),
-                    'Judul'     => $this->input->post('judul'),
-                    'Paragraf1' => $this->input->post('paragraf1'),
-                    'Paragraf2' => $this->input->post('paragraf2'),
-                    'Paragraf3' => $this->input->post('paragraf3'),
-                    'Paragraf4' => $this->input->post('paragraf4'),
-                    'Paragraf5' => $this->input->post('paragraf5'),
-                    'Paragraf6' => $this->input->post('paragraf6'),
-                    'Paragraf7' => $this->input->post('paragraf7'),
-                    'gambar'    => $file_name
-                );
-                $this->db->where('id', $id);
-                if ($this->db->update('artikel', $data)) {
-                    $this->artikel();
-                } else {
-                    $this->load->view("gagal");
-                }
-            }
+        $upload_data = $this->upload->data();
+        $file_name = $upload_data['file_name'];
+        $data = array(
+            'Id'        => $this->input->post('id'),
+            'Judul'     => $this->input->post('judul'),
+            'Paragraf1' => $this->input->post('paragraf1'),
+            'Paragraf2' => $this->input->post('paragraf2'),
+            'Paragraf3' => $this->input->post('paragraf3'),
+            'Paragraf4' => $this->input->post('paragraf4'),
+            'Paragraf5' => $this->input->post('paragraf5'),
+            'Paragraf6' => $this->input->post('paragraf6'),
+            'Paragraf7' => $this->input->post('paragraf7'),
+            'gambar'    => $file_name
+        );
+        $this->db->where('id', $id);
+        if ($this->db->update('artikel', $data)) {
+            $this->session->set_flashdata('message', 'Diperbarui');
+            redirect(site_url('Admin/artikel'));
         } else {
             $this->load->view("gagal");
         }
@@ -235,42 +236,36 @@ class Admin extends CI_Controller
     function ProsesAddArtikel()
     {
         $this->load->library('upload');
-        if (!empty($_FILES['gambar']['name'])) {
 
-            $config['upload_path'] = './upload/artikel';
-            $config['allowed_types'] = 'gif|jpg|png|jpeg';
-            $config['max_size'] = 2000;
-            $date = date('Ymd');
-            $new_name = $date . "_" . rand(0, 999999999);
-            $config['file_name'] = $new_name;
+        $config['upload_path'] = './upload/artikel';
+        $config['allowed_types'] = 'gif|jpg|png|jpeg';
+        $config['max_size'] = 2000;
 
-            $this->upload->initialize($config);
+        $date = date('Ymd');
+        $new_name = $date . "_" . rand(0, 999999999);
+        $config['file_name'] = $new_name;
 
-            $this->load->library('upload', $config);
+        $this->upload->initialize($config);
+        $this->load->library('upload', $config);
+        $this->upload->do_upload('gambar');
 
-            if (!$this->upload->do_upload('gambar')) {
-                $this->load->view("gagal");
-            } else {
-                $upload_data = $this->upload->data();
-                $file_name = $upload_data['file_name'];
-                $data = array(
-                    'Id'        => $this->input->post('id'),
-                    'Judul'     => $this->input->post('judul'),
-                    'Paragraf1' => $this->input->post('paragraf1'),
-                    'Paragraf2' => $this->input->post('paragraf2'),
-                    'Paragraf3' => $this->input->post('paragraf3'),
-                    'Paragraf4' => $this->input->post('paragraf4'),
-                    'Paragraf5' => $this->input->post('paragraf5'),
-                    'Paragraf6' => $this->input->post('paragraf6'),
-                    'Paragraf7' => $this->input->post('paragraf7'),
-                    'gambar'    => $file_name
-                );
-                if ($this->db->insert('artikel', $data)) {
-                    $this->artikel();
-                } else {
-                    $this->load->view("gagal");
-                }
-            }
+        $upload_data = $this->upload->data();
+        $file_name = $upload_data['file_name'];
+        $data = array(
+            'Id'        => $this->input->post('id'),
+            'Judul'     => $this->input->post('judul'),
+            'Paragraf1' => $this->input->post('paragraf1'),
+            'Paragraf2' => $this->input->post('paragraf2'),
+            'Paragraf3' => $this->input->post('paragraf3'),
+            'Paragraf4' => $this->input->post('paragraf4'),
+            'Paragraf5' => $this->input->post('paragraf5'),
+            'Paragraf6' => $this->input->post('paragraf6'),
+            'Paragraf7' => $this->input->post('paragraf7'),
+            'gambar'    => $file_name
+        );
+        if ($this->db->insert('artikel', $data)) {
+            $this->session->set_flashdata('message', 'Ditambah');
+            redirect(site_url('Admin/artikel'));
         } else {
             $this->load->view("gagal");
         }

@@ -9,7 +9,6 @@ class Login extends CI_Controller
     {
         $this->load->view("login/Login");
     }
-
     public function prosesLogin()
 	{
 		$username = $this->input->post("username");

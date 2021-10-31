@@ -94,7 +94,7 @@ class AdminModel extends CI_Model
     function getUSosmedId($id)
     {
         $this->db->where('id', $id);
-        $query = $this->db->get('sosmed');
+        $query = $this->db->get('sosmed')->row();
         return $query;
     }
 

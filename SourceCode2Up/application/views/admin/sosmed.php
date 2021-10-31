@@ -15,6 +15,7 @@
 
     <!-- Bootsrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
 
@@ -24,19 +25,27 @@
     <!-- Template Main CSS File -->
     <link href="<?= base_url() ?>assets\css\styleHome.css" rel="stylesheet">
     <link href="<?= base_url() ?>assets\css\styleHeader.css" rel="stylesheet">
+    <link href="<?= base_url() ?>assets\css\styleFooter.css" rel="stylesheet">
     <link href="<?= base_url() ?>assets\css\admin\styleAdmin.css" rel="stylesheet">
 
-    <!-- Jquery Table -->
-    <script src="<?= base_url() ?>assets\js\jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
-    <script src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">ð
-
-    <!-- CSS Tempalte -->
-    <link href="<?= base_url() ?>assets\css\styleFooter.css" rel="stylesheet">
-
     <!-- Template Main JS File -->
-    <script src="<?= base_url() ?>assets/js/main.js"></script>
+    <script src="<?= base_url() ?>assets\js\jquery-3.6.0.min.js"></script>
+    <script src="<?= base_url() ?>assets\js\sweetalert2.all.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            const flashData = $('.flash-data').data('flashdata');
+
+            if (flashData) {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Data Artikel',
+                    text: 'Berhasil ' + flashData,
+                    backdrop: 'rgba(255,0,0,0.1) ',
+                });
+            }
+        });
+    </script>
 
 </head>
 
@@ -81,16 +90,12 @@
                 <label for="nama"
                     style="font-size: 13px;font-weight: normal; color:#5f687b; font-family: Open Sans, sans-serif;"><?= $login->nama; ?></label>
             </a>
-            <?php } else { ?>
-            <?php } ?>
+            <?php }?>
+            <div class="flash-data" data-flashdata="<?= $this->session->flashdata('message') ?>"></div>
             <!-- End Profile -->
             <br><br>
         </div>
-        <?php if ($this->session->flashdata('message')) { ?>
-        <div class="alert alert-success">
-            <?php echo $this->session->flashdata('message') ?>
-        </div>
-        <?php } ?>
+
     </header>
     <!-- End Header -->
 
