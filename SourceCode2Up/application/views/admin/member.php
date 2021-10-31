@@ -27,13 +27,6 @@
     <link href="<?= base_url() ?>assets\css\styleHeader.css" rel="stylesheet">
     <link href="<?= base_url() ?>assets\css\admin\styleAdmin.css" rel="stylesheet">
 
-
-    <!-- Jquery Table -->
-    <script src="<?= base_url() ?>assets\js\jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
-    <script src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
-
     <!-- CSS Tempalte -->
     <link href="<?= base_url() ?>assets\css\styleFooter.css" rel="stylesheet">
 

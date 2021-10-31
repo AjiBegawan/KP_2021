@@ -37,6 +37,33 @@ class Profile extends CI_Controller
         }
     }
 
+    public function old()
+    {
+        $this->load->model('ProfileModel');
+
+        if ($this->session->userdata('is_login')) {
+            $data['user'] = $this->ProfileModel->getUsernameData();
+            $data['login'] = $this->ProfileModel->getUsernameLogin();
+            $data['test'] = $this->ProfileModel->getAllUser();
+
+        // Pagination
+        $this->load->library('pagination');
+
+        $config['base_url'] = 'http://localhost/KP_2021/SourceCode2Up/profile/index';
+        $config['total_rows'] =  $this->ProfileModel->getCountPortfolioUser();
+        $config['per_page'] = 3;
+
+        $this->pagination->initialize($config);
+
+        $data['start'] = $this->uri->segment(3);
+        $data['portfolio'] = $this->ProfileModel->getUsernamePortfolioPag($config['per_page'],$data['start']);
+       
+            $this->load->view("profile_edit", $data);
+        } else {
+            $this->load->view("Login");
+        }
+    }
+
     public function managePortfolio(){
         if ($this->session->userdata('is_login')) {
             $data['user'] = $this->ProfileModel->getUsernameData();
@@ -61,13 +88,13 @@ class Profile extends CI_Controller
         }
     }
 
-    public function profile_edit()
+    public function editProfile()
     {
         if ($this->session->userdata('is_login')) {
             $data['user'] = $this->ProfileModel->getUsernameData();
             $data['login'] = $this->ProfileModel->getUsernameLogin();
             $data['portfolio'] = $this->ProfileModel->getUsernamePortfolio();
-            $this->load->view("profile_edit", $data);
+            $this->load->view("profile/editProfile", $data);
         } else {
             $this->load->view("Login");
         }
@@ -94,7 +121,7 @@ class Profile extends CI_Controller
             $this->load->view("Login");
         }
     }
-    function editUserData()
+    function editUserData($username)
     {
         $data = array(
             'twitter' => $this->input->post("twitter"),
@@ -103,9 +130,10 @@ class Profile extends CI_Controller
             'nama' => $this->input->post("nama"),
             'email' => $this->input->post("email"),
             'phone' => $this->input->post("phone"),
-            'alamat' => $this->input->post("alamat")
+            'alamat' => $this->input->post("alamat"),
+            'aliran_seni' => $this->input->post("aliran_seni")
         );
-        $this->db->where('username', $this->session->userdata('username'));
+        $this->db->where('username', $username);
         $query = $this->db->update('user', $data);
         if ($query) {
             redirect(site_url('profile'));
@@ -133,7 +161,6 @@ class Profile extends CI_Controller
             );
             $this->db->where('username', $id);
             if ($this->db->update('user', $data)) {
-                // $this->index();
                 redirect(site_url('Profile'));
             } else {
                 $this->load->view("gagal");

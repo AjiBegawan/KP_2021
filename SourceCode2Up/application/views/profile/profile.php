@@ -23,9 +23,9 @@
     <link href="<?= base_url() ?>assets/vendor/icofont/icofont.min.css" rel="stylesheet">
 
     <!-- Template Main CSS File -->
+    <link href="<?= base_url() ?>assets\css\styleHome.css" rel="stylesheet">
     <link href="<?= base_url() ?>assets\css\styleHeader.css" rel="stylesheet">
     <link href="<?= base_url() ?>assets\css\profile\styleProfile.css" rel="stylesheet">
-    <link href="<?= base_url() ?>assets\css\styleHome.css" rel="stylesheet">
 
     <!-- Template Main JS File -->
     <script src="<?= base_url() ?>assets/js/main.js"></script>
@@ -90,9 +90,10 @@
     </header>
     <!-- End Header -->
 
-    <!-- Detail Profile -->
     <div class="wadah">
         <div class="container">
+
+            <!-- Detail Profile -->
             <div class="row">
                 <div class="col-lg-4">
                     <div class="d-flex flex-column align-items-center">
@@ -108,24 +109,20 @@
                             <p class="text-dark mb-1"><span><i
                                         class="icofont-paint"></i></span>&emsp;<?= $user->aliran_seni; ?></p>
                             <hr>
-                            <h5>Contact Information</h5><br>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <p><span><i class="icofont-ui-email"></i></span>&emsp;<?= $user->email; ?></p>
-                                    <p><span><i class="icofont-phone"></i></span>&emsp;<?= $user->phone; ?></p>
-                                    <p><span><i class="icofont-location-pin"></i></span>&emsp;<?= $user->alamat; ?></p>
-                                </div>
-                                <div class="col-sm-">
-                                    <p><span><i class="icofont-twitter"></i></span>&emsp;<?= $user->twitter; ?></p>
-                                    <p><span><i class="icofont-instagram"></i></span>&emsp;<?= $user->instagram; ?></p>
-                                    <p><span><i class="icofont-web"></i></span>&emsp;</p>
-                                </div>
-                            </div>
+                            <h5>Contact Information</h5>
+                                <p><span><i class="icofont-ui-email"></i></span>&emsp;<?= $user->email; ?></p>
+                                <p><span><i class="icofont-phone"></i></span>&emsp;<?= $user->phone; ?></p>
+                                <p><span><i class="icofont-location-pin"></i></span>&emsp;<?= $user->alamat; ?></p>
+                                <p><span><i class="icofont-twitter"></i></span>&emsp;<?= $user->twitter; ?></p>
+                                <p><span><i class="icofont-instagram"></i></span>&emsp;<?= $user->instagram; ?></p>
+                                <p><span><i class="icofont-web"></i></span>&emsp;</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-1">
-                    <button type="button" class="btn btn-danger"><i class="icofont-ui-edit"></i></button>
+                    <a href="<?= site_url('Profile/editProfile')?>">
+                        <button type="button" class="btn btn-danger"><i class="icofont-ui-edit"></i></button>
+                    </a>
                 </div>
             </div>
             <hr>
@@ -135,14 +132,14 @@
                 <h1>Karya</h1>
             </div>
             <div class="row">
-                <div class="col-lg-11">
+                <div class="col-sm-11">
                     <?= $this->pagination->create_links(); ?>
                 </div>
-                <div class="col-lg-1">
+                <div class="col-sm-1">
                     <a href="<?= site_url('/Profile/managePortfolio/') ?>"><button type="button"
                             class="btn btn-danger"><i class="icofont-gear"></i></button></a>
-                </div>
-            </div>
+                </div> 
+            </div><br><br>
             <div class="row gutters-sm">
                 <?php foreach ($portfolio->result() as $row) {  ?>
                 <div class="col-sm-4 mb-3">
@@ -157,9 +154,7 @@
                 </div>
                 <?php } ?>
             </div>
-
         </div>
-
     </div>
 
 
