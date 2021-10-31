@@ -20,8 +20,8 @@ class Login extends CI_Controller
 		}
 		else
 		{
-			$this->session->set_flashdata('error','Username & Password salah');
-			redirect(site_url('login/Login'));
+			$this->session->set_flashdata('message','Username atau Password salah');
+			redirect(site_url('login'));
 		}
 	}
 
@@ -33,16 +33,7 @@ class Login extends CI_Controller
 			if ($key!='__ci_last_regenerate' && $key != '__ci_vars')
 			$this->session->unset_userdata($key);
 		}
-        $this->session->set_flashdata('alert', '<p class="box-msg">
-              <div class="info-box alert-success">
-              <div class="info-box-icon">
-              <i class="fa fa-check-circle"></i>
-              </div>
-              <div class="info-box-content" style="font-size:14">
-              <b style="font-size: 20px">SUKSES</b><br>Log Out Berhasil</div>
-              </div>
-              </p>
-			');
+        $this->session->set_flashdata('message','Anda Berhasil Logout ');
 			redirect(site_url('home'));
     }
     

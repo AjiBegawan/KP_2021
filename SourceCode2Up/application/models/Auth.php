@@ -38,13 +38,11 @@ class Auth extends CI_Model
             'facebook'      => "",
             'role'          => $hak_akses
         );
-
         $this->db->insert('user', $data_user);
     }
 
     function login_user($username, $password)
     {
-        // $query = $this->db->get_where('user', array('username' => $username));
         if ($this->db->get_where('user', array('username' => $username))->num_rows()) {
             $query = $this->db->get_where('user', array('username' => $username));
             $data_user = $query->row();
@@ -52,6 +50,7 @@ class Auth extends CI_Model
                 $query = $this->getDataByUsername($username);
                 $userdata = array(
                     'is_login'    => true,
+                    'is_admin'    => false,
                     'password'    => $query->password,
                     'username'    => $query->username,
                     'nama'        => $query->nama,

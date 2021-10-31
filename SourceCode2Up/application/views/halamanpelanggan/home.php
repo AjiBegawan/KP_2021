@@ -13,7 +13,6 @@
     <link href="<?= base_url() ?>assets/img/LogoIDNFT.png" rel="icon">
     <link href="<?= base_url() ?>assets/img/LogoIDNFT.png" rel="apple-touch-icon">
 
-
     <!-- Vendor CSS Files -->
     <link href="<?= base_url() ?>assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?= base_url() ?>assets/vendor/icofont/icofont.min.css" rel="stylesheet">
@@ -24,12 +23,23 @@
     <link href="<?= base_url() ?>assets\css\styleFooter.css" rel="stylesheet">
 
     <!-- Template Main JS File -->
-    <script src="<?= base_url() ?>assets/js/main.js"></script>
+    <script src="<?= base_url() ?>assets\js\jquery-3.6.0.min.js"></script>
     <script src="<?= base_url() ?>assets\js\sweetalert2.all.min.js"></script>
 
     <script>
-        const flashData = $('.flash-data').data(flashdata);
-        console.log(flashData);
+        $(document).ready(function() {
+            const flashData = $('.flash-data').data('flashdata');
+            console.log(flashData);
+
+            if (flashData) {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Selamat',
+                    text: flashData,
+                    backdrop: 'rgba(255,0,0,0.1) ',
+                });
+            }
+        });
     </script>
 </head>
 
@@ -71,12 +81,7 @@
             <?php } ?>
             <br><br>
         </div>
-        <div class="flash-data" data-flash="<?= $this->session->flashdata('message') ?>"></div>
-        <?php if ($this->session->flashdata('message')) { ?>
-            <div class="alert alert-success">
-                <?= $this->session->flashdata('message') ?>
-            </div>
-        <?php } ?>
+        <div class="flash-data" data-flashdata="<?= $this->session->flashdata('message'); ?>"></div>
     </header>
     <!-- End Header -->
 
@@ -117,9 +122,6 @@
 
 
     <main id="main">
-
-        <button type="button" id="tombol" onclick="Swal.fire('Hello World','Latihan Sweetallert','success')">Tombol</button>
-
         <!-- ======= Artist of the weeks Section ======= -->
         <section id="team" class="team section-bg">
             <div class="container">
