@@ -12,16 +12,15 @@
     <!-- Favicons -->
     <link href="<?= base_url() ?>assets/img/LogoIDNFT.png" rel="icon">
     <link href="<?= base_url() ?>assets/img/LogoIDNFT.png" rel="apple-touch-icon">
-
-    <!-- Bootsrap -->
-    <link href="<?= base_url() ?>assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
+    
+    
     <!-- Vendor CSS Files -->
+    <link href="<?= base_url() ?>assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?= base_url() ?>assets/vendor/icofont/icofont.min.css" rel="stylesheet">
-
+    
     <!-- Template Main CSS File -->
-    <link href="<?= base_url() ?>assets\css\styleHome.css" rel="stylesheet">
     <link href="<?= base_url() ?>assets\css\styleHeader.css" rel="stylesheet">
+    <link href="<?= base_url() ?>assets\css\styleHome.css" rel="stylesheet">
     <link href="<?= base_url() ?>assets\css\styleFooter.css" rel="stylesheet">
 
     <!-- Template Main JS File -->

@@ -14,13 +14,13 @@ class SignUp extends CI_Controller
             $data['user'] = $this->getUsernameData();
             $this->load->view("halamanpelanggan/home", $data);
         } else {
-            $this->load->view("SignUpMember");
+            $this->load->view("signUp/SignUpMember");
         }
     }
     function SignUpAdmin()
     {
         $this->load->helper("url");
-        $this->load->view("SignUpAdmin");
+        $this->load->view("signUp/SignUpAdmin");
     }
     function prosesSignUp()
     {
@@ -56,13 +56,13 @@ class SignUp extends CI_Controller
             } else {
                 error_reporting(0);
                 $this->session->set_flashdata('error', 'Username telah terdaftar');
-                redirect(site_url('SignUp'));
+                redirect(site_url('signUp/SignUp'));
             }
         } else {
             error_reporting(0);
             //  $this->session->set_flashdata('error', validation_errors());
             $this->session->set_flashdata('error', 'Username telah terdaftar');
-            redirect(site_url('SignUp'));
+            redirect(site_url('signUp/SignUp'));
         }
     }
 
@@ -92,12 +92,12 @@ class SignUp extends CI_Controller
                 redirect(site_url('Profile'));
             } else {
                 $this->session->set_flashdata('error', 'Username telah terdaftar');
-                redirect(site_url('SignUp'));
+                redirect(site_url('signUp/SignUp'));
             }
         } else {
             //  $this->session->set_flashdata('error', validation_errors());
             $this->session->set_flashdata('error', 'Data yang Anda masukan salah');
-            redirect(site_url('SignUp'));
+            redirect(site_url('signUp/SignUp'));
         }
     }
 

@@ -4,12 +4,10 @@ class Login extends CI_Controller
 
     public function __construct(){
         parent::__construct();
-        // $this->load->library('session');
-        // $this->load->model('Auth');
     }
     function index()
     {
-        $this->load->view("Login");
+        $this->load->view("login/Login");
     }
 
     public function prosesLogin()
@@ -24,7 +22,7 @@ class Login extends CI_Controller
 		else
 		{
 			$this->session->set_flashdata('error','Username & Password salah');
-			redirect(site_url('Login'));
+			redirect(site_url('login/Login'));
 		}
 	}
 
