@@ -13,7 +13,8 @@ class Auth extends CI_Model
         $data_user = array(
             'nama'          => $nama,
             'username'      => $username,
-            'password'      => password_hash($password, PASSWORD_DEFAULT),
+            // 'password'      => password_hash($password, PASSWORD_DEFAULT),
+            'password'      => md5($this->input->post('password')),
             'email'         => $email,
             'aliran_seni'   => $aliran_seni,
             'role'          => $hak_akses,

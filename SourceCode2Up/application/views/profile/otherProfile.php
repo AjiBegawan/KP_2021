@@ -97,32 +97,26 @@
             <div class="row">
                 <div class="col-lg-4">
                     <div class="d-flex flex-column align-items-center imgDp">
-                        <img src=" <?= base_url('upload/photoProfile/'.$login->dp) ?>" alt="" >
-
+                        <img src=" <?= base_url('upload/photoProfile/'.$otheruser->dp) ?>" alt="" >
                     </div>
                 </div>
-                <div class="col-lg-7">
+                <div class="col-lg-8">
                     <div class="d-flex flex-column align-items-left">
                         <div class="mt-3">
-                            <h3><?= $user->nama; ?></h3>
-                            <h6><span><i class="icofont-id"></i></span>&emsp;IDNFT<?= $user->idnft; ?></h6>
+                            <h3><?= $otheruser->nama; ?></h3>
+                            <h6><span><i class="icofont-id"></i></span>&emsp;IDNFT<?= $otheruser->idnft; ?></h6>
                             <p class="text-dark mb-1"><span><i
-                                        class="icofont-paint"></i></span>&emsp;<?= $user->aliran_seni; ?></p>
+                                        class="icofont-paint"></i></span>&emsp;<?= $otheruser->aliran_seni; ?></p>
                             <hr>
                             <h5>Contact Information</h5>
-                                <p><span><i class="icofont-ui-email"></i></span>&emsp;<?= $user->email; ?></p>
-                                <p><span><i class="icofont-phone"></i></span>&emsp;<?= $user->phone; ?></p>
-                                <p><span><i class="icofont-location-pin"></i></span>&emsp;<?= $user->alamat; ?></p>
-                                <p><span><i class="icofont-twitter"></i></span>&emsp;<?= $user->twitter; ?></p>
-                                <p><span><i class="icofont-instagram"></i></span>&emsp;<?= $user->instagram; ?></p>
+                                <p><span><i class="icofont-ui-email"></i></span>&emsp;<?= $otheruser->email; ?></p>
+                                <p><span><i class="icofont-phone"></i></span>&emsp;<?= $otheruser->phone; ?></p>
+                                <p><span><i class="icofont-location-pin"></i></span>&emsp;<?= $otheruser->alamat; ?></p>
+                                <p><span><i class="icofont-twitter"></i></span>&emsp;<?= $otheruser->twitter; ?></p>
+                                <p><span><i class="icofont-instagram"></i></span>&emsp;<?= $otheruser->instagram; ?></p>
                                 <p><span><i class="icofont-web"></i></span>&emsp;</p>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-1">
-                    <a href="<?= site_url('Profile/editProfile')?>">
-                        <button type="button" class="btn btn-danger"><i class="icofont-ui-edit"></i></button>
-                    </a>
                 </div>
             </div>
             <hr>
@@ -130,16 +124,12 @@
             <!-- Section Portfolio / Karya -->
             <div class="d-flex justify-content-center">
                 <h1>Karya</h1>
-            </div>
-            <div class="row">
-                <div class="col-sm-11">
+            </div><br>
+            <div class="d-flex justify-content-center">
+                <div>
                     <?= $this->pagination->create_links(); ?>
                 </div>
-                <div class="col-sm-1">
-                    <a href="<?= site_url('/Profile/managePortfolio/') ?>"><button type="button"
-                            class="btn btn-danger"><i class="icofont-gear"></i></button></a>
-                </div> 
-            </div><br><br>
+            </div><br>
             <div class="row gutters-sm">
                 <?php foreach ($portfolio->result() as $row) {  ?>
                 <div class="col-sm-4 mb-3">

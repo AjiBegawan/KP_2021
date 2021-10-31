@@ -100,23 +100,25 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-4">
-                    <div class="d-flex flex-column align-items-center">
-                        <img src=" <?= base_url('upload/photoProfile/'.$login->dp) ?>" alt="">
-                        <div class="custom-file">
-                            <form action="">
-                                <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="customFile">
-                                    <label class="custom-file-label" for="customFile">Choose Photo</label> <br><br>
-                                    <button type="submit" class="btn btn-danger btn-block"><i class="icofont-upload-alt"></i></button>
-                                </div>
-                            </form>
-                        </div>
+                    <div class="d-flex flex-column align-items-center imgDp">
+                        <img src=" <?= base_url('upload/photoProfile/' . $login->dp) ?>" alt="Display Picture"> <br><br>
+                        <?php echo form_open_multipart('Profile/uploadDisplayPicture/' . $this->session->userdata('username')); ?>
+                        <fieldset>
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="customFile" name="gambar">
+                                <label class="custom-file-label" for="customFile">Choose Photo</label> <br><br>
+                            </div>
+                            <input type="submit" value="Add" class="form-control btn btn-danger" />
+                        </fieldset>
+                        <?php echo form_close(); ?>
+
                     </div>
                 </div>
                 <div class="col-lg-8">
                     <div class="d-flex flex-column align-items-left">
                         <div class="mt-3">
-                            <form method="POST" action="<?php echo site_url('Profile/editUserData/'.$this->session->userdata('username')); ?>">
+                            <form method="POST"
+                                action="<?php echo site_url('Profile/editUserData/' . $this->session->userdata('username')); ?>">
                                 <div class="form-group">
                                     <i class="icofont-people"></i>&emsp;
                                     <label>Full Name</label>
@@ -162,19 +164,21 @@
                                 <div class="form-group">
                                     <span><i class="icofont-twitter"></i></span>&emsp;
                                     <label>Twitter</label>
-                                    <input type="text" class="form-control" value="<?= $user->twitter; ?>" name="twitter">
+                                    <input type="text" class="form-control" value="<?= $user->twitter; ?>"
+                                        name="twitter">
                                 </div>
                                 <div class="form-group">
                                     <span><i class="icofont-instagram"></i></span>&emsp;
                                     <label>Instagram</label>
-                                    <input type="text" class="form-control" value="<?= $user->instagram; ?>" name="instagram">
+                                    <input type="text" class="form-control" value="<?= $user->instagram; ?>"
+                                        name="instagram">
                                 </div>
                                 <div class="form-group">
                                     <span><i class="icofont-web"></i></span>&emsp;
                                     <label>Website</label>
                                     <input type="text" class="form-control" value="">
                                 </div>
-                                
+
                                 <button type="submit" class="btn btn-danger btn-block">Update</button><br><br><br>
                             </form>
 
@@ -182,7 +186,7 @@
                     </div>
                 </div>
                 <!-- <div class="col-lg-1">
-                    <a href="<?= site_url('Profile/editProfile')?>">
+                    <a href="<?= site_url('Profile/editProfile') ?>">
                         <button type="button" class="btn btn-danger"><i class="icofont-ui-edit"></i></button>
                     </a>
                 </div> -->

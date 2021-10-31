@@ -7,8 +7,6 @@ class ProfileModel extends CI_Model
         parent::__construct();
         $this->load->library('session');
     }
-
-
     function getUsernamePortfolio()
     {
         $this->db->where('username', $this->session->userdata('username'));
@@ -22,9 +20,21 @@ class ProfileModel extends CI_Model
         $query = $this->db->get('portfolio')->row();
         return $query;
     }
+    function getUsernameProfileId($username)
+    {
+        $this->db->where('username', $username);
+        $query = $this->db->get('user')->row();
+        return $query;
+    }
     function getUsernamePortfolioPag($limit, $start)
     {
         $this->db->where('username', $this->session->userdata('username'));
+        $query = $this->db->get('portfolio',$limit, $start);
+        return $query;
+    }
+    function getUsernamePortfolioById($limit, $start, $username)
+    {
+        $this->db->where('username', $username);
         $query = $this->db->get('portfolio',$limit, $start);
         return $query;
     }
@@ -40,14 +50,6 @@ class ProfileModel extends CI_Model
         $query = $this->db->get('user')->row();
         return $query;
     }
-
-    # Function to show Pagination
-    // function getUsernamePortfolio($limit, $start)
-    // {
-    //     $this->db->where('username', $this->session->userdata('username'));
-    //     $query = $this->db->get('portfolio',$limit, $start);
-    //     return $query;
-    // }
     function getCountPortfolioUser()
     {
         $this->db->where('username', $this->session->userdata('username'));

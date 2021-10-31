@@ -122,7 +122,9 @@
                                 <img class="card-img-top" style="height: 200px;object-fit: contain;"
                                     src="<?php echo base_url('upload/portfolio/'.$row->gambar); ?>" />
                                 <div class="card-body">
-                                    <h3 class="card-title"><?php echo $row->nama; ?></h3>
+                                    <a href="<?= base_url('Profile/Profile/'.$row->username); ?>">
+                                        <h3 class="card-title"><?php echo $row->nama; ?></h3>
+                                    </a>
                                     <h5 class="card-title"><?php echo $row->judul; ?></h5>
                                     <p class="card-text"><?php echo $row->deskripsi; ?></p>
                                 </div>
