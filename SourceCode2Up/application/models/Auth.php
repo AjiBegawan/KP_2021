@@ -13,8 +13,8 @@ class Auth extends CI_Model
         $data_user = array(
             'nama'          => $nama,
             'username'      => $username,
-            // 'password'      => password_hash($password, PASSWORD_DEFAULT),
-            'password'      => md5($this->input->post('password')),
+            'password'      => password_hash($password, PASSWORD_DEFAULT),
+            // 'password'      => md5($this->input->post('password')),
             'email'         => $email,
             'aliran_seni'   => $aliran_seni,
             'role'          => $hak_akses,
@@ -43,27 +43,47 @@ class Auth extends CI_Model
 
     function login_user($username, $password)
     {
-        if ($this->db->get_where('user', array('username' => $username))->num_rows()) {
-            $query = $this->db->get_where('user', array('username' => $username));
-            $data_user = $query->row();
-            if (password_verify($password, $data_user->password)) {
-                $query = $this->getDataByUsername($username);
-                $userdata = array(
-                    'is_login'    => true,
-                    'is_admin'    => false,
-                    'password'    => $query->password,
-                    'username'    => $query->username,
-                    'nama'        => $query->nama,
-                    'email'       => $query->email,
-                    'phone'       => $query->phone,
-                  );
-                  $this->session->set_userdata($userdata);
-                return TRUE;
+        if($this->db->get_where('admin', array('username' => $username))->num_rows()){
+            $data_user = $this->db->get_where('admin',$username)->row();
+                if (password_verify($password, $data_user->password)) {
+                    $query = $this->getDataByUsername($username);
+                    $userdata = array(
+                        'is_login'    => true,
+                        'is_admin'    => true,
+                        'password'    => $query->password,
+                        'username'    => $query->username,
+                        'nama'        => $query->nama,
+                        'email'       => $query->email,
+                        'phone'       => $query->phone,
+                      );
+                      $this->session->set_userdata($userdata);
+                    return TRUE;
+                } else {
+                    return FALSE;
+                }
+        }else{
+            if ($this->db->get_where('user', array('username' => $username))->num_rows()) {
+                $query = $this->db->get_where('user', array('username' => $username));
+                $data_user = $query->row();
+                if (password_verify($password, $data_user->password)) {
+                    $query = $this->getDataByUsername($username);
+                    $userdata = array(
+                        'is_login'    => true,
+                        'is_admin'    => false,
+                        'password'    => $query->password,
+                        'username'    => $query->username,
+                        'nama'        => $query->nama,
+                        'email'       => $query->email,
+                        'phone'       => $query->phone,
+                      );
+                      $this->session->set_userdata($userdata);
+                    return TRUE;
+                } else {
+                    return FALSE;
+                }
             } else {
                 return FALSE;
             }
-        } else {
-            return FALSE;
         }
     }
 

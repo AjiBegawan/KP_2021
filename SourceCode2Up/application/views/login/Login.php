@@ -18,7 +18,6 @@
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets\css\style1.css'); ?>" media="all" />
 
-
     <!-- Template Main JS File -->
     <script src="<?= base_url() ?>assets\js\jquery-3.6.0.min.js"></script>
     <script src="<?= base_url() ?>assets\js\sweetalert2.all.min.js"></script>
@@ -67,12 +66,11 @@
                     <input type="password" name="password" class="form-control" required />
                 </div>
                 <div class="form-group">
-                        <div class="g-recaptcha" data-sitekey="6LenGQkdAAAAAGUwSdHTJvOI-cNRtcN_erTfEYh2"></div>
-                    </div>
-                <div class="form-group">
-                    <button type="submit" name="register" class="btn btn-danger btn-center">Login</button>
+                    <div class="g-recaptcha" data-sitekey="6LenGQkdAAAAAGUwSdHTJvOI-cNRtcN_erTfEYh2"></div>
                 </div>
-
+                <div class="form-group">
+                    <button type="submit" name="login" class="btn btn-danger btn-center">Login</button>
+                </div>
             </div>
         </form>
         <br>
@@ -81,13 +79,6 @@
             <a href="<?php echo site_url('SignUp'); ?>" style="text-decoration: none;color:red;">Register Now</a>
         </div>
     </div>
-
-
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-    </script>
-
 
 </body>
 

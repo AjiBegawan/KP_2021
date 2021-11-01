@@ -3,31 +3,54 @@
 
 <head>
     <!-- Required meta tags -->
+    <title>Registrasi IDNFT</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href='<?php echo base_url("assets\image\LogoIDNFT.png"); ?>' rel='shortcut icon' type='image/x-icon' />
+
+    <!-- Favicons -->
+    <link href="<?= base_url() ?>assets/img/LogoIDNFT.png" rel="icon">
+    <link href="<?= base_url() ?>assets/img/LogoIDNFT.png" rel="apple-touch-icon">
+
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
+    <!-- Template Main JS File -->
+    <script src="<?= base_url() ?>assets\js\jquery-3.6.0.min.js"></script>
+    <script src="<?= base_url() ?>assets\js\sweetalert2.all.min.js"></script>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets\css\style1.css'); ?>" media="all" />
-    <title>Registrasi IDNFT</title>
+
+    <script>
+    $(document).ready(function() {
+        const flashData = $('.flash-data').data('flashdata');
+        console.log(flashData);
+
+        if (flashData) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Maaf Registrasi Gagal',
+                text: flashData,
+                backdrop: 'rgba(255,0,0,0.1) ',
+            });
+        }
+    });
+    </script>
 </head>
 
 <body>
-    <?php if ($this->session->flashdata('message')) { ?>
-        <div class="alert alert-success">
-            <?php echo $this->session->flashdata('message') ?>
-        </div>
-    <?php } ?>
-
+    <div class="flash-data" data-flashdata="<?= $this->session->flashdata('message'); ?>"></div>
 
     <div class="container contact-form">
         <div>
             <button type="button" class="close" aria-label="Close" style="margin: 10px 0 0 0 ;">
-                <a href="<?php echo site_url('Home'); ?>" style="text-decoration: none;color:red;"><span aria-hidden="true">&times;</span></a>
+                <a href="<?php echo site_url('Home'); ?>" style="text-decoration: none;color:red;"><span
+                        aria-hidden="true">&times;</span></a>
             </button>
         </div>
         <div class="contact-image">
@@ -63,7 +86,9 @@
                         <option value="Lain - Lain">Lain-lain</option>
                     </select>
                 </div>
-
+                <div class="form-group">
+                    <div class="g-recaptcha" data-sitekey="6LenGQkdAAAAAGUwSdHTJvOI-cNRtcN_erTfEYh2"></div>
+                </div>
                 <div class="form-group">
                     <button type="submit" name="register" class="btn btn-danger btn-center">Register</button>
                 </div>
@@ -80,7 +105,9 @@
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     <!--

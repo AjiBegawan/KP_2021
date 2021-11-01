@@ -5,6 +5,7 @@ class SignUp extends CI_Controller
     {
         parent::__construct();
         $this->load->library('session');
+        $this->load->model("Auth");
     }
     function index()
     {
@@ -24,45 +25,65 @@ class SignUp extends CI_Controller
     }
     function prosesSignUp()
     {
-        error_reporting(0);
-        $this->load->model("Auth", "", TRUE);
+        $captcha_response = trim($this->input->post('g-recaptcha-response'));
 
-        $this->form_validation->set_rules('nama', 'nama', 'trim|required|min_length[1]|max_length[255]');
-        $this->form_validation->set_rules('username', 'username', 'trim|required|min_length[1]|max_length[255]|is_unique[user.username]');
-        $this->form_validation->set_rules('password', 'password', 'trim|required|min_length[1]|max_length[255]');
-        $this->form_validation->set_rules('email', 'email', 'trim|required|min_length[1]|max_length[255]');
+		if ($captcha_response != '') {
+			$keySecret = '6LenGQkdAAAAALGVLnAxlYxvqgkCkLoL7O7_U01i';
 
-        if ($this->form_validation->run() == true) {
-            error_reporting(0);
-            $nama = $this->input->post("nama");
-            $username = $this->input->post("username");
-            $password = $this->input->post("password");
-            $email = $this->input->post("email");
-            $aliran_seni = $this->input->post("aliran_seni");
-            $hak_akses = "2";
-            $idnft = rand(0, 99999);
+			$check = array(
+				'secret'		=>	$keySecret,
+				'response'		=>	$this->input->post('g-recaptcha-response')
+			);
 
-            $query = ("SELECT * FROM user WHERE username = '$username'");
-            $result = $this->db->query($query);
+			$startProcess = curl_init();
+			curl_setopt($startProcess, CURLOPT_URL, "https://www.google.com/recaptcha/api/siteverify");
+			curl_setopt($startProcess, CURLOPT_POST, true);
+			curl_setopt($startProcess, CURLOPT_POSTFIELDS, http_build_query($check));
+			curl_setopt($startProcess, CURLOPT_SSL_VERIFYPEER, false);
+			curl_setopt($startProcess, CURLOPT_RETURNTRANSFER, true);
 
+			$receiveData = curl_exec($startProcess);
+			$finalResponse = json_decode($receiveData, true);
 
-            if (!mysqli_fetch_array($result)) {
-                error_reporting(0);
-                $this->Auth->register($nama, $username, $password, $email,  $aliran_seni, $idnft, $hak_akses);
-                $this->Auth->login_user($username, $password);
-                $this->session->set_flashdata('message', 'Proses Pendaftaran User Berhasil');
-
-                redirect(site_url('Profile'));
+			if ($finalResponse['success']) {
+                $this->form_validation->set_rules('nama', 'nama', 'trim|required|min_length[1]|max_length[255]');
+                $this->form_validation->set_rules('username', 'username', 'trim|required|min_length[1]|max_length[255]|is_unique[user.username]');
+                $this->form_validation->set_rules('password', 'password', 'trim|required|min_length[1]|max_length[255]');
+                $this->form_validation->set_rules('email', 'email', 'trim|required|min_length[1]|max_length[255]');
+        
+                if ($this->form_validation->run() == true) {
+                    $nama = $this->input->post("nama");
+                    $username = $this->input->post("username");
+                    $password = $this->input->post("password");
+                    $email = $this->input->post("email");
+                    $aliran_seni = $this->input->post("aliran_seni");
+                    $hak_akses = "2";
+                    $idnft = rand(0, 99999);
+        
+                    $query = ("SELECT * FROM user WHERE username = '$username'");
+                    $result = $this->db->query($query);
+        
+                    if (!mysqli_fetch_array($result)) {
+                        $this->Auth->register($nama, $username, $password, $email,  $aliran_seni, $idnft, $hak_akses);
+                        $this->Auth->login_user($username, $password);
+                        $this->session->set_flashdata('message', 'Proses Pendaftaran User Berhasil');
+        
+                        redirect(site_url('home'));
+                    } else {
+                        $this->session->set_flashdata('message', 'Username telah terdaftar');
+                        redirect(site_url('signUp'));
+                    }
+                } else {
+                    $this->session->set_flashdata('message', 'Data yang anda masukan salah');
+                    redirect(site_url('signUp'));
+                }
             } else {
-                error_reporting(0);
-                $this->session->set_flashdata('error', 'Username telah terdaftar');
-                redirect(site_url('signUp/SignUp'));
+                $this->session->set_flashdata('message', 'Silahkan selesaikan CAPTCHA terlebih dahulu');
+                redirect(site_url('signUp'));
             }
         } else {
-            error_reporting(0);
-            //  $this->session->set_flashdata('error', validation_errors());
-            $this->session->set_flashdata('error', 'Username telah terdaftar');
-            redirect(site_url('signUp/SignUp'));
+            $this->session->set_flashdata('message', 'Silahkan selesaikan CAPTCHA terlebih dahulu');
+            redirect(site_url('signUp'));
         }
     }
 

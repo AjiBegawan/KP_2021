@@ -10,9 +10,9 @@ class Login extends CI_Controller
 	}
 	function index()
 	{
-		$this->load->view("login/Login");
+		$this->load->view("login/login");
 	}
-	public function prosesLoginC()
+	public function prosesLogin()
 	{
 		$captcha_response = trim($this->input->post('g-recaptcha-response'));
 
@@ -39,19 +39,19 @@ class Login extends CI_Controller
 				$password = $this->input->post("password");
 
 				if ($this->Auth->login_user($username, $password)) {
-					$this->session->set_flashdata('message', 'Anda Berhasil Login ');
+					$this->session->set_flashdata('message', 'Anda Berhasil Login');
 					redirect(site_url('home'));
 				} else {
 					$this->session->set_flashdata('message', 'Username atau Password salah');
-					redirect(site_url('login'));
+					redirect(site_url('login/login'));
 				}
 			} else {
 				$this->session->set_flashdata('message', 'Username atau Password salah 2');
-					redirect(site_url('login'));
+				redirect(site_url('login/login'));
 			}
 		} else {
 			$this->session->set_flashdata('message', 'Silahkan selesaikan CAPTCHA terlebih dahulu');
-					redirect(site_url('login'));
+			redirect(site_url('login/login'));
 		}
 	}
 
@@ -63,7 +63,7 @@ class Login extends CI_Controller
 			if ($key != '__ci_last_regenerate' && $key != '__ci_vars')
 				$this->session->unset_userdata($key);
 		}
-		$this->session->set_flashdata('message', 'Anda Berhasil Logout ');
+		$this->session->set_flashdata('message', 'Sampai Jumpa Lagi!!!');
 		redirect(site_url('home'));
 	}
 }
