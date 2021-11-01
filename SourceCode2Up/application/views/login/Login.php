@@ -17,12 +17,12 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets\css\style1.css'); ?>" media="all" />
-    <!-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script> -->
-    <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+
 
     <!-- Template Main JS File -->
     <script src="<?= base_url() ?>assets\js\jquery-3.6.0.min.js"></script>
     <script src="<?= base_url() ?>assets\js\sweetalert2.all.min.js"></script>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
 
     <script>
     $(document).ready(function() {
@@ -66,6 +66,9 @@
                     <label for="nama">Password</label>
                     <input type="password" name="password" class="form-control" required />
                 </div>
+                <div class="form-group">
+                        <div class="g-recaptcha" data-sitekey="6LenGQkdAAAAAGUwSdHTJvOI-cNRtcN_erTfEYh2"></div>
+                    </div>
                 <div class="form-group">
                     <button type="submit" name="register" class="btn btn-danger btn-center">Login</button>
                 </div>
