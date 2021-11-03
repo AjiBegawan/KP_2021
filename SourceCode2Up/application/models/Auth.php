@@ -100,4 +100,16 @@ class Auth extends CI_Model
         $query = $this->db->get('user')->row();
         return $query;
     }
+
+    function getUsernameData()
+    {
+        $this->db->where('username', $this->session->userdata('username'));
+        $query = $this->db->get('user')->row();
+        return $query;
+    }
+    function getUSosmedIdnft()
+    {
+        $query = $this->db->get('sosmed')->row();
+        return $query;
+    }
 }

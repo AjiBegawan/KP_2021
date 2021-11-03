@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Home | IDNFT </title>
+    <title>Artikel | IDNFT </title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -67,7 +67,7 @@
                         </a></li>
                     <li><a class="aclass" href="<?php echo site_url('Admin/contact') ?>">MESSAGE</a>
                     </li>
-                    <li><a class="aclass" href="<?php echo site_url('Admin/artikel') ?>">ARTIKEL</a>
+                    <li><a class="aclass text-danger" href="<?php echo site_url('Admin/artikel') ?>">ARTIKEL</a>
                     </li>
                     <?php if ($this->session->userdata('is_login')) { ?>
                         <li><a class="aclass" href="<?php echo site_url('Login/logout') ?>">LOGOUT</a></li>
@@ -101,12 +101,12 @@
             <div class="">
                 <!-- Tabel Artikel -->
                 <div style="width:1300px; ">
-                    <h1>Data Artikel</h1>
+                    <h1>Artikel</h1>
                     <div class="d-flex justify-content-center">
                         <?= $this->pagination->create_links(); ?>
                     </div>
                     <hr>
-                    <a href="<?php echo site_url('/admin/addArtikel/') ?>" style="text-decoration: none;"><button type="button" class="btn btn-success">Tambah Artikel</button></button></a> <br><br>
+                    <a href="<?php echo site_url('/admin/addArtikel/') ?>" style="text-decoration: none;"><button type="button" class="btn btn-success"><i class="icofont-plus"></i></button></button></a> <br><br>
                     <table id="table_artikel" class="table table-condensed table-hover table-striped">
                         <thead>
                             <tr>

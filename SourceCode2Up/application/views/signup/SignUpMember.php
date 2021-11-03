@@ -44,7 +44,7 @@
 </head>
 
 <body>
-    <div class="flash-data" data-flashdata="<?= $this->session->flashdata('message'); ?>"></div>
+    <div class="flash-data" data-flashdata="<?= $this->session->flashdata('error'); ?>"></div>
 
     <div class="container contact-form">
         <div>

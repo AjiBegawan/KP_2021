@@ -87,7 +87,8 @@
 
     <div class="wadah">
         <div class="container" style="margin-top: 100px;">
-            <h1>Edit User</h1><hr>
+            <h1>Tambah Artikel</h1><hr>
+            <a href="<?php echo site_url('Admin/artikel'); ?>"><button type="submit" class="btn btn-warning"><i class="icofont-swoosh-left"></i></button></a><br><br>
             <?php echo form_open_multipart('Admin/ProsesAddArtikel'); ?>
             <fieldset>
                 <div class="form-group">

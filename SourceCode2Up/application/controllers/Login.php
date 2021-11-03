@@ -10,7 +10,13 @@ class Login extends CI_Controller
 	}
 	function index()
 	{
-		$this->load->view("login/login");
+		if ($this->session->userdata('is_login')) {
+            $data['login'] = $this->Auth->getUsernameData();
+			$data['sosmed'] = $this->Auth->getUSosmedIdnft();
+            $this->load->view("halamanpelanggan/home", $data);
+        } else {
+            $this->load->view("login/login");
+        }
 	}
 	public function prosesLogin()
 	{
@@ -43,15 +49,15 @@ class Login extends CI_Controller
 					redirect(site_url('home'));
 				} else {
 					$this->session->set_flashdata('message', 'Username atau Password salah');
-					redirect(site_url('login/login'));
+					redirect(site_url('login'));
 				}
 			} else {
 				$this->session->set_flashdata('message', 'Username atau Password salah 2');
-				redirect(site_url('login/login'));
+				redirect(site_url('login'));
 			}
 		} else {
 			$this->session->set_flashdata('message', 'Silahkan selesaikan CAPTCHA terlebih dahulu');
-			redirect(site_url('login/login'));
+			redirect(site_url('login'));
 		}
 	}
 

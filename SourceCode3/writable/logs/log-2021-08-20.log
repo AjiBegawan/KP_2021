@@ -1,0 +1,78 @@
+CRITICAL - 2021-08-20 17:24:40 --> The framework needs the following extension(s) installed and loaded: intl.
+#0 C:\xampp\htdocs\KP_2021\SourceCode3\system\CodeIgniter.php(228): CodeIgniter\Exceptions\FrameworkException::forMissingExtension('intl')
+#1 C:\xampp\htdocs\KP_2021\SourceCode3\system\CodeIgniter.php(180): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
+#2 C:\xampp\htdocs\KP_2021\SourceCode3\system\bootstrap.php(157): CodeIgniter\CodeIgniter->initialize()
+#3 C:\xampp\htdocs\KP_2021\SourceCode3\public\index.php(28): require('C:\\xampp\\htdocs...')
+#4 {main}
+CRITICAL - 2021-08-20 17:25:47 --> The framework needs the following extension(s) installed and loaded: intl.
+#0 C:\xampp\htdocs\KP_2021\SourceCode3\system\CodeIgniter.php(228): CodeIgniter\Exceptions\FrameworkException::forMissingExtension('intl')
+#1 C:\xampp\htdocs\KP_2021\SourceCode3\system\CodeIgniter.php(180): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
+#2 C:\xampp\htdocs\KP_2021\SourceCode3\system\bootstrap.php(157): CodeIgniter\CodeIgniter->initialize()
+#3 C:\xampp\htdocs\KP_2021\SourceCode3\public\index.php(28): require('C:\\xampp\\htdocs...')
+#4 {main}
+CRITICAL - 2021-08-20 17:25:48 --> The framework needs the following extension(s) installed and loaded: intl.
+#0 C:\xampp\htdocs\KP_2021\SourceCode3\system\CodeIgniter.php(228): CodeIgniter\Exceptions\FrameworkException::forMissingExtension('intl')
+#1 C:\xampp\htdocs\KP_2021\SourceCode3\system\CodeIgniter.php(180): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
+#2 C:\xampp\htdocs\KP_2021\SourceCode3\system\bootstrap.php(157): CodeIgniter\CodeIgniter->initialize()
+#3 C:\xampp\htdocs\KP_2021\SourceCode3\public\index.php(28): require('C:\\xampp\\htdocs...')
+#4 {main}
+CRITICAL - 2021-08-20 17:25:48 --> The framework needs the following extension(s) installed and loaded: intl.
+#0 C:\xampp\htdocs\KP_2021\SourceCode3\system\CodeIgniter.php(228): CodeIgniter\Exceptions\FrameworkException::forMissingExtension('intl')
+#1 C:\xampp\htdocs\KP_2021\SourceCode3\system\CodeIgniter.php(180): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
+#2 C:\xampp\htdocs\KP_2021\SourceCode3\system\bootstrap.php(157): CodeIgniter\CodeIgniter->initialize()
+#3 C:\xampp\htdocs\KP_2021\SourceCode3\public\index.php(28): require('C:\\xampp\\htdocs...')
+#4 {main}
+CRITICAL - 2021-08-20 17:25:48 --> The framework needs the following extension(s) installed and loaded: intl.
+#0 C:\xampp\htdocs\KP_2021\SourceCode3\system\CodeIgniter.php(228): CodeIgniter\Exceptions\FrameworkException::forMissingExtension('intl')
+#1 C:\xampp\htdocs\KP_2021\SourceCode3\system\CodeIgniter.php(180): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
+#2 C:\xampp\htdocs\KP_2021\SourceCode3\system\bootstrap.php(157): CodeIgniter\CodeIgniter->initialize()
+#3 C:\xampp\htdocs\KP_2021\SourceCode3\public\index.php(28): require('C:\\xampp\\htdocs...')
+#4 {main}
+CRITICAL - 2021-08-20 17:25:48 --> The framework needs the following extension(s) installed and loaded: intl.
+#0 C:\xampp\htdocs\KP_2021\SourceCode3\system\CodeIgniter.php(228): CodeIgniter\Exceptions\FrameworkException::forMissingExtension('intl')
+#1 C:\xampp\htdocs\KP_2021\SourceCode3\system\CodeIgniter.php(180): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
+#2 C:\xampp\htdocs\KP_2021\SourceCode3\system\bootstrap.php(157): CodeIgniter\CodeIgniter->initialize()
+#3 C:\xampp\htdocs\KP_2021\SourceCode3\public\index.php(28): require('C:\\xampp\\htdocs...')
+#4 {main}
+CRITICAL - 2021-08-20 17:25:49 --> The framework needs the following extension(s) installed and loaded: intl.
+#0 C:\xampp\htdocs\KP_2021\SourceCode3\system\CodeIgniter.php(228): CodeIgniter\Exceptions\FrameworkException::forMissingExtension('intl')
+#1 C:\xampp\htdocs\KP_2021\SourceCode3\system\CodeIgniter.php(180): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
+#2 C:\xampp\htdocs\KP_2021\SourceCode3\system\bootstrap.php(157): CodeIgniter\CodeIgniter->initialize()
+#3 C:\xampp\htdocs\KP_2021\SourceCode3\public\index.php(28): require('C:\\xampp\\htdocs...')
+#4 {main}
+CRITICAL - 2021-08-20 17:25:49 --> The framework needs the following extension(s) installed and loaded: intl.
+#0 C:\xampp\htdocs\KP_2021\SourceCode3\system\CodeIgniter.php(228): CodeIgniter\Exceptions\FrameworkException::forMissingExtension('intl')
+#1 C:\xampp\htdocs\KP_2021\SourceCode3\system\CodeIgniter.php(180): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
+#2 C:\xampp\htdocs\KP_2021\SourceCode3\system\bootstrap.php(157): CodeIgniter\CodeIgniter->initialize()
+#3 C:\xampp\htdocs\KP_2021\SourceCode3\public\index.php(28): require('C:\\xampp\\htdocs...')
+#4 {main}
+CRITICAL - 2021-08-20 17:25:49 --> The framework needs the following extension(s) installed and loaded: intl.
+#0 C:\xampp\htdocs\KP_2021\SourceCode3\system\CodeIgniter.php(228): CodeIgniter\Exceptions\FrameworkException::forMissingExtension('intl')
+#1 C:\xampp\htdocs\KP_2021\SourceCode3\system\CodeIgniter.php(180): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
+#2 C:\xampp\htdocs\KP_2021\SourceCode3\system\bootstrap.php(157): CodeIgniter\CodeIgniter->initialize()
+#3 C:\xampp\htdocs\KP_2021\SourceCode3\public\index.php(28): require('C:\\xampp\\htdocs...')
+#4 {main}
+CRITICAL - 2021-08-20 17:25:49 --> The framework needs the following extension(s) installed and loaded: intl.
+#0 C:\xampp\htdocs\KP_2021\SourceCode3\system\CodeIgniter.php(228): CodeIgniter\Exceptions\FrameworkException::forMissingExtension('intl')
+#1 C:\xampp\htdocs\KP_2021\SourceCode3\system\CodeIgniter.php(180): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
+#2 C:\xampp\htdocs\KP_2021\SourceCode3\system\bootstrap.php(157): CodeIgniter\CodeIgniter->initialize()
+#3 C:\xampp\htdocs\KP_2021\SourceCode3\public\index.php(28): require('C:\\xampp\\htdocs...')
+#4 {main}
+CRITICAL - 2021-08-20 17:25:49 --> The framework needs the following extension(s) installed and loaded: intl.
+#0 C:\xampp\htdocs\KP_2021\SourceCode3\system\CodeIgniter.php(228): CodeIgniter\Exceptions\FrameworkException::forMissingExtension('intl')
+#1 C:\xampp\htdocs\KP_2021\SourceCode3\system\CodeIgniter.php(180): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
+#2 C:\xampp\htdocs\KP_2021\SourceCode3\system\bootstrap.php(157): CodeIgniter\CodeIgniter->initialize()
+#3 C:\xampp\htdocs\KP_2021\SourceCode3\public\index.php(28): require('C:\\xampp\\htdocs...')
+#4 {main}
+CRITICAL - 2021-08-20 17:25:49 --> The framework needs the following extension(s) installed and loaded: intl.
+#0 C:\xampp\htdocs\KP_2021\SourceCode3\system\CodeIgniter.php(228): CodeIgniter\Exceptions\FrameworkException::forMissingExtension('intl')
+#1 C:\xampp\htdocs\KP_2021\SourceCode3\system\CodeIgniter.php(180): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
+#2 C:\xampp\htdocs\KP_2021\SourceCode3\system\bootstrap.php(157): CodeIgniter\CodeIgniter->initialize()
+#3 C:\xampp\htdocs\KP_2021\SourceCode3\public\index.php(28): require('C:\\xampp\\htdocs...')
+#4 {main}
+CRITICAL - 2021-08-20 17:25:50 --> The framework needs the following extension(s) installed and loaded: intl.
+#0 C:\xampp\htdocs\KP_2021\SourceCode3\system\CodeIgniter.php(228): CodeIgniter\Exceptions\FrameworkException::forMissingExtension('intl')
+#1 C:\xampp\htdocs\KP_2021\SourceCode3\system\CodeIgniter.php(180): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
+#2 C:\xampp\htdocs\KP_2021\SourceCode3\system\bootstrap.php(157): CodeIgniter\CodeIgniter->initialize()
+#3 C:\xampp\htdocs\KP_2021\SourceCode3\public\index.php(28): require('C:\\xampp\\htdocs...')
+#4 {main}

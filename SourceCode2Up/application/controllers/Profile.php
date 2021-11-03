@@ -41,27 +41,26 @@ class Profile extends CI_Controller
     {
         $this->load->model('ProfileModel');
 
-        if($this->session->userdata('is_login')){
+        if ($this->session->userdata('is_login')) {
             $data['login'] = $this->ProfileModel->getUsernameLogin();
             $data['otheruser'] = $this->ProfileModel->getUsernameProfileId($username);
-    
+
             // Pagination
             $this->load->library('pagination');
-    
-            $config['base_url'] = 'http://localhost/KP_2021/SourceCode2Up/Profile/Profile/'.$username;
-            $config['total_rows'] =  $this->ProfileModel->getCountPortfolioUser();
+
+            $config['base_url'] = 'http://localhost/KP_2021/SourceCode2Up/Profile/Profile/' . $username;
+            $config['total_rows'] =  $this->ProfileModel-> getCountPortfolioOtherUser($username);
             $config['per_page'] = 3;
-    
+
             $this->pagination->initialize($config);
-    
+
             $data['start'] = $this->uri->segment(4);
             $data['portfolio'] = $this->ProfileModel->getUsernamePortfolioById($config['per_page'], $data['start'], $username);
-    
+
             $this->load->view("profile/otherProfile", $data);
-        }else{
+        } else {
             $this->load->view("Login");
         }
-
     }
 
     public function managePortfolio()
@@ -225,34 +224,40 @@ class Profile extends CI_Controller
                     'gambar'    => $file_name
                 );
                 if ($this->db->insert('portfolio', $data)) {
+                    $this->session->set_flashdata('message', 'Project baru telah ditambahkan');
                     redirect(site_url('Profile/managePortfolio'));
                 } else {
-                    $this->load->view("gagal");
+                    $this->session->set_flashdata('message', 'Project gagal ditambahkan');
+                    redirect(site_url('Profile/managePortfolio'));
                 }
             }
         } else {
-            $this->load->view("gagal");
+            $this->session->set_flashdata('error', 'Silakan isi seluruh field');
+            redirect(site_url('Profile/managePortfolio'));
         }
     }
     function updatePortfolio($id)
     {
         $this->load->library('upload');
-        if (!empty($_FILES['gambar']['name'])) {
 
-            $config['upload_path'] = './upload/portfolio';
-            $config['allowed_types'] = 'gif|jpg|png|jpeg';
-            $config['max_size'] = 2000;
-            $date = date('Ymd');
-            $new_name = $this->session->userdata('username') . "_" . $date . "_" . rand(0, 999999999);
-            $config['file_name'] = $new_name;
+        $this->form_validation->set_rules('judul', 'judul', 'trim|required|min_length[1]|max_length[255]');
+        $this->form_validation->set_rules('deskripsi', 'deskripsi', 'trim|required|min_length[1]|max_length[255]');
 
-            $this->upload->initialize($config);
+        if ($this->form_validation->run() == true) {
 
-            $this->load->library('upload', $config);
+            if (!empty($_FILES['gambar']['name'])) {
+                $config['upload_path'] = './upload/portfolio';
+                $config['allowed_types'] = 'gif|jpg|png|jpeg';
+                $config['max_size'] = 2000;
+                $date = date('Ymd');
+                $new_name = $this->session->userdata('username') . "_" . $date . "_" . rand(0, 999999999);
+                $config['file_name'] = $new_name;
 
-            if (!$this->upload->do_upload('gambar')) {
-                $this->load->view("gagal");
-            } else {
+                $this->upload->initialize($config);
+
+                $this->load->library('upload', $config);
+                $this->upload->do_upload('gambar');
+
                 $upload_data = $this->upload->data();
                 $file_name = $upload_data['file_name'];
                 $data = array(
@@ -262,24 +267,36 @@ class Profile extends CI_Controller
                     'deskripsi' => $this->input->post("deskripsi"),
                     'gambar'    => $file_name
                 );
-                $this->db->where('id', $id);
-                if ($this->db->update('portfolio', $data)) {
-                    redirect(site_url('Profile/managePortfolio'));
-                } else {
-                    $this->load->view("gagal");
-                }
+            } else {
+                $data = array(
+                    'username'  => $this->session->userdata('username'),
+                    'nama'      => $this->session->userdata('nama'),
+                    'judul'     => $this->input->post("judul"),
+                    'deskripsi' => $this->input->post("deskripsi"),
+                );
+            }
+            $this->db->where('id', $id);
+            if ($this->db->update('portfolio', $data)) {
+                $this->session->set_flashdata('message', 'Project telah diperbaharui');
+                redirect(site_url('Profile/managePortfolio'));
+            } else {
+                $this->session->set_flashdata('error', 'Gagal memperbaharui project');
+                redirect(site_url('Profile/managePortfolio'));
             }
         } else {
-            $this->load->view("gagal");
+            $this->session->set_flashdata('error', 'Silakan isi semua field');
+            redirect(site_url('Profile/managePortfolio'));
         }
     }
     function deletePortfolio($id)
     {
         $this->db->where('id', $id);
         if ($this->db->delete('portfolio')) {
+            $this->session->set_flashdata('message', 'Project telah dihapus');
             redirect(site_url('Profile/managePortfolio'));
         } else {
-            $this->load->view("gagal");
+            $this->session->set_flashdata('error', 'Project gagal dihapus');
+            redirect(site_url('Profile/managePortfolio'));
         }
     }
 }

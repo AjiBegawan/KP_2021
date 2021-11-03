@@ -35,8 +35,8 @@
 </head>
 
 <body>
-        <!-- ======= Header ======= -->
-        <header id="header" class="fixed-top" style="background-color:white">
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top" style="background-color:white">
         <div class="container d-flex align-items-center ">
             <a class="navbar-brand mr-auto" href="<?php echo site_url('Home') ?>" style="text-decoration: none; color : black;">
                 <img src="<?= base_url("assets\img\LogoIDNFT.png") ?>" width="40" height="40" style="margin: -9px 7px 0 0 ;" class="d-inline-block align-top" alt="Logo IDNFT">
@@ -82,60 +82,52 @@
 
     <h1>Edit User</h1>
 
-    <div class="container" style="margin-top: 100px;">
-        <?php echo form_open_multipart('Admin/updateArtikel/'.$artikel->Id); ?>
+    <div class="container" style="margin-top: 50px;">
+        <h3>Edit Artikel</h3><hr>
+        <a href="<?php echo site_url('Admin/artikel'); ?>"><button type="submit" class="btn btn-warning"><i class="icofont-swoosh-left"></i></button></a><br><br>
+        <?php echo form_open_multipart('Admin/updateArtikel/' . $artikel->Id); ?>
         <fieldset>
             <div class="form-group">
                 <label for="exampleInputEmail1">ID</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="id"
-                    value="<?php echo $artikel->Id; ?>" readonly>
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="id" value="<?php echo $artikel->Id; ?>" readonly>
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Judul</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                    name="judul" value="<?php echo $artikel->Judul; ?>">
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="judul" value="<?php echo $artikel->Judul; ?>">
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Paragraf 1</label>
 
-                <textarea name="paragraf1" class="form-control" id="" cols="30"
-                    rows="10"><?php echo $artikel->Paragraf1; ?></textarea>
+                <textarea name="paragraf1" class="form-control" id="" cols="30" rows="10"><?php echo $artikel->Paragraf1; ?></textarea>
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Paragraf 2</label>
 
-                <textarea name="paragraf2" class="form-control" id="" cols="30"
-                    rows="10"><?php echo $artikel->Paragraf2; ?></textarea>
+                <textarea name="paragraf2" class="form-control" id="" cols="30" rows="10"><?php echo $artikel->Paragraf2; ?></textarea>
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Paragraf 3</label>
-                <textarea name="paragraf3" class="form-control" id="" cols="30"
-                    rows="10"><?php echo $artikel->Paragraf3; ?></textarea>
+                <textarea name="paragraf3" class="form-control" id="" cols="30" rows="10"><?php echo $artikel->Paragraf3; ?></textarea>
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Paragraf 4</label>
-                <textarea name="paragraf4" class="form-control" id="" cols="30"
-                    rows="10"><?php echo $artikel->Paragraf4; ?></textarea>
+                <textarea name="paragraf4" class="form-control" id="" cols="30" rows="10"><?php echo $artikel->Paragraf4; ?></textarea>
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Paragraf 5</label>
-                <textarea name="paragraf5" class="form-control" id="" cols="30"
-                    rows="10"><?php echo $artikel->Paragraf5; ?></textarea>
+                <textarea name="paragraf5" class="form-control" id="" cols="30" rows="10"><?php echo $artikel->Paragraf5; ?></textarea>
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Paragraf 6</label>
-                <textarea name="paragraf6" class="form-control" id="" cols="30"
-                    rows="10"><?php echo $artikel->Paragraf6; ?></textarea>
+                <textarea name="paragraf6" class="form-control" id="" cols="30" rows="10"><?php echo $artikel->Paragraf6; ?></textarea>
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Paragraf 7</label>
-                <textarea name="paragraf7" class="form-control" id="" cols="30"
-                    rows="10"><?php echo $artikel->Paragraf7; ?></textarea>
+                <textarea name="paragraf7" class="form-control" id="" cols="30" rows="10"><?php echo $artikel->Paragraf7; ?></textarea>
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Upload Gambar Header</label>
-                <input type='file' class="form-control" name='gambar' size='20'
-                    placeholder="<?php echo $artikel->gambar; ?>">
+                <input type='file' class="form-control" name='gambar' size='20' placeholder="<?php echo $artikel->gambar; ?>">
             </div>
             <button type="submit" class="form-control btn btn-primary">Submit</button><br><br>
         </fieldset>

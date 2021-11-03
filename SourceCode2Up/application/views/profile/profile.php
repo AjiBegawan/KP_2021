@@ -27,41 +27,32 @@
     <link href="<?= base_url() ?>assets\css\styleHeader.css" rel="stylesheet">
     <link href="<?= base_url() ?>assets\css\profile\styleProfile.css" rel="stylesheet">
 
-    <!-- Template Main JS File -->
-    <script src="<?= base_url() ?>assets/js/main.js"></script>
-
 </head>
 
 <body>
     <!-- ======= Header ======= -->
     <header id="header" class="fixed-top" style="background-color:white">
         <div class="container d-flex align-items-center ">
-            <a class="navbar-brand mr-auto" href="<?php echo site_url('Home') ?>"
-                style="text-decoration: none; color : black;">
-                <img src="<?= base_url("assets\img\LogoIDNFT.png") ?>" width="40" height="40"
-                    style="margin: -9px 7px 0 0 ;" class="d-inline-block align-top" alt="Logo IDNFT">
+            <a class="navbar-brand mr-auto" href="<?php echo site_url('Home') ?>" style="text-decoration: none; color : black;">
+                <img src="<?= base_url("assets\img\LogoIDNFT.png") ?>" width="40" height="40" style="margin: -9px 7px 0 0 ;" class="d-inline-block align-top" alt="Logo IDNFT">
                 <strong>IDNFT</strong> <span style="font-size: 10px;">Beta</span>
             </a>
             <nav class="nav-menu d-none d-lg-block mx-auto">
                 <ul>
-                    <li class="active"><a href="<?php echo site_url('Home') ?>"
-                            style="text-decoration: none;"><strong>HOME</strong></a></li>
-                    <li><a href="<?php echo site_url('Home/DeeraView') ?>" style="text-decoration: none;"><strong>DEERA
-                                NFT</strong></a></li>
-                    <li><a href="<?php echo site_url('Home/BlogView') ?>"
-                            style="text-decoration: none;"><strong>BLOG</strong></a></li>
-                    <li><a href="https://discord.gg/DMMF7bVYrh" style="text-decoration: none;"
-                            target="_blank"><strong>JOIN OUR DISCORD</strong></a></li>
-                    <li><a href="<?php echo site_url('Home') ?>#contact"
-                            style="text-decoration: none;"><strong>CONTACT</strong></a></li>
+                    <li><a href="<?php echo site_url('Home') ?>">HOME</a></li>
+                    <li><a href="<?php echo site_url('Home/DeeraView') ?>">DEERA
+                            NFT</a></li>
+                    <li><a href="<?php echo site_url('Artikel') ?>">BLOG</a></li>
+                    <li><a href="<?php echo site_url('Portfolio') ?>">PROJECT</a></li>
+                    <li><a href="https://discord.gg/DMMF7bVYrh" target="_blank">JOIN OUR DISCORD</a></li>
+                    <li><a href="<?php echo site_url('Home') ?>#contact">CONTACT</a></li>
                     <?php if ($this->session->userdata('is_login')) { ?>
-                    <li><a href="<?php echo site_url('Login/logout') ?>"
-                            style="text-decoration: none;"><strong>LOGOUT</strong></a></li>
+                        <li><a href="<?php echo site_url('Login/logout') ?>">LOGOUT</a></li>
                     <?php } ?>
                     <?php if (!$this->session->userdata('is_login')) { ?>
-                    <li><a href="<?= site_url() ?>/Login" style="text-decoration: none;"><strong>LOGIN</strong></a></li>
-                    <li><a href="<?= site_url() ?>/SignUp" style="text-decoration: none;"><strong>REGISTER</strong></a>
-                    </li>
+                        <li><a href="<?= site_url() ?>/Login">LOGIN</a></li>
+                        <li><a href="<?= site_url() ?>/SignUp">REGISTER</a>
+                        </li>
                     <?php } else { ?>
                     <?php } ?>
                 </ul>
@@ -69,24 +60,16 @@
             <!-- .nav-menu -->
             <!-- Profile -->
             <?php if ($this->session->userdata('is_login')) { ?>
-            <a class="navbar-brand ml-auto" href="<?php echo site_url('/profile') ?>" style="text-decoration: none;">
-                <img src="<?= base_url("assets\img\profile.png") ?>" width="35" height="35"
-                    style="margin: -5px 3px 0 0 ;" class="d-inline-block align-top" alt="Logo IDNFT">
-                <label for="nama"
-                    style="font-size: 13px;font-weight: normal; color:#5f687b; font-family: Open Sans, sans-serif;"><?= $login->nama; ?></label>
-            </a>
-            <?php } else { ?>
-            <!-- <a href="<?= site_url() ?>/Login" class="get-started-btn scrollto ml-auto btn-danger">Login</a>
-               <a href="<?= site_url() ?>/SignUp" class="get-started-btn scrollto ml-auto btn-danger">Registrasi</a> -->
+                <a class="navbar-brand ml-auto" href="<?php echo site_url('/profile') ?>" style="text-decoration: none;">
+                    <img src="<?= base_url("assets\img\profile.png") ?>" width="35" height="35" style="margin: -5px 3px 0 0 ;" class="d-inline-block align-top" alt="Logo IDNFT">
+                    <label for="nama" style="font-size: 13px;font-weight: normal; color:#5f687b;"><?= $login->nama; ?></label>
+                </a>
             <?php } ?>
-            <!-- End Profile -->
             <br><br>
         </div>
-        <?php if ($this->session->flashdata('message')) { ?>
-        <div class="alert alert-success">
-            <?php echo $this->session->flashdata('message') ?>
-        </div>
-        <?php } ?>
+        <div class="flash-data" data-flashdata="<?= $this->session->flashdata('message'); ?>"></div>
+        <div class="flash-data" data-flashdata="<?= $this->session->flashdata('error'); ?>"></div>
+
     </header>
     <!-- End Header -->
 
@@ -97,8 +80,12 @@
             <div class="row">
                 <div class="col-lg-4">
                     <div class="d-flex flex-column align-items-center imgDp">
-                        <img src=" <?= base_url('upload/photoProfile/'.$login->dp) ?>" alt="" >
-
+                        <?php
+                        if ($login->dp == "") { ?>
+                            <img src="<?= base_url('upload\photoProfile\blankDP.png') ?>" class="card-img-top" alt="...">
+                        <?php } else { ?>
+                            <img src=" <?= base_url('upload/photoProfile/' . $login->dp) ?>" alt="">
+                        <?php } ?>
                     </div>
                 </div>
                 <div class="col-lg-7">
@@ -106,21 +93,20 @@
                         <div class="mt-3">
                             <h3><?= $user->nama; ?></h3>
                             <h6><span><i class="icofont-id"></i></span>&emsp;IDNFT<?= $user->idnft; ?></h6>
-                            <p class="text-dark mb-1"><span><i
-                                        class="icofont-paint"></i></span>&emsp;<?= $user->aliran_seni; ?></p>
+                            <p class="text-dark mb-1"><span><i class="icofont-paint"></i></span>&emsp;<?= $user->aliran_seni; ?></p>
                             <hr>
                             <h5>Contact Information</h5>
-                                <p><span><i class="icofont-ui-email"></i></span>&emsp;<?= $user->email; ?></p>
-                                <p><span><i class="icofont-phone"></i></span>&emsp;<?= $user->phone; ?></p>
-                                <p><span><i class="icofont-location-pin"></i></span>&emsp;<?= $user->alamat; ?></p>
-                                <p><span><i class="icofont-twitter"></i></span>&emsp;<?= $user->twitter; ?></p>
-                                <p><span><i class="icofont-instagram"></i></span>&emsp;<?= $user->instagram; ?></p>
-                                <p><span><i class="icofont-web"></i></span>&emsp;</p>
+                            <p><span><i class="icofont-ui-email"></i></span>&emsp;<?= $user->email; ?></p>
+                            <p><span><i class="icofont-phone"></i></span>&emsp;<?= $user->phone; ?></p>
+                            <p><span><i class="icofont-location-pin"></i></span>&emsp;<?= $user->alamat; ?></p>
+                            <p><span><i class="icofont-twitter"></i></span>&emsp;<?= $user->twitter; ?></p>
+                            <p><span><i class="icofont-instagram"></i></span>&emsp;<?= $user->instagram; ?></p>
+                            <p><span><i class="icofont-web"></i></span>&emsp;</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-1">
-                    <a href="<?= site_url('Profile/editProfile')?>">
+                    <a href="<?= site_url('Profile/editProfile') ?>">
                         <button type="button" class="btn btn-danger"><i class="icofont-ui-edit"></i></button>
                     </a>
                 </div>
@@ -132,26 +118,24 @@
                 <h1>Karya</h1>
             </div>
             <div class="row">
-                <div class="col-sm-11">
+                <div class="col-sm-10">
                     <?= $this->pagination->create_links(); ?>
                 </div>
-                <div class="col-sm-1">
-                    <a href="<?= site_url('/Profile/managePortfolio/') ?>"><button type="button"
-                            class="btn btn-danger"><i class="icofont-gear"></i></button></a>
-                </div> 
+                <div class="col-sm-2">
+                    <a href="<?= site_url('/Profile/managePortfolio/') ?>"><button type="button" class="btn btn-danger">Manage Project</button></a>
+                </div>
             </div><br><br>
             <div class="row gutters-sm">
                 <?php foreach ($portfolio->result() as $row) {  ?>
-                <div class="col-sm-4 mb-3">
-                    <div class="card h-100">
-                        <img class="card-img-top" style="height: 300px;object-fit: contain;"
-                            src="<?php echo base_url('upload/portfolio/'.$row->gambar); ?>" />
-                        <div class="card-body">
-                            <h5 class="card-title"><?php echo $row->judul; ?></h5>
-                            <p class="card-text"><?php echo $row->deskripsi; ?></p>
+                    <div class="col-sm-4 mb-3">
+                        <div class="card h-100">
+                            <img class="card-img-top" style="height: 300px;object-fit: contain;" src="<?php echo base_url('upload/portfolio/' . $row->gambar); ?>" />
+                            <div class="card-body">
+                                <h5 class="card-title"><?php echo $row->judul; ?></h5>
+                                <p class="card-text"><?php echo $row->deskripsi; ?></p>
+                            </div>
                         </div>
                     </div>
-                </div>
                 <?php } ?>
             </div>
         </div>

@@ -46,7 +46,7 @@
                 <ul>
                     <li><a class="aclass" href="<?php echo site_url('Home') ?>">HOME</a>
                     </li>
-                    <li><a class="aclass" href="<?php echo site_url('Admin/member') ?>">MEMBER</a></li>
+                    <li><a class="aclass text-danger" href="<?php echo site_url('Admin/member') ?>">MEMBER</a></li>
                     <li><a class="aclass" href="<?php echo site_url('Admin/sosmed') ?>">CONTACT
                         </a></li>
                     <li><a class="aclass" href="<?php echo site_url('Admin/contact') ?>">MESSAGE</a>
@@ -83,7 +83,7 @@
     <!--Table Member-->
     <div class="wadah">
         <div class="container">
-            <h1>Data Member</h1>
+            <h1>Member IDNFT</h1>
             <hr>
             <div class="d-flex justify-content-center">
                 <?= $this->pagination->create_links(); ?>

@@ -56,11 +56,15 @@ class ProfileModel extends CI_Model
         $query = $this->db->get('portfolio')->num_rows();
         return $query;
     }
+    function getCountPortfolioOtherUser($otherUser)
+    {
+        $this->db->where('username', $otherUser);
+        $query = $this->db->get('portfolio')->num_rows();
+        return $query;
+    }
     function getAllUser()
     {
         $query = $this->db->get('user');
         return $query;
     }
-    
-
 }

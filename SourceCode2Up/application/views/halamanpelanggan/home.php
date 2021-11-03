@@ -54,7 +54,7 @@
             </a>
             <nav class="nav-menu d-none d-lg-block mx-auto">
                 <ul>
-                    <li><a href="<?php echo site_url('Home') ?>">HOME</a></li>
+                    <li><a href="<?php echo site_url('Home') ?>" class="text-danger">HOME</a></li>
                     <li><a href="<?php echo site_url('Home/DeeraView') ?>">DEERA
                             NFT</a></li>
                     <li><a href="<?php echo site_url('Artikel') ?>">BLOG</a></li>
@@ -246,23 +246,6 @@
     </main><!-- End #main -->
 
     <!-- ======= Footer ======= -->
-    <!-- CSS Tempalte -->
-    <link href="<?= base_url() ?>assets\css\styleFooter.css" rel="stylesheet">
-
-    <!-- Vendor JS Files -->
-    <script src="<?= base_url() ?>assets/vendor/jquery/jquery.min.js"></script>
-    <script src="<?= base_url() ?>assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="<?= base_url() ?>assets/vendor/jquery.easing/jquery.easing.min.js"></script>
-    <script src="<?= base_url() ?>assets/vendor/php-email-form/validate.js"></script>
-    <script src="<?= base_url() ?>assets/vendor/waypoints/jquery.waypoints.min.js"></script>
-    <script src="<?= base_url() ?>assets/vendor/counterup/counterup.min.js"></script>
-    <script src="<?= base_url() ?>assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-    <script src="<?= base_url() ?>assets/vendor/venobox/venobox.min.js"></script>
-    <script src="<?= base_url() ?>assets/vendor/owl.carousel/owl.carousel.min.js"></script>
-
-    <!-- Template Main JS File -->
-    <script src="<?= base_url() ?>assets/js/main.js"></script>
-    <!-- ======= Contact Section ======= -->
 
     <section id="contact" class="contact">
         <div class="container">
@@ -320,7 +303,6 @@
                     </div>
                 </div>
 
-
                 <!-- Form Email -->
                 <form action="<?php echo site_url('Home/contact'); ?>" method="post" role="form" class="php-email-form">
                     <div class="form-row">
@@ -352,8 +334,6 @@
                     </div>
                     <div class="text-center"><button type="submit">Send Message</button></div>
                 </form>
-
-
             </div>
 
             <div class="container footer-bottom clearfix">
@@ -366,8 +346,6 @@
     </section>
     <!-- End Contact Section -->
     <!-- ======= End Footer ======= -->
-
-
 
 </body>
 

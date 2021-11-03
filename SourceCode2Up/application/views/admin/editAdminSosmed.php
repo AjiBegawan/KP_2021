@@ -32,7 +32,7 @@
     <script src="<?= base_url() ?>assets\js\jquery-3.6.0.min.js"></script>
     <script src="<?= base_url() ?>assets\js\sweetalert2.all.min.js"></script>
 
-    
+
 </head>
 
 <body>
@@ -83,7 +83,9 @@
 
     <div class="wadah">
         <div class="container" style="margin-top: 100px;">
-            <h1>Edit User</h1>
+            <h1>Edit Sosial Media IDNFT</h1>
+            <hr>
+            <a href="<?php echo site_url('Admin/sosmed'); ?>"><button type="submit" class="btn btn-warning"><i class="icofont-swoosh-left"></i></button></a><br><br>
             <form method="POST" action="<?php echo site_url('Admin/updateSosmed'); ?>">
                 <div class="form-group">
                     <label hidden>ID</label>

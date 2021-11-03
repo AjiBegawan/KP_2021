@@ -40,33 +40,26 @@
     <!-- ======= Header ======= -->
     <header id="header" class="fixed-top" style="background-color:white">
         <div class="container d-flex align-items-center ">
-            <a class="navbar-brand mr-auto" href="<?php echo site_url('Home') ?>"
-                style="text-decoration: none; color : black;">
-                <img src="<?= base_url("assets\img\LogoIDNFT.png") ?>" width="40" height="40"
-                    style="margin: -9px 7px 0 0 ;" class="d-inline-block align-top" alt="Logo IDNFT">
+            <a class="navbar-brand mr-auto" href="<?php echo site_url('Home') ?>" style="text-decoration: none; color : black;">
+                <img src="<?= base_url("assets\img\LogoIDNFT.png") ?>" width="40" height="40" style="margin: -9px 7px 0 0 ;" class="d-inline-block align-top" alt="Logo IDNFT">
                 <strong>IDNFT</strong> <span style="font-size: 10px;">Beta</span>
             </a>
             <nav class="nav-menu d-none d-lg-block mx-auto">
                 <ul>
-                    <li class="active"><a href="<?php echo site_url('Home') ?>"
-                            style="text-decoration: none;"><strong>HOME</strong></a></li>
-                    <li><a href="<?php echo site_url('Home/DeeraView') ?>" style="text-decoration: none;"><strong>DEERA
-                                NFT</strong></a></li>
-                    <li><a href="<?php echo site_url('Home/BlogView') ?>"
-                            style="text-decoration: none;"><strong>BLOG</strong></a></li>
-                    <!-- <li><a href="<?php echo site_url('Home/ShopView1') ?>">Shop & Merch</a></li> -->
-                    <li><a href="https://discord.gg/DMMF7bVYrh" style="text-decoration: none;"
-                            target="_blank"><strong>JOIN OUR DISCORD</strong></a></li>
-                    <li><a href="<?php echo site_url('Home') ?>#contact"
-                            style="text-decoration: none;"><strong>CONTACT</strong></a></li>
+                    <li><a href="<?php echo site_url('Home') ?>">HOME</a></li>
+                    <li><a href="<?php echo site_url('Home/DeeraView') ?>">DEERA
+                            NFT</a></li>
+                    <li><a href="<?php echo site_url('Artikel') ?>">BLOG</a></li>
+                    <li><a href="<?php echo site_url('Portfolio') ?>">PROJECT</a></li>
+                    <li><a href="https://discord.gg/DMMF7bVYrh" target="_blank">JOIN OUR DISCORD</a></li>
+                    <li><a href="<?php echo site_url('Home') ?>#contact">CONTACT</a></li>
                     <?php if ($this->session->userdata('is_login')) { ?>
-                    <li><a href="<?php echo site_url('Login/logout') ?>"
-                            style="text-decoration: none;"><strong>LOGOUT</strong></a></li>
+                        <li><a href="<?php echo site_url('Login/logout') ?>">LOGOUT</a></li>
                     <?php } ?>
                     <?php if (!$this->session->userdata('is_login')) { ?>
-                    <li><a href="<?= site_url() ?>/Login" style="text-decoration: none;"><strong>LOGIN</strong></a></li>
-                    <li><a href="<?= site_url() ?>/SignUp" style="text-decoration: none;"><strong>REGISTER</strong></a>
-                    </li>
+                        <li><a href="<?= site_url() ?>/Login">LOGIN</a></li>
+                        <li><a href="<?= site_url() ?>/SignUp">REGISTER</a>
+                        </li>
                     <?php } else { ?>
                     <?php } ?>
                 </ul>
@@ -74,24 +67,14 @@
             <!-- .nav-menu -->
             <!-- Profile -->
             <?php if ($this->session->userdata('is_login')) { ?>
-            <a class="navbar-brand ml-auto" href="<?php echo site_url('/profile') ?>" style="text-decoration: none;">
-                <img src="<?= base_url("assets\img\profile.png") ?>" width="35" height="35"
-                    style="margin: -5px 3px 0 0 ;" class="d-inline-block align-top" alt="Logo IDNFT">
-                <label for="nama"
-                    style="font-size: 13px;font-weight: normal; color:#5f687b; font-family: Open Sans, sans-serif;"><?= $login->nama; ?></label>
-            </a>
-            <?php } else { ?>
-            <!-- <a href="<?= site_url() ?>/Login" class="get-started-btn scrollto ml-auto btn-danger">Login</a>
-               <a href="<?= site_url() ?>/SignUp" class="get-started-btn scrollto ml-auto btn-danger">Registrasi</a> -->
+                <a class="navbar-brand ml-auto" href="<?php echo site_url('/profile') ?>" style="text-decoration: none;">
+                    <img src="<?= base_url("assets\img\profile.png") ?>" width="35" height="35" style="margin: -5px 3px 0 0 ;" class="d-inline-block align-top" alt="Logo IDNFT">
+                    <label for="nama" style="font-size: 13px;font-weight: normal; color:#5f687b;"><?= $login->nama; ?></label>
+                </a>
             <?php } ?>
-            <!-- End Profile -->
             <br><br>
         </div>
-        <?php if ($this->session->flashdata('message')) { ?>
-        <div class="alert alert-success">
-            <?php echo $this->session->flashdata('message') ?>
-        </div>
-        <?php } ?>
+        <div class="flash-data" data-flashdata="<?= $this->session->flashdata('message'); ?>"></div>
     </header>
     <!-- End Header -->
 
@@ -101,14 +84,18 @@
             <div class="row">
                 <div class="col-lg-4">
                     <div class="d-flex flex-column align-items-center imgDp">
-                        <img src=" <?= base_url('upload/photoProfile/' . $login->dp) ?>" alt="Display Picture"> <br><br>
+                        <?php  if ($login->dp == "") { ?>
+                            <img src="<?= base_url('upload\photoProfile\blankDP.png') ?>" class="card-img-top" alt="...">
+                        <?php } else { ?>
+                            <img src=" <?= base_url('upload/photoProfile/' . $login->dp) ?>" alt="">
+                        <?php } ?> <br><br>
                         <?php echo form_open_multipart('Profile/uploadDisplayPicture/' . $this->session->userdata('username')); ?>
                         <fieldset>
                             <div class="custom-file">
                                 <input type="file" class="custom-file-input" id="customFile" name="gambar">
                                 <label class="custom-file-label" for="customFile">Choose Photo</label> <br><br>
                             </div>
-                            <input type="submit" value="Add" class="form-control btn btn-danger" />
+                            <input type="submit" value="Upload" class="form-control btn btn-danger" />
                         </fieldset>
                         <?php echo form_close(); ?>
 
@@ -117,8 +104,7 @@
                 <div class="col-lg-8">
                     <div class="d-flex flex-column align-items-left">
                         <div class="mt-3">
-                            <form method="POST"
-                                action="<?php echo site_url('Profile/editUserData/' . $this->session->userdata('username')); ?>">
+                            <form method="POST" action="<?php echo site_url('Profile/editUserData/' . $this->session->userdata('username')); ?>">
                                 <div class="form-group">
                                     <i class="icofont-people"></i>&emsp;
                                     <label>Full Name</label>
@@ -164,19 +150,17 @@
                                 <div class="form-group">
                                     <span><i class="icofont-twitter"></i></span>&emsp;
                                     <label>Twitter</label>
-                                    <input type="text" class="form-control" value="<?= $user->twitter; ?>"
-                                        name="twitter">
+                                    <input type="text" class="form-control" value="<?= $user->twitter; ?>" name="twitter">
                                 </div>
                                 <div class="form-group">
                                     <span><i class="icofont-instagram"></i></span>&emsp;
                                     <label>Instagram</label>
-                                    <input type="text" class="form-control" value="<?= $user->instagram; ?>"
-                                        name="instagram">
+                                    <input type="text" class="form-control" value="<?= $user->instagram; ?>" name="instagram">
                                 </div>
                                 <div class="form-group">
                                     <span><i class="icofont-web"></i></span>&emsp;
                                     <label>Website</label>
-                                    <input type="text" class="form-control" value="">
+                                    <input type="text" class="form-control" value="" disabled>
                                 </div>
 
                                 <button type="submit" class="btn btn-danger btn-block">Update</button><br><br><br>

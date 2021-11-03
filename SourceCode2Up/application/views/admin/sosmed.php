@@ -35,12 +35,21 @@
     <script>
         $(document).ready(function() {
             const flashData = $('.flash-data').data('flashdata');
+            const flashDataError = $('.flash-data-error').data('flashdata');
 
             if (flashData) {
                 Swal.fire({
                     icon: 'success',
-                    title: 'Data Artikel',
-                    text: 'Berhasil ' + flashData,
+                    title: 'Data Sosmed',
+                    text: flashData,
+                    backdrop: 'rgba(255,0,0,0.1) ',
+                });
+            }
+            if (flashDataError) {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Data Sosmed',
+                    text: flashData,
                     backdrop: 'rgba(255,0,0,0.1) ',
                 });
             }
@@ -64,7 +73,7 @@
                     <li><a class="aclass" href="<?php echo site_url('Home') ?>">HOME</a>
                     </li>
                     <li><a class="aclass" href="<?php echo site_url('Admin/member') ?>">MEMBER</a></li>
-                    <li><a class="aclass" href="<?php echo site_url('Admin/sosmed') ?>">CONTACT
+                    <li><a class="aclass text-danger" href="<?php echo site_url('Admin/sosmed') ?>">CONTACT
                             </a></li>
                     <li><a class="aclass" href="<?php echo site_url('Admin/contact') ?>">MESSAGE</a>
                     </li>
@@ -92,6 +101,7 @@
             </a>
             <?php }?>
             <div class="flash-data" data-flashdata="<?= $this->session->flashdata('message') ?>"></div>
+            <div class="flash-data-error" data-flashdata="<?= $this->session->flashdata('error') ?>"></div>
             <!-- End Profile -->
             <br><br>
         </div>
@@ -103,7 +113,7 @@
         <div class="container">
             <div class="float-left">
                 <!-- Contact IDNFT -->
-                <h1>Data Sosmed IDNFT</h1>
+                <h1>Sosial Media IDNFT</h1>
                 <hr>
                 <table class="table table-condensed table-hover table-striped" style="max-width: 100%; ">
                     <thead>

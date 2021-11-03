@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Home | IDNFT </title>
+    <title>Pesan | IDNFT </title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -64,7 +64,7 @@
                     <li><a class="aclass" href="<?php echo site_url('Admin/member') ?>">MEMBER</a></li>
                     <li><a class="aclass" href="<?php echo site_url('Admin/sosmed') ?>">CONTACT
                         </a></li>
-                    <li><a class="aclass" href="<?php echo site_url('Admin/contact') ?>">MESSAGE</a>
+                    <li><a class="aclass text-danger" href="<?php echo site_url('Admin/contact') ?>">MESSAGE</a>
                     </li>
                     <li><a class="aclass" href="<?php echo site_url('Admin/artikel') ?>">ARTIKEL</a>
                     </li>
@@ -101,7 +101,7 @@
             <div class="float-left">
                 <!-- Data Pesan Table -->
                 <div>
-                    <h1>Data Pesan</h1>
+                    <h1>Pesan</h1>
                     <hr>
                     <div class="d-flex justify-content-center">
                         <?= $this->pagination->create_links(); ?>

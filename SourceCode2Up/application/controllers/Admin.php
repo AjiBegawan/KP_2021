@@ -132,10 +132,11 @@ class Admin extends CI_Controller
         );
         $this->db->where('id', $id);
         if ($this->db->update('sosmed', $data)) {
-            $this->session->set_flashdata('message', 'Disimpan');
+            $this->session->set_flashdata('message', 'Berhasil diperbaharui');
             redirect(site_url('admin/sosmed'));
-            // $this->index();
         } else {
+            $this->session->set_flashdata('message', 'Gagal diperbaharui');
+            redirect(site_url('admin/sosmed'));
             $this->load->view("gagal");
         }
     }
@@ -143,6 +144,7 @@ class Admin extends CI_Controller
     function editPesan($id)
     {
         $data['contact'] = $this->AdminModel->getPesanId($id);
+        $data['login'] = $this->AdminModel->getUsernameLogin();
         $this->load->view("admin/editAdminPesan", $data);
     }
 

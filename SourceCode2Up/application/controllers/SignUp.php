@@ -70,19 +70,19 @@ class SignUp extends CI_Controller
         
                         redirect(site_url('home'));
                     } else {
-                        $this->session->set_flashdata('message', 'Username telah terdaftar');
+                        $this->session->set_flashdata('error', 'Username telah terdaftar');
                         redirect(site_url('signUp'));
                     }
                 } else {
-                    $this->session->set_flashdata('message', 'Data yang anda masukan salah');
+                    $this->session->set_flashdata('error', 'Data yang anda masukan salah');
                     redirect(site_url('signUp'));
                 }
             } else {
-                $this->session->set_flashdata('message', 'Silahkan selesaikan CAPTCHA terlebih dahulu');
+                $this->session->set_flashdata('error', 'Silahkan selesaikan CAPTCHA terlebih dahulu');
                 redirect(site_url('signUp'));
             }
         } else {
-            $this->session->set_flashdata('message', 'Silahkan selesaikan CAPTCHA terlebih dahulu');
+            $this->session->set_flashdata('error', 'Silahkan selesaikan CAPTCHA terlebih dahulu');
             redirect(site_url('signUp'));
         }
     }
