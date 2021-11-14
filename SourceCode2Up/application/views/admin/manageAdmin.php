@@ -53,6 +53,35 @@
                 });
             }
         });
+        $(document).ready(function() {
+
+            // get Edit Product
+            $('.btn-edit').on('click', function() {
+                // get data from button edit
+                const id = $(this).data('id');
+                const name = $(this).data('name');
+                const price = $(this).data('price');
+                const category = $(this).data('category_id');
+                // Set data to Form Edit
+                $('.product_id').val(id);
+                $('.product_name').val(name);
+                $('.product_price').val(price);
+                $('.product_category').val(category).trigger('change');
+                // Call Modal Edit
+                $('#editModal').modal('show');
+            });
+
+            // get Delete Product
+            $('.btn-delete').on('click', function() {
+                // get data from button edit
+                const id = $(this).data('id');
+                // Set data to Form Edit
+                $('.productID').val(id);
+                // Call Modal Edit
+                $('#deleteModal').modal('show');
+            });
+
+        });
     </script>
 </head>
 
@@ -129,9 +158,10 @@
                     <?php foreach ($admin->result() as $row) { ?>
                         <tr>
                             <td><?php echo $row->username; ?></td>
-                            <td class="tabel_member"><?php echo $row->nama; ?></td>
-                            <td class="tabel_member"><?php echo $row->email; ?></td>
-                            <td class="tabel_member"><a href="<?php echo site_url('/admin/editUser/') . $row->username ?>"><button type="button" class="btn btn-success"><i class="icofont-pencil"></i></button></a></td>
+                            <td class=""><?php echo $row->nama; ?></td>
+                            <td class=""><?php echo $row->email; ?></td>
+                            <td class=""><a href="" data-username="<?= $row->username; ?>" data-name="<?= $row->product_name; ?>" data-email="<?= $row->email; ?>" data-category_id="<?= $row->category_id; ?>"><button type="button" class="btn btn-success btn-edit"><i class="icofont-pencil"></i></button></a></td>
+                            <td class=""><a href="<?php echo site_url('/admin/editUser/') . $row->username ?>"><button type="button" class="btn btn-success"><i class="icofont-pencil"></i></button></a></td>
                         </tr>
                     <?php } ?>
                 </tbody>
@@ -181,8 +211,8 @@
         </div>
     </form>
     <!-- End Modal Add Product-->
-    
-    
+
+
     <!-- Modal Update Product-->
     <form action="<?php echo site_url('Admin/updateAdmin'); ?>" method="post">
         <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
