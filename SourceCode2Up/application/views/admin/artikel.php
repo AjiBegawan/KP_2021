@@ -135,15 +135,11 @@
                             <?php } ?>
                         </tbody>
                     </table>
-
-
                 </div>
             </div>
         </div>
         <!-- End Of Tabel Artikel -->
     </div>
-
-
 </body>
 
 </html>

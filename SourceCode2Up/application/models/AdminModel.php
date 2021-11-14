@@ -14,7 +14,12 @@ class AdminModel extends CI_Model
         return $query;
     }
 
-// All Get Data For Admin   
+    // All Get Data For Admin Page  
+    function getAdminData()
+    {
+        $query = $this->db->get('admin');
+        return $query;
+    }
     function getUsernameData()
     {
         $query = $this->db->get('user');
@@ -36,6 +41,37 @@ class AdminModel extends CI_Model
         return $query;
     }
 
+    // Function Get for Manage Admin Page
+    function getCountAdminAll()
+    {
+        $query = $this->db->get('admin')->num_rows();
+        return $query;
+    }
+    function getAllAdmin($limit, $start)
+    {
+        $query = $this->db->get('Admin', $limit, $start);
+        return $query;
+    }
+    function registerAdmin($nama, $username, $password, $email)
+    {
+        $data_user = array(
+            'nama'          => $nama,
+            'username'      => $username,
+            'password'      => password_hash($password, PASSWORD_DEFAULT),
+            'email'         => $email
+        );
+        $this->db->insert('admin', $data_user);
+    }
+    function updateAdmin($nama, $username, $password, $email)
+    {
+        $data_user = array(
+            'nama'          => $nama,
+            'username'      => $username,
+            'password'      => password_hash($password, PASSWORD_DEFAULT),
+            'email'         => $email
+        );
+        $this->db->update('admin', $data_user);
+    }
     // Function Get for Member Page
     function getCountUserAll()
     {
@@ -44,7 +80,7 @@ class AdminModel extends CI_Model
     }
     function getAllUser($limit, $start)
     {
-        $query = $this->db->get('user',$limit, $start);
+        $query = $this->db->get('user', $limit, $start);
         return $query;
     }
     function getUserDatabase($username)
@@ -62,7 +98,7 @@ class AdminModel extends CI_Model
     }
     function getAllContact($limit, $start)
     {
-        $query = $this->db->get('contact',$limit, $start);
+        $query = $this->db->get('contact', $limit, $start);
         return $query;
     }
     function getPesanId($id)
@@ -80,7 +116,7 @@ class AdminModel extends CI_Model
     }
     function getAllArtikel($limit, $start)
     {
-        $query = $this->db->get('artikel',$limit, $start);
+        $query = $this->db->get('artikel', $limit, $start);
         return $query;
     }
     function getArtikelId($id)
@@ -97,8 +133,4 @@ class AdminModel extends CI_Model
         $query = $this->db->get('sosmed')->row();
         return $query;
     }
-
-
-
-    
 }

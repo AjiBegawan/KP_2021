@@ -29,7 +29,7 @@ class Admin extends CI_Controller
         $data['user'] = $this->AdminModel->getAllUser($config['per_page'], $data['start']);
 
         $data['login'] = $this->AdminModel->getUsernameLogin();
-        $this->session->set_flashdata('message', 'Anda Berhasil Login Sebagai Admin');
+        // $this->session->set_flashdata('message', 'Anda Berhasil Login Sebagai Admin');
         $this->load->view("admin\member", $data);
     }
     function contact()
@@ -79,7 +79,96 @@ class Admin extends CI_Controller
         $this->load->view("admin\sosmed", $data);
     }
 
-    // All Function User
+    // All Function Admin
+    function manageAdmin()
+    {
+        // Pagination
+        $this->load->library('pagination');
+
+        $config['base_url'] = 'http://localhost/KP_2021/SourceCode2Up/admin/manageAdmin';
+        $config['total_rows'] =  $this->AdminModel->getCountAdminAll();
+        $config['per_page'] = 10;
+
+        $this->pagination->initialize($config);
+
+        $data['start'] = $this->uri->segment(3);
+        $data['user'] = $this->AdminModel->getAllUser($config['per_page'], $data['start']);
+
+        $data['login'] = $this->AdminModel->getUsernameLogin();
+        $data['sosmed'] = $this->AdminModel->getUSosmedIdnft();
+        $data['admin'] = $this->AdminModel->getAdminData();
+        $this->load->view("admin\manageAdmin", $data);
+    }
+    function addAdmin()
+    {
+        $this->form_validation->set_rules('name', 'name', 'trim|required|min_length[1]|max_length[255]');
+        $this->form_validation->set_rules('username', 'username', 'trim|required|min_length[1]|max_length[255]');
+        $this->form_validation->set_rules('password', 'password', 'trim|required|min_length[1]|max_length[255]');
+        $this->form_validation->set_rules('email', 'email', 'trim|required|min_length[1]|max_length[255]');
+
+        if ($this->form_validation->run() == true) {
+            $nama = $this->input->post("name");
+            $username = $this->input->post("username");
+            $password = $this->input->post("password");
+            $email = $this->input->post("email");
+
+            $query = ("SELECT * FROM admin WHERE username = '$username'");
+            $result = $this->db->query($query)->row();
+            var_dump($result);
+
+            if ($result == NULL) {
+                $this->AdminModel->registerAdmin($nama, $username, $password, $email);
+                $this->session->set_flashdata('message', 'Proses Pendaftaran Admin Berhasil');
+                redirect(site_url('admin/member'));
+            } else {
+                $this->session->set_flashdata('error', 'Username telah terdaftar');
+                redirect(site_url('admin/manageAdmin'));
+            }
+        } else {
+            $this->session->set_flashdata('error', 'Data yang anda masukan salah');
+            redirect(site_url('admin/member'));
+        }
+    }
+    function updateAdmin()
+    {
+        $this->form_validation->set_rules('name', 'name', 'trim|required|min_length[1]|max_length[255]');
+        $this->form_validation->set_rules('username', 'username', 'trim|required|min_length[1]|max_length[255]');
+        $this->form_validation->set_rules('password', 'password', 'trim|required|min_length[1]|max_length[255]');
+        $this->form_validation->set_rules('email', 'email', 'trim|required|min_length[1]|max_length[255]');
+
+        if ($this->form_validation->run() == true) {
+            $nama = $this->input->post("name");
+            $username = $this->input->post("username");
+            $password = $this->input->post("password");
+            $email = $this->input->post("email");
+
+            $query = ("SELECT * FROM admin WHERE username = '$username'");
+            $result = $this->db->query($query)->row();
+            var_dump($result);
+
+            if ($result == NULL) {
+                $this->AdminModel->updateAdmin($nama, $username, $password, $email);
+                $this->session->set_flashdata('message', 'Proses Pendaftaran Admin Berhasil');
+                redirect(site_url('admin/member'));
+            } else {
+                $this->session->set_flashdata('error', 'Username telah terdaftar');
+                redirect(site_url('admin/manageAdmin'));
+            }
+        } else {
+            $this->session->set_flashdata('error', 'Data yang anda masukan salah');
+            redirect(site_url('admin/member'));
+        }
+    }
+    function deleteAdmin($username)
+    {
+        $this->db->where('username', $username);
+        if ($this->db->delete('user')) {
+            $this->index();
+        } else {
+            $this->load->view("gagal");
+        }
+    }
+    // All Function User / Member
     function editUser($username)
     {
         $data['login'] = $this->AdminModel->getUsernameLogin();
@@ -204,7 +293,7 @@ class Admin extends CI_Controller
         $config['upload_path'] = './upload/artikel';
         $config['allowed_types'] = 'gif|jpg|png|jpeg';
         $config['max_size'] = 2000;
-        
+
         $date = date('Ymd');
         $new_name = $date . "_" . rand(0, 999999999);
         $config['file_name'] = $new_name;

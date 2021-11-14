@@ -100,8 +100,13 @@
         <div class="container">
             <h1>Member IDNFT</h1>
             <hr>
-            <div class="d-flex justify-content-center">
-                <?= $this->pagination->create_links(); ?>
+            <div class="row">
+                <div class="d-flex justify-content-center col-sm-8">
+                    <?= $this->pagination->create_links(); ?>
+                </div>
+                <div class="d-flex justify-content-end col-sm-4">
+                    <a href="<?php echo site_url('/admin/manageAdmin')?>"><button type="button" class="btn btn-danger"><i class="icofont-gear"></i> Manage Admin</button></a>
+                </div>
             </div>
             <table class="table table-condensed table-hover table-striped" style="max-width: 100%; ">
                 <thead>
@@ -123,8 +128,6 @@
                     <?php } ?>
                 </tbody>
             </table>
-
-
         </div>
     </div>
     <!-- End Table Member-->
