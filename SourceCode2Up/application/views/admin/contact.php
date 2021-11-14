@@ -31,20 +31,37 @@
 
     <!-- Template Main JS File -->
     <script src="<?= base_url() ?>assets\js\jquery-3.6.0.min.js"></script>
+    <script src="<?= base_url() ?>assets\bootstrap\js\bootstrap.js"></script>
     <script src="<?= base_url() ?>assets\js\sweetalert2.all.min.js"></script>
 
     <script>
         $(document).ready(function() {
             const flashData = $('.flash-data').data('flashdata');
+            const flashDataError = $('.flash-data-error').data('flashdata');
 
             if (flashData) {
                 Swal.fire({
                     icon: 'success',
-                    title: 'Data Message',
-                    text: 'Berhasil ' + flashData,
+                    text: flashData,
                     backdrop: 'rgba(255,0,0,0.1) ',
                 });
             }
+            if (flashDataError) {
+                Swal.fire({
+                    icon: 'warning',
+                    text: flashDataError,
+                    backdrop: 'rgba(255,0,0,0.1) ',
+                });
+            }
+            // get Delete Product
+            $('.btn-delete').on('click', function() {
+                // get data from button edit
+                const id = $(this).data('id');
+                // Set data to Form Edit
+                $('.id').val(id);
+                // Call Modal Edit
+                $('#deleteModal').modal('show');
+            });
         });
     </script>
 </head>
@@ -92,10 +109,10 @@
             <br><br>
         </div>
         <div class="flash-data" data-flashdata="<?= $this->session->flashdata('message'); ?>"></div>
+        <div class="flash-data-error" data-flashdata="<?= $this->session->flashdata('error') ?>"></div>
+
     </header>
     <!-- End Header -->
-
-
     <div class="wadah">
         <div class="container">
             <div class="float-left">
@@ -138,13 +155,47 @@
                                         </td>
                                     <?php } ?>
                                     <td><a href="<?php echo site_url('/admin/editPesan/') . $row->id ?>"><button type="button" class="btn btn-primary "><i class="icofont-edit"></i></button></a></td>
-                                    <td><a href="<?php echo site_url('/admin/deletePesan/') . $row->id ?>"><button type="button" id="hapus" class="btn btn-danger tombol-hapus"><i class="icofont-garbage"></i></button></a></td>
+                                    <!-- <td><a href="<?php echo site_url('/admin/deletePesan/') . $row->id ?>"><button type="button" id="hapus" class="btn btn-danger tombol-hapus"><i class="icofont-garbage"></i></button></a></td> -->
+                                    <td><a href="#" class="btn-delete" data-id="<?= $row->id; ?>"><button type="button " id="hapus" class="btn btn-danger tombol-hapus"><i class="icofont-garbage"></i></button></a></td>
                                 </tr>
                             <?php } ?>
                         </tbody>
                     </table>
                 </div>
                 <!-- End Table Table -->
+
+                <!-- Modal Delete Pesan-->
+                <form action="<?php echo site_url('Admin/deletePesan/') . $row->id; ?>" method="post">
+                    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Delete Pesan</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="form-group">
+                                        <label hidden>Id</label>
+                                        <input type="text" class="form-control id" name="id" hidden>
+                                    </div>
+                                    <div class="form-group">
+                                        <label hidden>Id</label>
+                                        <input type="text" class="form-control id" name="id" hidden>
+                                    </div>
+                                    <h4>Hapus data Pesan?</h4>
+                                </div>
+                                <div class="modal-footer">
+                                    <input type="hidden" name="product_id" class="productID">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                                    <button type="submit" class="btn btn-primary">Yes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <!-- End Modal Delete Pesan-->
             </div>
         </div>
     </div>

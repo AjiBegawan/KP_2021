@@ -119,14 +119,14 @@ class Admin extends CI_Controller
             if ($result == NULL) {
                 $this->AdminModel->registerAdmin($nama, $username, $password, $email);
                 $this->session->set_flashdata('message', 'Proses Pendaftaran Admin Berhasil');
-                redirect(site_url('admin/member'));
+                redirect(site_url('admin/manageAdmin'));
             } else {
                 $this->session->set_flashdata('error', 'Username telah terdaftar');
                 redirect(site_url('admin/manageAdmin'));
             }
         } else {
             $this->session->set_flashdata('error', 'Data yang anda masukan salah');
-            redirect(site_url('admin/member'));
+            redirect(site_url('admin/manageAdmin'));
         }
     }
     function updateAdmin()
@@ -137,35 +137,37 @@ class Admin extends CI_Controller
         $this->form_validation->set_rules('email', 'email', 'trim|required|min_length[1]|max_length[255]');
 
         if ($this->form_validation->run() == true) {
+            $id = $this->input->post("id");
             $nama = $this->input->post("name");
             $username = $this->input->post("username");
             $password = $this->input->post("password");
             $email = $this->input->post("email");
 
-            $query = ("SELECT * FROM admin WHERE username = '$username'");
-            $result = $this->db->query($query)->row();
-            var_dump($result);
-
-            if ($result == NULL) {
+            // var_dump($id);die;
+            if ($this->db->where('id', $id)) {
                 $this->AdminModel->updateAdmin($nama, $username, $password, $email);
-                $this->session->set_flashdata('message', 'Proses Pendaftaran Admin Berhasil');
-                redirect(site_url('admin/member'));
+                $this->session->set_flashdata('message', 'Data Admin telah diperbarui');
+                redirect(site_url('admin/manageAdmin'));
             } else {
-                $this->session->set_flashdata('error', 'Username telah terdaftar');
+                $this->session->set_flashdata('error', 'Data anda sudah terdaftar');
                 redirect(site_url('admin/manageAdmin'));
             }
         } else {
-            $this->session->set_flashdata('error', 'Data yang anda masukan salah');
-            redirect(site_url('admin/member'));
+            $this->session->set_flashdata('error', 'Data yang and masukan salah / kurang');
+            redirect(site_url('admin/manageAdmin'));
         }
     }
-    function deleteAdmin($username)
+    function deleteAdmin()
     {
-        $this->db->where('username', $username);
-        if ($this->db->delete('user')) {
-            $this->index();
+        $id = $this->input->post("id");
+
+        $this->db->where('id', $id);
+        if ($this->db->delete('admin')) {
+            $this->session->set_flashdata('message', 'Anda telah berhasil menghapus Admin');
+            redirect(site_url('admin/manageAdmin'));
         } else {
-            $this->load->view("gagal");
+            $this->session->set_flashdata('error', 'Anda gagal menghapus admin');
+            redirect(site_url('admin/manageAdmin'));
         }
     }
     // All Function User / Member
@@ -253,8 +255,11 @@ class Admin extends CI_Controller
             $this->load->view("gagal");
         }
     }
-    function deletePesan($id)
+    function deletePesan()
     {
+        $id  = $this->input->post('id');
+        // var_dump($id);
+        // die;
         $this->db->where('id', $id);
         if ($this->db->delete('contact')) {
             $this->session->set_flashdata('message', 'Dihapus');

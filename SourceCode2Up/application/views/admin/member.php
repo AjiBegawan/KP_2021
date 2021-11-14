@@ -35,12 +35,21 @@
     <script>
         $(document).ready(function() {
             const flashData = $('.flash-data').data('flashdata');
+            const flashDataError = $('.flash-data-error').data('flashdata');
 
             if (flashData) {
                 Swal.fire({
                     icon: 'success',
                     // title: flashData,
                     text: flashData,
+                    backdrop: 'rgba(255,0,0,0.1) ',
+                });
+            }
+            if (flashDataError) {
+                Swal.fire({
+                    icon: 'warning',
+                    // title: flashData,
+                    text: flashDataError,
                     backdrop: 'rgba(255,0,0,0.1) ',
                 });
             }
@@ -92,6 +101,7 @@
             <br><br>
         </div>
         <div class="flash-data" data-flashdata="<?= $this->session->flashdata('message') ?>"></div>
+        <div class="flash-data-error" data-flashdata="<?= $this->session->flashdata('error') ?>"></div>
     </header>
     <!-- End Header -->
 

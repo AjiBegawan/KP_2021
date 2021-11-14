@@ -14,9 +14,12 @@
     <link href="<?= base_url() ?>assets/img/LogoIDNFT.png" rel="apple-touch-icon">
 
     <!-- Bootsrap -->
+    <link href="<?= base_url() ?>assets\bootstrap\css\bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script> -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> -->
+
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
 
@@ -28,10 +31,13 @@
     <link href="<?= base_url() ?>assets\css\styleHeader.css" rel="stylesheet">
     <link href="<?= base_url() ?>assets\css\styleFooter.css" rel="stylesheet">
     <link href="<?= base_url() ?>assets\css\admin\styleAdmin.css" rel="stylesheet">
+    <link href="<?= base_url() ?>assets\css\admin\styleAdmin.css" rel="stylesheet">
 
     <!-- Template Main JS File -->
     <script src="<?= base_url() ?>assets\js\jquery-3.6.0.min.js"></script>
+    <script src="<?= base_url() ?>assets\bootstrap\js\bootstrap.js"></script>
     <script src="<?= base_url() ?>assets\js\sweetalert2.all.min.js"></script>
+
 
     <script>
         $(document).ready(function() {
@@ -45,30 +51,28 @@
                     backdrop: 'rgba(255,0,0,0.1) ',
                 });
             }
-            if (flashData) {
+            if (flashDataError) {
                 Swal.fire({
                     icon: 'warning',
-                    text: flashData,
+                    text: flashDataError,
                     backdrop: 'rgba(255,0,0,0.1) ',
                 });
             }
-        });
-        $(document).ready(function() {
-
             // get Edit Product
             $('.btn-edit').on('click', function() {
                 // get data from button edit
                 const id = $(this).data('id');
+                const username = $(this).data('username');
                 const name = $(this).data('name');
-                const price = $(this).data('price');
-                const category = $(this).data('category_id');
+                const email = $(this).data('email');
                 // Set data to Form Edit
-                $('.product_id').val(id);
-                $('.product_name').val(name);
-                $('.product_price').val(price);
-                $('.product_category').val(category).trigger('change');
+                $('.id').val(id);
+                $('.username').val(username);
+                $('.name').val(name);
+                $('.email').val(email);
                 // Call Modal Edit
-                $('#editModal').modal('show');
+                console.log(username);
+                $('#editModal').modal('toggle');
             });
 
             // get Delete Product
@@ -76,11 +80,10 @@
                 // get data from button edit
                 const id = $(this).data('id');
                 // Set data to Form Edit
-                $('.productID').val(id);
+                $('.id').val(id);
                 // Call Modal Edit
                 $('#deleteModal').modal('show');
             });
-
         });
     </script>
 </head>
@@ -160,8 +163,9 @@
                             <td><?php echo $row->username; ?></td>
                             <td class=""><?php echo $row->nama; ?></td>
                             <td class=""><?php echo $row->email; ?></td>
-                            <td class=""><a href="" data-username="<?= $row->username; ?>" data-name="<?= $row->product_name; ?>" data-email="<?= $row->email; ?>" data-category_id="<?= $row->category_id; ?>"><button type="button" class="btn btn-success btn-edit"><i class="icofont-pencil"></i></button></a></td>
-                            <td class=""><a href="<?php echo site_url('/admin/editUser/') . $row->username ?>"><button type="button" class="btn btn-success"><i class="icofont-pencil"></i></button></a></td>
+                            <!-- <td class=""><?php echo $row->id; ?></td> -->
+                            <td class=""><a href="#" class="btn-edit" data-id="<?= $row->id; ?>" data-username="<?= $row->username; ?>" data-name="<?= $row->nama; ?>" data-email="<?= $row->email; ?>"><button type="button" class="btn btn-success"><i class="icofont-pencil"></i></button></a></td>
+                            <td class=""><a href="#" class="btn-delete" data-id="<?= $row->id; ?>"><button type="button" class="btn btn-danger"><i class="icofont-garbage"></i></button></a></td>
                         </tr>
                     <?php } ?>
                 </tbody>
@@ -215,7 +219,7 @@
 
     <!-- Modal Update Product-->
     <form action="<?php echo site_url('Admin/updateAdmin'); ?>" method="post">
-        <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -226,24 +230,24 @@
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
+                            <label hidden>Id</label>
+                            <input type="text" class="form-control id" name="id" hidden>
+                        </div>
+                        <div class="form-group">
                             <label>Username</label>
-                            <input type="text" class="form-control" name="username">
+                            <input type="text" class="form-control username" name="username">
                         </div>
                         <div class="form-group">
                             <label>Name</label>
-                            <input type="text" class="form-control" name="name">
-                        </div>
-                        <div class="form-group">
-                            <label>Email</label>
-                            <input type="email" class="form-control" name="email">
+                            <input type="text" class="form-control name" name="name">
                         </div>
                         <div class="form-group">
                             <label>Password</label>
-                            <input type="password" class="form-control" name="password">
+                            <input type="password" class="form-control name" name="password">
                         </div>
                         <div class="form-group">
-                            <label>Confirm Password</label>
-                            <input type="password" class="form-control" name="confirm_password">
+                            <label>Email</label>
+                            <input type="email" class="form-control email" name="email">
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -254,6 +258,35 @@
         </div>
     </form>
     <!-- End Modal update Product-->
+
+    <!-- Modal Delete Product-->
+    <form action="<?php echo site_url('Admin/deleteAdmin'); ?>" method="post">
+        <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Delete Product</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label hidden>Id</label>
+                            <input type="text" class="form-control id" name="id" hidden>
+                        </div>
+                        <h4>Hapus data Admin?</h4>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="hidden" name="product_id" class="productID">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                        <button type="submit" class="btn btn-primary">Yes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <!-- End Modal Delete Product-->
 </body>
 
 </html>
