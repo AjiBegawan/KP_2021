@@ -29,14 +29,21 @@
     <script>
         $(document).ready(function() {
             const flashData = $('.flash-data').data('flashdata');
-            console.log(flashData);
+            const flashDataError = $('.flash-data-error').data('flashdata');
 
             if (flashData) {
                 Swal.fire({
                     icon: 'success',
-                    title: flashData,
-                    // text: flashData,
-                    showConfirmButton: false,
+                    // title: flashData,
+                    text: flashData,
+                    backdrop: 'rgba(255,0,0,0.1) ',
+                });
+            }
+            if (flashDataError) {
+                Swal.fire({
+                    icon: 'warning',
+                    // title: flashData,
+                    text: flashDataError,
                     backdrop: 'rgba(255,0,0,0.1) ',
                 });
             }

@@ -29,8 +29,12 @@ class Admin extends CI_Controller
         $data['user'] = $this->AdminModel->getAllUser($config['per_page'], $data['start']);
 
         $data['login'] = $this->AdminModel->getUsernameLogin();
-        // $this->session->set_flashdata('message', 'Anda Berhasil Login Sebagai Admin');
-        $this->load->view("admin\member", $data);
+        if ($this->session->userdata('is_admin')) {
+            $this->load->view("admin\member", $data);
+        } else {
+            $this->session->set_flashdata('error', 'Maaf Anda bukan Admin');
+            redirect(site_url('home'));
+        }
     }
     function contact()
     {
@@ -49,7 +53,12 @@ class Admin extends CI_Controller
         $data['login'] = $this->AdminModel->getUsernameLogin();
 
         $this->load->helper("url");
-        $this->load->view("admin\contact", $data);
+        if ($this->session->userdata('is_admin')) {
+            $this->load->view("admin\contact", $data);
+        } else {
+            $this->session->set_flashdata('error', 'Maaf Anda bukan Admin');
+            redirect(site_url('home'));
+        }
     }
     function artikel()
     {
@@ -68,7 +77,13 @@ class Admin extends CI_Controller
         $data['login'] = $this->AdminModel->getUsernameLogin();
 
         $this->load->helper("url");
-        $this->load->view("admin\artikel", $data);
+
+        if($this->session->userdata('is_admin')){
+            $this->load->view("admin\artikel", $data);
+        }else{
+            $this->session->set_flashdata('error', 'Maaf Anda bukan Admin');
+            redirect(site_url('home'));
+        }
     }
 
     function sosmed()
@@ -76,7 +91,13 @@ class Admin extends CI_Controller
         $this->load->helper("url");
         $data['login'] = $this->AdminModel->getUsernameLogin();
         $data['sosmed'] = $this->AdminModel->getUSosmedIdnft();
-        $this->load->view("admin\sosmed", $data);
+
+        if($this->session->userdata('is_admin')){
+            $this->load->view("admin\sosmed", $data);
+        }else{
+            $this->session->set_flashdata('error', 'Maaf Anda bukan Admin');
+            redirect(site_url('home'));
+        }
     }
 
     // All Function Admin
@@ -97,6 +118,7 @@ class Admin extends CI_Controller
         $data['login'] = $this->AdminModel->getUsernameLogin();
         $data['sosmed'] = $this->AdminModel->getUSosmedIdnft();
         $data['admin'] = $this->AdminModel->getAdminData();
+        
         $this->load->view("admin\manageAdmin", $data);
     }
     function addAdmin()
