@@ -281,8 +281,10 @@ class Admin extends CI_Controller
         $data['login'] = $this->AdminModel->getUsernameLogin();
         $this->load->view("admin/editAdminArtikel", $data);
     }
-    function deleteArtikel($id)
+    function deleteArtikel()
     {
+        $id  = $this->input->post('id');
+
         $this->db->where('id', $id);
         if ($this->db->delete('artikel')) {
             $this->session->set_flashdata('message', 'Dihapus');
@@ -333,37 +335,46 @@ class Admin extends CI_Controller
     {
         $this->load->library('upload');
 
-        $config['upload_path'] = './upload/artikel';
-        $config['allowed_types'] = 'gif|jpg|png|jpeg';
-        $config['max_size'] = 2000;
+        $this->form_validation->set_rules('judul', 'judul', 'trim|required|min_length[1]|max_length[255]');
+        $this->form_validation->set_rules('paragraf1', 'paragraf1', 'trim|required|min_length[1]|max_length[255]');
 
-        $date = date('Ymd');
-        $new_name = $date . "_" . rand(0, 999999999);
-        $config['file_name'] = $new_name;
+        if ($this->form_validation->run() == true) {
+            $config['upload_path'] = './upload/artikel';
+            $config['allowed_types'] = 'gif|jpg|png|jpeg';
+            $config['max_size'] = 2000;
 
-        $this->upload->initialize($config);
-        $this->load->library('upload', $config);
-        $this->upload->do_upload('gambar');
+            $date = date('Ymd');
+            $new_name = $date . "_" . rand(0, 999999999);
+            $config['file_name'] = $new_name;
 
-        $upload_data = $this->upload->data();
-        $file_name = $upload_data['file_name'];
-        $data = array(
-            'Id'        => $this->input->post('id'),
-            'Judul'     => $this->input->post('judul'),
-            'Paragraf1' => $this->input->post('paragraf1'),
-            'Paragraf2' => $this->input->post('paragraf2'),
-            'Paragraf3' => $this->input->post('paragraf3'),
-            'Paragraf4' => $this->input->post('paragraf4'),
-            'Paragraf5' => $this->input->post('paragraf5'),
-            'Paragraf6' => $this->input->post('paragraf6'),
-            'Paragraf7' => $this->input->post('paragraf7'),
-            'gambar'    => $file_name
-        );
-        if ($this->db->insert('artikel', $data)) {
-            $this->session->set_flashdata('message', 'Judul dan Gambar Artikel Harus Diisi');
-            redirect(site_url('Admin/artikel'));
+            $this->upload->initialize($config);
+            $this->load->library('upload', $config);
+            $this->upload->do_upload('gambar');
+
+            $upload_data = $this->upload->data();
+            $file_name = $upload_data['file_name'];
+            $data = array(
+                'Id'        => $this->input->post('id'),
+                'Judul'     => $this->input->post('judul'),
+                'Paragraf1' => $this->input->post('paragraf1'),
+                'Paragraf2' => $this->input->post('paragraf2'),
+                'Paragraf3' => $this->input->post('paragraf3'),
+                'Paragraf4' => $this->input->post('paragraf4'),
+                'Paragraf5' => $this->input->post('paragraf5'),
+                'Paragraf6' => $this->input->post('paragraf6'),
+                'Paragraf7' => $this->input->post('paragraf7'),
+                'gambar'    => $file_name
+            );
+            if ($this->db->insert('artikel', $data)) {
+                $this->session->set_flashdata('message', 'Anda berhasil menambahkan artikel baru');
+                redirect(site_url('Admin/artikel'));
+            } else {
+                $this->session->set_flashdata('error', 'Maaf Anda gagal menambahkan artikel baru');
+                redirect(site_url('Admin/artikel'));
+            }
         } else {
-            $this->load->view("gagal");
+            $this->session->set_flashdata('error', 'Anda harus mengisi minimal judul dan paragraf 1');
+            redirect(site_url('Admin/artikel'));
         }
     }
 }

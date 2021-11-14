@@ -31,20 +31,38 @@
 
     <!-- Template Main JS File -->
     <script src="<?= base_url() ?>assets\js\jquery-3.6.0.min.js"></script>
+    <script src="<?= base_url() ?>assets\bootstrap\js\bootstrap.js"></script>
+
     <script src="<?= base_url() ?>assets\js\sweetalert2.all.min.js"></script>
 
     <script>
         $(document).ready(function() {
             const flashData = $('.flash-data').data('flashdata');
+            const flashDataError = $('.flash-data-error').data('flashdata');
 
             if (flashData) {
                 Swal.fire({
-                    icon: 'warning',
-                    title: 'Data Artikel',
+                    icon: 'success',
                     text: flashData,
                     backdrop: 'rgba(255,0,0,0.1) ',
                 });
             }
+            if (flashDataError) {
+                Swal.fire({
+                    icon: 'warning',
+                    text: flashDataError,
+                    backdrop: 'rgba(255,0,0,0.1) ',
+                });
+            }
+            // get Delete Product
+            $('.btn-delete').on('click', function() {
+                // get data from button edit
+                const id = $(this).data('id');
+                // Set data to Form Edit
+                $('.id').val(id);
+                // Call Modal Edit
+                $('#deleteModal').modal('show');
+            });
         });
     </script>
 
@@ -92,7 +110,8 @@
             <!-- End Profile -->
             <br><br>
         </div>
-        <div class="flash-data" data-flashdata="<?= $this->session->flashdata('message'); ?>"></div>
+        <div class="flash-data" data-flashdata="<?= $this->session->flashdata('message') ?>"></div>
+        <div class="flash-data-error" data-flashdata="<?= $this->session->flashdata('error') ?>"></div>
     </header>
     <!-- End Header -->
 
@@ -130,7 +149,8 @@
                                     <td class="tabel_artikel"><?php echo $row->Paragraf2; ?></td>
                                     <td class="tabel_artikel"><?php echo $row->Paragraf3; ?></td>
                                     <td class="tabel_artikel"><a href="<?php echo site_url('/admin/editArtikel/') . $row->Id ?>"><button type="button" class="btn btn-success"><i class="icofont-edit"></i></button></a></td>
-                                    <td class="tabel_artikel"><a href="<?php echo site_url('/admin/deleteArtikel/') . $row->Id ?>"><button type="button" class="btn btn-danger"><i class="icofont-garbage"></i></button></a></td>
+                                    <!-- <td class="tabel_artikel"><a href="<?php echo site_url('/admin/deleteArtikel/') . $row->Id ?>"><button type="button" class="btn btn-danger"><i class="icofont-garbage"></i></button></a></td> -->
+                                    <td class="tabel_artikel"><a href="#" class="btn-delete" data-id="<?= $row->Id; ?>"><button type="button" class="btn btn-danger"><i class="icofont-garbage"></i></button></a></td>
                                 </tr>
                             <?php } ?>
                         </tbody>
@@ -139,6 +159,34 @@
             </div>
         </div>
         <!-- End Of Tabel Artikel -->
+        <!-- Modal Delete Product-->
+        <form action="<?php echo site_url('Admin/deleteArtikel'); ?>" method="post">
+            <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Hapus Artikel</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label hidden>Id</label>
+                                <input type="text" class="form-control id" name="id" hidden>
+                            </div>
+                            <h4>Apakah Anda yakin akan menghapus Artikel?</h4>
+                        </div>
+                        <div class="modal-footer">
+                            <input type="hidden" name="product_id" class="productID">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                            <button type="submit" class="btn btn-primary">Yes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <!-- End Modal Delete Product-->
     </div>
 </body>
 
