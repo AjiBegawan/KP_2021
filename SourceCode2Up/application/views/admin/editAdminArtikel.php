@@ -83,7 +83,7 @@
     <h1>Edit User</h1>
 
     <div class="container" style="margin-top: 50px;">
-        <h3>Edit Artikel</h3><hr>
+        <h3>Detail Artikel</h3><hr>
         <a href="<?php echo site_url('Admin/artikel'); ?>"><button type="submit" class="btn btn-warning"><i class="icofont-swoosh-left"></i></button></a><br><br>
         <?php echo form_open_multipart('Admin/updateArtikel/' . $artikel->Id); ?>
         <fieldset>

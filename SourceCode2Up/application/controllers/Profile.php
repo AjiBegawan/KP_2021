@@ -292,7 +292,7 @@ class Profile extends CI_Controller
     {
         $this->db->where('id', $id);
         if ($this->db->delete('portfolio')) {
-            $this->session->set_flashdata('message', 'Project telah dihapus');
+            $this->session->set_flashdata('message', 'Project akan dihapus?');
             redirect(site_url('Profile/managePortfolio'));
         } else {
             $this->session->set_flashdata('error', 'Project gagal dihapus');

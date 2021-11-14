@@ -40,10 +40,14 @@
 
             if (flashData) {
                 Swal.fire({
-                    icon: 'success',
+                    icon: 'question',
                     title: flashData,
                     // text: flashData,
-                    showConfirmButton: false,
+                    // showConfirmButton: false,
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Delete',
                     backdrop: 'rgba(255,0,0,0.1) ',
                 });
             }
@@ -115,28 +119,26 @@
                     <?= $this->pagination->create_links(); ?>
                 </div>
                 <div class="col-lg-1">
-                    <a href="<?= site_url('/Profile/profilePortfolio/') ?>"><button type="button"
-                            class="btn btn-danger"><i class="icofont-plus"></i></button></a>
+                    <a href="<?= site_url('/Profile/profilePortfolio/') ?>"><button type="button" class="btn btn-danger"><i class="icofont-plus"></i></button></a>
                 </div>
             </div>
             <div class="row gutters-sm">
                 <?php foreach ($portfolio->result() as $row) {  ?>
-                <div class="col-sm-3 mb-3">
-                    <div class="card h-100">
-                        <img class="card-img-top" style="height: 300px;object-fit: contain;"
-                            src="<?php echo base_url('upload/portfolio/'.$row->gambar); ?>" />
-                        <div class="card-body">
-                            <h5 class="card-title"><?php echo $row->judul; ?></h5>
-                            <p class="card-text"><?php echo $row->deskripsi; ?></p>
-                            <a href="<?= site_url('/Profile/EditPortfolio/'.$row->id) ?>">
-                                <button type="button" class="btn btn-danger"><i class="icofont-ui-edit"></i></button>
-                            </a>
-                            <a href="<?= site_url('/Profile/deletePortfolio/'.$row->id) ?>">
-                                <button type="button" class="btn btn-danger"><i class="icofont-garbage"></i></button>
-                            </a>
+                    <div class="col-sm-3 mb-3">
+                        <div class="card h-100">
+                            <img class="card-img-top" style="height: 300px;object-fit: contain;" src="<?php echo base_url('upload/portfolio/' . $row->gambar); ?>" />
+                            <div class="card-body">
+                                <h5 class="card-title"><?php echo $row->judul; ?></h5>
+                                <p class="card-text"><?php echo $row->deskripsi; ?></p>
+                                <a href="<?= site_url('/Profile/EditPortfolio/' . $row->id) ?>">
+                                    <button type="button" class="btn btn-danger"><i class="icofont-ui-edit"></i></button>
+                                </a>
+                                <a href="<?= site_url('/Profile/deletePortfolio/' . $row->id) ?>">
+                                    <button type="button" class="btn btn-danger"><i class="icofont-garbage"></i></button>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
                 <?php } ?>
             </div>
         </div>

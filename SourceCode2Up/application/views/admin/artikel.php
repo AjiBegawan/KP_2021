@@ -39,9 +39,9 @@
 
             if (flashData) {
                 Swal.fire({
-                    icon: 'success',
+                    icon: 'warning',
                     title: 'Data Artikel',
-                    text: 'Berhasil ' + flashData,
+                    text: flashData,
                     backdrop: 'rgba(255,0,0,0.1) ',
                 });
             }

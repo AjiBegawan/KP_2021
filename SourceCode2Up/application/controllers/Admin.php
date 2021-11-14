@@ -29,7 +29,7 @@ class Admin extends CI_Controller
         $data['user'] = $this->AdminModel->getAllUser($config['per_page'], $data['start']);
 
         $data['login'] = $this->AdminModel->getUsernameLogin();
-
+        $this->session->set_flashdata('message', 'Anda Berhasil Login Sebagai Admin');
         $this->load->view("admin\member", $data);
     }
     function contact()
@@ -229,7 +229,7 @@ class Admin extends CI_Controller
         );
         $this->db->where('id', $id);
         if ($this->db->update('artikel', $data)) {
-            $this->session->set_flashdata('message', 'Diperbarui');
+            $this->session->set_flashdata('message', 'Berhasil Diubah');
             redirect(site_url('Admin/artikel'));
         } else {
             $this->load->view("gagal");
@@ -266,7 +266,7 @@ class Admin extends CI_Controller
             'gambar'    => $file_name
         );
         if ($this->db->insert('artikel', $data)) {
-            $this->session->set_flashdata('message', 'Ditambah');
+            $this->session->set_flashdata('message', 'Judul dan Gambar Artikel Harus Diisi');
             redirect(site_url('Admin/artikel'));
         } else {
             $this->load->view("gagal");

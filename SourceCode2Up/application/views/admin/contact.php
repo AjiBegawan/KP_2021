@@ -40,7 +40,7 @@
             if (flashData) {
                 Swal.fire({
                     icon: 'success',
-                    title: 'Data Member',
+                    title: 'Data Message',
                     text: 'Berhasil ' + flashData,
                     backdrop: 'rgba(255,0,0,0.1) ',
                 });
