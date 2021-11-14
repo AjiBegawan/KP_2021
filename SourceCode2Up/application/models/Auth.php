@@ -8,7 +8,7 @@ class Auth extends CI_Model
         $this->load->library('session');
     }
 
-    function register($nama, $username, $password, $email, $aliran_seni, $idnft,$hak_akses)
+    function register($nama, $username, $password, $email, $aliran_seni, $idnft, $hak_akses)
     {
         $data_user = array(
             'nama'          => $nama,
@@ -43,10 +43,51 @@ class Auth extends CI_Model
 
     function login_user($username, $password)
     {
+        // if ($this->cekIsAdmin($username)) {
+         
+        //     $this->db->where('username', $username);
+        //     $data_user = $this->db->get('admin')->row();
+        //     if (password_verify($password, $data_user->password)) {
+        //         $query = $this->getDataByUsername($username);
+        //         $userdata = array(
+        //             'is_login'    => true,
+        //             'is_admin'    => true,
+        //             'password'    => $query->password,
+        //             'username'    => $query->username,
+        //             'nama'        => $query->nama,
+        //             'email'       => $query->email,
+        //             'phone'       => $query->phone,
+        //         );
+        //         $this->session->set_userdata($userdata);
+        //         return TRUE;
+        //     } else {
+        //         return FALSE;
+        //     }
+        // } else {
+        //     $this->db->where('username', $username);
+        //     $query = $this->db->get('user')->row();
+        //     if (password_verify($password, $query->password)) {
+        //         $query = $this->getDataByUsername($username);
+        //         $userdata = array(
+        //             'is_login'    => true,
+        //             'is_admin'    => false,
+        //             'password'    => $query->password,
+        //             'username'    => $query->username,
+        //             'nama'        => $query->nama,
+        //             'email'       => $query->email,
+        //             'phone'       => $query->phone,
+        //         );
+        //         $this->session->set_userdata($userdata);
+        //         return TRUE;
+        //     } else {
+        //         return FALSE;
+        //     }
+        // }
+
         if($this->db->get_where('admin', array('username' => $username))->num_rows()){
-            $data_user = $this->db->get_where('admin',$username)->row();
+            $data_user = $this->db->get_where('admin',array('username' => $username))->row();
                 if (password_verify($password, $data_user->password)) {
-                    $query = $this->getDataByUsername($username);
+                    $query = $this->getDataAdmin($username);
                     $userdata = array(
                         'is_login'    => true,
                         'is_admin'    => true,
@@ -54,7 +95,6 @@ class Auth extends CI_Model
                         'username'    => $query->username,
                         'nama'        => $query->nama,
                         'email'       => $query->email,
-                        'phone'       => $query->phone,
                       );
                       $this->session->set_userdata($userdata);
                     return TRUE;
@@ -110,6 +150,21 @@ class Auth extends CI_Model
     function getUSosmedIdnft()
     {
         $query = $this->db->get('sosmed')->row();
+        return $query;
+    }
+    function cekIsAdmin($username)
+    {
+        $this->db->where('username', $username);
+        if ($this->db->get('admin')) {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
+    }
+    function getDataAdmin($username)
+    {
+        $this->db->where('username', $username);
+        $query = $this->db->get('admin')->row();
         return $query;
     }
 }

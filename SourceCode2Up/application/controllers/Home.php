@@ -37,7 +37,6 @@ class Home extends CI_Controller
         } else {
             $this->load->view("halamanpelanggan/Contact");
         }
-  
     }
     public function DeeraView()
     {
@@ -47,15 +46,16 @@ class Home extends CI_Controller
         } else {
             $this->load->view("halamanpelanggan/Deera");
         }
-
     }
     function getUsernameData()
     {
         $this->db->where('username', $this->session->userdata('username'));
-        $query = $this->db->get('user')->row();
-        return $query;
+        if ($query = $this->db->get('user')->row()) {
+            return $query;
+        } else if ($query = $this->db->get('admin')->row()) {
+            return $query;
+        }
     }
-
     function contact()
     {
         $this->load->model("Auth", "", TRUE);
@@ -72,13 +72,12 @@ class Home extends CI_Controller
             'message' => $message
         );
 
-        if($this->db->insert('contact', $data_contact)){
+        if ($this->db->insert('contact', $data_contact)) {
             redirect(site_url('home'));
-        }else{
+        } else {
             $this->load->view("gagal");
         }
     }
-
     function getUSosmedIdnft()
     {
         $query = $this->db->get('sosmed')->row();

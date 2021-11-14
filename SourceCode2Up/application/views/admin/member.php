@@ -90,10 +90,15 @@
             </nav>
             <!-- .nav-menu -->
             <!-- Profile -->
-            <?php if ($this->session->userdata('is_login')) { ?>
+            <?php if ($this->session->userdata('is_admin')) { ?>
                 <a class="navbar-brand ml-auto" href="<?php echo site_url('/profile') ?>" style="text-decoration: none;">
                     <img src="<?= base_url("assets\img\profile.png") ?>" width="35" height="35" style="margin: -5px 3px 0 0 ;" class="d-inline-block align-top" alt="Logo IDNFT">
-                    <label for="nama" style="font-size: 13px;font-weight: normal; color:#5f687b; font-family: Open Sans, sans-serif;"><?= $login->nama; ?></label>
+                    <label for="nama" style="font-size: 13px;font-weight: normal; color:#5f687b;"><?= $login->nama; ?></label>
+                </a>
+            <?php } else if ($this->session->userdata('is_login')) { ?>
+                <a class="navbar-brand ml-auto" href="<?php echo site_url('/profile') ?>" style="text-decoration: none;">
+                    <img src="<?= base_url("assets\img\profile.png") ?>" width="35" height="35" style="margin: -5px 3px 0 0 ;" class="d-inline-block align-top" alt="Logo IDNFT">
+                    <label for="nama" style="font-size: 13px;font-weight: normal; color:#5f687b;"><?= $login->nama; ?></label>
                 </a>
             <?php } else { ?>
             <?php } ?>
@@ -115,7 +120,7 @@
                     <?= $this->pagination->create_links(); ?>
                 </div>
                 <div class="d-flex justify-content-end col-sm-4">
-                    <a href="<?php echo site_url('/admin/manageAdmin')?>"><button type="button" class="btn btn-danger"><i class="icofont-gear"></i> Manage Admin</button></a>
+                    <a href="<?php echo site_url('/admin/manageAdmin') ?>"><button type="button" class="btn btn-danger"><i class="icofont-gear"></i> Manage Admin</button></a>
                 </div>
             </div>
             <table class="table table-condensed table-hover table-striped" style="max-width: 100%; ">

@@ -10,8 +10,11 @@ class ArtikelModel extends CI_Model
     function getUsernameData()
     {
         $this->db->where('username', $this->session->userdata('username'));
-        $query = $this->db->get('user')->row();
-        return $query;
+        if ($query = $this->db->get('user')->row()) {
+            return $query;
+        } else if ($query = $this->db->get('admin')->row()) {
+            return $query;
+        }
     }
     function getArtikel()
     {

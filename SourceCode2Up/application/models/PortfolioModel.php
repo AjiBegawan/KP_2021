@@ -15,8 +15,11 @@ class PortfolioModel extends CI_Model
     function getLogin()
     {
         $this->db->where('username', $this->session->userdata('username'));
-        $query = $this->db->get('user')->row();
-        return $query;
+        if ($query = $this->db->get('user')->row()) {
+            return $query;
+        } else if ($query = $this->db->get('admin')->row()) {
+            return $query;
+        }
     }
     function getSosmedIdnft()
     {
@@ -31,12 +34,12 @@ class PortfolioModel extends CI_Model
     function getAllPortofolio($limit, $start)
     {
         $this->db->order_by('RAND()');
-        $query = $this->db->get('portfolio',$limit, $start);
+        $query = $this->db->get('portfolio', $limit, $start);
         return $query;
     }
     function getUsernamePortfolio($limit, $start)
     {
-        $query = $this->db->get('user',$limit, $start);
+        $query = $this->db->get('user', $limit, $start);
         return $query;
     }
 }

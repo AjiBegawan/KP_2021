@@ -49,7 +49,7 @@ class Profile extends CI_Controller
             $this->load->library('pagination');
 
             $config['base_url'] = 'http://localhost/KP_2021/SourceCode2Up/Profile/Profile/' . $username;
-            $config['total_rows'] =  $this->ProfileModel-> getCountPortfolioOtherUser($username);
+            $config['total_rows'] =  $this->ProfileModel->getCountPortfolioOtherUser($username);
             $config['per_page'] = 3;
 
             $this->pagination->initialize($config);
@@ -61,6 +61,27 @@ class Profile extends CI_Controller
         } else {
             $this->load->view("Login");
         }
+    }
+    public function ProfileNonLogin($username)
+    {
+        $this->load->model('ProfileModel');
+
+        $data['login'] = $this->ProfileModel->getUsernameLogin();
+        $data['otheruser'] = $this->ProfileModel->getUsernameProfileId($username);
+
+        // Pagination
+        $this->load->library('pagination');
+
+        $config['base_url'] = 'http://localhost/KP_2021/SourceCode2Up/Profile/Profile/' . $username;
+        $config['total_rows'] =  $this->ProfileModel->getCountPortfolioOtherUser($username);
+        $config['per_page'] = 3;
+
+        $this->pagination->initialize($config);
+
+        $data['start'] = $this->uri->segment(4);
+        $data['portfolio'] = $this->ProfileModel->getUsernamePortfolioById($config['per_page'], $data['start'], $username);
+
+        $this->load->view("profile/otherProfile", $data);
     }
 
     public function managePortfolio()
