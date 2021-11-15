@@ -17,14 +17,16 @@
     <link href="<?= base_url() ?>assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?= base_url() ?>assets/vendor/icofont/icofont.min.css" rel="stylesheet">
 
+    <!-- Template JS File -->
+    <script src="<?= base_url() ?>assets\js\sweetalert2.all.min.js"></script>
+    <script src="<?= base_url() ?>assets\js\jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
     <!-- Template Main CSS File -->
     <link href="<?= base_url() ?>assets\css\styleHome.css" rel="stylesheet">
     <link href="<?= base_url() ?>assets\css\styleHeader.css" rel="stylesheet">
     <link href="<?= base_url() ?>assets\css\styleFooter.css" rel="stylesheet">
-
-    <!-- Template Main JS File -->
-    <script src="<?= base_url() ?>assets\js\jquery-3.6.0.min.js"></script>
-    <script src="<?= base_url() ?>assets\js\sweetalert2.all.min.js"></script>
 
     <script>
         $(document).ready(function() {
@@ -78,16 +80,11 @@
                         <li><a href="<?= site_url() ?>/Login">LOGIN</a></li>
                         <li><a href="<?= site_url() ?>/SignUp">REGISTER</a>
                         <?php } ?>
-
                 </ul>
             </nav>
             <!-- .nav-menu -->
             <!-- Profile -->
             <?php if ($this->session->userdata('is_admin')) { ?>
-                <!-- <a class="navbar-brand ml-auto" href="<?php echo site_url('/profile') ?>" style="text-decoration: none;">
-                    <img src="<?= base_url("assets\img\profile.png") ?>" width="35" height="35" style="margin: -5px 3px 0 0 ;" class="d-inline-block align-top" alt="Logo IDNFT">
-                    <label for="nama" style="font-size: 13px;font-weight: normal; color:#5f687b;"><?= $login->nama; ?></label>
-                </a> -->
                 <img src="<?= base_url("assets\img\profile.png") ?>" width="35" height="35" style="margin: -5px 3px 0 0 ;" class="d-inline-block align-top" alt="Logo IDNFT">
                 <label for="nama" style="font-size: 13px;font-weight: normal; color:#5f687b;"><?= $login->nama; ?></label>
             <?php } else if ($this->session->userdata('is_login')) { ?>

@@ -32,7 +32,6 @@
     <!-- Template Main JS File -->
     <script src="<?= base_url() ?>assets\js\jquery-3.6.0.min.js"></script>
     <script src="<?= base_url() ?>assets\bootstrap\js\bootstrap.js"></script>
-
     <script src="<?= base_url() ?>assets\js\sweetalert2.all.min.js"></script>
 
     <script>
@@ -54,6 +53,32 @@
                     backdrop: 'rgba(255,0,0,0.1) ',
                 });
             }
+            // get Edit Product
+            $('.btn-lihat').on('click', function() {
+                // get data from button edit
+                const id = $(this).data('id');
+                const judul = $(this).data('judul');
+                const paragraf1 = $(this).data('paragraf1');
+                const paragraf2 = $(this).data('paragraf2');
+                const paragraf3 = $(this).data('paragraf3');
+                const paragraf4 = $(this).data('paragraf4');
+                const paragraf5 = $(this).data('paragraf5');
+                const paragraf6 = $(this).data('paragraf6');
+                const paragraf7 = $(this).data('paragraf7');
+                const gambar = $(this).data('gambar');
+                // Set data to Form Edit
+                $('.id').val(id);
+                $('.judul').val(judul);
+                $('.paragraf1').val(paragraf1);
+                $('.paragraf2').val(paragraf2);
+                $('.paragraf3').val(paragraf3);
+                $('.paragraf4').val(paragraf4);
+                $('.paragraf5').val(paragraf5);
+                $('.paragraf6').val(paragraf6);
+                $('.paragraf7').val(paragraf7);
+                // Call Modal Edit
+                $('#lihatModal').modal('toggle');
+            });
             // get Delete
             $('.btn-delete').on('click', function() {
                 // get data from button edit
@@ -136,6 +161,7 @@
                                 <th>Paragraf 3</th>
                                 <th></th>
                                 <th></th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -149,7 +175,7 @@
                                     <td class="tabel_artikel"><?php echo $row->Paragraf2; ?></td>
                                     <td class="tabel_artikel"><?php echo $row->Paragraf3; ?></td>
                                     <td class="tabel_artikel"><a href="<?php echo site_url('/admin/editArtikel/') . $row->Id ?>"><button type="button" class="btn btn-success"><i class="icofont-edit"></i></button></a></td>
-                                    <!-- <td class="tabel_artikel"><a href="<?php echo site_url('/admin/deleteArtikel/') . $row->Id ?>"><button type="button" class="btn btn-danger"><i class="icofont-garbage"></i></button></a></td> -->
+                                    <td class="tabel_artikel"><a href="#" class="btn-lihat" data-id="<?= $row->Id; ?>" data-judul="<?= $row->Judul; ?>" data-paragraf1="<?= $row->Paragraf1; ?>" data-paragraf2="<?= $row->Paragraf2; ?>" data-paragraf3="<?= $row->Paragraf3; ?>" data-paragraf4="<?= $row->Paragraf4; ?>" data-paragraf5="<?= $row->Paragraf5; ?>" data-paragraf6="<?= $row->Paragraf6; ?>" data-paragraf7="<?= $row->Paragraf7; ?>" data-gambar="<?= $row->gambar; ?>"><button type="button" class="btn btn-primary"><i class="icofont-eye-alt"></i></button></a></td>
                                     <td class="tabel_artikel"><a href="#" class="btn-delete" data-id="<?= $row->Id; ?>"><button type="button" class="btn btn-danger"><i class="icofont-garbage"></i></button></a></td>
                                 </tr>
                             <?php } ?>
@@ -159,6 +185,67 @@
             </div>
         </div>
         <!-- End Of Tabel Artikel -->
+
+        <!-- Modal Lihat Artikel-->
+        <form action="<?php echo site_url('Admin/addAdmin'); ?>" method="post">
+            <div class="modal fade" id="lihatModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Lihat Artikel</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label>ID</label>
+                                <input type="text" class="form-control id" name="id">
+                            </div>
+                            <div class="form-group">
+                                <label>Judul</label>
+                                <input type="text" class="form-control judul" name="judul">
+                            </div>
+                            <div class="form-group">
+                                <label>Paragraf 1</label>
+                                <input type="text" class="form-control paragraf1" name="paragraf1">
+                            </div>
+                            <div class="form-group">
+                                <label>Paragraf 2</label>
+                                <input type="text" class="form-control paragraf2" name="paragraf2">
+                            </div>
+                            <div class="form-group">
+                                <label>Paragraf 3</label>
+                                <input type="text" class="form-control paragraf3" name="paragraf3">
+                            </div>
+                            <div class="form-group">
+                                <label>Paragraf 4</label>
+                                <input type="text" class="form-control paragraf4" name="paragraf4">
+                            </div>
+                            <div class="form-group">
+                                <label>Paragraf 5</label>
+                                <input type="text" class="form-control paragraf5" name="paragraf5">
+                            </div>
+                            <div class="form-group">
+                                <label>Paragraf 6</label>
+                                <input type="text" class="form-control paragraf6" name="paragraf6">
+                            </div>
+                            <div class="form-group">
+                                <label>Paragraf 7</label>
+                                <input type="text" class="form-control paragraf7" name="paragraf7">
+                            </div>
+                            <!-- <div class="form-group">
+                                <label>Gambar</label>
+                                <img src="" class="gambar" alt="">
+                                <input type="text" class="form-control gambar" name="gambar">
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <!-- End Modal Lihat Artikel-->
+
         <!-- Modal Delete Product-->
         <form action="<?php echo site_url('Admin/deleteArtikel'); ?>" method="post">
             <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

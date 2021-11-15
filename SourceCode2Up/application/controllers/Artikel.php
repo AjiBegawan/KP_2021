@@ -38,7 +38,7 @@ class Artikel extends CI_Controller
     }
     function LoadArtikelDetail($id)
     {
-        $data['login'] = $this->ArtikelModel->getUsernameLogin();
+        $data['login'] = $this->ArtikelModel->getUsernameData();
         $data['artikel'] = $this->ArtikelModel->getArtikelDetail($id);
         $this->load->view("blog/artikelDetail", $data);
     }

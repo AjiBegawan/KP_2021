@@ -58,6 +58,7 @@
                     backdrop: 'rgba(255,0,0,0.1) ',
                 });
             }
+
             // get Edit Product
             $('.btn-edit').on('click', function() {
                 // get data from button edit
