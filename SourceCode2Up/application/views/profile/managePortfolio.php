@@ -29,6 +29,7 @@
 
     <!-- Template Main JS File -->
     <script src="<?= base_url() ?>assets\js\jquery-3.6.0.min.js"></script>
+    <script src="<?= base_url() ?>assets\bootstrap\js\bootstrap.js"></script>
     <script src="<?= base_url() ?>assets\js\sweetalert2.all.min.js"></script>
 
     <script>
@@ -40,14 +41,8 @@
 
             if (flashData) {
                 Swal.fire({
-                    icon: 'question',
+                    icon: 'success',
                     title: flashData,
-                    // text: flashData,
-                    // showConfirmButton: false,
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Delete',
                     backdrop: 'rgba(255,0,0,0.1) ',
                 });
             }
@@ -55,11 +50,19 @@
                 Swal.fire({
                     icon: 'warning',
                     title: flashDataError,
-
                     showConfirmButton: false,
                     backdrop: 'rgba(255,0,0,0.1) ',
                 });
             }
+            // get Delete
+            $('.btn-delete').on('click', function() {
+                // get data from button edit
+                const id = $(this).data('id');
+                // Set data to Form Edit
+                $('.id').val(id);
+                // Call Modal Edit
+                $('#deleteModal').modal('show');
+            });
         });
     </script>
 </head>
@@ -133,7 +136,7 @@
                                 <a href="<?= site_url('/Profile/EditPortfolio/' . $row->id) ?>">
                                     <button type="button" class="btn btn-danger"><i class="icofont-ui-edit"></i></button>
                                 </a>
-                                <a href="<?= site_url('/Profile/deletePortfolio/' . $row->id) ?>">
+                                <a href="#" class="btn-delete"  data-id="<?= $row->id; ?>">
                                     <button type="button" class="btn btn-danger"><i class="icofont-garbage"></i></button>
                                 </a>
                             </div>
@@ -141,6 +144,36 @@
                     </div>
                 <?php } ?>
             </div>
+
+
+            <!-- Modal Delete Project-->
+        <form action="<?php echo site_url('/Profile/deletePortfolio/'); ?>" method="post">
+            <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Hapus Project</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label hidden>Id</label>
+                                <input type="text" class="form-control id" name="id" hidden>
+                            </div>
+                            <h4>Apakah Anda yakin akan menghapus Project Anda?</h4>
+                        </div>
+                        <div class="modal-footer">
+                            <input type="hidden" name="product_id" class="productID">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                            <button type="submit" class="btn btn-primary">Yes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <!-- End Modal Delete Project-->
         </div>
     </div>
 

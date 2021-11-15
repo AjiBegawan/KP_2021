@@ -54,7 +54,7 @@
                     backdrop: 'rgba(255,0,0,0.1) ',
                 });
             }
-            // get Delete Product
+            // get Delete
             $('.btn-delete').on('click', function() {
                 // get data from button edit
                 const id = $(this).data('id');

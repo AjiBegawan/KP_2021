@@ -219,7 +219,9 @@ class Profile extends CI_Controller
     function addPortfolio()
     {
         $this->load->library('upload');
-        if (!empty($_FILES['gambar']['name'])) {
+        $judul     = $this->input->post("judul");
+        $deskripsi = $this->input->post("deskripsi");
+        if (!empty($_FILES['gambar']['name']) and !empty($judul) and !empty($deskripsi) ) {
 
             $config['upload_path'] = './upload/portfolio';
             $config['allowed_types'] = 'gif|jpg|png|jpeg';
@@ -233,7 +235,8 @@ class Profile extends CI_Controller
             $this->load->library('upload', $config);
 
             if (!$this->upload->do_upload('gambar')) {
-                $this->load->view("gagal");
+                $this->session->set_flashdata('message', 'Project gagal ditambahkan');
+                redirect(site_url('Profile/managePortfolio'));
             } else {
                 $upload_data = $this->upload->data();
                 $file_name = $upload_data['file_name'];
@@ -309,11 +312,12 @@ class Profile extends CI_Controller
             redirect(site_url('Profile/managePortfolio'));
         }
     }
-    function deletePortfolio($id)
+    function deletePortfolio()
     {
+        $id  = $this->input->post('id');
         $this->db->where('id', $id);
         if ($this->db->delete('portfolio')) {
-            $this->session->set_flashdata('message', 'Project akan dihapus?');
+            $this->session->set_flashdata('message', 'Project telah dihapus');
             redirect(site_url('Profile/managePortfolio'));
         } else {
             $this->session->set_flashdata('error', 'Project gagal dihapus');

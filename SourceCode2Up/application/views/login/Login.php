@@ -26,13 +26,20 @@
     <script>
     $(document).ready(function() {
         const flashData = $('.flash-data').data('flashdata');
+        const flashDataError = $('.flash-data-error').data('flashdata');
         console.log(flashData);
 
         if (flashData) {
             Swal.fire({
-                icon: 'error',
-                title: 'Maaf Login Gagal',
+                icon: 'success',
                 text: flashData,
+                backdrop: 'rgba(255,0,0,0.1) ',
+            });
+        }
+        if (flashDataError) {
+            Swal.fire({
+                icon: 'error',
+                text: flashDataError,
                 backdrop: 'rgba(255,0,0,0.1) ',
             });
         }
@@ -43,6 +50,7 @@
 
 <body>
     <div class="flash-data" data-flashdata="<?= $this->session->flashdata('message'); ?>"></div>
+    <div class="flash-data-error" data-flashdata="<?= $this->session->flashdata('error'); ?>"></div>
 
     <div class="container contact-form">
         <div>
