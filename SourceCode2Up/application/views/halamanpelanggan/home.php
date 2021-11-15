@@ -18,8 +18,8 @@
     <link href="<?= base_url() ?>assets/vendor/icofont/icofont.min.css" rel="stylesheet">
 
     <!-- Template Main CSS File -->
-    <link href="<?= base_url() ?>assets\css\styleHeader.css" rel="stylesheet">
     <link href="<?= base_url() ?>assets\css\styleHome.css" rel="stylesheet">
+    <link href="<?= base_url() ?>assets\css\styleHeader.css" rel="stylesheet">
     <link href="<?= base_url() ?>assets\css\styleFooter.css" rel="stylesheet">
 
     <!-- Template Main JS File -->
@@ -84,10 +84,12 @@
             <!-- .nav-menu -->
             <!-- Profile -->
             <?php if ($this->session->userdata('is_admin')) { ?>
-                <a class="navbar-brand ml-auto" href="<?php echo site_url('/profile') ?>" style="text-decoration: none;">
+                <!-- <a class="navbar-brand ml-auto" href="<?php echo site_url('/profile') ?>" style="text-decoration: none;">
                     <img src="<?= base_url("assets\img\profile.png") ?>" width="35" height="35" style="margin: -5px 3px 0 0 ;" class="d-inline-block align-top" alt="Logo IDNFT">
                     <label for="nama" style="font-size: 13px;font-weight: normal; color:#5f687b;"><?= $login->nama; ?></label>
-                </a>
+                </a> -->
+                <img src="<?= base_url("assets\img\profile.png") ?>" width="35" height="35" style="margin: -5px 3px 0 0 ;" class="d-inline-block align-top" alt="Logo IDNFT">
+                <label for="nama" style="font-size: 13px;font-weight: normal; color:#5f687b;"><?= $login->nama; ?></label>
             <?php } else if ($this->session->userdata('is_login')) { ?>
                 <a class="navbar-brand ml-auto" href="<?php echo site_url('/profile') ?>" style="text-decoration: none;">
                     <img src="<?= base_url("assets\img\profile.png") ?>" width="35" height="35" style="margin: -5px 3px 0 0 ;" class="d-inline-block align-top" alt="Logo IDNFT">

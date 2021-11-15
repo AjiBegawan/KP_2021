@@ -13,13 +13,8 @@
     <link href="<?= base_url() ?>assets/img/LogoIDNFT.png" rel="icon">
     <link href="<?= base_url() ?>assets/img/LogoIDNFT.png" rel="apple-touch-icon">
 
-    <!-- Bootsrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-
     <!-- Vendor CSS Files -->
+    <link href="<?= base_url() ?>assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?= base_url() ?>assets/vendor/icofont/icofont.min.css" rel="stylesheet">
 
     <!-- Template Main CSS File -->
