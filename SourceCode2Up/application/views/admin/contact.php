@@ -118,7 +118,7 @@
             <div class="float-left">
                 <!-- Data Pesan Table -->
                 <div>
-                    <h1>Pesan</h1>
+                    <h1>Message</h1>
                     <hr>
                     <div class="d-flex justify-content-center">
                         <?= $this->pagination->create_links(); ?>

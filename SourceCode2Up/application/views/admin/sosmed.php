@@ -113,7 +113,7 @@
         <div class="container">
             <div class="float-left">
                 <!-- Contact IDNFT -->
-                <h1>Sosial Media IDNFT</h1>
+                <h1>Contact Sosial Media IDNFT</h1>
                 <hr>
                 <table class="table table-condensed table-hover table-striped" style="max-width: 100%; ">
                     <thead>

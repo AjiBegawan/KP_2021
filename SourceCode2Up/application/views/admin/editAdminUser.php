@@ -30,6 +30,8 @@
     <script>
         const flashData = $('.flash-data').data('flashdata');
         console.log(flashData);
+
+        
     </script>
 </head>
 
@@ -82,7 +84,7 @@
 
     <div class="wadah">
         <div class="container">
-            <h1>Edit User</h1>
+            <h1>Lihat Member</h1>
             <hr>
             <form method="POST" action="<?php echo site_url('Admin/updateUser'); ?>">
                 <a href="<?php echo site_url('Admin/member'); ?>"><button type="submit" class="btn btn-warning"><i class="icofont-swoosh-left"></i></button></a><br><br>
@@ -134,11 +136,12 @@
                 <label for="exampleInputEmail1">Role</label>
                 <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="role" placeholder="<?php echo $user->role; ?>">
             </div> -->
-
-
             </form>
 
         </div>
+
+
+        
 
     </div>
 </body>

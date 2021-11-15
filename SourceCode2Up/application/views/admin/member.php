@@ -25,6 +25,7 @@
 
     <!-- Template Main JS File -->
     <script src="<?= base_url() ?>assets\js\jquery-3.6.0.min.js"></script>
+    <script src="<?= base_url() ?>assets\bootstrap\js\bootstrap.js"></script>
     <script src="<?= base_url() ?>assets\js\sweetalert2.all.min.js"></script>
 
     <script>
@@ -48,6 +49,32 @@
                     backdrop: 'rgba(255,0,0,0.1) ',
                 });
             }
+
+            // get Edit Product
+            $('.btn-lihat').on('click', function() {
+                // get data from button edit
+                const username = $(this).data('username');
+                const nama = $(this).data('nama');
+                const email = $(this).data('email');
+                const phone = $(this).data('phone');
+                const alamat = $(this).data('alamat');
+                const aliran_seni = $(this).data('aliran_seni');
+                const instagram = $(this).data('instagram');
+                const twitter = $(this).data('twitter');
+                const facebook = $(this).data('facebook');
+                // Set data to Form Edit
+                $('.username').val(username);
+                $('.nama').val(nama);
+                $('.email').val(email);
+                $('.phone').val(phone);
+                $('.alamat').val(alamat);
+                $('.aliran_seni').val(aliran_seni);
+                $('.instagram').val(instagram);
+                $('.twitter').val(twitter);
+                $('.facebook').val(facebook);
+                // Call Modal Edit
+                $('#lihatModal').modal('toggle');
+            });
         });
     </script>
 
@@ -111,12 +138,12 @@
             <h1>Member IDNFT</h1>
             <hr>
             <div class="row">
-                <div class="d-flex justify-content-center col-sm-8">
+                <div class="d-flex justify-content-center col-sm-12">
                     <?= $this->pagination->create_links(); ?>
                 </div>
-                <div class="d-flex justify-content-end col-sm-4">
+                <!-- <div class="d-flex justify-content-end col-sm-4">
                     <a href="<?php echo site_url('/admin/manageAdmin') ?>"><button type="button" class="btn btn-danger"><i class="icofont-gear"></i> Manage Admin</button></a>
-                </div>
+                </div> -->
             </div>
             <table class="table table-condensed table-hover table-striped" style="max-width: 100%; ">
                 <thead>
@@ -133,7 +160,8 @@
                             <td><?php echo $row->username; ?></td>
                             <td class="tabel_member"><?php echo $row->nama; ?></td>
                             <td class="tabel_member"><?php echo $row->email; ?></td>
-                            <td class="tabel_member"><a href="<?php echo site_url('/admin/editUser/') . $row->username ?>"><button type="button" class="btn btn-success"><i class="icofont-eye-alt"></i></button></a></td>
+                            <!-- <td class="tabel_member"><a href="<?php echo site_url('/admin/editUser/') . $row->username ?>"><button type="button" class="btn btn-success"><i class="icofont-eye-alt"></i></button></a></td> -->
+                            <td class="tabel_member"><a href="#" class="btn-lihat" data-username="<?= $row->username; ?>" data-nama="<?= $row->nama; ?>" data-email="<?= $row->email; ?>" data-phone="<?= $row->phone; ?>" data-alamat="<?= $row->alamat; ?>" data-aliran_seni="<?= $row->aliran_seni; ?>" data-instagram="<?= $row->instagram; ?>" data-twitter="<?= $row->twitter; ?>" data-facebook="<?= $row->facebook; ?>"><button type="button" class="btn btn-success"><i class="icofont-eye-alt"></i></button></a></td>
                         </tr>
                     <?php } ?>
                 </tbody>
@@ -141,6 +169,61 @@
         </div>
     </div>
     <!-- End Table Member-->
+
+    <!-- Modal Lihat Artikel-->
+    <form action="<?php echo site_url('Admin/addAdmin'); ?>" method="post">
+        <div class="modal fade" id="lihatModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Lihat Artikel</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>Username</label>
+                            <input type="text" class="form-control username" name="id">
+                        </div>
+                        <div class="form-group">
+                            <label>Nama</label>
+                            <input type="text" class="form-control nama" name="judul">
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="text" class="form-control email" name="paragraf1">
+                        </div>
+                        <div class="form-group">
+                            <label>Phone</label>
+                            <input type="text" class="form-control phone" name="paragraf2">
+                        </div>
+                        <div class="form-group">
+                            <label>Alamat</label>
+                            <input type="text" class="form-control alamat" name="paragraf3">
+                        </div>
+                        <div class="form-group">
+                            <label>Aliran Seni</label>
+                            <input type="text" class="form-control aliran_seni" name="paragraf4">
+                        </div>
+                        <div class="form-group">
+                            <label>Instagram</label>
+                            <input type="text" class="form-control instagram" name="paragraf5">
+                        </div>
+                        <div class="form-group">
+                            <label>Twitter</label>
+                            <input type="text" class="form-control twitter" name="paragraf6">
+                        </div>
+                        <div class="form-group">
+                            <label>Facebook</label>
+                            <input type="text" class="form-control facebook" name="paragraf7">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <!-- End Modal Lihat Artikel-->
 
 
 </body>
