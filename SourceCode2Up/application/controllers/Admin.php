@@ -19,14 +19,31 @@ class Admin extends CI_Controller
         // Pagination
         $this->load->library('pagination');
 
+        //Ambil Data
+        if ($this->input->post('submit')) {
+            $data['keyword'] = $this->input->post('keyword');
+            $this->session->set_userdata('keyword', $data['keyword']);
+        } else {
+            $data['keyword'] = $this->session->userdata('keyword');
+            // $data['keyword'] = null;
+        }
+
+
+
         $config['base_url'] = 'http://localhost/KP_2021/SourceCode2Up/admin/member';
-        $config['total_rows'] =  $this->AdminModel->getCountUserAll();
+        // $config['total_rows'] =  $this->AdminModel->getCountUserAll();
+        $this->db->like('nama', $data['keyword']);
+        $this->db->or_like('email', $data['keyword']);
+        $this->db->or_like('username', $data['keyword']);
+        $this->db->from('user');
+        $config['total_rows'] =  $this->db->count_all_results();
+        $data['total_rows'] = $config['total_rows'];
         $config['per_page'] = 10;
 
         $this->pagination->initialize($config);
 
         $data['start'] = $this->uri->segment(3);
-        $data['user'] = $this->AdminModel->getAllUser($config['per_page'], $data['start']);
+        $data['user'] = $this->AdminModel->getAllUser($config['per_page'], $data['start'], $data['keyword']);
 
         $data['login'] = $this->AdminModel->getUsernameLogin();
         if ($this->session->userdata('is_admin')) {
@@ -78,9 +95,9 @@ class Admin extends CI_Controller
 
         $this->load->helper("url");
 
-        if($this->session->userdata('is_admin')){
+        if ($this->session->userdata('is_admin')) {
             $this->load->view("admin\artikel", $data);
-        }else{
+        } else {
             $this->session->set_flashdata('error', 'Maaf Anda bukan Admin');
             redirect(site_url('home'));
         }
@@ -92,9 +109,9 @@ class Admin extends CI_Controller
         $data['login'] = $this->AdminModel->getUsernameLogin();
         $data['sosmed'] = $this->AdminModel->getUSosmedIdnft();
 
-        if($this->session->userdata('is_admin')){
+        if ($this->session->userdata('is_admin')) {
             $this->load->view("admin\sosmed", $data);
-        }else{
+        } else {
             $this->session->set_flashdata('error', 'Maaf Anda bukan Admin');
             redirect(site_url('home'));
         }
@@ -118,7 +135,7 @@ class Admin extends CI_Controller
         $data['login'] = $this->AdminModel->getUsernameLogin();
         $data['sosmed'] = $this->AdminModel->getUSosmedIdnft();
         $data['admin'] = $this->AdminModel->getAdminData();
-        
+
         $this->load->view("admin\manageAdmin", $data);
     }
     function addAdmin()

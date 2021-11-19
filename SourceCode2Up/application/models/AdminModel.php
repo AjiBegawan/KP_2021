@@ -81,8 +81,13 @@ class AdminModel extends CI_Model
         $query = $this->db->get('user')->num_rows();
         return $query;
     }
-    function getAllUser($limit, $start)
+    function getAllUser($limit, $start, $keyword = null)
     {
+        if($keyword){
+            $this->db->like('nama',$keyword);
+            $this->db->or_like('email',$keyword);
+            $this->db->or_like('username',$keyword);
+        }
         $query = $this->db->get('user', $limit, $start);
         return $query;
     }

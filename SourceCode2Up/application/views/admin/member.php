@@ -138,12 +138,26 @@
             <h1>Member IDNFT</h1>
             <hr>
             <div class="row">
-                <div class="d-flex justify-content-center col-sm-12">
+                <div class="d-flex justify-content-center col-sm-7">
                     <?= $this->pagination->create_links(); ?>
+                </div>
+                <div class="d-flex justify-content-end col-sm-5">
+                    <form action="<?php echo site_url('Admin/member'); ?>" method="POST">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Search Keyword..." name="keyword" autocomplete="off" autofocus>
+                            <div class="input-group-append">
+                                <input class="btn btn-outline-danger" type="submit" name="submit">
+
+                            </div>
+                        </div>
+                    </form>
                 </div>
                 <!-- <div class="d-flex justify-content-end col-sm-4">
                     <a href="<?php echo site_url('/admin/manageAdmin') ?>"><button type="button" class="btn btn-danger"><i class="icofont-gear"></i> Manage Admin</button></a>
                 </div> -->
+            </div>
+            <div>
+                <h6>Hasil pencarian : <?= $total_rows; ?></h6>
             </div>
             <table class="table table-condensed table-hover table-striped" style="max-width: 100%; ">
                 <thead>
