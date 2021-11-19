@@ -28,6 +28,8 @@
 
     <script>
     $(document).ready(function() {
+        $("#Password").keyup(checkPasswordMatch);
+        $("#ConfirmPassword").keyup(checkPasswordMatch);
         const flashData = $('.flash-data').data('flashdata');
         console.log(flashData);
 
@@ -40,6 +42,15 @@
             });
         }
     });
+    function checkPasswordMatch() {
+        var password = $("#Password").val();
+        var confirmPassword = $("#ConfirmPassword").val();
+        if (password != confirmPassword)
+            $("#CheckPasswordMatch").html("Passwords does not match!");
+        else
+            $("#CheckPasswordMatch").html("");
+    }
+
     </script>
 </head>
 
@@ -69,7 +80,12 @@
                 </div>
                 <div class="form-group">
                     <label for="nama">Password</label>
-                    <input type="password" name="password" class="form-control" required />
+                    <input type="password" id="Password" name="password" class="form-control" required />
+                </div>
+                <div class="form-group">
+                    <label for="nama">Confirm Password</label>
+                    <input type="password" id="ConfirmPassword" name="ConfirmPassword" class="form-control" required />
+                    <span id="CheckPasswordMatch" class="badge badge-danger"></span>
                 </div>
                 <div class="form-group">
                     <label for="nama">Email</label>

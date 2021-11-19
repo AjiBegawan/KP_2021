@@ -96,8 +96,8 @@
                 <img src="<?= base_url('upload/artikel/'.$artikel->gambar) ?>" alt="NFT ART"
                     style="width:100%;max-width:100%;">
             </div><br>
-            <h1 style="text-align:center;font-size:60px"><?php echo $artikel->Judul; ?></h1>
-            <hr>
+            <h4 style="text-align:center;"><?php echo $artikel->Judul; ?></h4>
+
             <section class="inner-page " style="margin: 0 15% 0 15%;">
                 <div class="paragraph" style="text-align:left">
                     <font size="4">

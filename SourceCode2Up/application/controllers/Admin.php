@@ -357,13 +357,13 @@ class Admin extends CI_Controller
     {
         $this->load->library('upload');
 
-        $this->form_validation->set_rules('judul', 'judul', 'trim|required|min_length[1]|max_length[255]');
-        $this->form_validation->set_rules('paragraf1', 'paragraf1', 'trim|required|min_length[1]|max_length[255]');
+        $this->form_validation->set_rules('judul', 'judul', 'trim|required|min_length[1]');
+        $this->form_validation->set_rules('paragraf1', 'paragraf1', 'trim|required|min_length[1]');
 
         if ($this->form_validation->run() == true) {
             $config['upload_path'] = './upload/artikel';
             $config['allowed_types'] = 'gif|jpg|png|jpeg';
-            $config['max_size'] = 2000;
+            $config['max_size'] = 5000;
 
             $date = date('Ymd');
             $new_name = $date . "_" . rand(0, 999999999);
@@ -385,8 +385,10 @@ class Admin extends CI_Controller
                 'Paragraf5' => $this->input->post('paragraf5'),
                 'Paragraf6' => $this->input->post('paragraf6'),
                 'Paragraf7' => $this->input->post('paragraf7'),
-                'gambar'    => $file_name
+                'gambar'    => $file_name,
+                'date_upload'   => date('d F Y  H:i:s')
             );
+            // var_dump($data['date_upload']);die;
             if ($this->db->insert('artikel', $data)) {
                 $this->session->set_flashdata('message', 'Anda berhasil menambahkan artikel baru');
                 redirect(site_url('Admin/artikel'));

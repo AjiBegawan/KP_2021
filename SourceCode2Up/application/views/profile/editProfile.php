@@ -140,13 +140,121 @@
                                 <div class="form-group">
                                     <span><i class="icofont-phone"></i></span>&emsp;
                                     <label>Phone Number</label>
-                                    <input type="text" class="form-control" value="<?= $user->phone; ?>" name="phone">
+                                    <input type="phone" class="form-control" value="<?= $user->phone; ?>" name="phone">
                                 </div>
                                 <div class="form-group">
                                     <span><i class="icofont-location-pin"></i></span>&emsp;
+                                    <label for="nama">Location</label>
+                                    <select class="form-select form-control" name="alamat">
+                                        <option value="" selected disabled><?= $user->alamat; ?></option>
+                                        <option value="" disabled>
+                                            ________________________________________________________________________________________________
+                                        </option>
+                                        <option value="Ambon">Ambon</option>
+                                        <option value="Balikpapan">Balikpapan</option>
+                                        <option value="Banda Aceh">Banda Aceh</option>
+                                        <option value="Bandar Lampung">Bandar Lampung</option>
+                                        <option value="Bandung">Bandung</option>
+                                        <option value="Banjar">Banjar</option>
+                                        <option value="Banjabaru">Banjabaru</option>
+                                        <option value="Banjarmasin">Banjarmasin</option>
+                                        <option value="Batam">Batam</option>
+                                        <option value="Batu">Batu</option>
+                                        <option value="Baubau">Baubau</option>
+                                        <option value="Bekasi">Bekasi</option>
+                                        <option value="Bengkulu">Bengkulu</option>
+                                        <option value="Bima">Bima</option>
+                                        <option value="Bitung">Bitung</option>
+                                        <option value="Blitar">Blitar</option>
+                                        <option value="Bogor">Bogor</option>
+                                        <option value="Bontang">Bontang</option>
+                                        <option value="Bukittinggi">Bukittinggi</option>
+                                        <option value="Cilegon">Cilegon</option>
+                                        <option value="Cimahi">Cimahi</option>
+                                        <option value="Cirebon">Cirebon</option>
+                                        <option value="Denpasar">Denpasar</option>
+                                        <option value="Depok">Depok</option>
+                                        <option value="Dumai">Dumai</option>
+                                        <option value="Gorontalo">Gorontalo</option>
+                                        <option value="Gunugnsitoli">Gunugnsitoli</option>
+                                        <option value="Jambi">Jambi</option>
+                                        <option value="Jayapura">Jayapura</option>
+                                        <option value="Kediri">Kediri</option>
+                                        <option value="Kendari">Kendari</option>
+                                        <option value="Jakarta Barat">Jakarta Barat</option>
+                                        <option value="Jakarta Pusat">Jakarta Pusat</option>
+                                        <option value="Jakarta Selatan">Jakarta Selatan</option>
+                                        <option value="Jakarta Timur">Jakarta Timur</option>
+                                        <option value="Jakarta Utara">Jakarta Utara</option>
+                                        <option value="Kotamobagu">Kotamobagu</option>
+                                        <option value="Kupang">Kupang</option>
+                                        <option value="Langsa">Langsa</option>
+                                        <option value="Lhokseumawe">Lhokseumawe</option>
+                                        <option value="Lubuklinggau">Lubuklinggau</option>
+                                        <option value="Madiun">Madiun</option>
+                                        <option value="Magelang">Magelang</option>
+                                        <option value="Makassar">Makassar</option>
+                                        <option value="Malang">Malang</option>
+                                        <option value="Manado">Manado</option>
+                                        <option value="Mataram">Mataram</option>
+                                        <option value="Medan">Medan</option>
+                                        <option value="Metro">Metro</option>
+                                        <option value="Mojokerto">Mojokerto</option>
+                                        <option value="Padang">Padang</option>
+                                        <option value="Padang Panjang">Padang Panjang</option>
+                                        <option value="Padang Sidempuan">Padang Sidempuan</option>
+                                        <option value="Pagar Alam">Pagar Alam</option>
+                                        <option value="Palangkaraya">Palangkaraya</option>
+                                        <option value="Palembang">Palembang</option>
+                                        <option value="Palopo">Palopo</option>
+                                        <option value="Palu">Palu</option>
+                                        <option value="Pangkalpinang">Pangkalpinang</option>
+                                        <option value="Parepare">Parepare</option>
+                                        <option value="Pariaman">Pariaman</option>
+                                        <option value="Pasuruan">Pasuruan</option>
+                                        <option value="Payakumbuh">Payakumbuh</option>
+                                        <option value="Pekalongan">Pekalongan</option>
+                                        <option value="Pekanbaru">Pekanbaru</option>
+                                        <option value="Pematangsiantar">Pematangsiantar</option>
+                                        <option value="Pontianak">Pontianak</option>
+                                        <option value="Prabumulih">Prabumulih</option>
+                                        <option value="Probolinggo">Probolinggo</option>
+                                        <option value="Sabang">Sabang</option>
+                                        <option value="Salatiga">Salatiga</option>
+                                        <option value="Samarinda">Samarinda</option>
+                                        <option value="Sawahlunto">Sawahlunto</option>
+                                        <option value="Sekayu">Sekayu</option>
+                                        <option value="Semarang">Semarang</option>
+                                        <option value="Serang">Serang</option>
+                                        <option value="Sibolga">Sibolga</option>
+                                        <option value="Singkawang">Singkawang</option>
+                                        <option value="Solok">Solok</option>
+                                        <option value="Sorong">Sorong</option>
+                                        <option value="Subulussalam">Subulussalam</option>
+                                        <option value="Sukabumi">Sukabumi</option>
+                                        <option value="Sungai Penuh">Sungai Penuh</option>
+                                        <option value="Surabaya">Surabaya</option>
+                                        <option value="Surakarta">Surakarta</option>
+                                        <option value="Tangerang">Tangerang</option>
+                                        <option value="Tangerang Selatan">Tangerang Selatan</option>
+                                        <option value="Tanjungbalai">Tanjungbalai</option>
+                                        <option value="Tanjungpinang">Tanjungpinang</option>
+                                        <option value="Tarakan">Tarakan</option>
+                                        <option value="Tasikmalaya">Tasikmalaya</option>
+                                        <option value="Tebing Tinggi">Tebing Tinggi</option>
+                                        <option value="Tegal">Tegal</option>
+                                        <option value="Ternate">Ternate</option>
+                                        <option value="Tidore Kepulauan">Tidore Kepulauan</option>
+                                        <option value="Tomohon">Tomohon</option>
+                                        <option value="Tual">Tual</option>
+                                        <option value="Yogyakarta">Yogyakarta</option>
+                                    </select>
+                                </div>
+                                <!-- <div class="form-group">
+                                    <span><i class="icofont-location-pin"></i></span>&emsp;
                                     <label>Location</label>
                                     <input type="text" class="form-control" value="<?= $user->alamat; ?>" name="alamat">
-                                </div>
+                                </div> -->
                                 <div class="form-group">
                                     <span><i class="icofont-twitter"></i></span>&emsp;
                                     <label>Twitter</label>

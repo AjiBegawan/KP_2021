@@ -11,12 +11,26 @@
 
 #paragraf {
     width: 100%;
-    /* max-width: 200px; */
+    font-size: 0.75em;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
+}
+
+#judul {
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+#tanggal {
+    font-size: 0.6em;
+    color: gray;
 }
 
 #konten {

@@ -10,8 +10,8 @@
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="assets/img/LogoIDNFT.png" rel="icon">
-    <link href="assets\img\LogoIDNFT.png" rel="apple-touch-icon">
+    <link href="<?= base_url() ?>assets/img/LogoIDNFT.png" rel="icon">
+    <link href="<?= base_url() ?>assets/img/LogoIDNFT.png" rel="apple-touch-icon">
 
     <!-- Vendor CSS Files -->
     <link href="<?= base_url() ?>assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -109,8 +109,9 @@
                                     </div>
                                     <div class="card-body col-md-9">
                                         <div id="konten">
+                                                <h6 id="tanggal"><?= $row->date_upload; ?></h6>
                                             <a href="<?= site_url('Artikel/LoadArtikelDetail/') . $row->Id ?>" class="text-danger">
-                                                <h5 class=""><?= $row->Judul; ?></h5>
+                                                <h5 class="" id="judul"><?= $row->Judul; ?></h5>
                                             </a>
                                             <p class="card-title" id="paragraf"><?= $row->Paragraf1; ?></p>
                                         </div>

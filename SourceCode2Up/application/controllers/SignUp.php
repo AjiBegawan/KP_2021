@@ -49,35 +49,44 @@ class SignUp extends CI_Controller
                 $this->form_validation->set_rules('nama', 'nama', 'trim|required|min_length[1]|max_length[255]');
                 $this->form_validation->set_rules('username', 'username', 'trim|required|min_length[1]|max_length[255]|is_unique[user.username]');
                 $this->form_validation->set_rules('password', 'password', 'trim|required|min_length[1]|max_length[255]');
+                $this->form_validation->set_rules('ConfirmPassword', 'ConfirmPassword', 'trim|required|min_length[1]|max_length[255]');
                 $this->form_validation->set_rules('email', 'email', 'trim|required|min_length[1]|max_length[255]');
 
-                if ($this->form_validation->run() == true) {
-                    $nama = $this->input->post("nama");
-                    $username = $this->input->post("username");
-                    $password = $this->input->post("password");
-                    $email = $this->input->post("email");
-                    $aliran_seni = $this->input->post("aliran_seni");
-                    $hak_akses = "2";
-                    $idnft = rand(0, 99999);
+                $password = $this->input->post("password");
+                $Confirmpassword = $this->input->post("ConfirmPassword");
 
-                    $query = ("SELECT * FROM user WHERE username = '$username' AND email = '$email'");
-                    $result = $this->db->query($query);
-
-                    if (!mysqli_fetch_array($result)) {
-                        $this->Auth->register($nama, $username, $password, $email,  $aliran_seni, $idnft, $hak_akses);
-                        // $this->Auth->login_user($username, $password);
-                        $this->session->set_flashdata('message', 'Proses pendaftaran user berhasil. Silahkan aktivasi akun Anda!!!');
-
-                        redirect(site_url('login'));
-                        // redirect(site_url('home'));
+                if($password ==  $Confirmpassword){
+                    if ($this->form_validation->run() == true) {
+                        $nama = $this->input->post("nama");
+                        $username = $this->input->post("username");
+                        $password = $this->input->post("password");
+                        $email = $this->input->post("email");
+                        $aliran_seni = $this->input->post("aliran_seni");
+                        $hak_akses = "2";
+                        $idnft = rand(0, 99999);
+    
+                        $query = ("SELECT * FROM user WHERE username = '$username' AND email = '$email'");
+                        $result = $this->db->query($query);
+    
+                        if (!mysqli_fetch_array($result)) {
+                            $this->Auth->register($nama, $username, $password, $email,  $aliran_seni, $idnft, $hak_akses);
+                            // $this->Auth->login_user($username, $password);
+                            $this->session->set_flashdata('message', 'Proses pendaftaran user berhasil. Silahkan aktivasi akun Anda!!!');
+    
+                            redirect(site_url('login'));
+                            // redirect(site_url('home'));
+                        } else {
+                            $this->session->set_flashdata('error', 'Username telah terdaftar');
+                            redirect(site_url('signUp'));
+                        }
                     } else {
-                        $this->session->set_flashdata('error', 'Username telah terdaftar');
+                        $this->session->set_flashdata('error', 'Data yang anda masukan salah');
                         redirect(site_url('signUp'));
                     }
-                } else {
-                    $this->session->set_flashdata('error', 'Data yang anda masukan salah');
+                }else {
+                    $this->session->set_flashdata('error', 'Pastikan Password dan Corfirm Password yang anda masukan sesuai');
                     redirect(site_url('signUp'));
-                }
+                } 
             } else {
                 $this->session->set_flashdata('error', 'Silahkan selesaikan CAPTCHA terlebih dahulu');
                 redirect(site_url('signUp'));
@@ -87,40 +96,6 @@ class SignUp extends CI_Controller
             redirect(site_url('signUp'));
         }
     }
-
-    // function prosesSignUpAdmin()
-    // {
-    //     $this->load->model("Auth", "", TRUE);
-
-    //     $this->form_validation->set_rules('nama', 'nama', 'trim|required|min_length[1]|max_length[255]');
-    //     $this->form_validation->set_rules('username', 'username', 'trim|required|min_length[1]|max_length[255]|is_unique[user.username]');
-    //     $this->form_validation->set_rules('password', 'password', 'trim|required|min_length[1]|max_length[255]');
-    //     $this->form_validation->set_rules('email', 'email', 'trim|required|min_length[1]|max_length[255]');
-    //     $this->form_validation->set_rules('phone', 'phone', 'trim|required|min_length[1]|max_length[255]');
-
-    //     if ($this->form_validation->run() == true) {
-    //         $nama = $this->input->post("nama");
-    //         $username = $this->input->post("username");
-    //         $password = $this->input->post("password");
-    //         $email = $this->input->post("email");
-    //         $phone = $this->input->post("phone");
-    //         $hak_akses = $this->input->post("hak_akses");
-
-    //         $result = $this->db->where("username", $username);
-
-    //         if (!mysqli_fetch_assoc($result)) {
-    //             $this->Auth->registerAdmin($nama, $username, $password, $email, $phone, $hak_akses);
-    //             $this->session->set_flashdata('message', 'Proses Pendaftaran User Berhasil');
-    //             redirect(site_url('Profile'));
-    //         } else {
-    //             $this->session->set_flashdata('error', 'Username telah terdaftar');
-    //             redirect(site_url('signUp/SignUp'));
-    //         }
-    //     } else {
-    //         $this->session->set_flashdata('error', 'Data yang Anda masukan salah');
-    //         redirect(site_url('signUp/SignUp'));
-    //     }
-    // }
 
     function getUsernameData()
     {
@@ -136,14 +111,10 @@ class SignUp extends CI_Controller
 
         $user = $this->db->get_where('user', ['email' => $email])->row_array();
 
-        // var_dump($email);die;
-        // $var = "Hello World";
-        // var_dump($var);
-
         if ($user) {
             $user_token = $this->db->get_where('user_token', ['token' => $token])->row_array();
             if ($user_token) {
-                if (time() - $user_token['date_created'] < (60 * 60 * 24)) {
+                if (time() - $user_token['date_created'] < (3600)) {
 
                     $this->db->set('is_active', 1);
                     $this->db->where('email', $email);

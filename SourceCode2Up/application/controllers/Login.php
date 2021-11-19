@@ -11,12 +11,12 @@ class Login extends CI_Controller
 	function index()
 	{
 		if ($this->session->userdata('is_login')) {
-            $data['login'] = $this->Auth->getUsernameData();
+			$data['login'] = $this->Auth->getUsernameData();
 			$data['sosmed'] = $this->Auth->getUSosmedIdnft();
-            $this->load->view("halamanpelanggan/home", $data);
-        } else {
-            $this->load->view("login/login");
-        }
+			$this->load->view("halamanpelanggan/home", $data);
+		} else {
+			$this->load->view("login/login");
+		}
 	}
 	public function prosesLogin()
 	{
@@ -45,6 +45,12 @@ class Login extends CI_Controller
 				$password = $this->input->post("password");
 
 				if ($this->Auth->login_user($username, $password)) {
+					$date_access = array(
+						'date_access'	=> time()
+					);
+					$this->db->where('username', $username);
+					$this->db->update('user', $date_access);
+
 					$this->session->set_flashdata('message', 'Anda Berhasil Login');
 					redirect(site_url('home'));
 				} else {

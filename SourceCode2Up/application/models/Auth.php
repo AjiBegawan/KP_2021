@@ -79,15 +79,6 @@ class Auth extends CI_Model
 
     function login_user($username, $password)
     {
-        // $user= $this->db->get_where('user', ['username' => $username])->row_array();
-        // // $user = $this->db->get_where('user', array('username' => $username))->num_rows();
-        // var_dump($user);
-        // die;
-
-        // if($user['is_active'])
-
-
-
         if ($this->db->get_where('admin', array('username' => $username))->num_rows()) {
             $data_user = $this->db->get_where('admin', array('username' => $username))->row();
             if (password_verify($password, $data_user->password)) {
