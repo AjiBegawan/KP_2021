@@ -109,7 +109,7 @@
                                     </div>
                                     <div class="card-body col-md-9">
                                         <div id="konten">
-                                                <h5 id="tanggal"><?= $row->date_upload; ?></h5>
+                                                <h6 id="tanggal"><?= $row->date_upload; ?></h6>
                                             <a href="<?= site_url('Artikel/LoadArtikelDetail/') . $row->Id ?>" class="text-danger">
                                                 <h5 class="" id="judul"><?= $row->Judul; ?></h5>
                                             </a>

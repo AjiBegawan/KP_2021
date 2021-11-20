@@ -146,7 +146,8 @@
                         <div class="input-group mb-3">
                             <input type="text" class="form-control" placeholder="Search Keyword..." name="keyword" autocomplete="off" autofocus>
                             <div class="input-group-append">
-                                <input class="btn btn-outline-danger" type="submit" name="submit" placeholder="Kirim">
+                                <input class="btn btn-outline-danger" type="submit" name="submit">
+
                             </div>
                         </div>
                     </form>

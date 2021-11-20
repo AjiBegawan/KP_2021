@@ -126,7 +126,7 @@
                 <textarea name="paragraf7" class="form-control" id="" cols="30" rows="10"><?php echo $artikel->Paragraf7; ?></textarea>
             </div>
             <div class="form-group">
-                <label for="exampleInputEmail1">Gambar Header : <?php echo $artikel->gambar; ?></label>
+                <label for="exampleInputEmail1">Upload Gambar Header</label>
                 <input type='file' class="form-control" name='gambar' size='20' placeholder="<?php echo $artikel->gambar; ?>">
             </div>
             <button type="submit" class="form-control btn btn-primary">Submit</button><br><br>

@@ -53,7 +53,7 @@
                     backdrop: 'rgba(255,0,0,0.1) ',
                 });
             }
-            // get Lihat Product
+            // get Edit Product
             $('.btn-lihat').on('click', function() {
                 // get data from button edit
                 const id = $(this).data('id');
@@ -79,37 +79,6 @@
                 // Call Modal Edit
                 $('#lihatModal').modal('toggle');
             });
-            // get Edit Product
-            $('.btn-edit').on('click', function() {
-                // get data from button edit
-                const id = $(this).data('id');
-                const judul = $(this).data('judul');
-                const paragraf1 = $(this).data('paragraf1');
-                const paragraf2 = $(this).data('paragraf2');
-                const paragraf3 = $(this).data('paragraf3');
-                const paragraf4 = $(this).data('paragraf4');
-                const paragraf5 = $(this).data('paragraf5');
-                const paragraf6 = $(this).data('paragraf6');
-                const paragraf7 = $(this).data('paragraf7');
-                const gambar = $(this).data('gambar');
-                // Set data to Form Edit
-                $('.id').val(id);
-                $('.judul').val(judul);
-                $('.paragraf1').val(paragraf1);
-                $('.paragraf2').val(paragraf2);
-                $('.paragraf3').val(paragraf3);
-                $('.paragraf4').val(paragraf4);
-                $('.paragraf5').val(paragraf5);
-                $('.paragraf6').val(paragraf6);
-                $('.paragraf7').val(paragraf7);
-                // Call Modal Edit
-                $('#editModal').modal('toggle');
-            });
-                // Modal Tambah Artikel
-                $('.btn-tambah').on('click', function() {
-                $('#tambahModal').modal('show');
-            });
-
             // get Delete
             $('.btn-delete').on('click', function() {
                 // get data from button edit
@@ -181,7 +150,7 @@
                         <?= $this->pagination->create_links(); ?>
                     </div>
                     <hr>
-                    <a href="#" style="text-decoration: none;"><button type="button" class="btn btn-success btn-tambah"><i class="icofont-plus"></i></button></button></a> <br><br>
+                    <a href="<?php echo site_url('/admin/addArtikel/') ?>" style="text-decoration: none;"><button type="button" class="btn btn-success"><i class="icofont-plus"></i></button></button></a> <br><br>
                     <table id="table_artikel" class="table table-condensed table-hover table-striped">
                         <thead>
                             <tr>
@@ -218,7 +187,7 @@
         <!-- End Of Tabel Artikel -->
 
         <!-- Modal Lihat Artikel-->
-        <form action="" method="post">
+        <form action="<?php echo site_url('Admin/addAdmin'); ?>" method="post">
             <div class="modal fade" id="lihatModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -231,154 +200,51 @@
                         <div class="modal-body">
                             <div class="form-group">
                                 <label>ID</label>
-                                <textarea id="w3review" class="form-control id"  rows="1" cols="40"></textarea>
+                                <input type="text" class="form-control id" name="id">
                             </div>
                             <div class="form-group">
                                 <label>Judul</label>
-                                <textarea id="w3review" name="judul" class="form-control judul"  rows="4" cols="40"></textarea>
+                                <input type="text" class="form-control judul" name="judul">
                             </div>
                             <div class="form-group">
                                 <label>Paragraf 1</label>
-                                <textarea id="w3review" name="paragraf1" class="form-control paragraf1"  rows="4" cols="40"></textarea>
+                                <input type="text" class="form-control paragraf1" name="paragraf1">
                             </div>
                             <div class="form-group">
                                 <label>Paragraf 2</label>
-                                <textarea id="w3review" name="paragraf2" class="form-control paragraf2"  rows="4" cols="40"></textarea>
+                                <input type="text" class="form-control paragraf2" name="paragraf2">
                             </div>
                             <div class="form-group">
                                 <label>Paragraf 3</label>
-                                <textarea id="w3review" name="paragraf3" class="form-control paragraf3"  rows="4" cols="40"></textarea>
+                                <input type="text" class="form-control paragraf3" name="paragraf3">
                             </div>
                             <div class="form-group">
                                 <label>Paragraf 4</label>
-                                <textarea id="w3review" name="paragraf4" class="form-control paragraf4"  rows="4" cols="40"></textarea>
+                                <input type="text" class="form-control paragraf4" name="paragraf4">
                             </div>
                             <div class="form-group">
                                 <label>Paragraf 5</label>
-                                <textarea id="w3review" name="paragraf5" class="form-control paragraf5"  rows="4" cols="40"></textarea>
+                                <input type="text" class="form-control paragraf5" name="paragraf5">
                             </div>
                             <div class="form-group">
                                 <label>Paragraf 6</label>
-                                <textarea id="w3review" name="paragraf6" class="form-control paragraf6"  rows="4" cols="40"></textarea>
+                                <input type="text" class="form-control paragraf6" name="paragraf6">
                             </div>
                             <div class="form-group">
                                 <label>Paragraf 7</label>
-                                <textarea id="w3review" name="paragraf7" class="form-control paragraf7"  rows="4" cols="40"></textarea>
+                                <input type="text" class="form-control paragraf7" name="paragraf7">
                             </div>
+                            <!-- <div class="form-group">
+                                <label>Gambar</label>
+                                <img src="" class="gambar" alt="">
+                                <input type="text" class="form-control gambar" name="gambar">
+                            </div> -->
                         </div>
                     </div>
                 </div>
             </div>
         </form>
         <!-- End Modal Lihat Artikel-->
-
-
-        <!-- Modal Edit Artikel-->
-        <form action="<?php echo site_url('Admin/updateArtikel/' . $artikel->Id); ?>" method="post">
-            <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Lihat Artikel</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="form-group">
-                                <label>ID</label>
-                                <textarea id="w3review" class="form-control id"  rows="1" cols="40"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label>Judul</label>
-                                <textarea id="w3review" name="judul" class="form-control judul"  rows="4" cols="40"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label>Paragraf 1</label>
-                                <textarea id="w3review" name="paragraf1" class="form-control paragraf1"  rows="4" cols="40"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label>Paragraf 2</label>
-                                <textarea id="w3review" name="paragraf2" class="form-control paragraf2"  rows="4" cols="40"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label>Paragraf 3</label>
-                                <textarea id="w3review" name="paragraf3" class="form-control paragraf3"  rows="4" cols="40"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label>Paragraf 4</label>
-                                <textarea id="w3review" name="paragraf4" class="form-control paragraf4"  rows="4" cols="40"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label>Paragraf 5</label>
-                                <textarea id="w3review" name="paragraf5" class="form-control paragraf5"  rows="4" cols="40"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label>Paragraf 6</label>
-                                <textarea id="w3review" name="paragraf6" class="form-control paragraf6"  rows="4" cols="40"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label>Paragraf 7</label>
-                                <textarea id="w3review" name="paragraf7" class="form-control paragraf7"  rows="4" cols="40"></textarea>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </form>
-        <!-- End Modal Edit Artikel-->
-
-        <!-- Modal Tambah Artikel-->
-        <form action="<?php echo site_url('Admin/ProsesAddArtikel'); ?>" method="post">
-            <div class="modal fade" id="tambahModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Lihat Artikel</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="form-group">
-                                <label>Judul</label>
-                                <textarea id="w3review" name="judul" class="form-control judul"  rows="4" cols="40"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label>Paragraf 1</label>
-                                <textarea id="w3review" name="paragraf1"  class="form-control paragraf1"  rows="4" cols="40"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label>Paragraf 2</label>
-                                <textarea id="w3review" name="paragraf2"  class="form-control paragraf2"  rows="4" cols="40"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label>Paragraf 3</label>
-                                <textarea id="w3review" name="paragraf3"  class="form-control paragraf3"  rows="4" cols="40"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label>Paragraf 4</label>
-                                <textarea id="w3review" name="paragraf4"  class="form-control paragraf4"  rows="4" cols="40"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label>Paragraf 5</label>
-                                <textarea id="w3review" name="paragraf5"  class="form-control paragraf5"  rows="4" cols="40"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label>Paragraf 6</label>
-                                <textarea id="w3review" name="paragraf6"  class="form-control paragraf6"  rows="4" cols="40"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label>Paragraf 7</label>
-                                <textarea id="w3review" name="paragraf"  class="form-control paragraf7"  rows="4" cols="40"></textarea>
-                            </div>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Yes</button>
-                    </div>
-                </div>
-            </div>
-        </form>
-        <!-- End Modal Tambah Artikel-->
 
         <!-- Modal Delete Product-->
         <form action="<?php echo site_url('Admin/deleteArtikel'); ?>" method="post">
