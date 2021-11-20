@@ -93,7 +93,7 @@
                                             <h3 class="card-title"><?php echo $row->nama; ?></h3>
                                         </a>
                                         <h5 class="card-title"><?php echo $row->judul; ?></h5>
-                                        <p class="card-text"><?php echo $row->deskripsi; ?></p>
+                                        <!-- <p class="card-text"><?php echo $row->deskripsi; ?></p> -->
                                     </div>
                                 </div>
                             </div>

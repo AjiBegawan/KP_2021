@@ -173,7 +173,7 @@ class Profile extends CI_Controller
         $this->load->library('upload', $config);
 
         if (!$this->upload->do_upload('profile_pic')) {
-            $this->load->view("gagal");
+            redirect(site_url('Profile'));
         } else {
             $upload_data = $this->upload->data();
             $file_name = $upload_data['file_name'];
@@ -200,7 +200,7 @@ class Profile extends CI_Controller
         $this->load->library('upload', $config);
 
         if (!$this->upload->do_upload('gambar')) {
-            $this->load->view("gagal");
+            redirect(site_url('Profile'));
         } else {
             $upload_data = $this->upload->data();
             $file_name = $upload_data['file_name'];

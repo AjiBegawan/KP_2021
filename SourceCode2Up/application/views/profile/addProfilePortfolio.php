@@ -81,7 +81,7 @@
                 <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="judul" require>
             </div>
             <div class="form-group">
-                <label for="exampleInputEmail1">Deskripsi</label>
+                <label for="exampleInputEmail1">Deskripsi (Maks 255 Karakter)</label>
                 <textarea class="form-control" id="" cols="30" rows="10" name="deskripsi" require> </textarea>
             </div>
 
