@@ -159,7 +159,7 @@ class Profile extends CI_Controller
         if ($query) {
             redirect(site_url('profile'));
         } else {
-            redirect(site_url('CekPage/gagal'));
+            redirect(site_url('Profile'));
         }
     }
     function uploadGambarPortfolio($id)
@@ -184,7 +184,7 @@ class Profile extends CI_Controller
             if ($this->db->update('user', $data)) {
                 redirect(site_url('Profile'));
             } else {
-                $this->load->view("gagal");
+                redirect(site_url('Profile'));
             }
         }
     }
@@ -211,7 +211,7 @@ class Profile extends CI_Controller
             if ($this->db->update('user', $data)) {
                 redirect(site_url('Profile'));
             } else {
-                $this->load->view("gagal");
+                redirect(site_url('Profile'));
             }
         }
     }
