@@ -226,6 +226,7 @@ class Profile extends CI_Controller
             $config['upload_path'] = './upload/portfolio';
             $config['allowed_types'] = 'gif|jpg|png|jpeg';
             $config['max_size'] = 2000;
+
             $date = date('Ymd');
             $new_name = $this->session->userdata('username') . "_" . $date . "_" . rand(0, 999999999);
             $config['file_name'] = $new_name;
@@ -235,7 +236,7 @@ class Profile extends CI_Controller
             $this->load->library('upload', $config);
 
             if (!$this->upload->do_upload('gambar')) {
-                $this->session->set_flashdata('message', 'Project gagal ditambahkan');
+                $this->session->set_flashdata('error', 'Project gagal ditambahkan');
                 redirect(site_url('Profile/managePortfolio'));
             } else {
                 $upload_data = $this->upload->data();
@@ -251,7 +252,7 @@ class Profile extends CI_Controller
                     $this->session->set_flashdata('message', 'Project baru telah ditambahkan');
                     redirect(site_url('Profile/managePortfolio'));
                 } else {
-                    $this->session->set_flashdata('message', 'Project gagal ditambahkan');
+                    $this->session->set_flashdata('error', 'Project gagal ditambahkan');
                     redirect(site_url('Profile/managePortfolio'));
                 }
             }
@@ -270,6 +271,7 @@ class Profile extends CI_Controller
         if ($this->form_validation->run() == true) {
 
             if (!empty($_FILES['gambar']['name'])) {
+                
                 $config['upload_path'] = './upload/portfolio';
                 $config['allowed_types'] = 'gif|jpg|png|jpeg';
                 $config['max_size'] = 2000;
