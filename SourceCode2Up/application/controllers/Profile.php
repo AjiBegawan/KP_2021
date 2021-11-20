@@ -157,37 +157,39 @@ class Profile extends CI_Controller
         $this->db->where('username', $username);
         $query = $this->db->update('user', $data);
         if ($query) {
+            $this->session->set_flashdata('message', 'Profile berhasil diperbaharui');
             redirect(site_url('profile'));
         } else {
-            redirect(site_url('CekPage/gagal'));
+            $this->session->set_flashdata('error', 'Profile gagal diperbaharui');
+            redirect(site_url('profile'));
         }
     }
-    function uploadGambarPortfolio($id)
-    {
-        $config['upload_path'] = './upload/portfolio';
-        $config['allowed_types'] = 'gif|jpg|png|jpeg';
-        $config['max_size'] = 2000;
-        $new_name = time() . "_" . $id . "_" . rand(0, 999999999);
-        $config['file_name'] = $new_name;
+    // function uploadGambarPortfolio($id)
+    // {
+    //     $config['upload_path'] = './upload/portfolio';
+    //     $config['allowed_types'] = 'gif|jpg|png|jpeg';
+    //     $config['max_size'] = 2000;
+    //     $new_name = time() . "_" . $id . "_" . rand(0, 999999999);
+    //     $config['file_name'] = $new_name;
 
-        $this->load->library('upload', $config);
+    //     $this->load->library('upload', $config);
 
-        if (!$this->upload->do_upload('profile_pic')) {
-            $this->load->view("gagal");
-        } else {
-            $upload_data = $this->upload->data();
-            $file_name = $upload_data['file_name'];
-            $data = array(
-                'dp'      => $file_name
-            );
-            $this->db->where('username', $id);
-            if ($this->db->update('user', $data)) {
-                redirect(site_url('Profile'));
-            } else {
-                $this->load->view("gagal");
-            }
-        }
-    }
+    //     if (!$this->upload->do_upload('profile_pic')) {
+    //         $this->load->view("gagal");
+    //     } else {
+    //         $upload_data = $this->upload->data();
+    //         $file_name = $upload_data['file_name'];
+    //         $data = array(
+    //             'dp'      => $file_name
+    //         );
+    //         $this->db->where('username', $id);
+    //         if ($this->db->update('user', $data)) {
+    //             redirect(site_url('Profile'));
+    //         } else {
+    //             $this->load->view("gagal");
+    //         }
+    //     }
+    // }
 
     function uploadDisplayPicture($id)
     {
@@ -212,6 +214,7 @@ class Profile extends CI_Controller
                 redirect(site_url('Profile'));
             } else {
                 $this->load->view("gagal");
+                redirect(site_url('Profile'));
             }
         }
     }

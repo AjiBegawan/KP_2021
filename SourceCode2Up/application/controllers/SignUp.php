@@ -18,11 +18,11 @@ class SignUp extends CI_Controller
             $this->load->view("signUp/SignUpMember");
         }
     }
-    function SignUpAdmin()
-    {
-        $this->load->helper("url");
-        $this->load->view("signUp/SignUpAdmin");
-    }
+    // function SignUpAdmin()
+    // {
+    //     $this->load->helper("url");
+    //     $this->load->view("signUp/SignUpAdmin");
+    // }
     function prosesSignUp()
     {
         $captcha_response = trim($this->input->post('g-recaptcha-response'));
