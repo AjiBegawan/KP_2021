@@ -80,7 +80,7 @@ class Admin extends CI_Controller
         // Pagination
         $this->load->library('pagination');
 
-        $config['base_url'] = 'http://localhost/KP_2021/SourceCode2Up/Admin/Artikel';
+        $config['base_url'] = 'http://localhost/KP_2021/SourceCode2Up/admin/artikel';
         $config['total_rows'] =  $this->AdminModel->getCountArtikel();
         $config['per_page'] = 10;
 
@@ -94,7 +94,7 @@ class Admin extends CI_Controller
         $this->load->helper("url");
 
         if ($this->session->userdata('is_admin')) {
-            $this->load->view("Admin/KelolaArtikel", $data);
+            $this->load->view("admin\artikel", $data);
         } else {
             $this->session->set_flashdata('error', 'Maaf Anda bukan Admin');
             redirect(site_url('home'));
@@ -324,8 +324,10 @@ class Admin extends CI_Controller
 
         $this->db->where('id', $id);
         if ($this->db->delete('artikel')) {
+
             $this->session->set_flashdata('message', 'Artikel berhasil dihapus');
             redirect(site_url('Admin/Artikel'));
+
         } else {
             $this->session->set_flashdata('error', 'Artikel gagal dihapus');
             redirect(site_url('Admin/Artikel'));
@@ -335,50 +337,32 @@ class Admin extends CI_Controller
     {
         $this->load->library('upload');
 
+        $config['upload_path'] = './upload/artikel';
+        $config['allowed_types'] = 'gif|jpg|png|jpeg';
+        $config['max_size'] = 2000;
 
-        if(!empty($_FILES['gambar']['name'])){
-            $config['upload_path'] = './upload/artikel';
-            $config['allowed_types'] = 'gif|jpg|png|jpeg';
-            $config['max_size'] = 2000;
-    
-            $date = date('Ymd');
-            $new_name = $date . "_" . rand(0, 999999999);
-            $config['file_name'] = $new_name;
-    
-            $this->upload->initialize($config);
-            $this->load->library('upload', $config);
-            $this->upload->do_upload('gambar');
-    
-            $upload_data = $this->upload->data();
-            $file_name = $upload_data['file_name'];
-            $data = array(
-                'Id'        => $this->input->post('id'),
-                'Judul'     => $this->input->post('judul'),
-                'Paragraf1' => $this->input->post('paragraf1'),
-                'Paragraf2' => $this->input->post('paragraf2'),
-                'Paragraf3' => $this->input->post('paragraf3'),
-                'Paragraf4' => $this->input->post('paragraf4'),
-                'Paragraf5' => $this->input->post('paragraf5'),
-                'Paragraf6' => $this->input->post('paragraf6'),
-                'Paragraf7' => $this->input->post('paragraf7'),
-                'gambar'    => $file_name,
-                'date_upload'   => date('d F Y  H:i:s')
-            );
-        }else{
-            $data = array(
-                'Id'        => $this->input->post('id'),
-                'Judul'     => $this->input->post('judul'),
-                'Paragraf1' => $this->input->post('paragraf1'),
-                'Paragraf2' => $this->input->post('paragraf2'),
-                'Paragraf3' => $this->input->post('paragraf3'),
-                'Paragraf4' => $this->input->post('paragraf4'),
-                'Paragraf5' => $this->input->post('paragraf5'),
-                'Paragraf6' => $this->input->post('paragraf6'),
-                'Paragraf7' => $this->input->post('paragraf7'),
-                'date_upload'   => date('d F Y  H:i:s')
-            );
-        }
+        $date = date('Ymd');
+        $new_name = $date . "_" . rand(0, 999999999);
+        $config['file_name'] = $new_name;
 
+        $this->upload->initialize($config);
+        $this->load->library('upload', $config);
+        $this->upload->do_upload('gambar');
+
+        $upload_data = $this->upload->data();
+        $file_name = $upload_data['file_name'];
+        $data = array(
+            'Id'        => $this->input->post('id'),
+            'Judul'     => $this->input->post('judul'),
+            'Paragraf1' => $this->input->post('paragraf1'),
+            'Paragraf2' => $this->input->post('paragraf2'),
+            'Paragraf3' => $this->input->post('paragraf3'),
+            'Paragraf4' => $this->input->post('paragraf4'),
+            'Paragraf5' => $this->input->post('paragraf5'),
+            'Paragraf6' => $this->input->post('paragraf6'),
+            'Paragraf7' => $this->input->post('paragraf7'),
+            'gambar'    => $file_name
+        );
         $this->db->where('id', $id);
         if ($this->db->update('artikel', $data)) {
             $this->session->set_flashdata('message', 'Artikel berhasil diubah');
@@ -426,14 +410,14 @@ class Admin extends CI_Controller
             // var_dump($data['date_upload']);die;
             if ($this->db->insert('artikel', $data)) {
                 $this->session->set_flashdata('message', 'Anda berhasil menambahkan artikel baru');
-                redirect(site_url('Admin/Artikel'));
+                redirect(site_url('Admin/artikel'));
             } else {
                 $this->session->set_flashdata('error', 'Maaf Anda gagal menambahkan artikel baru');
-                redirect(site_url('Admin/Artikel'));
+                redirect(site_url('Admin/artikel'));
             }
         } else {
             $this->session->set_flashdata('error', 'Anda harus mengisi minimal judul dan paragraf 1');
-            redirect(site_url('Admin/Artikel'));
+            redirect(site_url('Admin/artikel'));
         }
     }
 }
