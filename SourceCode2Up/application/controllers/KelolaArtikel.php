@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Artikel extends CI_Controller
+class KelolaArtikel extends CI_Controller
 {
     public function __construct()
     {
@@ -14,7 +14,7 @@ class Artikel extends CI_Controller
         // Pagination
         $this->load->library('pagination');
 
-        $config['base_url'] = 'http://localhost/KP_2021/SourceCode2Up/artikel/index';
+        $config['base_url'] = 'http://localhost/KP_2021/SourceCode2Up/KelolaArtikel/index';
         $config['total_rows'] =  $this->ArtikelModel->getCountArtikelAll();
         $config['per_page'] = 10;
 
