@@ -20,6 +20,24 @@ class Home extends CI_Controller
             $this->load->view("halamanpelanggan/home", $data);
         }
     }
+    public function AboutView()
+    {
+        if ($this->session->userdata('is_login')) {
+            $data['user'] = $this->getUsernameData();
+            $this->load->view("halamanpelanggan/About", $data);
+        } else {
+            $this->load->view("halamanpelanggan/About");
+        }
+    }
+    public function ContactView()
+    {
+        if ($this->session->userdata('is_login')) {
+            $data['user'] = $this->getUsernameData();
+            $this->load->view("halamanpelanggan/Contact", $data);
+        } else {
+            $this->load->view("halamanpelanggan/Contact");
+        }
+    }
     public function DeeraView()
     {
         if ($this->session->userdata('is_login')) {

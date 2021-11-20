@@ -45,36 +45,36 @@ class AdminModel extends CI_Model
     }
 
     // Function Get for Manage Admin Page
-    // function getCountAdminAll()
-    // {
-    //     $query = $this->db->get('admin')->num_rows();
-    //     return $query;
-    // }
-    // function getAllAdmin($limit, $start)
-    // {
-    //     $query = $this->db->get('Admin', $limit, $start);
-    //     return $query;
-    // }
-    // function registerAdmin($nama, $username, $password, $email)
-    // {
-    //     $data_user = array(
-    //         'nama'          => $nama,
-    //         'username'      => $username,
-    //         'password'      => password_hash($password, PASSWORD_DEFAULT),
-    //         'email'         => $email
-    //     );
-    //     $this->db->insert('admin', $data_user);
-    // }
-    // function updateAdmin($nama, $username, $password, $email)
-    // {
-    //     $data_user = array(
-    //         'nama'          => $nama,
-    //         'username'      => $username,
-    //         'password'      => password_hash($password, PASSWORD_DEFAULT),
-    //         'email'         => $email
-    //     );
-    //     $this->db->update('admin', $data_user);
-    // }
+    function getCountAdminAll()
+    {
+        $query = $this->db->get('admin')->num_rows();
+        return $query;
+    }
+    function getAllAdmin($limit, $start)
+    {
+        $query = $this->db->get('Admin', $limit, $start);
+        return $query;
+    }
+    function registerAdmin($nama, $username, $password, $email)
+    {
+        $data_user = array(
+            'nama'          => $nama,
+            'username'      => $username,
+            'password'      => password_hash($password, PASSWORD_DEFAULT),
+            'email'         => $email
+        );
+        $this->db->insert('admin', $data_user);
+    }
+    function updateAdmin($nama, $username, $password, $email)
+    {
+        $data_user = array(
+            'nama'          => $nama,
+            'username'      => $username,
+            'password'      => password_hash($password, PASSWORD_DEFAULT),
+            'email'         => $email
+        );
+        $this->db->update('admin', $data_user);
+    }
     // Function Get for Member Page
     function getCountUserAll()
     {

@@ -35,6 +35,7 @@ class ArtikelModel extends CI_Model
     }
     function getCountArtikelAll()
     {
+        
         $query = $this->db->get('artikel')->num_rows();
         return $query;
     }

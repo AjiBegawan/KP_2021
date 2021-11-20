@@ -41,7 +41,7 @@
             <li><a href="<?php echo site_url('Home') ?>" class="text-danger">HOME</a></li>
             <li><a href="<?php echo site_url('Home/DeeraView') ?>">DEERA
                 NFT</a></li>
-            <li><a href="<?php echo site_url('KelolaArtikel') ?>">BLOG</a></li>
+            <li><a href="<?php echo site_url('Artikel') ?>">BLOG</a></li>
             <li><a href="<?php echo site_url('Portfolio') ?>">PROJECT</a></li>
             <li><a href="https://discord.gg/DMMF7bVYrh" target="_blank">JOIN OUR DISCORD</a></li>
             <li><a href="<?php echo site_url('Home') ?>#contact">CONTACT</a></li>

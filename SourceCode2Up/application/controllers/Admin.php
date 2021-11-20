@@ -28,6 +28,8 @@ class Admin extends CI_Controller
             // $data['keyword'] = null;
         }
 
+
+
         $config['base_url'] = 'http://localhost/KP_2021/SourceCode2Up/admin/member';
         // $config['total_rows'] =  $this->AdminModel->getCountUserAll();
         $this->db->like('nama', $data['keyword']);
@@ -208,37 +210,37 @@ class Admin extends CI_Controller
         }
     }
     // All Function User / Member
-    // function editUser($username)
-    // {
-    //     $data['login'] = $this->AdminModel->getUsernameLogin();
-    //     $data['user'] = $this->AdminModel->getUserDatabase($username);
-    //     $this->session->set_flashdata('message', 'Memunculkan Data');
-    //     $this->load->view("admin/editAdminUser", $data);
-    // }
-    // function updateUser()
-    // {
-    //     $username = $this->input->post('username');
-    //     $role = $this->input->post('role');
+    function editUser($username)
+    {
+        $data['login'] = $this->AdminModel->getUsernameLogin();
+        $data['user'] = $this->AdminModel->getUserDatabase($username);
+        $this->session->set_flashdata('message', 'Memunculkan Data');
+        $this->load->view("admin/editAdminUser", $data);
+    }
+    function updateUser()
+    {
+        $username = $this->input->post('username');
+        $role = $this->input->post('role');
 
-    //     $data = array(
-    //         'role'      => $role
-    //     );
-    //     $this->db->where('username', $username);
-    //     if ($this->db->update('user', $data)) {
-    //         $this->index();
-    //     } else {
-    //         $this->load->view("gagal");
-    //     }
-    // }
-    // function deleteUser($username)
-    // {
-    //     $this->db->where('username', $username);
-    //     if ($this->db->delete('user')) {
-    //         $this->index();
-    //     } else {
-    //         $this->load->view("gagal");
-    //     }
-    // }
+        $data = array(
+            'role'      => $role
+        );
+        $this->db->where('username', $username);
+        if ($this->db->update('user', $data)) {
+            $this->index();
+        } else {
+            $this->load->view("gagal");
+        }
+    }
+    function deleteUser($username)
+    {
+        $this->db->where('username', $username);
+        if ($this->db->delete('user')) {
+            $this->index();
+        } else {
+            $this->load->view("gagal");
+        }
+    }
     // All Function Sosmed
     function editSosmed($id)
     {
@@ -265,7 +267,7 @@ class Admin extends CI_Controller
         } else {
             $this->session->set_flashdata('message', 'Gagal diperbaharui');
             redirect(site_url('admin/sosmed'));
-            // $this->load->view("gagal");
+            $this->load->view("gagal");
         }
     }
     // All Function Pesan / Contact
@@ -324,11 +326,10 @@ class Admin extends CI_Controller
 
         $this->db->where('id', $id);
         if ($this->db->delete('artikel')) {
-            $this->session->set_flashdata('message', 'Artikel berhasil dihapus');
+            $this->session->set_flashdata('message', 'Dihapus');
             redirect(site_url('Admin/Artikel'));
         } else {
-            $this->session->set_flashdata('error', 'Artikel gagal dihapus');
-            redirect(site_url('Admin/Artikel'));
+            $this->load->view("gagal");
         }
     }
     function updateArtikel($id)
@@ -381,11 +382,10 @@ class Admin extends CI_Controller
 
         $this->db->where('id', $id);
         if ($this->db->update('artikel', $data)) {
-            $this->session->set_flashdata('message', 'Artikel berhasil diubah');
+            $this->session->set_flashdata('message', 'Berhasil Diubah');
             redirect(site_url('Admin/Artikel'));
         } else {
-            $this->session->set_flashdata('error', 'Artikel gagal diubah');
-            redirect(site_url('Admin/Artikel'));
+            $this->load->view("gagal");
         }
     }
     function ProsesAddArtikel()

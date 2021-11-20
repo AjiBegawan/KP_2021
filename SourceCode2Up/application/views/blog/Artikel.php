@@ -39,7 +39,7 @@
                         <li><a href="<?php echo site_url('Home') ?>" class="text-danger">HOME</a></li>
                         <li><a href="<?php echo site_url('Home/DeeraView') ?>">DEERA
                                 NFT</a></li>
-                        <li><a href="<?php echo site_url('KelolaArtikel') ?>">BLOG</a></li>
+                        <li><a href="<?php echo site_url('Artikel') ?>">BLOG</a></li>
                         <li><a href="<?php echo site_url('Portfolio') ?>">PROJECT</a></li>
                         <li><a href="https://discord.gg/DMMF7bVYrh" target="_blank">JOIN OUR DISCORD</a></li>
                         <li><a href="<?php echo site_url('Home') ?>#contact">CONTACT</a></li>
@@ -99,7 +99,7 @@
                             <div class="card h-100" id="kartu">
                                 <div class="row">
                                     <div class="col-md-3 img-hover-zoom">
-                                        <a href="<?= site_url('KelolaArtikel/LoadArtikelDetail/') . $row->Id ?>">
+                                        <a href="<?= site_url('Artikel/LoadArtikelDetail/') . $row->Id ?>">
                                             <?php if ($row->gambar == "") { ?>
                                                 <img class="card-img-top" id="img" src="<?= base_url('upload\artikel\dummyImage.png'); ?>" />
                                             <?php } else { ?>
@@ -110,7 +110,7 @@
                                     <div class="card-body col-md-9">
                                         <div id="konten">
                                                 <h5 id="tanggal"><?= $row->date_upload; ?></h5>
-                                            <a href="<?= site_url('KelolaArtikel/LoadArtikelDetail/') . $row->Id ?>" class="text-danger">
+                                            <a href="<?= site_url('Artikel/LoadArtikelDetail/') . $row->Id ?>" class="text-danger">
                                                 <h5 class="" id="judul"><?= $row->Judul; ?></h5>
                                             </a>
                                             <p class="card-title" id="paragraf"><?= $row->Paragraf1; ?></p>
