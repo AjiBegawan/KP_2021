@@ -23,7 +23,8 @@
 
     <!-- Template Main CSS File -->
     <link href="<?= base_url() ?>assets\css\styleHome.css" rel="stylesheet">
-    <link href="<?= base_url() ?>assets\css\styleHeader.css" rel="stylesheet">
+    <!-- <link href="<?= base_url() ?>assets\css\styleHeader.css" rel="stylesheet"> -->
+    <link href="<?= base_url() ?>assets/css/style.css" rel="stylesheet">
     <link href="<?= base_url() ?>assets\css\admin\styleAdmin.css" rel="stylesheet">
 
     <!-- CSS Tempalte -->
@@ -116,10 +117,13 @@
             </nav>
             <!-- .nav-menu -->
             <!-- Profile -->
-            <?php if ($this->session->userdata('is_login')) { ?>
+            <?php if ($this->session->userdata('is_admin')) { ?>
+                <img src="<?= base_url("assets\img\profile.png") ?>" width="35" height="35" style="margin: -5px 3px 0 0 ;" class="d-inline-block align-top" alt="Logo IDNFT">
+                <label for="nama" style="font-size: 13px;font-weight: normal; color:#5f687b;"><?= $login->nama; ?></label>
+            <?php } else if ($this->session->userdata('is_login')) { ?>
                 <a class="navbar-brand ml-auto" href="<?php echo site_url('/profile') ?>" style="text-decoration: none;">
                     <img src="<?= base_url("assets\img\profile.png") ?>" width="35" height="35" style="margin: -5px 3px 0 0 ;" class="d-inline-block align-top" alt="Logo IDNFT">
-                    <label for="nama" style="font-size: 13px;font-weight: normal; color:#5f687b; font-family: Open Sans, sans-serif;"><?= $login->nama; ?></label>
+                    <label for="nama" style="font-size: 13px;font-weight: normal; color:#5f687b;"><?= $login->nama; ?></label>
                 </a>
             <?php } else { ?>
             <?php } ?>
@@ -163,17 +167,19 @@
                                     <td class="tabel_contact"><?php echo $row->nama; ?></td>
                                     <td class="tabel_contact"><?php echo $row->email; ?></td>
                                     <td class="tabel_contact"><?php echo $row->subject; ?></td>
+
                                     <?php if ($row->status == "Sudah di Balas") { ?>
-                                        <td ><button type="button" class="btn btn-success "><i class="icofont-check"></i></i></button>
+                                        <td><button type="button" class="btn btn-success "><i class="icofont-check"></i></i></button>
                                         </td>
                                     <?php } elseif ($row->status == "Belum Dibalas") { ?>
-                                        <td ><button type="button" class="btn btn-warning"><i class="icofont-envelope"></i></button>
+                                        <td><button type="button" class="btn btn-warning"><i class="icofont-envelope"></i></button>
                                         </td>
                                     <?php } else { ?>
-                                        <td ><button type="button" class="btn btn-secondary"><i class="icofont-close"></i></button>
+                                        <td><button type="button" class="btn btn-secondary"><i class="icofont-close"></i></button>
                                         </td>
                                     <?php } ?>
-                                    <td><a href="<?php echo site_url('/admin/editPesan/') . $row->id ?>"><button type="button" class="btn btn-primary "><i class="icofont-edit"></i></button></a></td>
+
+                                    <td><a href="<?php echo site_url('/admin/editPesan/') . $row->id ?>"><button type="button" class="btn btn-warning"><i class="icofont-edit"></i></button></a></td>
                                     <td><a href="#" class="btn-lihat" data-id="<?= $row->id; ?>" data-nama="<?= $row->nama; ?>" data-email="<?= $row->email; ?>" data-subject="<?= $row->subject; ?>" data-message="<?= $row->message; ?>"><button type="button" class="btn btn-success"><i class="icofont-eye-alt"></i></button></a></td>
                                     <td><a href="#" class="btn-delete" data-id="<?= $row->id; ?>"><button type="button " id="hapus" class="btn btn-danger tombol-hapus"><i class="icofont-garbage"></i></button></a></td>
                                 </tr>

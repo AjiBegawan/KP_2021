@@ -24,7 +24,8 @@
 
     <!-- Template Main CSS File -->
     <link href="<?= base_url() ?>assets\css\styleHome.css" rel="stylesheet">
-    <link href="<?= base_url() ?>assets\css\styleHeader.css" rel="stylesheet">
+    <!-- <link href="<?= base_url() ?>assets\css\styleHeader.css" rel="stylesheet"> -->
+    <link href="<?= base_url() ?>assets/css/style.css" rel="stylesheet">
     <link href="<?= base_url() ?>assets\css\styleFooter.css" rel="stylesheet">
     <link href="<?= base_url() ?>assets\css\admin\styleAdmin.css" rel="stylesheet">
 
@@ -38,10 +39,8 @@
     <!-- ======= Header ======= -->
     <header id="header" class="fixed-top" style="background-color:white">
         <div class="container d-flex align-items-center ">
-            <a class="navbar-brand mr-auto" href="<?php echo site_url('Home') ?>"
-                style="text-decoration: none; color : black;">
-                <img src="<?= base_url("assets\img\LogoIDNFT.png") ?>" width="40" height="40"
-                    style="margin: -9px 7px 0 0 ;" class="d-inline-block align-top" alt="Logo IDNFT">
+            <a class="navbar-brand mr-auto" href="<?php echo site_url('Home') ?>" style="text-decoration: none; color : black;">
+                <img src="<?= base_url("assets\img\LogoIDNFT.png") ?>" width="40" height="40" style="margin: -9px 7px 0 0 ;" class="d-inline-block align-top" alt="Logo IDNFT">
                 <strong>IDNFT</strong> <span style="font-size: 10px;">Beta</span>
             </a>
             <nav class="nav-menu d-none d-lg-block mx-auto">
@@ -53,28 +52,29 @@
                         </a></li>
                     <li><a class="aclass" href="<?php echo site_url('Admin/contact') ?>">MESSAGE</a>
                     </li>
-                    <li><a class="aclass" href="<?php echo site_url('Admin/artikel') ?>">ARTIKEL</a>
+                    <li><a class="aclass text-danger" href="<?php echo site_url('Admin/artikel') ?> ">ARTIKEL</a>
                     </li>
                     <?php if ($this->session->userdata('is_login')) { ?>
-                    <li><a class="aclass" href="<?php echo site_url('Login/logout') ?>">LOGOUT</a></li>
+                        <li><a class="aclass" href="<?php echo site_url('Login/logout') ?>">LOGOUT</a></li>
                     <?php } ?>
                     <?php if (!$this->session->userdata('is_login')) { ?>
-                    <li><a class="aclass" href="<?= site_url() ?>/Login">LOGIN</a></li>
-                    <li><a class="aclass" href="<?= site_url() ?>/SignUp">REGISTER</a>
-                    </li>
+                        <li><a class="aclass" href="<?= site_url() ?>/Login">LOGIN</a></li>
+                        <li><a class="aclass" href="<?= site_url() ?>/SignUp">REGISTER</a>
+                        </li>
                     <?php } else { ?>
                     <?php } ?>
                 </ul>
             </nav>
             <!-- .nav-menu -->
             <!-- Profile -->
-            <?php if ($this->session->userdata('is_login')) { ?>
-            <a class="navbar-brand ml-auto" href="<?php echo site_url('/profile') ?>" style="text-decoration: none;">
-                <img src="<?= base_url("assets\img\profile.png") ?>" width="35" height="35"
-                    style="margin: -5px 3px 0 0 ;" class="d-inline-block align-top" alt="Logo IDNFT">
-                <label for="nama"
-                    style="font-size: 13px;font-weight: normal; color:#5f687b; font-family: Open Sans, sans-serif;"><?= $login->nama; ?></label>
-            </a>
+            <?php if ($this->session->userdata('is_admin')) { ?>
+                <img src="<?= base_url("assets\img\profile.png") ?>" width="35" height="35" style="margin: -5px 3px 0 0 ;" class="d-inline-block align-top" alt="Logo IDNFT">
+                <label for="nama" style="font-size: 13px;font-weight: normal; color:#5f687b;"><?= $login->nama; ?></label>
+            <?php } else if ($this->session->userdata('is_login')) { ?>
+                <a class="navbar-brand ml-auto" href="<?php echo site_url('/profile') ?>" style="text-decoration: none;">
+                    <img src="<?= base_url("assets\img\profile.png") ?>" width="35" height="35" style="margin: -5px 3px 0 0 ;" class="d-inline-block align-top" alt="Logo IDNFT">
+                    <label for="nama" style="font-size: 13px;font-weight: normal; color:#5f687b;"><?= $login->nama; ?></label>
+                </a>
             <?php } else { ?>
             <?php } ?>
             <!-- End Profile -->
@@ -87,14 +87,14 @@
 
     <div class="wadah">
         <div class="container" style="margin-top: 100px;">
-            <h1>Tambah Artikel</h1><hr>
+            <h1>Tambah Artikel</h1>
+            <hr>
             <a href="<?php echo site_url('Admin/artikel'); ?>"><button type="submit" class="btn btn-warning"><i class="icofont-swoosh-left"></i></button></a><br><br>
             <?php echo form_open_multipart('Admin/ProsesAddArtikel'); ?>
             <fieldset>
                 <div class="form-group">
                     <label for="exampleInputEmail1">Judul</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                        name="judul">
+                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="judul">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail1">Paragraf 1</label>
@@ -129,7 +129,7 @@
                     <input type='file' class="form-control" name='gambar' size='20'>
                 </div>
 
-                <input type="submit" value="Add" class="form-control btn btn-primary" />
+                <input type="submit" value="Tambah Artikel" class="form-control btn btn-success" />
             </fieldset>
             <?php echo form_close(); ?>
             <br>

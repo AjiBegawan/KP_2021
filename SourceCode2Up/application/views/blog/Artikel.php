@@ -36,10 +36,10 @@
                 </a>
                 <nav class="nav-menu d-none d-lg-block mx-auto">
                     <ul>
-                        <li><a href="<?php echo site_url('Home') ?>" class="text-danger">HOME</a></li>
+                        <li><a href="<?php echo site_url('Home') ?>" >HOME</a></li>
                         <li><a href="<?php echo site_url('Home/DeeraView') ?>">DEERA
                                 NFT</a></li>
-                        <li><a href="<?php echo site_url('Artikel') ?>">BLOG</a></li>
+                        <li><a href="<?php echo site_url('Artikel') ?>"class="text-danger">BLOG</a></li>
                         <li><a href="<?php echo site_url('Portfolio') ?>">PROJECT</a></li>
                         <li><a href="https://discord.gg/DMMF7bVYrh" target="_blank">JOIN OUR DISCORD</a></li>
                         <li><a href="<?php echo site_url('Home') ?>#contact">CONTACT</a></li>
@@ -59,10 +59,8 @@
                 <!-- .nav-menu -->
                 <!-- Profile -->
                 <?php if ($this->session->userdata('is_admin')) { ?>
-                    <a class="navbar-brand ml-auto" href="<?php echo site_url('/profile') ?>" style="text-decoration: none;">
-                        <img src="<?= base_url("assets\img\profile.png") ?>" width="35" height="35" style="margin: -5px 3px 0 0 ;" class="d-inline-block align-top" alt="Logo IDNFT">
-                        <label for="nama" style="font-size: 13px;font-weight: normal; color:#5f687b;"><?= $login->nama; ?></label>
-                    </a>
+                    <img src="<?= base_url("assets\img\profile.png") ?>" width="35" height="35" style="margin: -5px 3px 0 0 ;" class="d-inline-block align-top" alt="Logo IDNFT">
+                    <label for="nama" style="font-size: 13px;font-weight: normal; color:#5f687b;"><?= $login->nama; ?></label>
                 <?php } else if ($this->session->userdata('is_login')) { ?>
                     <a class="navbar-brand ml-auto" href="<?php echo site_url('/profile') ?>" style="text-decoration: none;">
                         <img src="<?= base_url("assets\img\profile.png") ?>" width="35" height="35" style="margin: -5px 3px 0 0 ;" class="d-inline-block align-top" alt="Logo IDNFT">
@@ -109,7 +107,7 @@
                                     </div>
                                     <div class="card-body col-md-9">
                                         <div id="konten">
-                                                <h6 id="tanggal"><?= $row->date_upload; ?></h6>
+                                            <h6 id="tanggal"><?= $row->date_upload; ?></h6>
                                             <a href="<?= site_url('Artikel/LoadArtikelDetail/') . $row->Id ?>" class="text-danger">
                                                 <h5 class="" id="judul"><?= $row->Judul; ?></h5>
                                             </a>

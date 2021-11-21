@@ -23,7 +23,8 @@
 
     <!-- Template Main CSS File -->
     <link href="<?= base_url() ?>assets\css\styleHome.css" rel="stylesheet">
-    <link href="<?= base_url() ?>assets\css\styleHeader.css" rel="stylesheet">
+    <!-- <link href="<?= base_url() ?>assets\css\styleHeader.css" rel="stylesheet"> -->
+    <link href="<?= base_url() ?>assets/css/style.css" rel="stylesheet">
     <link href="<?= base_url() ?>assets\css\admin\styleAdmin.css" rel="stylesheet">
 
     <!-- CSS Tempalte -->
@@ -130,10 +131,13 @@
             </nav>
             <!-- .nav-menu -->
             <!-- Profile -->
-            <?php if ($this->session->userdata('is_login')) { ?>
+            <?php if ($this->session->userdata('is_admin')) { ?>
+                <img src="<?= base_url("assets\img\profile.png") ?>" width="35" height="35" style="margin: -5px 3px 0 0 ;" class="d-inline-block align-top" alt="Logo IDNFT">
+                <label for="nama" style="font-size: 13px;font-weight: normal; color:#5f687b;"><?= $login->nama; ?></label>
+            <?php } else if ($this->session->userdata('is_login')) { ?>
                 <a class="navbar-brand ml-auto" href="<?php echo site_url('/profile') ?>" style="text-decoration: none;">
                     <img src="<?= base_url("assets\img\profile.png") ?>" width="35" height="35" style="margin: -5px 3px 0 0 ;" class="d-inline-block align-top" alt="Logo IDNFT">
-                    <label for="nama" style="font-size: 13px;font-weight: normal; color:#5f687b; font-family: Open Sans, sans-serif;"><?= $login->nama; ?></label>
+                    <label for="nama" style="font-size: 13px;font-weight: normal; color:#5f687b;"><?= $login->nama; ?></label>
                 </a>
             <?php } else { ?>
             <?php } ?>
@@ -180,7 +184,7 @@
                                     <td class="tabel_artikel"><?php echo $row->Paragraf2; ?></td>
                                     <td class="tabel_artikel"><?php echo $row->Paragraf3; ?></td>
                                     <td><a href="<?php echo site_url('/admin/editArtikel/') . $row->Id ?>"><button type="button" class="btn btn-success"><i class="icofont-edit"></i></button></a></td>
-                                    <td><a href="#" class="btn-lihat" data-id="<?= $row->Id; ?>" data-judul="<?= $row->Judul; ?>" data-paragraf1="<?= $row->Paragraf1; ?>" data-paragraf2="<?= $row->Paragraf2; ?>" data-paragraf3="<?= $row->Paragraf3; ?>" data-paragraf4="<?= $row->Paragraf4; ?>" data-paragraf5="<?= $row->Paragraf5; ?>" data-paragraf6="<?= $row->Paragraf6; ?>" data-paragraf7="<?= $row->Paragraf7; ?>" data-gambar="<?= $row->gambar; ?>"><button type="button" class="btn btn-primary"><i class="icofont-eye-alt"></i></button></a></td>
+                                    <td><a href="#" class="btn-lihat" data-id="<?= $row->Id; ?>" data-judul="<?= $row->Judul; ?>" data-paragraf1="<?= $row->Paragraf1; ?>" data-paragraf2="<?= $row->Paragraf2; ?>" data-paragraf3="<?= $row->Paragraf3; ?>" data-paragraf4="<?= $row->Paragraf4; ?>" data-paragraf5="<?= $row->Paragraf5; ?>" data-paragraf6="<?= $row->Paragraf6; ?>" data-paragraf7="<?= $row->Paragraf7; ?>" data-gambar="<?= $row->gambar; ?>"><button type="button" class="btn btn-warning"><i class="icofont-eye-alt"></i></button></a></td>
                                     <td><a href="#" class="btn-delete" data-id="<?= $row->Id; ?>"><button type="button" class="btn btn-danger"><i class="icofont-garbage"></i></button></a></td>
                                 </tr>
                             <?php } ?>
