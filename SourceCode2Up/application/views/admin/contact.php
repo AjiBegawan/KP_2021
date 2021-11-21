@@ -53,6 +53,24 @@
                     backdrop: 'rgba(255,0,0,0.1) ',
                 });
             }
+            // get Edit Product
+            $('.btn-lihat').on('click', function() {
+                // get data from button edit
+                const id = $(this).data('id');
+                const nama = $(this).data('nama');
+                const email = $(this).data('email');
+                const subject = $(this).data('subject');
+                const message = $(this).data('message');
+                // var_dump(gambar);
+                // Set data to Form Edit
+                $('.id').val(id);
+                $('.nama').val(nama);
+                $('.email').val(email);
+                $('.subject').val(subject);
+                $('.message').val(message);
+                $('#lihatModal').modal('toggle');
+            });
+
             // get Delete Product
             $('.btn-delete').on('click', function() {
                 // get data from button edit
@@ -133,6 +151,7 @@
                                 <th></th>
                                 <th></th>
                                 <th></th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -140,7 +159,7 @@
                             foreach ($contact->result() as $row) {
                             ?>
                                 <tr>
-                                    <td class="tabel_contact" name="id"><?php echo $row->id; ?></td>
+                                    <td name="id"><?php echo $row->id; ?></td>
                                     <td class="tabel_contact"><?php echo $row->nama; ?></td>
                                     <td class="tabel_contact"><?php echo $row->email; ?></td>
                                     <td class="tabel_contact"><?php echo $row->subject; ?></td>
@@ -155,7 +174,7 @@
                                         </td>
                                     <?php } ?>
                                     <td><a href="<?php echo site_url('/admin/editPesan/') . $row->id ?>"><button type="button" class="btn btn-primary "><i class="icofont-edit"></i></button></a></td>
-                                    <!-- <td><a href="<?php echo site_url('/admin/deletePesan/') . $row->id ?>"><button type="button" id="hapus" class="btn btn-danger tombol-hapus"><i class="icofont-garbage"></i></button></a></td> -->
+                                    <td><a href="#" class="btn-lihat" data-id="<?= $row->id; ?>" data-nama="<?= $row->nama; ?>" data-email="<?= $row->email; ?>" data-subject="<?= $row->subject; ?>" data-message="<?= $row->message; ?>"><button type="button" class="btn btn-success"><i class="icofont-eye-alt"></i></button></a></td>
                                     <td><a href="#" class="btn-delete" data-id="<?= $row->id; ?>"><button type="button " id="hapus" class="btn btn-danger tombol-hapus"><i class="icofont-garbage"></i></button></a></td>
                                 </tr>
                             <?php } ?>
@@ -163,6 +182,42 @@
                     </table>
                 </div>
                 <!-- End Table Table -->
+
+                <!-- Modal Lihat Artikel-->
+                <div class="modal fade" id="lihatModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Lihat Pesan</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label>ID</label>
+                                    <input type="text" class="form-control id">
+                                </div>
+                                <div class="form-group">
+                                    <label>Nama</label>
+                                    <input type="text" class="form-control nama">
+                                </div>
+                                <div class="form-group">
+                                    <label>Email</label>
+                                    <input type="text" class="form-control email">
+                                </div>
+                                <div class="form-group">
+                                    <label>Subject</label>
+                                    <input type="text" class="form-control subject">
+                                </div>
+                                <div class="form-group">
+                                    <label>Pesan</label>
+                                    <textarea class="form-control message" cols="10" rows="10"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                 <!-- Modal Delete Pesan-->
                 <form action="<?php echo site_url('Admin/deletePesan/') . $row->id; ?>" method="post">
