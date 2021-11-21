@@ -66,6 +66,7 @@
                 const paragraf6 = $(this).data('paragraf6');
                 const paragraf7 = $(this).data('paragraf7');
                 const gambar = $(this).data('gambar');
+                // var_dump(gambar);
                 // Set data to Form Edit
                 $('.id').val(id);
                 $('.judul').val(judul);
@@ -76,6 +77,10 @@
                 $('.paragraf5').val(paragraf5);
                 $('.paragraf6').val(paragraf6);
                 $('.paragraf7').val(paragraf7);
+                // $('.gambar').val(gambar);
+                $('.gambar').val( $('#imageresource').attr('src'));
+                // $('#imagepreview').attr('src', gambar);
+                // $('#imagepreview').attr('src', $('#imageresource').attr('src'));
                 // Call Modal Edit
                 $('#lihatModal').modal('toggle');
             });
@@ -174,6 +179,8 @@
                                     <td class="tabel_artikel"><?php echo $row->Paragraf1; ?></td>
                                     <td class="tabel_artikel"><?php echo $row->Paragraf2; ?></td>
                                     <td class="tabel_artikel"><?php echo $row->Paragraf3; ?></td>
+                                    <td><img id="imageresource" src="<?php echo base_url('upload/artikel/' . $row->gambar); ?>" style="width: 400px; height: 264px;"></td>
+                                    <!-- <td><img id="imageresource" src="<?php echo base_url('upload/artikel/' . $row->gambar); ?>" style="width: 400px; height: 264px;" hidden></td> -->
                                     <td class="tabel_artikel"><a href="<?php echo site_url('/admin/editArtikel/') . $row->Id ?>"><button type="button" class="btn btn-success"><i class="icofont-edit"></i></button></a></td>
                                     <td class="tabel_artikel"><a href="#" class="btn-lihat" data-id="<?= $row->Id; ?>" data-judul="<?= $row->Judul; ?>" data-paragraf1="<?= $row->Paragraf1; ?>" data-paragraf2="<?= $row->Paragraf2; ?>" data-paragraf3="<?= $row->Paragraf3; ?>" data-paragraf4="<?= $row->Paragraf4; ?>" data-paragraf5="<?= $row->Paragraf5; ?>" data-paragraf6="<?= $row->Paragraf6; ?>" data-paragraf7="<?= $row->Paragraf7; ?>" data-gambar="<?= $row->gambar; ?>"><button type="button" class="btn btn-primary"><i class="icofont-eye-alt"></i></button></a></td>
                                     <td class="tabel_artikel"><a href="#" class="btn-delete" data-id="<?= $row->Id; ?>"><button type="button" class="btn btn-danger"><i class="icofont-garbage"></i></button></a></td>
@@ -200,39 +207,54 @@
                         <div class="modal-body">
                             <div class="form-group">
                                 <label>ID</label>
+                                <!-- <textarea class="form-control id" name="id" id="" cols="5" rows="5"></textarea> -->
                                 <input type="text" class="form-control id" name="id">
                             </div>
                             <div class="form-group">
                                 <label>Judul</label>
-                                <input type="text" class="form-control judul" name="judul">
+                                <textarea class="form-control judul" name="judul" id="" cols="10" rows="5"></textarea>
+                                <!-- <input type="text" class="form-control judul" name="judul"> -->
                             </div>
                             <div class="form-group">
                                 <label>Paragraf 1</label>
-                                <input type="text" class="form-control paragraf1" name="paragraf1">
+                                <textarea class="form-control paragraf1" name="paragraf1" id="" cols="10" rows="10"></textarea>
+                                <!-- <input type="text" class="form-control paragraf1" name="paragraf1"> -->
                             </div>
                             <div class="form-group">
                                 <label>Paragraf 2</label>
-                                <input type="text" class="form-control paragraf2" name="paragraf2">
+                                <textarea class="form-control paragraf2" name="paragraf2" id="" cols="10" rows="10"></textarea>
+                                <!-- <input type="text" class="form-control paragraf2" name="paragraf2"> -->
                             </div>
                             <div class="form-group">
                                 <label>Paragraf 3</label>
-                                <input type="text" class="form-control paragraf3" name="paragraf3">
+                                <textarea class="form-control paragraf3" name="paragraf3" id="" cols="10" rows="10"></textarea>
+                                <!-- <input type="text" class="form-control paragraf3" name="paragraf3"> -->
                             </div>
                             <div class="form-group">
                                 <label>Paragraf 4</label>
-                                <input type="text" class="form-control paragraf4" name="paragraf4">
+                                <textarea class="form-control paragraf4" name="paragraf4" id="" cols="10" rows="10"></textarea>
+                                <!-- <input type="text" class="form-control paragraf4" name="paragraf4"> -->
                             </div>
                             <div class="form-group">
                                 <label>Paragraf 5</label>
-                                <input type="text" class="form-control paragraf5" name="paragraf5">
+                                <textarea class="form-control paragraf5" name="paragraf5" id="" cols="10" rows="10"></textarea>
+                                <!-- <input type="text" class="form-control paragraf5" name="paragraf5"> -->
                             </div>
                             <div class="form-group">
                                 <label>Paragraf 6</label>
-                                <input type="text" class="form-control paragraf6" name="paragraf6">
+                                <textarea class="form-control paragraf5" name="paragraf5" id="" cols="10" rows="10"></textarea>
+                                <!-- <input type="text" class="form-control paragraf6" name="paragraf6"> -->
                             </div>
                             <div class="form-group">
                                 <label>Paragraf 7</label>
-                                <input type="text" class="form-control paragraf7" name="paragraf7">
+                                <textarea class="form-control paragraf5" name="paragraf5" id="" cols="10" rows="10"></textarea>
+                                <!-- <input type="text" class="form-control paragraf7" name="paragraf7"> -->
+                            </div>
+                            <div class="form-group">
+                                <label>Gambar</label>
+                                <img src="" id="imagepreview" style="width: 400px; height: 300px;">
+                                <input type="text" class="form-control gambar" name="gambar">
+
                             </div>
                             <!-- <div class="form-group">
                                 <label>Gambar</label>

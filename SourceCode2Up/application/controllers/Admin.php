@@ -336,32 +336,48 @@ class Admin extends CI_Controller
     {
         $this->load->library('upload');
 
-        $config['upload_path'] = './upload/artikel';
-        $config['allowed_types'] = 'gif|jpg|png|jpeg';
-        $config['max_size'] = 2000;
+        if (!empty($_FILES['gambar']['name'])) {
+            $config['upload_path'] = './upload/artikel';
+            $config['allowed_types'] = 'gif|jpg|png|jpeg';
+            $config['max_size'] = 2000;
 
-        $date = date('Ymd');
-        $new_name = $date . "_" . rand(0, 999999999);
-        $config['file_name'] = $new_name;
+            $date = date('Ymd');
+            $new_name = $date . "_" . rand(0, 999999999);
+            $config['file_name'] = $new_name;
 
-        $this->upload->initialize($config);
-        $this->load->library('upload', $config);
-        $this->upload->do_upload('gambar');
+            $this->upload->initialize($config);
+            $this->load->library('upload', $config);
+            $this->upload->do_upload('gambar');
 
-        $upload_data = $this->upload->data();
-        $file_name = $upload_data['file_name'];
-        $data = array(
-            'Id'        => $this->input->post('id'),
-            'Judul'     => $this->input->post('judul'),
-            'Paragraf1' => $this->input->post('paragraf1'),
-            'Paragraf2' => $this->input->post('paragraf2'),
-            'Paragraf3' => $this->input->post('paragraf3'),
-            'Paragraf4' => $this->input->post('paragraf4'),
-            'Paragraf5' => $this->input->post('paragraf5'),
-            'Paragraf6' => $this->input->post('paragraf6'),
-            'Paragraf7' => $this->input->post('paragraf7'),
-            'gambar'    => $file_name
-        );
+            $upload_data = $this->upload->data();
+            $file_name = $upload_data['file_name'];
+            $data = array(
+                'Id'        => $this->input->post('id'),
+                'Judul'     => $this->input->post('judul'),
+                'Paragraf1' => $this->input->post('paragraf1'),
+                'Paragraf2' => $this->input->post('paragraf2'),
+                'Paragraf3' => $this->input->post('paragraf3'),
+                'Paragraf4' => $this->input->post('paragraf4'),
+                'Paragraf5' => $this->input->post('paragraf5'),
+                'Paragraf6' => $this->input->post('paragraf6'),
+                'Paragraf7' => $this->input->post('paragraf7'),
+                'gambar'    => $file_name
+            );
+        } else {
+            
+            $data = array(
+                'Id'        => $this->input->post('id'),
+                'Judul'     => $this->input->post('judul'),
+                'Paragraf1' => $this->input->post('paragraf1'),
+                'Paragraf2' => $this->input->post('paragraf2'),
+                'Paragraf3' => $this->input->post('paragraf3'),
+                'Paragraf4' => $this->input->post('paragraf4'),
+                'Paragraf5' => $this->input->post('paragraf5'),
+                'Paragraf6' => $this->input->post('paragraf6'),
+                'Paragraf7' => $this->input->post('paragraf7')
+            );
+        }
+
         $this->db->where('id', $id);
         if ($this->db->update('artikel', $data)) {
             $this->session->set_flashdata('message', 'Berhasil Diubah');
