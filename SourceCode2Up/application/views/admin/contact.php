@@ -148,7 +148,7 @@
                                 <th>Nama</th>
                                 <th>Email</th>
                                 <th>Subject</th>
-                                <th></th>
+                                <th>Status</th>
                                 <th></th>
                                 <th></th>
                                 <th></th>
@@ -164,13 +164,13 @@
                                     <td class="tabel_contact"><?php echo $row->email; ?></td>
                                     <td class="tabel_contact"><?php echo $row->subject; ?></td>
                                     <?php if ($row->status == "Sudah di Balas") { ?>
-                                        <td class="tabel_contact "><button type="button" class="btn btn-success "><i class="icofont-check"></i></i></button>
+                                        <td ><button type="button" class="btn btn-success "><i class="icofont-check"></i></i></button>
                                         </td>
                                     <?php } elseif ($row->status == "Belum Dibalas") { ?>
-                                        <td class="tabel_contact "><button type="button" class="btn btn-warning"><i class="icofont-envelope"></i></button>
+                                        <td ><button type="button" class="btn btn-warning"><i class="icofont-envelope"></i></button>
                                         </td>
                                     <?php } else { ?>
-                                        <td class="tabel_contact "><button type="button" class="btn btn-secondary"><i class="icofont-close"></i></button>
+                                        <td ><button type="button" class="btn btn-secondary"><i class="icofont-close"></i></button>
                                         </td>
                                     <?php } ?>
                                     <td><a href="<?php echo site_url('/admin/editPesan/') . $row->id ?>"><button type="button" class="btn btn-primary "><i class="icofont-edit"></i></button></a></td>

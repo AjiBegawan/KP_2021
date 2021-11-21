@@ -289,9 +289,11 @@ class Admin extends CI_Controller
         );
         $this->db->where('id', $id);
         if ($this->db->update('contact', $data)) {
-            $this->contact();
+            $this->session->set_flashdata('message', 'Status pesan berhasil diubah');
+            redirect(site_url('admin/contact'));
         } else {
-            $this->load->view("gagal");
+            $this->session->set_flashdata('error', 'Status pesan gagal diubah');
+            redirect(site_url('admin/contact'));
         }
     }
     function deletePesan()
@@ -301,10 +303,11 @@ class Admin extends CI_Controller
         // die;
         $this->db->where('id', $id);
         if ($this->db->delete('contact')) {
-            $this->session->set_flashdata('message', 'Dihapus');
+            $this->session->set_flashdata('message', 'Pesan berhasil dihapus');
             redirect(site_url('admin/contact'));
         } else {
-            $this->load->view("gagal");
+            $this->session->set_flashdata('error', 'Pesan gagal dihapus');
+            redirect(site_url('admin/contact'));
         }
     }
 
