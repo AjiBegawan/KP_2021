@@ -144,10 +144,10 @@
                                     <td class="tabel_contact"><?php echo $row->nama; ?></td>
                                     <td class="tabel_contact"><?php echo $row->email; ?></td>
                                     <td class="tabel_contact"><?php echo $row->subject; ?></td>
-                                    <?php if ($row->status == "Done") { ?>
+                                    <?php if ($row->status == "Sudah di Balas") { ?>
                                         <td class="tabel_contact "><button type="button" class="btn btn-success "><i class="icofont-check"></i></i></button>
                                         </td>
-                                    <?php } elseif ($row->status == "Reply") { ?>
+                                    <?php } elseif ($row->status == "Belum Dibalas") { ?>
                                         <td class="tabel_contact "><button type="button" class="btn btn-warning"><i class="icofont-envelope"></i></button>
                                         </td>
                                     <?php } else { ?>

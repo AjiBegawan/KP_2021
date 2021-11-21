@@ -69,7 +69,8 @@ class Home extends CI_Controller
             'nama'    => $nama,
             'email'   => $email,
             'subject' => $subject,
-            'message' => $message
+            'message' => $message,
+            'status'  =>"Belum Dibalas"
         );
 
         if ($this->db->insert('contact', $data_contact)) {

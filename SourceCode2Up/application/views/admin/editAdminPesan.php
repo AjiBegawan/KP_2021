@@ -114,8 +114,8 @@
                 <label>Status</label>
                 <select class="form-control" name="status">
                     <option value="No Status" selected disabled="disabled"><?php echo $contact->status; ?></option>
-                    <option value="Done">Done</option>
-                    <option value="Reply">Reply</option>
+                    <option value="Sudah di Balas">Sudah di Balas</option>
+                    <option value="Belum Dibalas">Belum Dibalas</option>
                 </select>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
