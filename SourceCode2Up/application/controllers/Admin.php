@@ -393,11 +393,18 @@ class Admin extends CI_Controller
     {
         $this->load->library('upload');
 
-        $this->form_validation->set_rules('judul', 'judul', 'trim|required|min_length[1]');
-        $this->form_validation->set_rules('paragraf1', 'paragraf1', 'trim|required|min_length[1]');
 
-        if (!empty( $_FILES ['name'])) {
-            var_dump($_FILES);die;
+
+        if (empty($_FILES['gambar']['name'])) {
+            // var_dump($_FILES);die;
+            $this->session->set_flashdata('error', 'Anda harus menambahkan gambar');
+            redirect(site_url('Admin/artikel'));
+        } else {
+            // var_dump($_FILES);die;
+
+            $this->form_validation->set_rules('judul', 'judul', 'trim|required|min_length[1]');
+            $this->form_validation->set_rules('paragraf1', 'paragraf1', 'trim|required|min_length[1]');
+
             if ($this->form_validation->run() == true) {
                 $config['upload_path'] = './upload/artikel';
                 $config['allowed_types'] = 'gif|jpg|png|jpeg';
@@ -438,9 +445,6 @@ class Admin extends CI_Controller
                 $this->session->set_flashdata('error', 'Anda harus mengisi minimal judul dan paragraf 1');
                 redirect(site_url('Admin/artikel'));
             }
-        } else {
-            $this->session->set_flashdata('error', 'Anda harus menambahkan gambar');
-                redirect(site_url('Admin/artikel'));
         }
     }
 }

@@ -75,7 +75,7 @@
     <main id="main">
 
         <div class="container" style="margin-top: 100px">
-            <h1>Karya Seniman Indonesia</h1>
+            <h1>Karya Seniman Indonesia</h1><br>
             <div class="d-flex justify-content-center">
                 <?= $this->pagination->create_links(); ?>
             </div>
@@ -87,10 +87,10 @@
                                 <div class="card h-100">
                                     <img class="card-img-top" style="height: 200px;object-fit: contain;" src="<?php echo base_url('upload/portfolio/' . $row->gambar); ?>" />
                                     <div class="card-body">
-                                        <a href="<?= base_url('Profile/ProfileNonLogin/' . $row->username); ?>">
-                                            <h3 class="card-title"><?php echo $row->nama; ?></h3>
+                                        <a href="<?= base_url('Profile/ProfileNonLogin/' . $row->username); ?>" style="color: inherit;">
+                                            <h5 class="card-title"><?php echo $row->judul; ?></h5>
+                                            <h6 class="card-title">by <?php echo $row->username;?></h6>
                                         </a>
-                                        <h5 class="card-title"><?php echo $row->judul; ?></h5>
                                         <!-- <p class="card-text"><?php echo $row->deskripsi; ?></p> -->
                                     </div>
                                 </div>
