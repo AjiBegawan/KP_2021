@@ -123,7 +123,7 @@ class Auth extends CI_Model
                     return FALSE;
                 }
             } else {
-                $this->session->set_flashdata('error', 'Akun anda bellum terdaftar');
+                $this->session->set_flashdata('error', 'Akun anda belum terdaftar');
                 redirect(site_url('login'));
             }
         }

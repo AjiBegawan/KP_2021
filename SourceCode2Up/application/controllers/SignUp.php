@@ -48,8 +48,8 @@ class SignUp extends CI_Controller
             if ($finalResponse['success']) {
                 $this->form_validation->set_rules('nama', 'nama', 'trim|required|min_length[1]|max_length[255]');
                 $this->form_validation->set_rules('username', 'username', 'trim|required|min_length[1]|max_length[255]|is_unique[user.username]');
-                $this->form_validation->set_rules('password', 'password', 'trim|required|min_length[1]|max_length[255]');
-                $this->form_validation->set_rules('ConfirmPassword', 'ConfirmPassword', 'trim|required|min_length[1]|max_length[255]');
+                $this->form_validation->set_rules('password', 'password', 'trim|required|min_length[8]|max_length[255]');
+                $this->form_validation->set_rules('ConfirmPassword', 'ConfirmPassword', 'trim|required|min_length[8]|max_length[255]');
                 $this->form_validation->set_rules('email', 'email', 'trim|required|min_length[1]|max_length[255]');
 
                 $password = $this->input->post("password");
@@ -65,7 +65,7 @@ class SignUp extends CI_Controller
                         $hak_akses = "2";
                         $idnft = rand(0, 99999);
 
-                        $query = ("SELECT * FROM user WHERE username = '$username' AND email = '$email'");
+                        $query = ("SELECT * FROM user WHERE username = '$username'");
                         $result = $this->db->query($query);
 
                         if (!mysqli_fetch_array($result)) {
@@ -212,8 +212,8 @@ class SignUp extends CI_Controller
         if (!$this->session->userdata('reset_email')) {
             redirect(site_url('login'));
         }
-        $this->form_validation->set_rules('password1', 'Password', 'trim|required|min_length[1]|matches[password2]');
-        $this->form_validation->set_rules('password2', 'Repeat Password', 'trim|required|min_length[1]|matches[password1]');
+        $this->form_validation->set_rules('password1', 'Password', 'trim|required|min_length[8]|matches[password2]');
+        $this->form_validation->set_rules('password2', 'Repeat Password', 'trim|required|min_length[8]|matches[password1]');
 
         if ($this->form_validation->run() == false) {
             $this->load->view("login/changePassword");

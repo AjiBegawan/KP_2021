@@ -86,11 +86,13 @@
                 <div class="form-group">
                     <label for="nama">Password</label>
                     <input type="password" id="Password" name="password" class="form-control" required />
+                    <?= form_error('Password', '<small class="text-danget pl-3">', '</small>')  ?>
                     <input type="checkbox" onclick="myFunction()"> Show Password
                 </div>
                 <div class="form-group">
                     <label for="nama">Confirm Password</label>
                     <input type="password" id="ConfirmPassword" name="ConfirmPassword" class="form-control" required />
+                    <?= form_error('ConfirmPassword', '<small class="text-danget pl-3">', '</small>')  ?>
                     <span id="CheckPasswordMatch" class="badge badge-danger"></span>
                 </div>
                 <div class="form-group">

@@ -54,15 +54,15 @@ class Login extends CI_Controller
 					$this->session->set_flashdata('message', 'Anda Berhasil Login');
 					redirect(site_url('home'));
 				} else {
-					$this->session->set_flashdata('message', 'Username atau Password salah');
+					$this->session->set_flashdata('error', 'Username atau Password salah');
 					redirect(site_url('login'));
 				}
 			} else {
-				$this->session->set_flashdata('message', 'Silahkan selesaikan CAPTCHA terlebih dahulu');
+				$this->session->set_flashdata('error', 'Silahkan selesaikan CAPTCHA terlebih dahulu');
 				redirect(site_url('login'));
 			}
 		} else {
-			$this->session->set_flashdata('message', 'Silahkan selesaikan CAPTCHA terlebih dahulu');
+			$this->session->set_flashdata('error', 'Silahkan selesaikan CAPTCHA terlebih dahulu');
 			redirect(site_url('login'));
 		}
 	}
