@@ -239,7 +239,7 @@
             <div class="row d-flex justify-content-around">
                 <?php if (!$this->session->userdata('is_login')) { ?>
                     <div class="col-lg-6 col-md-12" style="margin:16px 0">
-                        <a href="<?php echo site_url('Home/BlogView') ?>" class=" ">
+                        <a href="<?php echo site_url('Artikel') ?>" class=" ">
                             <img class="card-img-top" src="<?= base_url("assets\img\Home\Web02.jpg") ?>" alt="Card image cap">
                         </a>
                     </div>
