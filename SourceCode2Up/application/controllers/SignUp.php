@@ -213,8 +213,8 @@ class SignUp extends CI_Controller
             redirect(site_url('login'));
         }
 
-        $this->form_validation->set_rules('password1', 'Password', 'trim|required|min_length[8]|matches[password2]');
-        $this->form_validation->set_rules('password2', 'Repeat Password', 'trim|required|min_length[8]|matches[password1]');
+        $this->form_validation->set_rules('password1', 'Password', 'trim|required|min_length[1]|matches[password2]');
+        $this->form_validation->set_rules('password2', 'Repeat Password', 'trim|required|min_length[1]|matches[password1]');
 
         if ($this->form_validation->run() == false) {
             $this->load->view("login/changePassword");

@@ -113,7 +113,6 @@ class Auth extends CI_Model
                             'nama'        => $query->nama,
                             'email'       => $query->email,
                             'phone'       => $query->phone,
-
                         );
                         $this->session->set_userdata($userdata);
                         return TRUE;
@@ -124,7 +123,7 @@ class Auth extends CI_Model
                     return FALSE;
                 }
             } else {
-                $this->session->set_flashdata('error', 'Akun anda belum diaktivasi!!! Silahkan aktifkan akun anda dengan cara menekan link yang kami kirim ke email yang Anda daftarkan');
+                $this->session->set_flashdata('error', 'Akun anda bellum terdaftar');
                 redirect(site_url('login'));
             }
         }
