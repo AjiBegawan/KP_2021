@@ -22,7 +22,7 @@
     <link href="<?= base_url() ?>assets\css\styleHome.css" rel="stylesheet">
     <link href="<?= base_url() ?>assets\css\styleFooter.css" rel="stylesheet">
 
-  <script src='https://www.google.com/recaptcha/api.js'></script>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
 
 </head>
 
@@ -36,11 +36,11 @@
             </a>
             <nav class="nav-menu d-none d-lg-block mx-auto">
                 <ul>
-                    <li><a href="<?php echo site_url('Home') ?>" >HOME</a></li>
+                    <li><a href="<?php echo site_url('Home') ?>">HOME</a></li>
                     <li><a href="<?php echo site_url('Home/DeeraView') ?>">DEERA
                             NFT</a></li>
                     <li><a href="<?php echo site_url('Artikel') ?>">BLOG</a></li>
-                    <li><a href="<?php echo site_url('Portfolio') ?>"class="text-danger">PROJECT</a></li>
+                    <li><a href="<?php echo site_url('Portfolio') ?>" class="text-danger">PROJECT</a></li>
                     <li><a href="https://discord.gg/DMMF7bVYrh" target="_blank">JOIN OUR DISCORD</a></li>
                     <li><a href="<?php echo site_url('Home') ?>#contact">CONTACT</a></li>
 
@@ -79,11 +79,27 @@
 
         <div class="container" style="margin-top: 100px">
             <h1>Karya Seniman Indonesia</h1><br>
-            <div class="d-flex justify-content-center">
-                <?= $this->pagination->create_links(); ?>
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="d-flex justify-content-center">
+                        <?= $this->pagination->create_links(); ?>
+                    </div>
+
+                </div>
+                <div class="col-md-4">
+                    <form action="<?= base_url('portfolio');?>" method="post">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Search username..." name="keyword" autocomplete="off" autofocus>
+                            <div class="input-group-append">
+                                <input class="btn btn-danger" type="submit" id="button-addon2" name="submit" value="Search">
+                            </div>
+                        </div>          
+                    </form>
+                </div>
             </div>
             <div class="row">
                 <div class="col-sm-12">
+                <h6>Total Pencarian : <?= $total_rows; ?></h6>
                     <div class="row gutters-sm">
                         <?php foreach ($portfolio->result() as $row) {  ?>
                             <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
@@ -92,7 +108,7 @@
                                     <div class="card-body">
                                         <a href="<?= base_url('Profile/ProfileNonLogin/' . $row->username); ?>" style="color: inherit;">
                                             <h5 class="card-title"><?php echo $row->judul; ?></h5>
-                                            <h6 class="card-title">by <?php echo $row->username;?></h6>
+                                            <h6 class="card-title">by <?php echo $row->username; ?></h6>
                                         </a>
                                         <!-- <p class="card-text"><?php echo $row->deskripsi; ?></p> -->
                                     </div>
@@ -192,8 +208,8 @@
                         <div class="validate"></div>
                     </div>
                     <div class="form-group">
-                            <div class="g-recaptcha" data-sitekey="6LenGQkdAAAAAGUwSdHTJvOI-cNRtcN_erTfEYh2"></div>
-                        </div>
+                        <div class="g-recaptcha" data-sitekey="6LenGQkdAAAAAGUwSdHTJvOI-cNRtcN_erTfEYh2"></div>
+                    </div>
                     <div class="mb-3">
                         <div class="loading">Loading</div>
                         <div class="error-message"></div>

@@ -25,7 +25,6 @@ class Admin extends CI_Controller
             $this->session->set_userdata('keyword', $data['keyword']);
         } else {
             $data['keyword'] = $this->session->userdata('keyword');
-            // $data['keyword'] = null;
         }
 
 
@@ -36,6 +35,7 @@ class Admin extends CI_Controller
         $this->db->or_like('email', $data['keyword']);
         $this->db->or_like('username', $data['keyword']);
         $this->db->from('user');
+        
         $config['total_rows'] =  $this->db->count_all_results();
         $data['total_rows'] = $config['total_rows'];
         $config['per_page'] = 10;

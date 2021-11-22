@@ -31,8 +31,11 @@ class PortfolioModel extends CI_Model
         $query = $this->db->get('portfolio')->num_rows();
         return $query;
     }
-    function getAllPortofolio($limit, $start)
+    function getAllPortofolio($limit, $start, $keyword = null)
     {
+        if($keyword){
+            $this->db->like('username',$keyword);
+        }
         $this->db->order_by('RAND()');
         $query = $this->db->get('portfolio', $limit, $start);
         return $query;
