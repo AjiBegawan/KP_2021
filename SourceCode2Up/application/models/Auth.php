@@ -24,7 +24,7 @@ class Auth extends CI_Model
             'role'          => $hak_akses,
             'idnft'         => $idnft,
             'is_active'     => 0,
-            'date_created'  => time()
+            'date_created'  => date('d F Y  H:i:s')
         );
 
         // Siapkan token
@@ -112,6 +112,7 @@ class Auth extends CI_Model
                             'nama'        => $query->nama,
                             'email'       => $query->email,
                             'phone'       => $query->phone,
+
                         );
                         $this->session->set_userdata($userdata);
                         return TRUE;
