@@ -78,7 +78,6 @@ class Auth extends CI_Model
         }
     }
 
-
     function login_user($username, $password)
     {
         if ($this->db->get_where('admin', array('username' => $username))->num_rows()) {

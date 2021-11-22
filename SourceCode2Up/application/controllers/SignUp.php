@@ -114,23 +114,30 @@ class SignUp extends CI_Controller
         if ($user) {
             $user_token = $this->db->get_where('user_token', ['token' => $token])->row_array();
             if ($user_token) {
-                if (time() - $user_token['date_created'] < (3600)) {
+                $this->db->set('is_active', 1);
+                $this->db->where('email', $email);
+                $this->db->update('user');
 
-                    $this->db->set('is_active', 1);
-                    $this->db->where('email', $email);
-                    $this->db->update('user');
+                $user = $this->db->delete('user_token', ['email' => $email]);
+                $this->session->set_flashdata('message', 'Akun telah diaktivasi. Silahkan Login');
+                redirect(site_url('login'));
+                // if (time() - $user_token['date_created'] < (3600)) {
 
-                    $user = $this->db->delete('user_token', ['email' => $email]);
-                    $this->session->set_flashdata('message', 'Akun telah diaktivasi. Silahkan Login');
-                    redirect(site_url('login'));
-                } else {
+                //     $this->db->set('is_active', 1);
+                //     $this->db->where('email', $email);
+                //     $this->db->update('user');
 
-                    $user = $this->db->delete('user', ['email' => $email]);
-                    $user = $this->db->delete('user_token', ['email' => $email]);
+                //     $user = $this->db->delete('user_token', ['email' => $email]);
+                //     $this->session->set_flashdata('message', 'Akun telah diaktivasi. Silahkan Login');
+                //     redirect(site_url('login'));
+                // } else {
 
-                    $this->session->set_flashdata('error', 'Token anda expired!!!');
-                    redirect(site_url('login'));
-                }
+                //     $user = $this->db->delete('user', ['email' => $email]);
+                //     $user = $this->db->delete('user_token', ['email' => $email]);
+
+                //     $this->session->set_flashdata('error', 'Token anda expired!!!');
+                //     redirect(site_url('login'));
+                // }
             } else {
                 $this->session->set_flashdata('error', 'Token anda invalid!!!');
                 redirect(site_url('login'));
