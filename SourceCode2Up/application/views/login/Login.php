@@ -13,8 +13,7 @@
     <link href="<?= base_url() ?>assets/img/LogoIDNFT.png" rel="apple-touch-icon">
 
     <!-- CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets\css\style1.css'); ?>" media="all" />
 
@@ -24,26 +23,35 @@
     <script src='https://www.google.com/recaptcha/api.js'></script>
 
     <script>
-    $(document).ready(function() {
-        const flashData = $('.flash-data').data('flashdata');
-        const flashDataError = $('.flash-data-error').data('flashdata');
-        console.log(flashData);
+        $(document).ready(function() {
+            const flashData = $('.flash-data').data('flashdata');
+            const flashDataError = $('.flash-data-error').data('flashdata');
+            console.log(flashData);
 
-        if (flashData) {
-            Swal.fire({
-                icon: 'success',
-                text: flashData,
-                backdrop: 'rgba(255,0,0,0.1) ',
-            });
-        }
-        if (flashDataError) {
-            Swal.fire({
-                icon: 'error',
-                text: flashDataError,
-                backdrop: 'rgba(255,0,0,0.1) ',
-            });
-        }
-    });
+            if (flashData) {
+                Swal.fire({
+                    icon: 'success',
+                    text: flashData,
+                    backdrop: 'rgba(255,0,0,0.1) ',
+                });
+            }
+            if (flashDataError) {
+                Swal.fire({
+                    icon: 'error',
+                    text: flashDataError,
+                    backdrop: 'rgba(255,0,0,0.1) ',
+                });
+            }
+
+            function myFunction() {
+                var x = document.getElementById("myInput");
+                if (x.type === "password") {
+                    x.type = "text";
+                } else {
+                    x.type = "password";
+                }
+            }
+        });
     </script>
 
 </head>
@@ -55,8 +63,7 @@
     <div class="container contact-form">
         <div>
             <button type="button" class="close" aria-label="Close" style="margin: 10px 0 0 0 ;">
-                <a href="<?php echo site_url('Home'); ?>" style="text-decoration: none;color:red;"><span
-                        aria-hidden="true">&times;</span></a>
+                <a href="<?php echo site_url('Home'); ?>" style="text-decoration: none;color:red;"><span aria-hidden="true">&times;</span></a>
             </button>
         </div>
         <div class="contact-image">
@@ -71,7 +78,8 @@
                 </div>
                 <div class="form-group">
                     <label for="nama">Password</label>
-                    <input type="password" name="password" class="form-control" required />
+                    <input type="password" name="password" class="form-control" id="myInput" required />
+                    <!-- <input type="checkbox" onclick="myFunction()">Show Password -->
                 </div>
                 <div class="form-group">
                     <div class="g-recaptcha" data-sitekey="6LenGQkdAAAAAGUwSdHTJvOI-cNRtcN_erTfEYh2"></div>
