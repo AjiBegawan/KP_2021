@@ -3,7 +3,7 @@
 
 <head>
     <!-- Required meta tags -->
-    <title>Login IDNFT</title>
+    <title>Change Password</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href='<?php echo base_url("assets\image\LogoIDNFT.png"); ?>' rel='shortcut icon' type='image/x-icon' />
@@ -68,34 +68,29 @@
         <div class="contact-image">
             <img src="<?= base_url('assets\img\LogoIDNFT.png') ?>" alt="IDNFT Logo" />
         </div>
-        <form method="POST" action="<?php echo site_url('Login/prosesLogin'); ?>">
-            <h3>Login</h3>
+        <form method="POST" action="<?php echo site_url('SignUp/changePassword'); ?>">
+            <h3>Ganti password <?= $this->session->userdata('reset_email'); ?></h3>
             <div class="row">
                 <div class="form-group">
-                    <label for="nama">Username</label>
-                    <input type="text" name="username" class="form-control" required />
+                    <label for="nama">Password</label>
+                    <input type="password" name="password1" id="password1" class="form-control"  required />
+                    <?= form_error('password1', '<small class="text-danget pl-3">', '</small>')  ?>
                 </div>
                 <div class="form-group">
-                    <label for="nama">Password</label>
-                    <input type="password" name="password" class="form-control" id="myInput" required />
-                    <input type="checkbox" onclick="myFunction()"> Show Password
+                    <label for="nama">Confirm Password</label>
+                    <input type="password" name="password2" id="password2" class="form-control"  required />
+                    <?= form_error('password2', '<small class="text-danget pl-3">', '</small>')  ?>
+                
                 </div>
                 <div class="form-group">
                     <div class="g-recaptcha" data-sitekey="6LenGQkdAAAAAGUwSdHTJvOI-cNRtcN_erTfEYh2"></div>
                 </div>
                 <div class="form-group">
-                    <button type="submit" name="login" class="btn btn-danger btn-center">Login</button>
+                    <button type="submit" name="login" class="btn btn-danger btn-center">Change Password</button>
                 </div>
             </div>
         </form>
-        <br>
-        <div class="form-group text-center">
-            <a href="<?php echo site_url('SignUp/forgotPassword'); ?>" style="text-decoration: none;color:red;">Forgot Password ?</a>
-        </div>
-        <div class="form-group text-center">
-            <label for="">Don't have an Account?</label>
-            <a href="<?php echo site_url('SignUp'); ?>" style="text-decoration: none;color:red;">Register Now</a>
-        </div>
+
     </div>
 
 </body>

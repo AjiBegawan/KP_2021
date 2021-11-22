@@ -116,6 +116,9 @@
                 </div>
                 <br>
                 <div class="form-group text-center">
+                    <a href="<?php echo site_url('SignUp/forgotPassword'); ?>" style="text-decoration: none;color:red;">Forgot Password ?</a>
+                </div>
+                <div class="form-group text-center">
                     <label for="">Already have an Account?</label>
                     <a href="<?php echo site_url('Login'); ?>" style="text-decoration: none;color:red;">Login Now</a>
                 </div>

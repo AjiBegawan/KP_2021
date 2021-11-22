@@ -42,7 +42,7 @@ class Auth extends CI_Model
         $this->_sendEmail($token, 'verify', $email);
     }
 
-    private function _sendEmail($token, $type, $email)
+    public function _sendEmail($token, $type, $email)
     {
         $config = [
             'protocol'  => 'smtp',
@@ -65,7 +65,9 @@ class Auth extends CI_Model
         if ($type == 'verify') {
             $this->email->subject('Account Verification');
             $this->email->message('Click this link to verify your account : <a href="' . base_url() . 'SignUp/verify?email=' . $email . ' &token=' . urlencode($token) . '">Activate</a>');
-            // $this->email->message('Click this link to verify your account : <a href="' . base_url() . 'login');
+        } else if ($type == 'forgot') {
+            $this->email->subject('Reset Password');
+            $this->email->message('Click this link reset yout password : <a href="' . base_url() . 'SignUp/resetPassword?email=' . $email . ' &token=' . urlencode($token) . '">Reset Password</a>');
         }
 
         if ($this->email->send()) {

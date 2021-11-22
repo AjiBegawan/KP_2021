@@ -55,7 +55,7 @@ class SignUp extends CI_Controller
                 $password = $this->input->post("password");
                 $Confirmpassword = $this->input->post("ConfirmPassword");
 
-                if($password ==  $Confirmpassword){
+                if ($password ==  $Confirmpassword) {
                     if ($this->form_validation->run() == true) {
                         $nama = $this->input->post("nama");
                         $username = $this->input->post("username");
@@ -64,15 +64,15 @@ class SignUp extends CI_Controller
                         $aliran_seni = $this->input->post("aliran_seni");
                         $hak_akses = "2";
                         $idnft = rand(0, 99999);
-    
+
                         $query = ("SELECT * FROM user WHERE username = '$username' AND email = '$email'");
                         $result = $this->db->query($query);
-    
+
                         if (!mysqli_fetch_array($result)) {
                             $this->Auth->register($nama, $username, $password, $email,  $aliran_seni, $idnft, $hak_akses);
                             // $this->Auth->login_user($username, $password);
                             $this->session->set_flashdata('message', 'Proses pendaftaran pengguna baru berhasil. Silahkan aktivasi akun Anda pada email yang Anda daftarkan!!!. Klik link yang kami kirimkan untuk melakukan aktivasi akun.');
-    
+
                             redirect(site_url('login'));
                             // redirect(site_url('home'));
                         } else {
@@ -83,10 +83,10 @@ class SignUp extends CI_Controller
                         $this->session->set_flashdata('error', 'Data yang anda masukan salah');
                         redirect(site_url('signUp'));
                     }
-                }else {
+                } else {
                     $this->session->set_flashdata('error', 'Pastikan Password dan Corfirm Password yang anda masukan sesuai');
                     redirect(site_url('signUp'));
-                } 
+                }
             } else {
                 $this->session->set_flashdata('error', 'Silahkan selesaikan CAPTCHA terlebih dahulu');
                 redirect(site_url('signUp'));
@@ -137,6 +137,94 @@ class SignUp extends CI_Controller
             }
         } else {
             $this->session->set_flashdata('error', 'Gagal Aktivasi Akun');
+            redirect(site_url('login'));
+        }
+    }
+
+    public function forgotPassword()
+    {
+        $this->load->model('Auth');
+
+        $this->form_validation->set_rules('username', 'username', 'trim|required|min_length[1]|max_length[255]');
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view("login/forgotPassword");
+        } else {
+            $username = $this->input->post('username');
+            $user = $this->db->get_where('user', ['username' => $username, 'is_active' => 1])->row_array();
+            // var_dump($user["email"]);
+
+            if ($user) {
+                $token = base64_encode(random_bytes(32));
+                $user_token = [
+                    'email'         => $user["email"],
+                    'token'         => $token,
+                    'date_created'  => time()
+                ];
+
+                $this->db->insert('user_token', $user_token);
+                $this->Auth->_sendEmail($token, 'forgot', $user["email"]);
+
+                $this->session->set_userdata('username', $user["username"]);
+
+                $this->session->set_flashdata('message', 'Periksa email anda untuk melakukan reset password');
+                redirect(site_url('SignUp/forgotPassword'));
+            } else {
+                $this->session->set_flashdata('error', 'Akun tidak terdaftar atau belum diaktivasi');
+                redirect(site_url('SignUp/forgotPassword'));
+            }
+        }
+    }
+
+    public function resetPassword()
+    {
+        $email = $this->input->get('email');
+        $token = $this->input->get('token');
+
+        $user = $this->db->get_where('user', ['email' => $email])->row_array();
+
+        if ($user) {
+            $user_token = $user = $this->db->get_where('user_token', ['token' => $token])->row_array();
+
+            if ($user_token) {
+                // var_dump($email);
+                $this->session->set_userdata('reset_email', $email);
+                $this->changePassword();
+            } else {
+                $this->session->set_flashdata('error', 'Reset Password gagal! Salah Token');
+                redirect(site_url('login'));
+            }
+        } else {
+            $this->session->set_flashdata('error', 'Reset Password gagal! Salah Email');
+            redirect(site_url('login'));
+        }
+    }
+
+    public function changePassword()
+    {
+        if (!$this->session->userdata('reset_email')) {
+            redirect(site_url('login'));
+        }
+
+        $this->form_validation->set_rules('password1', 'Password', 'trim|required|min_length[8]|matches[password2]');
+        $this->form_validation->set_rules('password2', 'Repeat Password', 'trim|required|min_length[8]|matches[password1]');
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view("login/changePassword");
+        } else {
+            $password = password_hash($this->input->post('password1'), PASSWORD_DEFAULT);
+            $username = $this->session->userdata('username');
+            $email = $this->session->userdata('reset_email');
+
+            $this->db->set('password', $password);
+            $this->db->where('username', $username);
+            $this->db->where('email', $email);
+            $this->db->update('user');
+
+            $username = $this->session->unset_userdata('username');
+            $username = $this->session->unset_userdata('reset_email');
+
+            $this->session->set_flashdata('message', 'Password berhasil diubah! Silahkan Login.');
             redirect(site_url('login'));
         }
     }
