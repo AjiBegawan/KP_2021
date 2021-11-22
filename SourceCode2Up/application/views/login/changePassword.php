@@ -24,7 +24,7 @@
 
     <script>
         function myFunction() {
-            var x = document.getElementById("myInput");
+            var x = document.getElementById("password1");
             if (x.type === "password") {
                 x.type = "text";
             } else {
@@ -74,6 +74,7 @@
                 <div class="form-group">
                     <label for="nama">Password</label>
                     <input type="password" name="password1" id="password1" class="form-control"  required />
+                    <input type="checkbox" onclick="myFunction()"> Show Password
                     <?= form_error('password1', '<small class="text-danget pl-3">', '</small>')  ?>
                 </div>
                 <div class="form-group">
