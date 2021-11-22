@@ -23,6 +23,14 @@
     <script src='https://www.google.com/recaptcha/api.js'></script>
 
     <script>
+        function myFunction() {
+            var x = document.getElementById("myInput");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+        }
         $(document).ready(function() {
             const flashData = $('.flash-data').data('flashdata');
             const flashDataError = $('.flash-data-error').data('flashdata');
@@ -42,24 +50,7 @@
                     backdrop: 'rgba(255,0,0,0.1) ',
                 });
             }
-
-            function myFunction() {
-                var x = document.getElementById("myInput");
-                if (x.type === "password") {
-                    x.type = "text";
-                } else {
-                    x.type = "password";
-                }
-            }
         });
-        // $(document).ready(function myFunction() {
-        //     var x = document.getElementById("myInput");
-        //     if (x.type === "password") {
-        //         x.type = "text";
-        //     } else {
-        //         x.type = "password";
-        //     }
-        // });
     </script>
 
 </head>
@@ -87,7 +78,7 @@
                 <div class="form-group">
                     <label for="nama">Password</label>
                     <input type="password" name="password" class="form-control" id="myInput" required />
-                    <!-- <input type="checkbox" onclick="myFunction()">Show Password -->
+                    <input type="checkbox" onclick="myFunction()"> Show Password
                 </div>
                 <div class="form-group">
                     <div class="g-recaptcha" data-sitekey="6LenGQkdAAAAAGUwSdHTJvOI-cNRtcN_erTfEYh2"></div>

@@ -13,8 +13,7 @@
     <link href="<?= base_url() ?>assets/img/LogoIDNFT.png" rel="apple-touch-icon">
 
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -27,30 +26,37 @@
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets\css\style1.css'); ?>" media="all" />
 
     <script>
-    $(document).ready(function() {
-        $("#Password").keyup(checkPasswordMatch);
-        $("#ConfirmPassword").keyup(checkPasswordMatch);
-        const flashData = $('.flash-data').data('flashdata');
-        console.log(flashData);
-
-        if (flashData) {
-            Swal.fire({
-                icon: 'error',
-                title: 'Maaf Registrasi Gagal',
-                text: flashData,
-                backdrop: 'rgba(255,0,0,0.1) ',
-            });
+        function myFunction() {
+            var x = document.getElementById("Password");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
         }
-    });
-    function checkPasswordMatch() {
-        var password = $("#Password").val();
-        var confirmPassword = $("#ConfirmPassword").val();
-        if (password != confirmPassword)
-            $("#CheckPasswordMatch").html("Passwords does not match!");
-        else
-            $("#CheckPasswordMatch").html("");
-    }
+        $(document).ready(function() {
+            $("#Password").keyup(checkPasswordMatch);
+            $("#ConfirmPassword").keyup(checkPasswordMatch);
+            const flashData = $('.flash-data').data('flashdata');
 
+            if (flashData) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Maaf Registrasi Gagal',
+                    text: flashData,
+                    backdrop: 'rgba(255,0,0,0.1) ',
+                });
+            }
+        });
+
+        function checkPasswordMatch() {
+            var password = $("#Password").val();
+            var confirmPassword = $("#ConfirmPassword").val();
+            if (password != confirmPassword)
+                $("#CheckPasswordMatch").html("Passwords does not match!");
+            else
+                $("#CheckPasswordMatch").html("");
+        }
     </script>
 </head>
 
@@ -60,8 +66,7 @@
     <div class="container contact-form">
         <div>
             <button type="button" class="close" aria-label="Close" style="margin: 10px 0 0 0 ;">
-                <a href="<?php echo site_url('Home'); ?>" style="text-decoration: none;color:red;"><span
-                        aria-hidden="true">&times;</span></a>
+                <a href="<?php echo site_url('Home'); ?>" style="text-decoration: none;color:red;"><span aria-hidden="true">&times;</span></a>
             </button>
         </div>
         <div class="contact-image">
@@ -81,6 +86,7 @@
                 <div class="form-group">
                     <label for="nama">Password</label>
                     <input type="password" id="Password" name="password" class="form-control" required />
+                    <input type="checkbox" onclick="myFunction()"> Show Password
                 </div>
                 <div class="form-group">
                     <label for="nama">Confirm Password</label>
@@ -121,8 +127,7 @@
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->
