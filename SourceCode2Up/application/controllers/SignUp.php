@@ -71,7 +71,7 @@ class SignUp extends CI_Controller
                         if (!mysqli_fetch_array($result)) {
                             $this->Auth->register($nama, $username, $password, $email,  $aliran_seni, $idnft, $hak_akses);
                             // $this->Auth->login_user($username, $password);
-                            $this->session->set_flashdata('message', 'Proses pendaftaran user berhasil. Silahkan aktivasi akun Anda!!!');
+                            $this->session->set_flashdata('message', 'Proses pendaftaran pengguna baru berhasil. Silahkan aktivasi akun Anda pada email yang Anda daftarkan!!!. Klik link yang kami kirimkan untuk melakukan aktivasi akun.');
     
                             redirect(site_url('login'));
                             // redirect(site_url('home'));

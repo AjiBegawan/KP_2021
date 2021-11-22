@@ -122,7 +122,7 @@ class Auth extends CI_Model
                     return FALSE;
                 }
             } else {
-                $this->session->set_flashdata('error', 'Akun anda belum diaktivasi!!!');
+                $this->session->set_flashdata('error', 'Akun anda belum diaktivasi!!! Silahkan aktifkan akun anda dengan cara menekan link yang kami kirim ke email yang Anda daftarkan');
                 redirect(site_url('login'));
             }
         }
