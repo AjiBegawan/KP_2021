@@ -19,7 +19,6 @@ class Portfolio extends CI_Controller
 
         //Ambil Data Keyword
         if ($this->input->post('submit')) {
-            // var_dump($this->input->post('keyword'));die;
             $data['keyword'] = $this->input->post('keyword');
             $this->session->set_userdata('keyword', $data['keyword']);
         } else {
@@ -27,14 +26,12 @@ class Portfolio extends CI_Controller
         }
 
         $config['base_url'] = 'http://localhost/KP_2021/SourceCode2Up/portfolio/index';
-        // $config['total_rows'] =  $this->PortfolioModel->getCountPortfolioAll();
         $this->db->like('username', $data['keyword']);
         $this->db->from('portfolio');
 
         $config['total_rows'] =   $this->db->count_all_results();
         $data['total_rows'] = $config['total_rows'];
         $config['per_page'] = 12;
-
 
         $this->pagination->initialize($config);
 
