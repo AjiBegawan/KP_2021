@@ -21,6 +21,9 @@
     <link href="<?= base_url() ?>assets\css\styleHeader.css" rel="stylesheet">
     <link href="<?= base_url() ?>assets\css\styleHome.css" rel="stylesheet">
     <link href="<?= base_url() ?>assets\css\styleFooter.css" rel="stylesheet">
+
+  <script src='https://www.google.com/recaptcha/api.js'></script>
+
 </head>
 
 <body>
@@ -188,6 +191,9 @@
                         <textarea class="form-control" name="message" rows="3" data-rule="required" data-msg="Please write something for us"></textarea>
                         <div class="validate"></div>
                     </div>
+                    <div class="form-group">
+                            <div class="g-recaptcha" data-sitekey="6LenGQkdAAAAAGUwSdHTJvOI-cNRtcN_erTfEYh2"></div>
+                        </div>
                     <div class="mb-3">
                         <div class="loading">Loading</div>
                         <div class="error-message"></div>

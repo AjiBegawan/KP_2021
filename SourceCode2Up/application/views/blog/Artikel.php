@@ -22,6 +22,9 @@
     <link href="<?= base_url() ?>assets\css\styleArtikel.css" rel="stylesheet">
     <link href="<?= base_url() ?>assets\css\styleFooter.css" rel="stylesheet">
 
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+
+
 </head>
 
 <body>
@@ -36,10 +39,10 @@
                 </a>
                 <nav class="nav-menu d-none d-lg-block mx-auto">
                     <ul>
-                        <li><a href="<?php echo site_url('Home') ?>" >HOME</a></li>
+                        <li><a href="<?php echo site_url('Home') ?>">HOME</a></li>
                         <li><a href="<?php echo site_url('Home/DeeraView') ?>">DEERA
                                 NFT</a></li>
-                        <li><a href="<?php echo site_url('Artikel') ?>"class="text-danger">BLOG</a></li>
+                        <li><a href="<?php echo site_url('Artikel') ?>" class="text-danger">BLOG</a></li>
                         <li><a href="<?php echo site_url('Portfolio') ?>">PROJECT</a></li>
                         <li><a href="https://discord.gg/DMMF7bVYrh" target="_blank">JOIN OUR DISCORD</a></li>
                         <li><a href="<?php echo site_url('Home') ?>#contact">CONTACT</a></li>
@@ -205,6 +208,9 @@
                         <label for="name">Message</label>
                         <textarea class="form-control" name="message" rows="3" data-rule="required" data-msg="Please write something for us"></textarea>
                         <div class="validate"></div>
+                    </div>
+                    <div class="form-group">
+                        <div class="g-recaptcha" data-sitekey="6LenGQkdAAAAAGUwSdHTJvOI-cNRtcN_erTfEYh2"></div>
                     </div>
                     <div class="mb-3">
                         <div class="loading">Loading</div>

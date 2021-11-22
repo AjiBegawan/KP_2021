@@ -24,6 +24,7 @@
     <link href="<?= base_url() ?>assets/css/style.css" rel="stylesheet">
     <link href="<?= base_url() ?>assets\css\styleFooter.css" rel="stylesheet">
 
+    <script src='https://www.google.com/recaptcha/api.js'></script>
 
     <link rel="icon" type="image/png" href="https://www.weebly.com/uploads/reseller/assets/438585504-favicon.ico">
 
@@ -194,6 +195,9 @@
                             <textarea class="form-control" name="message" rows="3" data-rule="required" data-msg="Please write something for us"></textarea>
                             <div class="validate"></div>
                         </div>
+                        <div class="form-group">
+                            <div class="g-recaptcha" data-sitekey="6LenGQkdAAAAAGUwSdHTJvOI-cNRtcN_erTfEYh2"></div>
+                        </div>
                         <div class="mb-3">
                             <div class="loading">Loading</div>
                             <div class="error-message"></div>
@@ -201,10 +205,7 @@
                         </div>
                         <div class="text-center"><button type="submit">Send Message</button></div>
                     </form>
-
-
                 </div>
-
                 <div class="container footer-bottom clearfix">
                     <div class="copyright">
                         &copy;<script>

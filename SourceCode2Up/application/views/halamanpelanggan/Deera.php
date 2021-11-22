@@ -13,6 +13,8 @@
   <link href="<?= base_url() ?>assets/img/LogoIDNFT.png" rel="icon">
   <link href="<?= base_url() ?>assets/img/LogoIDNFT.png" rel="apple-touch-icon">
 
+  <script src='https://www.google.com/recaptcha/api.js'></script>
+
   <!-- Vendor CSS Files -->
   <link href="<?= base_url() ?>assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="<?= base_url() ?>assets/vendor/icofont/icofont.min.css" rel="stylesheet">
@@ -196,6 +198,9 @@
             <label for="name">Message</label>
             <textarea class="form-control" name="message" rows="3" data-rule="required" data-msg="Please write something for us"></textarea>
             <div class="validate"></div>
+          </div>
+          <div class="form-group">
+            <div class="g-recaptcha" data-sitekey="6LenGQkdAAAAAGUwSdHTJvOI-cNRtcN_erTfEYh2"></div>
           </div>
           <div class="mb-3">
             <div class="loading">Loading</div>

@@ -60,23 +60,54 @@ class Home extends CI_Controller
     {
         $this->load->model("Auth", "", TRUE);
 
-        $nama = $this->input->post("nama");
-        $email = $this->input->post("email");
-        $subject = $this->input->post("subject");
-        $message = $this->input->post("message");
+        $captcha_response = trim($this->input->post('g-recaptcha-response'));
 
-        $data_contact = array(
-            'nama'    => $nama,
-            'email'   => $email,
-            'subject' => $subject,
-            'message' => $message,
-            'status'  =>"Belum Dibalas"
-        );
+        if ($captcha_response != '') {
+            $keySecret = '6LenGQkdAAAAALGVLnAxlYxvqgkCkLoL7O7_U01i';
 
-        if ($this->db->insert('contact', $data_contact)) {
-            redirect(site_url('home'));
+            $check = array(
+                'secret'        =>    $keySecret,
+                'response'        =>    $this->input->post('g-recaptcha-response')
+            );
+
+            $startProcess = curl_init();
+            curl_setopt($startProcess, CURLOPT_URL, "https://www.google.com/recaptcha/api/siteverify");
+            curl_setopt($startProcess, CURLOPT_POST, true);
+            curl_setopt($startProcess, CURLOPT_POSTFIELDS, http_build_query($check));
+            curl_setopt($startProcess, CURLOPT_SSL_VERIFYPEER, false);
+            curl_setopt($startProcess, CURLOPT_RETURNTRANSFER, true);
+
+            $receiveData = curl_exec($startProcess);
+            $finalResponse = json_decode($receiveData, true);
+
+            if ($finalResponse['success']) {
+                $nama = $this->input->post("nama");
+                $email = $this->input->post("email");
+                $subject = $this->input->post("subject");
+                $message = $this->input->post("message");
+
+                $data_contact = array(
+                    'nama'    => $nama,
+                    'email'   => $email,
+                    'subject' => $subject,
+                    'message' => $message,
+                    'status'  => "Belum Dibalas"
+                );
+
+                if ($this->db->insert('contact', $data_contact)) {
+                    $this->session->set_flashdata('message', 'Pesan berhasil dikirim');
+                    redirect(site_url('home'));
+                } else {
+                    $this->session->set_flashdata('error', 'Maaf, pesan anda gagal terkirim');
+                    redirect(site_url('home'));
+                }
+            } else {
+                $this->session->set_flashdata('error', 'Silahkan selesaikan CAPTCHA terlebih dahulu');
+                redirect(site_url('home'));
+            }
         } else {
-            $this->load->view("gagal");
+            $this->session->set_flashdata('error', 'Silahkan selesaikan CAPTCHA terlebih dahulu');
+            redirect(site_url('home'));
         }
     }
     function getUSosmedIdnft()
